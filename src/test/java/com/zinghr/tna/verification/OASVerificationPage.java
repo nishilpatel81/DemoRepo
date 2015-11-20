@@ -1,4 +1,4 @@
-package com.zinghr.tna.Verification;
+package com.zinghr.tna.verification;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

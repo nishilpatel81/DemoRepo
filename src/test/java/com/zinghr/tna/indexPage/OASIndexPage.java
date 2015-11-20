@@ -1,4 +1,4 @@
-package com.zinghr.tna.IndexPage;
+package com.zinghr.tna.indexPage;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.zinghr.init.AbstractPage;
 import com.zinghr.init.Common;
-import com.zinghr.tna.Verification.OASVerificationPage;
+import com.zinghr.tna.verification.OASVerificationPage;
 
 public class OASIndexPage extends AbstractPage {
 

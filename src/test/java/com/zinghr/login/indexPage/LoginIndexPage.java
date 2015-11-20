@@ -1,4 +1,4 @@
-package com.zinghr.login.IndexPage;
+package com.zinghr.login.indexPage;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import com.zinghr.init.AbstractPage;
 import com.zinghr.init.Common;
 import com.zinghr.init.TestData;
-import com.zinghr.login.Verification.LoginVerificationPage;
+import com.zinghr.login.verification.LoginVerificationPage;
 
 public class LoginIndexPage extends AbstractPage {
 

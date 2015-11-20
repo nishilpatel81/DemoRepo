@@ -1,4 +1,4 @@
-package com.zinghr.signup.IndexPage;
+package com.zinghr.signup.indexPage;
 
 import java.util.List;
 import java.util.Random;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import com.zinghr.init.AbstractPage;
 import com.zinghr.init.Common;
 import com.zinghr.init.TestData;
-import com.zinghr.signup.Verification.SignupVerificationPage;
+import com.zinghr.signup.verification.SignupVerificationPage;
 
 public class SignupIndexPage extends AbstractPage {
 

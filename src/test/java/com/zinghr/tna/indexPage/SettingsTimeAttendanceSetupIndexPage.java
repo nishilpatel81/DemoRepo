@@ -1,4 +1,4 @@
-package com.zinghr.tna.IndexPage;
+package com.zinghr.tna.indexPage;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.zinghr.init.AbstractPage;
 import com.zinghr.init.Common;
-import com.zinghr.tna.Verification.SettingsTimeAttendanceSetupVerification;
+import com.zinghr.tna.verification.SettingsTimeAttendanceSetupVerification;
 
 public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 

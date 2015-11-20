@@ -1,4 +1,4 @@
-package com.zinghr.login.Index;
+package com.zinghr.login.index;
 
 
 import org.testng.Assert;

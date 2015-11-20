@@ -1,4 +1,4 @@
-package com.zinghr.signup.Verification;
+package com.zinghr.signup.verification;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

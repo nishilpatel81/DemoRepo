@@ -27,16 +27,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.internal.Utils;
 
-import com.zinghr.login.IndexPage.LoginIndexPage;
-import com.zinghr.login.Verification.LoginVerificationPage;
-import com.zinghr.signup.IndexPage.SignupIndexPage;
-import com.zinghr.signup.Verification.SignupVerificationPage;
-import com.zinghr.tna.IndexPage.DashboardTimeNAttendanceCaIndexPage;
-import com.zinghr.tna.IndexPage.OASIndexPage;
-import com.zinghr.tna.IndexPage.SettingsTimeAttendanceSetupIndexPage;
-import com.zinghr.tna.Verification.DashboardTimeNAttendanceCaVerification;
-import com.zinghr.tna.Verification.OASVerificationPage;
-import com.zinghr.tna.Verification.SettingsTimeAttendanceSetupVerification;
+import com.zinghr.login.indexPage.LoginIndexPage;
+import com.zinghr.login.verification.LoginVerificationPage;
+import com.zinghr.signup.indexPage.SignupIndexPage;
+import com.zinghr.signup.verification.SignupVerificationPage;
+import com.zinghr.tna.indexPage.DashboardTimeNAttendanceCaIndexPage;
+import com.zinghr.tna.indexPage.OASIndexPage;
+import com.zinghr.tna.indexPage.SettingsTimeAttendanceSetupIndexPage;
+import com.zinghr.tna.verification.DashboardTimeNAttendanceCaVerification;
+import com.zinghr.tna.verification.OASVerificationPage;
+import com.zinghr.tna.verification.SettingsTimeAttendanceSetupVerification;
 
 public class SeleniumInit {
 

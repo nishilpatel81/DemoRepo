@@ -1,4 +1,4 @@
-package com.zinghr.signup.Index;
+package com.zinghr.signup.index;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

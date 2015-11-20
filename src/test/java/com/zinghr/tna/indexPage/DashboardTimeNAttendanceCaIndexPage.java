@@ -1,4 +1,4 @@
-package com.zinghr.tna.IndexPage;
+package com.zinghr.tna.indexPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.zinghr.init.AbstractPage;
 import com.zinghr.init.Common;
-import com.zinghr.tna.Verification.SettingsTimeAttendanceSetupVerification;
+import com.zinghr.tna.verification.SettingsTimeAttendanceSetupVerification;
 
 public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 

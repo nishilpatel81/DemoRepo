@@ -1,4 +1,4 @@
-package com.zinghr.tna.Verification;
+package com.zinghr.tna.verification;
 
 import java.util.List;
 
