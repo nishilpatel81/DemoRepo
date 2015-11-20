@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="ZingHr - Time and Attendance Setup" verbose="10"
+	parallel="false" thread-count="1">
+
+	<!-- Put IP of localhost/Grid Hub machine -->
+	<parameter name="selenium.host" value="localhost" />
+
+	<!-- Put Port of localhost RC/Grid Hub machine -->
+	<parameter name="selenium.port" value="4444" />
+
+	<!-- Put target browser name as below: 1) Firefox : firefox 2) chrome : 
+		chrome 3) IExplorer : ie8 / ie9 -->
+	<parameter name="selenium.browser" value="chrome" />
+	<parameter name="selenium.url"
+		value="http://automation.zinghr.com/2015/pages/authentication/login.aspx" />
+
+
+
+
+	<listeners>
+
+		<listener class-name="com.zinghr.utility.CustomReporter" />
+
+	</listeners>
+	
+	
+
+	<test name="Setup_02,Setup_03,Setup_04 : To test TNA functionality">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="timeAndAttendancePage" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	
+	<test name="Setup_05,Setup_06,Setup_07,Setup_09 : To test TNA functionality">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="addNewAttendanceGroupTapFunctionality" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test
+		name="Setup_08,Setup_10,Setup_13,Setup_14 
+		: To test TNA functionality">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="addedGroupVerifiaction" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test
+		name="Setup_18,Setup_19 : To test First Block option and by 
+		default value functionality ">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="firstBlockOFQuestionSecFunctionality" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test
+		name="Setup_24,Setup_25(Pending) : To test 
+		Second Block option and by default value functionality ">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="secondBlockOfQuestionSecFunctionality" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name=" Setup_26 : To Test third block Option Availability ">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="thirdBlockOfQuestionSecFunctionality" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test
+		name=" Setup_27,Setup_28,Setup_29,Setup_30,Setup_31,Setup_34,Setup_35,Setup_36,Setup_35,Setup_37,Setup_45,Setup_49,Setup_50 
+		: To Test Shift Roster Yes Button Functionality ">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="shiftRosteringYesButtonFunctionality" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+	<test name="  Setup_33,Setup_41,Setup_42_Setup_48: To Test Manadatory field field  of shift master dialog ">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="shiftRosteringManadatoryFieldFunctionality" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+ 
+
+
+
+</suite>
