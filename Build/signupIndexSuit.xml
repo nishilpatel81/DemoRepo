@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="ZingHr - SignUp Page Verification" verbose="10"
-	parallel="false" thread-count="1">
+	parallel="false" thread-count="3">
 
 	<!-- Put IP of localhost/Grid Hub machine -->
 	<parameter name="selenium.host" value="localhost" />
@@ -131,7 +131,6 @@
 		</classes>
 	</test>
 
-
 	<test
 		name="SU_13: To verify error message is displayed when user enter invalid email in Email field">
 		<classes>
@@ -143,7 +142,7 @@
 		</classes>
 	</test>
 
-	<test
+ 	<test
 		name="SU_14: To verify error message is displayed when user enter invalid email in Email field">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
@@ -294,8 +293,7 @@
 			</class>
 		</classes>
 	</test>
-
-
+ 
 	<test
 		name="A_SU_06: To verify that user is not able to Activate account twice from same link.">
 		<classes>
@@ -356,7 +354,7 @@
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
 				<methods>
-					<include name="activateSuccessfully" />
+					<include name="activateSuccessfullyMesg" />
 				</methods>
 			</class>
 		</classes>
@@ -367,10 +365,33 @@
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
 				<methods>
+					<include name="blankPswdActCode" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test
+		name="A_SU_21: To verify that After clicking on 'Ok' button of successful message user is redirected to login page.">
+		<classes>
+			<class name="com.zinghr.signup.index.SignupIndex">
+				<methods>
 					<include name="activateSuccessfully" />
 				</methods>
 			</class>
 		</classes>
 	</test>
+	
+	<test
+		name="A_SU_23: To verify that appropriate error message is displayed if user enters already used activation code and Company Name.">
+		<classes>
+			<class name="com.zinghr.signup.index.SignupIndex">
+				<methods>
+					<include name="previouslyActivateCode1" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
 
 </suite>
