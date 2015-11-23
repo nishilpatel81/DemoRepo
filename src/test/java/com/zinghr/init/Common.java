@@ -473,6 +473,7 @@ public class Common {
 	 * @param value
 	 */
 	public static void selectFromCombo(WebElement element, String value) {
+		
 		Select select = new Select(element);
 		select.selectByValue(value);
 	}

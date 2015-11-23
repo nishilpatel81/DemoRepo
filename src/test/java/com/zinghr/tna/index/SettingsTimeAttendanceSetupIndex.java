@@ -40,10 +40,8 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 
 		taSetupIndexPage.TimeAndAttendancePageOpen();
 
-		
 		Common.pause(100);
-		
-		
+
 		log("Verify Time and attendence Page is open or not");
 
 		if (taSetupVerificationPage.verifyTimeAndAttendancePageisDisplayed()) {
@@ -722,8 +720,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 				+ "<br>Shift Name"
 				+ "<br>In Time"
 				+ "<br>Out Time"
-				+ "<br>Swipe Separator Parameter"
-				+ "<br>Shift Total Minutes  ");
+				+ "<br>Swipe Separator Parameter" + "<br>Shift Total Minutes  ");
 
 		if (taSetupVerificationPage.verifyManadatoryFieldOfShiftMasterPage()) {
 			Common.logStatus("pass");
@@ -738,27 +735,50 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void shiftRosteringNoButtonFunctionality() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_52  ");
+		log("Testcase Discription :  ");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+
+		log("Step 6: Click on Setting Icon");
+
+		log("Step 7: Click on Time and attendence option from Circle");
+
+		taSetupIndexPage.TimeAndAttendancePageOpen();
+
+		log("Verify Fixed Shift timing ");
+
+		if (taSetupVerificationPage.verifyBydefaultfixedShiftfunctionality()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+
 	/*
 	 * @Test public void oasMenuFunctionality() {
 	 * 
