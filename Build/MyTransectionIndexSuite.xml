@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="My Transection History" verbose="10" parallel="tests" thread-count="3">
+
+	<!-- Put IP of localhost/Grid Hub machine -->
+	<parameter name="selenium.host" value="localhost" />
+
+	<!-- Put Port of localhost RC/Grid Hub machine -->
+	<parameter name="selenium.port" value="4444" />
+
+	<!-- Put target browser name as below: 1) Firefox : firefox 2) chrome : 
+		chrome 3) IExplorer : ie8 / ie9 -->
+	<parameter name="selenium.browser" value="firefox" />
+	<parameter name="selenium.url"
+		value="http://automation.zinghr.com/2015/pages/Authentication/login.aspx" />
+		
+	<listeners>
+		<listener class-name="com.zinghr.utility.CustomReporter" />
+	</listeners>
+	
+	<test name="TNA_34: To check User is able to view My Transaction History page">
+		<classes>
+			<class name="com.zinghr.tna.index.MyTransectionIndex">
+				<methods>
+					<include name="check_time_and_attendance_page" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="TNA_35: To check User is able to view Time and Attendance notification">
+		<classes>
+			<class name="com.zinghr.tna.index.MyTransectionIndex">
+				<methods>
+					<include name="check_Reguleriztion_lbl_after_click_view_button_ontime_and_attendance_page" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+</suite>

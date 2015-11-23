@@ -31,10 +31,13 @@ import com.zinghr.login.indexPage.LoginIndexPage;
 import com.zinghr.login.verification.LoginVerificationPage;
 import com.zinghr.signup.indexPage.SignupIndexPage;
 import com.zinghr.signup.verification.SignupVerificationPage;
+import com.zinghr.tna.index.MyTransectionIndex;
 import com.zinghr.tna.indexPage.DashboardTimeNAttendanceCaIndexPage;
+import com.zinghr.tna.indexPage.MyTransectionIndexpage;
 import com.zinghr.tna.indexPage.OASIndexPage;
 import com.zinghr.tna.indexPage.SettingsTimeAttendanceSetupIndexPage;
 import com.zinghr.tna.verification.DashboardTimeNAttendanceCaVerification;
+import com.zinghr.tna.verification.MyTransectionVerification;
 import com.zinghr.tna.verification.OASVerificationPage;
 import com.zinghr.tna.verification.SettingsTimeAttendanceSetupVerification;
 
@@ -73,6 +76,9 @@ public class SeleniumInit {
 	protected LoginVerificationPage loginVerificationPage;
 	protected SignupIndexPage signupIndexpage;
 	protected SignupVerificationPage signupVerification;
+	protected MyTransectionIndexpage myTransectionIndexpage;
+	protected MyTransectionVerification myTransectionVerification;
+	
 	protected static String screenshot_folder_path = null;
 	public static String currentTest; // current running test
 
@@ -86,7 +92,6 @@ public class SeleniumInit {
 	protected SettingsTimeAttendanceSetupVerification taSetupVerificationPage;
 	protected OASIndexPage oasIndexPage;
 	protected OASVerificationPage oasVerificationPage;
-
 
 	// Common Common = new Common(driver);
 
@@ -337,7 +342,8 @@ public class SeleniumInit {
 		taSetupVerificationPage = new SettingsTimeAttendanceSetupVerification(driver);
 		oasIndexPage = new OASIndexPage(driver);
 		oasVerificationPage = new OASVerificationPage(driver);
-
+		myTransectionIndexpage =new MyTransectionIndexpage(driver);
+		myTransectionVerification = new MyTransectionVerification(driver);
 	}
 
 	/**
