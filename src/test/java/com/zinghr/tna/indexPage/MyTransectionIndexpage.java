@@ -32,6 +32,7 @@ public class MyTransectionIndexpage extends AbstractPage{
 		Common.clickOn(driver, My_trasection_history_menu);
 		Common.clickOn(driver, Time_and_Attendance_Notification_tab);
 		return new MyTransectionVerification(driver);
+		
 	}
 	
 	public MyTransectionVerification check_Reguleriztion_lbl_after_click_view_button_ontime_and_attendance_page()

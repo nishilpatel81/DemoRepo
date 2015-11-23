@@ -26,6 +26,7 @@
 			</class>
 		</classes>
 	</test>
+	
 	<test name="TNA_35: To check User is able to view Time and Attendance notification">
 		<classes>
 			<class name="com.zinghr.tna.index.MyTransectionIndex">

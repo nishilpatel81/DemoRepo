@@ -28,6 +28,7 @@ public class OASIndexPage extends AbstractPage {
 	@FindBy(xpath = ".//i[@class='fa fa-search']/..")
 	WebElement search_btn;
 	
+	
 	public OASVerificationPage oaslandingpage()
 	{
 		Common.clickOn(driver, oas_menu);

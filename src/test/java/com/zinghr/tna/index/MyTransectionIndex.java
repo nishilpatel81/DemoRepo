@@ -30,6 +30,7 @@ public class MyTransectionIndex extends SeleniumInit{
 		if (numOfFailure > 0) {
 			Assert.assertTrue(false);
 		}
+		
 
 	}
 	

@@ -26,6 +26,7 @@ public class MyTransectionVerification extends AbstractPage{
 		}
 	}
 	
+	
 	public boolean check_Reguleriztion_lbl_after_click_view_button_ontime_and_attendance_page_verification() {
 		if (Regularization_approval.isDisplayed() ) {
 			return true;
