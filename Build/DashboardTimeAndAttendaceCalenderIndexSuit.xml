@@ -23,55 +23,42 @@
 
 	</listeners>
 
-	<test name="TNA_1,TNA_2,TNA_3 : To test My TNA section on dashboard">
-		<classes>
-			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
-				<methods>
-					<include name="timeAndAttendanceCalanderFunctionalityOnDashBoard" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test
-		name="TNA_4,TNA_5 : To test Backward and Forward Arrow in My 
-		TNA section ">
-		<classes>
-			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
-				<methods>
-					<include name="forwardAndBackwardArrowFunctionalityOnMyTNA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
+	<!-- <test name="TNA_1,TNA_2,TNA_3 : To test My TNA section on dashboard"> 
+		<classes> <class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> 
+		<methods> <include name="timeAndAttendanceCalanderFunctionalityOnDashBoard" 
+		/> </methods> </class> </classes> </test> <test name="TNA_4,TNA_5 : To test 
+		Backward and Forward Arrow in My TNA section "> <classes> <class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> 
+		<methods> <include name="forwardAndBackwardArrowFunctionalityOnMyTNA" /> 
+		</methods> </class> </classes> </test> <test name="TNA_6,TNA_7,TNA_8 : To 
+		test Holiday List Button Functionality "> <classes> <class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> 
+		<methods> <include name="holidaytabFunctionality" /> </methods> </class> 
+		</classes> </test> <test name="TNA_18,TNA_19 : To test Regularize Button 
+		Functionality"> <classes> <class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> 
+		<methods> <include name="regularizeButtonFunctionality" /> </methods> </class> 
+		</classes> </test> -->
+	<!-- <test name="TNA_20 : Select Action dropdown options availibility "> 
+		<classes> <class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> 
+		<methods> <include name="selectActionDropdownOptionsAvalibility" /> </methods> 
+		</class> </classes> </test> -->
 
 
-	<test
-		name="TNA_6,TNA_7,TNA_8 : To test Holiday List Button Functionality 
-		">
-		<classes>
-			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
-				<methods>
-					<include name="holidaytabFunctionality" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="TNA_18,TNA_19 : To test Regularize Button Functionality">
-		<classes>
-			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
-				<methods>
-					<include name="regularizeButtonFunctionality" />
-				</methods>
-			</class>
-		</classes>
-	</test>
 
 
-	<test name="TNA_21 : To test A Button Functionality">
+
+
+
+
+	<!-- <test name="TNA_21 : To test A Button Functionality"> <classes> <class 
+		name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> <methods> <include 
+		name="applyNowButtonFunctionalityOnRefulationPopup" /> </methods> </class> 
+		</classes> </test> -->
+
+
+	<test name="TNA_22 :  ">
 		<classes>
 			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
 				<methods>
-					<include name="applyNowButtonFunctionalityOnRefulationPopup" />
+					<include name="byDefaultShiftNameAvailability" />
 				</methods>
 			</class>
 		</classes>
@@ -79,7 +66,16 @@
 
 
 
+	<!-- <test name="TNA_23,24 :  ">
+		<classes>
+			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
+				<methods>
+					<include name="mandatoryFieldvalidationOnRegularizationPopup" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 
-
+ -->
 
 </suite>

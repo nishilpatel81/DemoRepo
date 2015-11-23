@@ -37,7 +37,7 @@
 	
 	
 	
-	<test name="Setup_05,Setup_06,Setup_07,Setup_09 : To test TNA functionality">
+<!-- 	<test name="Setup_05,Setup_06,Setup_07,Setup_09 : To test TNA functionality">
 		<classes>
 			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
 				<methods>
@@ -111,7 +111,23 @@
 		</classes>
 	</test>
 
- 
+
+
+
+test name=" Setup_52 :  To Test Shift Roster No Button Functionality ">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="shiftRosteringManadatoryFieldFunctionality" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+
+
+  -->
 
 
 

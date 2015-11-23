@@ -24,8 +24,7 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 		boolean bool = false;
 
 		Common.waitForElement(driver, "//h3[contains(.,'Time and Attendance')]");
-		
-		
+
 		if (timeandattendance_header.isDisplayed())
 
 		{
@@ -62,8 +61,6 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 
 	public boolean verifysetMyAttendanceHeader() {
 
-		
-		
 		boolean bool = false;
 
 		if (setMyAttendance_header.isDisplayed()
@@ -388,6 +385,18 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 		}
 
 		return bool;
+	}
+
+	@FindBy(xpath = "//input[contains(@class,'ShiftIn')]")
+	WebElement shiftTimeFrom_textfield;
+
+	@FindBy(xpath = "//input[contains(@class,'ShiftOut')]")
+	WebElement shiftTimeTo_textfield;
+
+	public boolean verifyBydefaultfixedShiftfunctionality() {
+
+		return shiftTimeFrom_textfield.getText().equals("08:30")
+				&& shiftTimeTo_textfield.equals("17:00");
 	}
 
 }
