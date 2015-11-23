@@ -165,6 +165,8 @@ public class SignupVerificationPage extends AbstractPage {
 
 	public boolean verifymailFormat() {
 		Common.pause(2);
+		driver.switchTo().frame(
+				driver.findElement(By.xpath(".//iframe[@name='rendermail']")));
 		if (driver.findElement(By.xpath(".//img[@width='52']")).isDisplayed()
 				&& driver.findElement(By.xpath(".//img[@width='550']"))
 						.isDisplayed()
@@ -178,6 +180,9 @@ public class SignupVerificationPage extends AbstractPage {
 
 	public boolean verifyEmailContents() {
 		Common.pause(2);
+		Common.pause(2);
+		driver.switchTo().frame(
+				driver.findElement(By.xpath(".//iframe[@name='rendermail']")));
 		if (driver.findElement(By.xpath(".//img[@width='550']")).isDisplayed()
 				&& driver.findElement(By.xpath(".//*[@id='signup']"))
 						.isDisplayed()) {
@@ -196,58 +201,89 @@ public class SignupVerificationPage extends AbstractPage {
 		Common.pause(2);
 		if (driver.findElement(By.xpath(".//input[@id='txtActivationCode']"))
 				.isDisplayed()
-				&& driver.findElement(By.xpath(".//p[@class='font-14']")).isDisplayed()) {
+				&& driver.findElement(By.xpath(".//p[@class='font-14']"))
+						.isDisplayed()) {
 
-			String code= driver.findElement(By.xpath(".//input[@id='txtActivationCode']")).getAttribute("value");
-			System.out.println("========="+code+"=========");
+			String code = driver.findElement(
+					By.xpath(".//input[@id='txtActivationCode']"))
+					.getAttribute("value");
+			System.out.println("=========" + code + "=========");
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
-		
+
 	public boolean verifyactivateTwice() {
 		Common.pause(30000);
 		return driver.findElement(By.xpath("//span[contains(text(),'Dear')]"))
 				.isDisplayed();
-		}
-	
+	}
 
 	public boolean verifyBetterPsswd() {
 		Common.pause(2);
-		return driver.findElement(By.xpath(".//*[@id='passwordDescription']//.[contains(@class,'2')]"))
+		return driver
+				.findElement(
+						By.xpath(".//*[@id='passwordDescription']//.[contains(@class,'2')]"))
 				.isDisplayed();
-		} 
-	
+	}
+
 	public boolean verifyWeakPsswd() {
 		Common.pause(2);
-		return driver.findElement(By.xpath(".//*[@id='passwordDescription']//.[contains(@class,'1')]"))
+		return driver
+				.findElement(
+						By.xpath(".//*[@id='passwordDescription']//.[contains(@class,'1')]"))
 				.isDisplayed();
-		}
-		
+	}
+
 	public boolean verifyMediumPsswd() {
 		Common.pause(2);
-		return driver.findElement(By.xpath(".//*[@id='passwordDescription']//.[contains(@class,'3')]"))
+		return driver
+				.findElement(
+						By.xpath(".//*[@id='passwordDescription']//.[contains(@class,'3')]"))
 				.isDisplayed();
-		}
-	
+	}
+
 	public boolean verifyStrongPsswd() {
 		Common.pause(2);
-		return driver.findElement(By.xpath(".//*[@id='passwordDescription']//.[contains(@class,'4')]"))
+		return driver
+				.findElement(
+						By.xpath(".//*[@id='passwordDescription']//.[contains(@class,'4')]"))
 				.isDisplayed();
-		} 
-	
+	}
+
 	public boolean verifyBlankPsswd() {
 		Common.pause(2);
-		return driver.findElement(By.xpath(".//input[contains(@class,'invalid')]"))
-				.isDisplayed();
-		}
-	
+		return driver.findElement(
+				By.xpath(".//input[contains(@class,'invalid')]")).isDisplayed();
+	}
+
 	public boolean verifyUpdateAccountName() {
-		
-		
+
 		return driver.findElement(By.xpath("//span[contains(text(),'Dear')]"))
 				.isDisplayed();
+	}
+
+	public boolean verifyloginPage() {
+
+		String login_url = "http://qa.zinghr.com/2015/Pages/Authentication/Login.aspx";
+		if (driver.findElement(By.xpath(".//img[@id='imgLogo']")).isDisplayed()
+				&& driver.findElement(
+						By.xpath(".//input[@id='btnSecureLogin']"))
+						.isDisplayed()&&driver.getCurrentUrl().equalsIgnoreCase(login_url))
+
+			return true;
+		else
+		{
+			return false;
 		}
+	}
+	
+	public boolean verifyTwiseActivateWithSameCode() {
+
+		Common.pause(2);
+		return driver.findElement(By.xpath(".//div[@class='error-500']"))
+				.isDisplayed();
+	}
+	
 }

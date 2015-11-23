@@ -41,6 +41,7 @@ import com.zinghr.tna.verification.SettingsTimeAttendanceSetupVerification;
 public class SeleniumInit {
 
 	public String emailt = TestData.rndmemail(3);
+	public String emailt_1 = TestData.rndmemail(3);
 	public String s_company_name = TestData.rndmString(4);
 	public String contact_no = "9429186891";
 	public String inv_contact_no = "dsjh(*&^(^(";

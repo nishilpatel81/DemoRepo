@@ -21,6 +21,8 @@ public class SignupIndexPage extends AbstractPage {
 	}
 	
 	public static String url = "https://mailinator.com/";
+	public static String signup_url = "http://automation.zinghr.com/2015/pages/Authentication/SignUp.aspx";
+	
 	
 	@FindBy(xpath=".//*[@id='btnSignIn']")
 	private WebElement signUp_30_day_btn;
@@ -84,6 +86,16 @@ public class SignupIndexPage extends AbstractPage {
 	
 	@FindBy (xpath=".//*[@id='btnSignIn']")
 	private WebElement activat_btn;
+	
+	@FindBy (xpath=".//button[@class='btn btn-primary']")
+	private WebElement ok_btn;
+	
+	@FindBy (xpath=".//input[@id='txtActivationCode']")
+	private WebElement activation_field;
+	
+	String winHandleBefore= driver.getWindowHandle();
+	
+
 	
 public SignupVerificationPage enterCompanyCode(String cmpCode_s) 
 	{
@@ -235,6 +247,7 @@ public SignupVerificationPage clickHereButton()
 	Common.clickOn(driver, click_here_btn);
 	driver.switchTo().defaultContent();
 	Common.pause(3);
+	
 	for(String winHandle : driver.getWindowHandles())
 	{
 		driver.switchTo().window(winHandle);
@@ -242,16 +255,36 @@ public SignupVerificationPage clickHereButton()
 	return new SignupVerificationPage(driver);
 }
 
+public SignupVerificationPage clickOkbtn()
+{
 
+	Common.clickOn(driver, ok_btn);
+	return new SignupVerificationPage(driver);
+}
 
+public SignupVerificationPage getActinumber()
+{
 
-	public SignupVerificationPage SignupPage()
-	{
+	String activation_no = activation_field.getAttribute("value");
+	log("<b>"+activation_no+"</b>");
+	return new SignupVerificationPage(driver);
+}
+
+public SignupVerificationPage SignupPage()
+{
 				
-		return new SignupVerificationPage(driver);
+	return new SignupVerificationPage(driver);
 		
-	}
+}
 	
+public SignupVerificationPage enterActivationcode(String a)
+{
+	activation_field.clear();
+	Common.pause(1);
+	Common.clickOn(driver, activation_field);
+	Common.type(activation_field,a);
+	return new SignupVerificationPage(driver);
+}
 
 	public SignupVerificationPage SignUpsuccessfully() 
 	{
@@ -269,104 +302,103 @@ public SignupVerificationPage clickHereButton()
 		return new SignupVerificationPage(driver);
 	}
 
-	public SignupVerificationPage alphanumCompanyName() 
+	public SignupVerificationPage alphanumCompanyName(String email, String cmp_name, String display_name,String no) 
 	{
 
 		Common.pause(2);
-		enterCompanyCode(TestData.alphanum(7));
-		enterDisplayName(TestData.rndmString(6));
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
-		enterEmailid(TestData.rndmemail(3));
+		enterEmailid(email);
 		selectcountry();
 		selectcountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		clicksignup30days();
 	
 		return new SignupVerificationPage(driver);
 	}
 	
-	public SignupVerificationPage blankCompanyCode()
+	public SignupVerificationPage blankCompanyCode(String email, String cmp_name, String display_name,String no)
 	{
 		Common.pause(2);
-		enterCompanyCode(TestData.blank);
-		enterDisplayName(TestData.rndmString(6));
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
-		enterEmailid(TestData.rndmemail(3));
+		enterEmailid(email);
 		selectcountry();
 		selectcountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		clicksignup30days();
 		return new SignupVerificationPage(driver);
 	}
 	
-	public SignupVerificationPage lessthan3CompanyCode()
+	public SignupVerificationPage lessthan3CompanyCode(String email, String cmp_name, String display_name,String no)
 	{
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(2));
-		enterDisplayName(TestData.rndmString(6));
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
-		enterEmailid(TestData.rndmemail(3));
+		enterEmailid(email);
 		selectcountry();
 		selectcountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		clicksignup30days();
 		return new SignupVerificationPage(driver);
 	}
 
-	public SignupVerificationPage emptyCompanyCode()
+	public SignupVerificationPage emptyCompanyCode(String email,  String display_name,String no)
 	{
 		Common.pause(2);
-		enterDisplayName(TestData.rndmString(6));
+		enterDisplayName(display_name);
 		Common.pause(2);
-		enterEmailid(TestData.rndmemail(3));
+		enterEmailid(email);
 		selectcountry();
 		selectcountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		clicksignup30days();
 		return new SignupVerificationPage(driver);
 	}
 
-	public SignupVerificationPage alphabetDisplayname() 
+	public SignupVerificationPage alphabetDisplayname(String email, String cmp_name, String display_name,String no) 
 	{
 
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(4));
-		enterDisplayName(TestData.rndmString(6));
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
-		enterEmailid(TestData.rndmemail(3));
+		enterEmailid(email);
 		selectcountry();
 		selectcountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		clicksignup30days();
 	
 		return new SignupVerificationPage(driver);
 	}
 	
-	public SignupVerificationPage invalidDisplayAdminName()
+	public SignupVerificationPage invalidDisplayAdminName(String email, String cmp_name, String display_name,String no)
 	{
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(4));
-		enterDisplayName(TestData.invalid);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
-		enterEmailid(TestData.rndmemail(3));
+		enterEmailid(email);
 		selectcountry();
 		selectcountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		clicksignup30days();
 		return new SignupVerificationPage(driver);
 	}
 
-
-	public SignupVerificationPage blankDisplayAdminName()
+	public SignupVerificationPage blankDisplayAdminName(String email, String cmp_name, String display_name,String no)
 	{
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(4));
-		enterDisplayName(TestData.blank);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
-		enterEmailid(TestData.rndmemail(3));
+		enterEmailid(email);
 		selectcountry();
 		selectcountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		clicksignup30days();
 		return new SignupVerificationPage(driver);
 	}
@@ -600,17 +632,17 @@ public SignupVerificationPage clickHereButton()
 	}
 	
 	
-	public SignupVerificationPage activateTwice(String email2, String ac_name, String pswd)
+	public SignupVerificationPage activateTwice(String email2,String cmp_name ,String ac_name, String pswd, String no)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(4));
+		enterCompanyCode(cmp_name);
 		enterDisplayName(ac_name);
 		Common.pause(2);
 		enterEmailid(email2);
 		
 		selectOthercountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		
 		clicksignup30days();
 		clickGoButton(email2);
@@ -620,7 +652,8 @@ public SignupVerificationPage clickHereButton()
 		enterPassword(pswd);
 		clickActivateButton();
 		Common.pause(2);
-		driver.switchTo().defaultContent();
+		driver.switchTo().window(winHandleBefore);
+	//	driver.switchTo().defaultContent();
 		Common.pause(2);
 		clickHereButton();
 		enterAccountName(ac_name);
@@ -746,7 +779,7 @@ public SignupVerificationPage clickHereButton()
 		return new SignupVerificationPage(driver);
 	}
 	
-	public SignupVerificationPage activateSuccessfully(String email2, String cmp_name,String ac_name,String ac_name1, String pswd, String no)
+	public SignupVerificationPage activateSuccessfullyMesg(String email2, String cmp_name,String ac_name,String ac_name1, String pswd, String no)
 	{
 
 		Common.pause(2);
@@ -789,6 +822,76 @@ public SignupVerificationPage clickHereButton()
 		Common.pause(5);
 		Common.waitForElement(driver, By.xpath("//span[contains(text(),'Dear')]"));
 		
+		return new SignupVerificationPage(driver);
+	}
+	
+	public SignupVerificationPage activateSuccessfully(String email2, String cmp_name,String ac_name,String ac_name1, String pswd, String  no)
+	{
+		Common.pause(2);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(ac_name);
+		Common.pause(2);
+		enterEmailid(email2);
+		selectOthercountry();
+		entercontactno(no);
+		clicksignup30days();
+		clickGoButton(email2);
+		clickMail(email2);
+		clickHereButton();
+		enterAccountName(ac_name1);
+		enterPassword(pswd);
+		clickActivateButton();
+		Common.pause(5);
+		Common.waitForElement(driver, By.xpath("//span[contains(text(),'Dear')]"));
+		clickOkbtn();
+		Common.pause(2);
+		
+		return new SignupVerificationPage(driver);
+	}
+	
+	
+	public SignupVerificationPage previouslyActivateCode(String email2, String email3,String cmp_name,String ac_name,String ac_name1, String pswd, String  no)
+	{
+		Common.pause(2);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(ac_name);
+		Common.pause(2);
+		enterEmailid(email2);
+		
+		selectOthercountry();
+		entercontactno(no);
+		
+		clicksignup30days();
+		clickGoButton(email2);
+		clickMail(email2);
+		clickHereButton();
+		Common.pause(2);
+		String activation_no = activation_field.getAttribute("value");		
+		enterAccountName(ac_name1);
+		enterPassword(pswd);
+		clickActivateButton();
+		Common.pause(2);
+		driver.switchTo().window(winHandleBefore);
+		Common.goToUrl(driver, signup_url);
+		Common.pause(4);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(ac_name);
+		Common.pause(2);
+		enterEmailid(email3);
+		
+		selectOthercountry();
+		entercontactno(no);
+		
+		clicksignup30days();
+		clickGoButton(email3);
+		clickMail(email3);
+		clickHereButton();
+		Common.pause(2);
+		enterActivationcode(activation_no);
+		enterAccountName(ac_name1);
+		enterPassword(pswd);
+		clickActivateButton();
+	
 		return new SignupVerificationPage(driver);
 	}
 }

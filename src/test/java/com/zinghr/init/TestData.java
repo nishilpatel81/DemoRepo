@@ -14,6 +14,8 @@ public class TestData {
 	public static String employe_code_dl = "Admin123";
 	public static String password_dl = "Admin@1234";
 	
+	
+	
 	public static String company_code_se = "AMBUJA";
 	public static String employe_code_se = "ADMIN";
 	public static String password_se = "Baps@2000";
@@ -26,7 +28,7 @@ public class TestData {
 	
 	public static String blank = " ";
 	public static String invalid = "%&^%6545as";
-	
+
 	public static String rndmString(int length)
 	{
 		String rnd1 = RandomStringUtils.randomAlphabetic(length);
@@ -71,5 +73,6 @@ public class TestData {
 	public static String contactno_s = "9429186891";
 	public static String invalidContactno = "dsjh(*&^(^("; 
 	
+	public static String lessthan3 = rndmString(2);
 	public static String largeContactNum = new StringBuilder(14).append(rndmNumber(14)).append(rndmNumber(14)).toString(); 
 }
