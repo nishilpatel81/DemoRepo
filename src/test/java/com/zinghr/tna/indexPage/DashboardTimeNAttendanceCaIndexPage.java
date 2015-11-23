@@ -73,4 +73,23 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 
+	
+	@FindBy(xpath = "//div[contains(@class,'DataVal')][1]//select[contains(@class,'typereg')]")
+	WebElement selectAction_dropdown;
+	
+	
+	public SettingsTimeAttendanceSetupVerification selectValueOfSelectionActionDropdown(String value)
+	{
+			
+		Common.selectFromCombo(selectAction_dropdown, value);
+		
+		
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	
+	
+	
+	
 }

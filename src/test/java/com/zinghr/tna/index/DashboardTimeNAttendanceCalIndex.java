@@ -252,7 +252,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 	}
 
 	@Test
-	public void applyNowButtonFunctionalityOnRefulationPopup() {
+	public void applyNowButtonFunctionalityOnRegularizationPopup() {
 		int numOfFailure = 0;
 		log("Testcase Id : TNA_21");
 		log("Testcase Discription :  ");
@@ -288,6 +288,158 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		if (dbTnaCalVerificationPage.verifyBlankActionValidationMessage())
 
 		{
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+
+	@Test
+	public void selectActionDropdownOptionsAvalibility() {
+		int numOfFailure = 0;
+		log("Testcase Id :TNA_20 ");
+		log("Testcase Discription :  ");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+
+		log("Step 6: Click on Regularize Button");
+
+		dbTnaCalIndexPage.clickRegularizeButton();
+
+		if (dbTnaCalVerificationPage.verifySelectOptionDropDownOptions()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+
+	@Test
+	public void mandatoryFieldvalidationOnRegularizationPopup() {
+
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_23,TNA_24");
+		log("Testcase Discription :  ");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+
+		log("Step 6: Click on Regularize Button");
+
+		dbTnaCalIndexPage.clickRegularizeButton();
+
+		log("Step 7: Select Action : Outdoor");
+
+		dbTnaCalIndexPage.selectValueOfSelectionActionDropdown("Outdoor");
+
+		log("Verify In Time and Out Time Text Field is displayed");
+
+		if (dbTnaCalVerificationPage.verifyInTimeAndOutTimeIsDisplayed()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 8: Click on Apply Now Button");
+
+		dbTnaCalIndexPage.clickApplyNowButton();
+
+		log("Verify validation message is displayed");
+
+		if (dbTnaCalVerificationPage.verifyInTimeAndOutTimeValidationMessage())
+
+		{
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+
+	@Test
+	public void byDefaultShiftNameAvailability() {
+
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_23,TNA_24");
+		log("Testcase Discription :  ");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+
+		log("Step 6: Click on Regularize Button");
+
+		dbTnaCalIndexPage.clickRegularizeButton();
+
+		log("Step 7: Select Action : ShiftWoChange ");
+
+		dbTnaCalIndexPage.selectValueOfSelectionActionDropdown("ShiftWoChange");
+
+		log("By Default shift is displayed under Shift Name Header ");
+
+		if (dbTnaCalVerificationPage.byDefaultShiftNameIsdisplayed()) {
 			Common.logStatus("pass");
 		} else {
 			Common.logStatus("fail");

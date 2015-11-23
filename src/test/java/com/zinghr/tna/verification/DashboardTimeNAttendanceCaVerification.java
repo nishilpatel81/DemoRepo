@@ -1,8 +1,10 @@
 package com.zinghr.tna.verification;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -137,6 +139,94 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 	public boolean verifyBlankActionValidationMessage() {
 		Common.pause(2);
 		return selectActionMessage_alert.isDisplayed();
+	}
+
+	@FindBy(xpath = "//div[@class='modal-body']//div[contains(.,'please select proper in time and proper out time')]")
+	WebElement inTimeAndOutTimeMessage_alert;
+
+	public boolean verifyInTimeAndOutTimeValidationMessage() {
+		Common.pause(2);
+		return inTimeAndOutTimeMessage_alert.isDisplayed();
+	}
+
+	@FindBy(xpath = "//select[contains(@class,'typereg')]")
+	List<WebElement> selectActionDropDown_list;
+
+	public boolean verifySelectOptionDropDownOptions() {
+		boolean bool = false;
+		int option1 = 0;
+		int option2 = 0;
+		int option3 = 0;
+
+		/* System.out.println(selectActionDropDown_list.size()); */
+
+		for (WebElement e : selectActionDropDown_list) {
+
+			List<WebElement> getAllOption = e.findElements(By.xpath("option"));
+
+			Common.mouseHover(driver, e);
+			Common.highlightElement(driver, e);
+
+			for (WebElement optionElement : getAllOption)
+
+			{
+
+				if (optionElement.getText().equals("ShiftWoChange")) {
+					option1++;
+				}
+				if (optionElement.getText().equals("Outdoor")) {
+					option2++;
+				}
+				if (optionElement.getText().equals("WFH")) {
+					option3++;
+				}
+
+			}
+
+			/*
+			 * System.out.println(option1 + "  " + option2 + "  " + option3);
+			 */
+
+		}
+
+		if (option1 > 0 && option2 > 0 && option3 > 0) {
+			bool = true;
+
+		}
+
+		return bool;
+	}
+
+	@FindBy(xpath = "//div[contains(@class,'DataVal')][1]//input[@id='defaultEntryIn']")
+	WebElement inTimeOnRegularization_textField;
+
+	@FindBy(xpath = "//div[contains(@class,'DataVal')][1]//input[@id='defaultEntryOut']")
+	WebElement outTimeOnRegularization_textField;
+
+	public boolean verifyInTimeAndOutTimeIsDisplayed() {
+
+		return inTimeOnRegularization_textField.isDisplayed()
+				&& outTimeOnRegularization_textField.isDisplayed();
+
+	}
+
+	@FindBy(xpath = "//select[contains(@class,'dvShiftSelect0')]")
+	WebElement shiftname_dropdown;
+
+	public boolean byDefaultShiftNameIsdisplayed() {
+
+		boolean bool = false;
+		List<WebElement> getAllOption = shiftname_dropdown.findElements(By
+				.xpath("option"));
+
+		System.out.println("get" + getAllOption.size());
+
+		if (getAllOption.size() > 0) {
+			bool = true;
+
+		}
+
+		return bool;
 	}
 
 }
