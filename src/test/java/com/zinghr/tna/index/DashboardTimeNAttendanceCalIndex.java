@@ -452,4 +452,177 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 
 	}
 
+	@Test
+	public void totalWorkedHoursCalculation() {
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_28");
+		log("Testcase Discription :  ");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+
+		log("Step 6: Click on Regularize Button");
+
+		dbTnaCalIndexPage.clickRegularizeButton();
+
+		log("Step 7: Select Action : Outdoor ");
+
+		dbTnaCalIndexPage.selectValueOfSelectionActionDropdown("Outdoor");
+
+		log("Step 8 : Enter In Time and Out Time  " + "<br>In Time : 8:00"
+				+ "<br>Out Time : 17:00 ");
+		dbTnaCalIndexPage.enterInInTime("8:00");
+
+		dbTnaCalIndexPage.enterInOutTime("17:00");
+
+		dbTnaCalIndexPage.clickOnTotalworkingHourLable();
+
+		log("Verify Total Working Time");
+
+		if (dbTnaCalVerificationPage.verifyTotalWorkingHours()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+
+	@Test
+	public void applyRegularizationfunctionality() {
+
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_29,TNA_30");
+		log("Testcase Discription :  ");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+
+		log("Step 6: Click on Regularize Button");
+
+		dbTnaCalIndexPage.clickRegularizeButton();
+
+		log("Step 7: Select Action : Regularization ");
+
+		dbTnaCalIndexPage
+				.selectValueOfSelectionActionDropdown("Regularization");
+
+		log("Verify Regularization Reason dropdown is displayed ");
+
+		if (dbTnaCalVerificationPage
+				.verifyRegularazationReasonDropDownIsDisplayed()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Verify Regularization Reason dropdown option is displayed ");
+
+		if (dbTnaCalVerificationPage
+				.verifyRegularazationReasonDropDownoptionIsDisplayed()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Verify Regularization Reason dropdown option is displayed once ");
+		if (dbTnaCalVerificationPage
+				.verifyRegularazationReasonDropDownoptionIsDisplayedonce()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+
+/*	@Test
+	public void defaultShiftInAndOutTime() {
+
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_32 ");
+		log("Testcase Discription :  ");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+
+		log("Step 6: Click on Regularize Button");
+
+		dbTnaCalIndexPage.clickRegularizeButton();
+
+		log("Step 7: Select Action : Regularization ");
+
+		dbTnaCalIndexPage
+				.selectValueOfSelectionActionDropdown("Regularization");
+
+		log("Verify By Default In time and Out time is displayed according to shift name ");
+
+		if (dbTnaCalVerificationPage.verifyByDefaultInAndOutTimeValue()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+*/
 }

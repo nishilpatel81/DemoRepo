@@ -1,5 +1,6 @@
 package com.zinghr.init;
 
+
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.io.File;
@@ -804,6 +805,7 @@ public class Common {
 		List<WebElement> getAllOption = selectCombo.findElements(By
 				.xpath("option"));
 		ArrayList<String> arrayOfAllOption = new ArrayList<String>();
+	
 		for (WebElement ele : getAllOption) {
 			if (!ele.getText().startsWith("All")) {
 				arrayOfAllOption.add(ele.getText());
