@@ -1,5 +1,7 @@
 package com.zinghr.tna.index;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -101,6 +103,78 @@ public class MyTransectionIndex extends SeleniumInit{
 		myTransectionVerification=myTransectionIndexpage.check_Reguleriztion_lbl_after_click_view_button_ontime_and_attendance_page();
 		log("To check User is able to view Time and Attendance notification");
 		if(myTransectionVerification.check_Reguleriztion_lbl_after_click_view_button_ontime_and_attendance_page_verification())
+		{
+			Common.logStatus("pass");
+		}
+		else
+		{
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+	}
+	
+	@Test
+	public void check_Reguleriztion_cancel_button()
+	{
+		int numOfFailure = 0;
+		loginwithvalidcredential();
+		log("Step 5: Click on Regulerization button on dashbord page");
+		log("Step 6: Select 'Outdoor' option from your selected date");
+		log("Step 7: Click on Apply Now button");
+		log("Step 8: Click on 'Username' dropdown menu.");
+		log("Step 9: Click on my trasection history tab.");
+		log("Step 10: Click on Pending button which located below the search textbox");
+		log("Step 11: Click on cancel button of first notification");
+		WebElement Reguleriztion_btn=driver.findElement(By.xpath(".//div[@id='btnTnaPanel']/a[contains(text(),'Regularize')]"));
+		Common.clickOn(driver, Reguleriztion_btn);
+		Common.pause(2);
+		dbTnaCalIndexPage.selectValueOfSelectionActionDropdown("Outdoor");
+		dbTnaCalIndexPage.enterInInTime("12:00");
+		dbTnaCalIndexPage.enterInOutTime("18:00");
+		dbTnaCalIndexPage.clickApplyNowButton();
+		myTransectionVerification=myTransectionIndexpage.check_Reguleriztion_cancel_button();
+		log("To check User is able to view Time and Attendance notification");
+		if(myTransectionVerification.check_Reguleriztion_cancel_button_verification())
+		{
+			Common.logStatus("pass");
+		}
+		else
+		{
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+	}
+	
+	@Test
+	public void check_Reguleriztion_view_button()
+	{
+		int numOfFailure = 0;
+		loginwithvalidcredential();
+		log("Step 5: Click on Regulerization button on dashbord page");
+		log("Step 6: Select 'Outdoor' option from your selected date");
+		log("Step 7: Click on Apply Now button");
+		log("Step 8: Click on 'Username' dropdown menu.");
+		log("Step 9: Click on my trasection history tab.");
+		log("Step 10: Click on Pending button which located below the search textbox");
+		log("Step 11: Click on view button of first notification");
+		WebElement Reguleriztion_btn=driver.findElement(By.xpath(".//div[@id='btnTnaPanel']/a[contains(text(),'Regularize')]"));
+		Common.clickOn(driver, Reguleriztion_btn);
+		Common.pause(2);
+		dbTnaCalIndexPage.selectValueOfSelectionActionDropdown("Outdoor");
+		dbTnaCalIndexPage.enterInInTime("12:00");
+		dbTnaCalIndexPage.enterInOutTime("18:00");
+		dbTnaCalIndexPage.clickApplyNowButton();
+		myTransectionVerification=myTransectionIndexpage.check_Reguleriztion_view_button();
+		log("To check User is able to view Time and Attendance notification");
+		if(myTransectionVerification.check_Reguleriztion_view_button_verification())
 		{
 			Common.logStatus("pass");
 		}

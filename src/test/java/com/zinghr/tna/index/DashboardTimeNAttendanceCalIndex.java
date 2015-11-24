@@ -576,12 +576,54 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 
 	}
 
-/*	@Test
-	public void defaultShiftInAndOutTime() {
+	/*
+	 * @Test public void defaultShiftInAndOutTime() {
+	 * 
+	 * int numOfFailure = 0; log("Testcase Id : TNA_32 ");
+	 * log("Testcase Discription :  ");
+	 * 
+	 * log("Step 1 : Open url:<a>" + testUrl + "</a>");
+	 * 
+	 * log("Step 2: Enter Company Code:" + TestData.company_code);
+	 * log("Step 3: Enter Employee Code: " + TestData.employe_code);
+	 * log("Step 4: Enter Password: " + TestData.password);
+	 * 
+	 * loginVerificationPage = loginIndexpage.loginSuccessfully();
+	 * log("Verify that Home page is open or not");
+	 * 
+	 * if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+	 * Common.logStatus("pass"); } else { Common.logStatus("fail");
+	 * numOfFailure++; }
+	 * 
+	 * log("Step 5: Click on Proceed Button");
+	 * 
+	 * log("Step 6: Click on Regularize Button");
+	 * 
+	 * dbTnaCalIndexPage.clickRegularizeButton();
+	 * 
+	 * log("Step 7: Select Action : Regularization ");
+	 * 
+	 * dbTnaCalIndexPage
+	 * .selectValueOfSelectionActionDropdown("Regularization");
+	 * 
+	 * log(
+	 * "Verify By Default In time and Out time is displayed according to shift name "
+	 * );
+	 * 
+	 * if (dbTnaCalVerificationPage.verifyByDefaultInAndOutTimeValue()) {
+	 * Common.logStatus("pass"); } else { Common.logStatus("fail");
+	 * numOfFailure++; }
+	 * 
+	 * if (numOfFailure > 0) { Assert.assertTrue(false); }
+	 * 
+	 * }
+	 */
+
+	@Test
+	public void Regulerization_with_outdoor_intime_outtime_editable() {
 
 		int numOfFailure = 0;
-		log("Testcase Id : TNA_32 ");
-		log("Testcase Discription :  ");
+		log("Testcase Id : TNA_56");
 
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
 
@@ -605,14 +647,18 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 
 		dbTnaCalIndexPage.clickRegularizeButton();
 
-		log("Step 7: Select Action : Regularization ");
+		log("Step 7: Select Action : Outdoor ");
 
-		dbTnaCalIndexPage
-				.selectValueOfSelectionActionDropdown("Regularization");
+		dbTnaCalIndexPage.selectValueOfSelectionActionDropdown("Outdoor");
 
-		log("Verify By Default In time and Out time is displayed according to shift name ");
+		dbTnaCalIndexPage.enterInInTime("12:00");
 
-		if (dbTnaCalVerificationPage.verifyByDefaultInAndOutTimeValue()) {
+		dbTnaCalIndexPage.enterInOutTime("18:00");
+
+		log("To verify In time & Out Time should be blank by default and allow to enter time");
+
+		if (dbTnaCalVerificationPage
+				.Regulerization_with_outdoor_intime_outtime_editable_verification()) {
 			Common.logStatus("pass");
 		} else {
 			Common.logStatus("fail");
@@ -624,5 +670,65 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		}
 
 	}
-*/
+
+	@Test
+	public void Outdoor_request_Cancel_View_option() {
+
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_56");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+
+		log("Step 6: Click on Regularize Button");
+
+		dbTnaCalIndexPage.clickRegularizeButton();
+
+		log("Step 7: Select Action : Outdoor ");
+
+		dbTnaCalIndexPage.selectValueOfSelectionActionDropdown("Outdoor");
+
+		log("Step 8: Enter In time value" + TestData.intime);
+
+		log("Step 8: Enter Out time value" + TestData.outtime);
+
+		dbTnaCalIndexPage.enterInInTime(TestData.intime);
+
+		dbTnaCalIndexPage.enterInOutTime(TestData.outtime);
+
+		dbTnaCalIndexPage.clickApplyNowButton();
+
+		dbTnaCalIndexPage.Outdoor_request_Cancel_View_option();
+
+		log("To verify In time & Out Time should be blank by default and allow to enter time");
+
+		if (dbTnaCalVerificationPage
+				.Outdoor_request_Cancel_View_option_verification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+
 }
