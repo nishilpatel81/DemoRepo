@@ -199,5 +199,73 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
+	
+
+	@FindBy(xpath = "")
+	WebElement marking_manager;
+	
+	public SettingsTimeAttendanceSetupVerification checkMarkingManger()
+	{
+		clickSettingsIcon();
+		clickTimeAndAttendenseFromCircle();
+		
+		if(marking_manager.isSelected())
+		{
+			log("Marnking Manger is selected.");
+		}
+		else
+		{
+			Common.clickOn(driver, marking_manager);
+			Common.pause(2);
+		}
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	@FindBy(xpath = "")
+	WebElement yes_radio_btn;
+	
+	public SettingsTimeAttendanceSetupVerification selectYesFollowShiftRostering()
+	{
+		clickSettingsIcon();
+		clickTimeAndAttendenseFromCircle();
+		Common.clickOn(driver, yes_radio_btn);
+		Common.clickOn(driver, shiftMaster_link);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	@FindBy(xpath = "//input[@id='txtShiftName']")
+	WebElement shiftName_textfield;
+	
+	public SettingsTimeAttendanceSetupVerification enterShiftName(String name) {
+		
+		Common.clickOn(driver, shiftName_textfield);
+		Common.type(shiftName_textfield, name);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	@FindBy(xpath = "")
+	WebElement shiftIn_time;
+	
+	public SettingsTimeAttendanceSetupVerification enterInTime(String time) {
+		
+		Common.clickOn(driver, shiftIn_time);
+		Common.type(shiftIn_time, time);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	@FindBy(xpath = "")
+	WebElement shiftOut_time;
+	
+	public SettingsTimeAttendanceSetupVerification enterOutTime(String time) {
+		
+		Common.clickOn(driver, shiftOut_time);
+		Common.type(shiftOut_time, time);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
 
 }

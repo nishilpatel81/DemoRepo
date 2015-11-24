@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import com.zinghr.init.Common;
 import com.zinghr.init.SeleniumInit;
 import com.zinghr.init.TestData;
+import com.zinghr.tna.indexPage.SettingsTimeAttendanceSetupIndexPage;
 
 public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 
@@ -670,9 +671,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 		int numOfFailure = 0;
 		log("Testcase Id : Setup_33,Setup_41,Setup_42_Setup_48  ");
 		log("Testcase Discription :  ");
-
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
-
 		log("Step 2: Enter Company Code:" + TestData.company_code);
 		log("Step 3: Enter Employee Code: " + TestData.employe_code);
 		log("Step 4: Enter Password: " + TestData.password);
@@ -734,7 +733,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 		}
 
 	}
-
+	@Test
 	public void shiftRosteringNoButtonFunctionality() {
 		int numOfFailure = 0;
 		log("Testcase Id :Setup_52  ");
@@ -778,40 +777,144 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 		}
 
 	}
+	@Test
+	public void markingManagerChecked() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_23  ");
+		log("Testcase Discription :  ");
 
-	/*
-	 * @Test public void oasMenuFunctionality() {
-	 * 
-	 * int numOfFailure = 0; log("Testcase Id : , ");
-	 * log("Testcase Discription :  ");
-	 * 
-	 * log("Step 1 : Open url:<a>" + testUrl + "</a>");
-	 * 
-	 * log("Step 2: Enter Company Code:" + TestData.company_code);
-	 * log("Step 3: Enter Employee Code: " + TestData.employe_code);
-	 * log("Step 4: Enter Password: " + TestData.password);
-	 * 
-	 * loginVerificationPage = loginIndexpage.loginSuccessfully();
-	 * log("Verify that Home page is open or not");
-	 * 
-	 * if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
-	 * Common.logStatus("pass"); } else { Common.logStatus("fail");
-	 * numOfFailure++; }
-	 * 
-	 * log("Step 5: Click on Proceed Button");
-	 * 
-	 * log("Step 6: Click on OAS Option from Left Menu");
-	 * 
-	 * taSetupIndexPage.clickOASMenu();
-	 * 
-	 * if (taSetupVerificationPage.verifyOASPageisDisplayed()) {
-	 * 
-	 * Common.logStatus("pass"); } else { Common.logStatus("Fail");
-	 * numOfFailure++; }
-	 * 
-	 * if (numOfFailure > 0) { Assert.assertTrue(false); }
-	 * 
-	 * }
-	 */
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
 
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10: Check 'Marking Manager' option.");
+		
+		taSetupVerificationPage = taSetupIndexPage.checkMarkingManger();
+		
+		log("To verify if If the Manager Marking is selected then the system should allow to mark the attendance through OAS.");
+
+		if (taSetupVerificationPage.verifyMarkingManagerChecked()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+	
+	
+	@Test
+	public void selectfollowShiftRostering() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_32 Setup_38 Setup_39 Setup_43 ");
+		log("Testcase Discription :  ");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10: Select 'Yes' for follow Shift Rostering in 3rd block.");
+		log("Step 11: Click on 'Shift Master' link.");
+		
+		taSetupVerificationPage = taSetupIndexPage.selectYesFollowShiftRostering();
+		
+		log("Shift Master link is displayed or not.");
+
+		if (taSetupVerificationPage.verifyShiftMasterLink()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		log("Step 12: Enter alphanumeric value in 'Shift name' field. "+TestData.shift_name);
+		
+		taSetupVerificationPage = taSetupIndexPage.enterShiftName(TestData.shift_name);
+		
+		log("Shift Name text box should be displayed and it should accept alpha numeric values");
+		
+		if (taSetupVerificationPage.verifyShiftName()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		log("Step 13: Enter numeric value in 'Shift In_time' field. "+TestData.intime);
+
+		taSetupVerificationPage = taSetupIndexPage.enterInTime(TestData.intime);
+				
+		log("In Time text box should be displayed with accepting only numeric values.");
+				
+		if (taSetupVerificationPage.verifyShiftInTime()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 12: Enter numeric value in 'Shift Out_time' field. "+TestData.outtime);
+
+		taSetupVerificationPage = taSetupIndexPage.enterOutTime(TestData.outtime);
+		
+		log("In Time text box should be displayed with accepting only numeric values.");
+				
+		if (taSetupVerificationPage.verifyShiftOutTime()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		log("To verify that 'Shift Total Minutes' should be readonly mode.");
+		
+		if (taSetupVerificationPage.verifyShiftTotalTime()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		log("");
+		
+		if (taSetupVerificationPage.verifyShiftTotalTimevalue()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+	
+
+	
 }

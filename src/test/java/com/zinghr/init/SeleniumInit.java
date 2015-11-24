@@ -50,6 +50,7 @@ public class SeleniumInit {
 	public String blank = " ";
 	public String s_display_name = TestData.rndmString(6);
 	public String account_name = s_company_name + "test";
+	public String account_name1 = s_company_name + "test";
 	public String a_pswd2 = "T";
 	public String a_pswd3 = "Test@";
 	public String a_pswd4 = "Test@1";
@@ -83,8 +84,8 @@ public class SeleniumInit {
 	protected DashboardTimeNAttendanceCaVerification dbTnaCalVerificationPage;
 	
 
-	protected SettingsTimeAttendanceSetupIndexPage taSetupIndexPage;
-	protected SettingsTimeAttendanceSetupVerification taSetupVerificationPage;
+	public SettingsTimeAttendanceSetupIndexPage taSetupIndexPage;
+	public SettingsTimeAttendanceSetupVerification taSetupVerificationPage;
 	protected OASIndexPage oasIndexPage;
 	protected OASVerificationPage oasVerificationPage;
 

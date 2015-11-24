@@ -23,7 +23,7 @@
 
 	</listeners>
 
-
+<!-- 
 	<test name="SignUp page verification">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
@@ -88,7 +88,8 @@
 		</classes>
 	</test>
 
-	<test
+ 	
+ 	<test
 		name="SU_08: To verify that user is able to enter alphabets in 'Display Name' field">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
@@ -98,7 +99,7 @@
 			</class>
 		</classes>
 	</test>
-
+ 
 	<test
 		name="SU_09: To verify that appropriate error message is displayed when user enters special characters and numeric value in 'display Name' field">
 		<classes>
@@ -171,7 +172,7 @@
 					<include name="selectNoCountry" />
 				</methods>
 			</class>
-		</classes>
+		</classes> 
 	</test>
 
 	<test
@@ -282,7 +283,7 @@
 			</class>
 		</classes>
 	</test>
-
+-->	
 	<test
 		name="A_SU_05: To verify that user is redirected to Active Sign up page after clicking on 'Click Here' button">
 		<classes>
@@ -293,7 +294,7 @@
 			</class>
 		</classes>
 	</test>
- 
+ <!-- 
 	<test
 		name="A_SU_06: To verify that user is not able to Activate account twice from same link.">
 		<classes>
@@ -372,7 +373,7 @@
 	</test>
 
 	<test
-		name="A_SU_21: To verify that After clicking on 'Ok' button of successful message user is redirected to login page.">
+		name="A_SU_21- L_01: To verify that After clicking on 'Ok' button of successful message user is redirected to login page.">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
 				<methods>
@@ -393,5 +394,5 @@
 		</classes>
 	</test>
 	
-
+ -->
 </suite>

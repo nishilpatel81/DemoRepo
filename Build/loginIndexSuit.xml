@@ -22,6 +22,16 @@
 
 	</listeners>
 
+<test
+		name="L_01: To verify that After clicking on 'Ok' button of successful message user is redirected to login page.">
+		<classes>
+			<class name="com.zinghr.signup.index.SignupIndex">
+				<methods>
+					<include name="activateSuccessfully" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 
 	<test name="login page verification">
 		<classes>

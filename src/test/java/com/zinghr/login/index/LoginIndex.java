@@ -10,6 +10,34 @@ import com.zinghr.init.TestData;
 
 public class LoginIndex extends SeleniumInit {
 
+
+	@Test
+	public void loginpage() {
+
+		int numOfFailure = 0;
+		log("Step 1 : Open url:<a href="+testUrl+">"+testUrl+"</a>");
+		
+		
+		loginVerificationPage=loginIndexpage.loginlandingpage();
+		log("Verify that ZingHR login page is open or not.");
+		if(loginVerificationPage.loginlandingpageverification())
+		{
+				Common.logStatus("pass");
+		}
+		else				
+		{
+				Common.logStatus("fail");
+				numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+
+	
+	
 	@Test
 	public void loginlandingpage() {
 

@@ -573,14 +573,14 @@ public class SignupIndex extends SeleniumInit {
 		log("Test Case Id : SU_23 ");
 		log("Testcase Discription : Checkbox Checked-unchecked ");
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
-		log("Step 2: Enter company Name: " + TestData.rndmString(4));
+		log("Step 2: Enter company Name: " + s_company_name);
 		log("Step 3: Display Employee Name: " + s_display_name);
-		log("Step 4: Enter Email id: " + TestData.rndmemail(3));
+		log("Step 4: Enter Email id: " + emailt);
 		log("Step 5: Select any country");
 		log("Step 6: Enter Contact no: " + contact_no);
 		log("Step 7: Uncheck checkbox.");
 
-		signupVerification = signupIndexpage.checkbox();
+		signupVerification = signupIndexpage.checkbox(emailt,s_company_name,s_display_name,contact_no);
 
 		log("To verify that Alert message is displayed if user unchecked the Terms and condition checkbox");
 
@@ -604,14 +604,14 @@ public class SignupIndex extends SeleniumInit {
 		log("Test Case Id : A_SU_01 ");
 		log("Testcase Discription : SignUp successfully and 'Activation Page' verification.");
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
-		log("Step 2: Enter company Name: " + TestData.rndmString(4));
+		log("Step 2: Enter company Name: " + s_company_name);
 		log("Step 3: Display Employee Name: " + s_display_name);
-		log("Step 4: Enter Email id: " + TestData.rndmemail(2));
+		log("Step 4: Enter Email id: " + emailt);
 		log("Step 5: Select any country");
 		log("Step 6: Enter Contact no: " + contact_no);
 		log("Step 7: Click on 'Sign Up for 30 days trial' button.");
 
-		signupVerification = signupIndexpage.SignUpsuccessfully();
+		signupVerification = signupIndexpage.SignUpsuccessfully(emailt,s_company_name,s_display_name,contact_no);
 
 		log("To verify Activation page is open or not with Successfully SignUp.");
 
@@ -643,7 +643,7 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 6: Enter Contact no: " + contact_no);
 		log("Step 7: Click on 'Sign Up for 30 days trial' button.");
 
-		signupVerification = signupIndexpage.emailVerification(emailt);
+		signupVerification = signupIndexpage.emailVerification(emailt,s_company_name,s_display_name,contact_no);
 
 		log("To verify Activation page is open or not with Successfully SignUp.");
 
@@ -675,7 +675,7 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 6: Enter Contact no: " + contact_no);
 		log("Step 7: Click on 'Sign Up for 30 days trial' button.");
 
-		signupVerification = signupIndexpage.emailFormat(emailt);
+		signupVerification = signupIndexpage.emailFormat(emailt,s_company_name,s_display_name,contact_no);
 
 		log("To verify that the Email is in Proper format.");
 
@@ -707,7 +707,7 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 6: Enter Contact no: " + contact_no);
 		log("Step 7: Click on 'Sign Up for 30 days trial' button.");
 
-		signupVerification = signupIndexpage.emailFormat(emailt);
+		signupVerification = signupIndexpage.emailFormat(emailt,s_company_name,s_display_name,contact_no);
 
 		log("To verify that user is able to view 'Thank You message' and 'Click Here' button in Email");
 
@@ -738,8 +738,10 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 5: Select any country");
 		log("Step 6: Enter Contact no: " + contact_no);
 		log("Step 7: Click on 'Sign Up for 30 days trial' button.");
+		log("Step 8: Open activation mail.");
+		log("Step 9: Click on 'Click Here' button.");
 
-		signupVerification = signupIndexpage.emailClickbutton(emailt);
+		signupVerification = signupIndexpage.emailClickbutton(emailt,s_company_name,s_display_name,contact_no);
 
 		log("To verify that user is redirected to Active Sign up page after clicking on 'Click Here' button.");
 
@@ -779,7 +781,7 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 10: Enter Password: " + a_pswd);
 
 		signupVerification = signupIndexpage.activateTwice(emailt,
-				s_company_name, s_display_name, a_pswd, contact_no);
+				s_company_name, s_display_name, a_pswd, contact_no,account_name,account_name1);
 
 		log("To verify that user is not able to Activate account twice.");
 
@@ -806,7 +808,7 @@ public class SignupIndex extends SeleniumInit {
 		log("Test Case Id : A_SU_08 A_SU_10 ");
 		log("Testcase Discription : Click here button in email.");
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
-		log("Step 2: Enter company Name: " + TestData.rndmString(4));
+		log("Step 2: Enter company Name: " + s_company_name);
 		log("Step 3: Display Employee Name: " + s_display_name);
 		log("Step 4: Enter Email id: " + emailt);
 		log("Step 5: Select any country");
@@ -817,8 +819,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 10: Enter Password: " + a_pswd1);
 
 		String winHandleBefore = driver.getWindowHandle();
-		signupVerification = signupIndexpage.enterData(emailt, s_display_name,
-				a_pswd1);
+		signupVerification = signupIndexpage.enterData(emailt,s_company_name ,s_display_name,
+				a_pswd1,contact_no,account_name);
 
 		log("To verify that user is able to enter alphanumeric characters in Password field.");
 
@@ -865,7 +867,7 @@ public class SignupIndex extends SeleniumInit {
 		log("Test Case Id : A_SU_12 ");
 		log("Testcase Discription : Click here button in email.");
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
-		log("Step 2: Enter company Name: " + TestData.rndmString(4));
+		log("Step 2: Enter company Name: " + s_company_name);
 		log("Step 3: Display Employee Name: " + s_display_name);
 		log("Step 4: Enter Email id: " + emailt);
 		log("Step 5: Select any country");
@@ -873,10 +875,10 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 7: Click on 'Sign Up for 30 days trial' button.");
 		log("Step 8: Open ZingHR activation mail.");
 		log("Step 9: Click on 'Click Here' button in mail.");
-		log("Step 10: Enter Blank Password: " + TestData.blank);
+		log("Step 10: Enter Blank Password: " + blank);
 
-		signupVerification = signupIndexpage.blankPassword(emailt,
-				s_display_name, TestData.blank);
+		signupVerification = signupIndexpage.blankPassword(emailt,s_company_name ,s_display_name,
+				a_pswd1,contact_no,account_name);
 
 		log("To verify that Password field do not accept blank data.");
 
@@ -911,9 +913,10 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 7: Click on 'Sign Up for 30 days trial' button.");
 		log("Step 8: Open ZingHR activation mail.");
 		log("Step 9: Click on 'Click Here' button in mail.");
+		log("Step 10: Enter valid password.");
 
-		signupVerification = signupIndexpage.pswdStatus1(emailt,
-				s_display_name, a_pswd2);
+		signupVerification = signupIndexpage.pswdStatus1(emailt,s_company_name,
+				s_display_name, a_pswd2,contact_no,account_name);
 
 		log("To verify Password progress status as per user enter the password.");
 
