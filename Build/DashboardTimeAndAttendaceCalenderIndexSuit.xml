@@ -41,41 +41,25 @@
 		<methods> <include name="selectActionDropdownOptionsAvalibility" /> </methods> 
 		</class> </classes> </test> -->
 
-
-
-
-
-
-
-
-	<!-- <test name="TNA_21 : To test A Button Functionality"> <classes> <class 
-		name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> <methods> <include 
-		name="applyNowButtonFunctionalityOnRefulationPopup" /> </methods> </class> 
-		</classes> </test> -->
-
-
-	<test name="TNA_22 :  ">
+<!-- 	<test name="TNA_56 : To verify In time and Out Time should be blank by default and allow to enter time ">
 		<classes>
 			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
 				<methods>
-					<include name="byDefaultShiftNameAvailability" />
+					<include name="Regulerization_with_outdoor_intime_outtime_editable" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-
-
-
-	<!-- <test name="TNA_23,24 :  ">
-		<classes>
-			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
-				<methods>
-					<include name="mandatoryFieldvalidationOnRegularizationPopup" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-
  -->
+	<test name="TNA_56 : To verify In time and Out Time should be blank by default and allow to enter time ">
+		<classes>
+			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
+				<methods>
+					<include name="Outdoor_request_Cancel_View_option" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
 
 </suite>

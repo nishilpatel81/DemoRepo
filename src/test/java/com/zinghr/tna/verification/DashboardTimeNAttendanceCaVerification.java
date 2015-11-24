@@ -229,4 +229,37 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 		return bool;
 	}
 
+
+	 
+	 public boolean Regulerization_with_outdoor_intime_outtime_editable_verification() {
+		 
+		 WebElement intime = driver.findElement(By
+				    .xpath("//div[contains(@class,'DataVal')][" + dbTnaCalIndexPage.timeCounter
+				      + "]//input[@id='defaultEntryIn']"));
+		 
+		  WebElement outtime = driver.findElement(By
+				    .xpath("//div[contains(@class,'DataVal')][" + dbTnaCalIndexPage.timeCounter
+				      + "]//input[@id='defaultEntryOut']"));
+		 
+			if (intime.toString().length()>0 && outtime.toString().length()>0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	 
+	 
+	 @FindBy(xpath = ".//div[@id='dataGrid']/div[1]//a[contains(text(),'View')]")
+		WebElement view_btn;
+	 
+	 @FindBy(xpath = ".//div[@id='dataGrid']/div[1]//a[contains(text(),'Cancel')]")
+		WebElement cancel_btn;
+     public boolean Outdoor_request_Cancel_View_option_verification() {
+		 
+			if (view_btn.isDisplayed() && cancel_btn.isDisplayed()) {
+				return true;
+			} else {
+				return false;
+			}
+		} 
 }
