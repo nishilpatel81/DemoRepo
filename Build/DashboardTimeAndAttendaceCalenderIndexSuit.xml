@@ -35,47 +35,46 @@
 		</classes> </test> <test name="TNA_18,TNA_19 : To test Regularize Button 
 		Functionality"> <classes> <class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> 
 		<methods> <include name="regularizeButtonFunctionality" /> </methods> </class> 
-		</classes> </test> -->
-	<!-- <test name="TNA_20 : Select Action dropdown options availibility "> 
-		<classes> <class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> 
+		</classes> </test> <test name="TNA_20 : Select Action dropdown options availibility 
+		"> <classes> <class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> 
 		<methods> <include name="selectActionDropdownOptionsAvalibility" /> </methods> 
-		</class> </classes> </test> -->
+		</class> </classes> </test> <test name="TNA_21 : To test A Button Functionality"> 
+		<classes> <class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> 
+		<methods> <include name="applyNowButtonFunctionalityOnRegularizationPopup" 
+		/> </methods> </class> </classes> </test> -->
 
-
-
-
-
-
-
-
-	<!-- <test name="TNA_21 : To test A Button Functionality"> <classes> <class 
-		name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> <methods> <include 
-		name="applyNowButtonFunctionalityOnRefulationPopup" /> </methods> </class> 
+	<!-- <test name="TNA_22 : "> <classes> <class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> 
+		<methods> <include name="byDefaultShiftNameAvailability" /> </methods> </class> 
 		</classes> </test> -->
 
 
-	<test name="TNA_22 :  ">
+
+	<!-- <test name="TNA_23,24 : "> <classes> <class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> 
+		<methods> <include name="mandatoryFieldvalidationOnRegularizationPopup" /> 
+		</methods> </class> </classes> </test> -->
+
+	<!-- <test name="TNA_28 : "> <classes> <class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex"> 
+		<methods> <include name="totalWorkedHoursCalculation" /> </methods> </class> 
+		</classes> </test> -->
+
+	<!-- <test name="TNA_29,TNA_30 :  ">
 		<classes>
 			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
 				<methods>
-					<include name="byDefaultShiftNameAvailability" />
+					<include name="applyRegularizationfunctionality" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-
-
-
-	<!-- <test name="TNA_23,24 :  ">
-		<classes>
-			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
-				<methods>
-					<include name="mandatoryFieldvalidationOnRegularizationPopup" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-
  -->
+	<test name="TNA_32 :  ">
+		<classes>
+			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
+				<methods>
+					<include name="defaultShiftInAndOutTime" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 
 </suite>

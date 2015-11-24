@@ -8,9 +8,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import com.zinghr.init.AbstractPage;
 import com.zinghr.init.Common;
+import com.zinghr.tna.indexPage.DashboardTimeNAttendanceCaIndexPage;
 
 public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 
@@ -224,6 +226,141 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 		if (getAllOption.size() > 0) {
 			bool = true;
 
+		}
+
+		return bool;
+	}
+
+	public boolean verifyTotalWorkingHours() {
+
+		WebElement workingHours = driver.findElement(By
+				.xpath("//div[contains(@class,'DataVal')]["
+						+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+						+ "]//div[4]"));
+
+		return workingHours.getText().equals("9:00 hrs");
+	}
+
+	public boolean verifyRegularazationReasonDropDownIsDisplayed() {
+
+		return driver.findElement(
+				By.xpath("//div[contains(@class,'DataVal')]["
+						+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+						+ "]//select[@id='ReasonSelect']")).isDisplayed();
+	}
+
+	public boolean verifyRegularazationReasonDropDownoptionIsDisplayed() {
+
+		System.out.println("Time counter "
+				+ DashboardTimeNAttendanceCaIndexPage.timeCounter);
+
+		return driver
+				.findElement(
+						By.xpath("//div[contains(@class,'DataVal')]["
+								+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+								+ "]//select[@id='ReasonSelect']/option[contains(.,'Late Arrival')]"))
+				.isDisplayed()
+				&& driver
+						.findElement(
+								By.xpath("//div[contains(@class,'DataVal')]["
+										+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+										+ "]//select[@id='ReasonSelect']/option[contains(.,'Missed Swipe')]"))
+						.isDisplayed()
+				&& driver
+						.findElement(
+								By.xpath("//div[contains(@class,'DataVal')]["
+										+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+										+ "]//select[@id='ReasonSelect']/option[contains(.,'Outdoor/Client Visit')]"))
+						.isDisplayed()
+				&& driver
+						.findElement(
+								By.xpath("//div[contains(@class,'DataVal')]["
+										+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+										+ "]//select[@id='ReasonSelect']/option[contains(.,'PunchIn Approval')]"))
+						.isDisplayed()
+				&& driver
+						.findElement(
+								By.xpath("//div[contains(@class,'DataVal')]["
+										+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+										+ "]//select[@id='ReasonSelect']/option[contains(.,'Others')]"))
+						.isDisplayed();
+	}
+
+	public boolean verifyRegularazationReasonDropDownoptionIsDisplayedonce() {
+
+		boolean bool = true;
+		int numOfFailure = 0;
+		int lateArrivalCounter = 0;
+		int missedSwipeCounter = 0;
+		int outdoorClientvisitCounter = 0;
+		int punchInApproval = 0;
+
+		List<WebElement> regularazationDropdown_list = driver.findElements(By
+				.xpath("//div[contains(@class,'DataVal')]["
+						+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+						+ "]//select[@id='ReasonSelect']/option"));
+
+		for (WebElement e : regularazationDropdown_list) {
+
+			if (e.getText().equals("Late Arrival")) {
+				lateArrivalCounter++;
+			}
+
+			if (e.getText().equals("Missed Swipe")) {
+				missedSwipeCounter++;
+			}
+
+			if (e.getText().equals("Outdoor/Client Visit")) {
+				outdoorClientvisitCounter++;
+			}
+
+			if (e.getText().equals("PunchIn Approval")) {
+				punchInApproval++;
+			}
+
+		}
+
+		if (lateArrivalCounter > 1) {
+			log("late Arrival Option is duplicated");
+
+			numOfFailure++;
+		}
+		if (missedSwipeCounter > 1) {
+
+			log("Missed Swipe Option is duplicated");
+			numOfFailure++;
+		}
+		if (outdoorClientvisitCounter > 1) {
+
+			log("Outdoor/Client Visit Option is duplicated");
+			numOfFailure++;
+		}
+		if (punchInApproval > 1) {
+
+			log("PunchIn Approval Option is duplicated");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			bool = false;
+		}
+
+		return bool;
+
+	}
+
+	public boolean verifyByDefaultInAndOutTimeValue() {
+		boolean bool = false;
+
+		WebElement intime = driver.findElement(By
+				.xpath("//div[contains(@class,'DataVal')]["
+						+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+						+ "]//input[@id='defaultEntryIn']"));
+
+		System.out.println("Intime : " + intime.getText());
+
+		if (!intime.getText().equals(null)) {
+			bool = true;
 		}
 
 		return bool;

@@ -27,7 +27,44 @@
 		<classes>
 			<class name="com.zinghr.tna.index.OASIndex">
 				<methods>
-					<include name="To_verify_the_contents_of_the_title" />
+					<include name="To_verify_the_contents_of_the_page" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="To verify select all records functionality">
+		<classes>
+			<class name="com.zinghr.tna.index.OASIndex">
+				<methods>
+					<include name="To_verify_select_all_functionality" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="To verify No records found message is displayed but the search text box is not display.">
+		<classes>
+			<class name="com.zinghr.tna.index.OASIndex">
+				<methods>
+					<include name="no_result_found_alert_for_find_textbox" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="To verify Total Absent, Present and Leave count is getting display">
+		<classes>
+			<class name="com.zinghr.tna.index.OASIndex">
+				<methods>
+					<include name="total_absent_present_numberlist" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="To verify Save as Draft, Apply Rules and Send for Approval tabs are getting display">
+		<classes>
+			<class name="com.zinghr.tna.index.OASIndex">
+				<methods>
+					<include name="Save_as_Draft_Apply_Rules_Send_Approval_tabs" />
 				</methods>
 			</class>
 		</classes>

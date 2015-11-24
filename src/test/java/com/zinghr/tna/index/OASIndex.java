@@ -31,6 +31,7 @@ public class OASIndex extends SeleniumInit {
 		if (numOfFailure > 0) {
 			Assert.assertTrue(false);
 		}
+		
 
 	}
 	
@@ -87,7 +88,7 @@ public class OASIndex extends SeleniumInit {
 	
 	
 	@Test
-	public void To_verify_the_contents_of_the_title()
+	public void To_verify_the_contents_of_the_page()
 	{
 		int numOfFailure = 0;
 		
@@ -148,9 +149,109 @@ public class OASIndex extends SeleniumInit {
 			numOfFailure++;
 		}
 		
+		
+		log("To verify that OAS page contains Week coloumn with dates.");
+		if(oasVerificationPage.previous_next_month_verification())
+		{
+			Common.logStatus("pass");
+		}
+		else
+		{
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
 		if (numOfFailure > 0) {
 			Assert.assertTrue(false);
 		}
 	}
-
+	
+	@Test
+	public void To_verify_select_all_functionality()
+	{
+		int numOfFailure = 0;
+		
+		OASlandingpage();
+		oasVerificationPage=oasIndexPage.To_verify_select_all_functionality();
+		log("To verify select all records");
+		if(oasVerificationPage.To_verify_select_all_functionality_verification())
+		{
+			Common.logStatus("pass");
+		}
+		else
+		{
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+	}
+	@Test
+	public void no_result_found_alert_for_find_textbox()
+	{
+		int numOfFailure = 0;
+		
+		OASlandingpage();
+		oasVerificationPage=oasIndexPage.no_result_found_alert_for_find_textbox();
+		log("To verify No records found message is displayed but the search text box is not display.");
+		if(oasVerificationPage.no_result_found_alert_for_find_textbox_verification())
+		{
+			Common.logStatus("pass");
+		}
+		else
+		{
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+	}
+	@Test
+	public void total_absent_present_numberlist()
+	{
+		int numOfFailure = 0;
+		
+		OASlandingpage();
+		oasVerificationPage=oasIndexPage.total_absent();
+		log("To verify Total Absent, Present & Leave count is getting display");
+		if(oasVerificationPage.total_absent_verification())
+		{
+			Common.logStatus("pass");
+		}
+		else
+		{
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+	}
+	@Test
+	public void Save_as_Draft_Apply_Rules_Send_Approval_tabs()
+	{
+		int numOfFailure = 0;
+		
+		OASlandingpage();
+		oasVerificationPage=oasIndexPage.Save_as_Draft_Apply_Rules_Send_Approval_tabs();
+		log("To verify Save as Draft, Apply Rules & Send for Approval tabs are getting display");
+		if(oasVerificationPage.Save_as_Draft_Apply_Rules_Send_Approval_tabs_verification())
+		{
+			Common.logStatus("pass");
+		}
+		else
+		{
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+	}
 }
