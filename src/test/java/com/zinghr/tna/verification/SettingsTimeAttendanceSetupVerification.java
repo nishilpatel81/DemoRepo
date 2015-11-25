@@ -452,4 +452,6 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 		
 		return shiftTotal_time.isDisplayed();
 	}
+	
+	
 }

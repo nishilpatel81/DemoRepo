@@ -950,6 +950,8 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 			Assert.assertTrue(false);
 		}
 
-	}			
+	}		
+	
+	
 	
 }
