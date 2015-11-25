@@ -77,87 +77,180 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 	}
 
 	@FindBy(xpath = "//div[contains(@class,'DataVal')]//select[contains(@class,'typereg')]")
-	List<WebElement> selectAction_dropdown;
+	 List<WebElement> selectAction_dropdown;
 
-	public static int counter = 0;
+	 public static int counter = 0;
 
-	public static int timeCounter = 0;
+	 public static int timeCounter = 0;
 
-	public DashboardTimeNAttendanceCaVerification selectValueOfSelectionActionDropdown(
-			String value) {
+	 public DashboardTimeNAttendanceCaVerification selectValueOfSelectionActionDropdown(
+	   String value) {
 
-		for (WebElement e : selectAction_dropdown) {
+	  for (WebElement e : selectAction_dropdown) {
 
-			List<WebElement> getAllOption = e.findElements(By.xpath("option"));
+	   List<WebElement> getAllOption = e.findElements(By.xpath("option"));
 
-			System.out.println("Select Element " + e + " option elemt size "
-					+ getAllOption.size());
+	   System.out.println("Select Element " + e + " option elemt size "
+	     + getAllOption.size());
 
-			Common.highlightElement(driver, e);
+	   Common.scrollToVertical(driver, e);
+	   Common.highlightElement(driver, e);
+	   for (WebElement optionElement : getAllOption) {
 
-			for (WebElement optionElement : getAllOption) {
+	    System.out.println("optionElement.getText() : "
+	      + optionElement.getText());
 
-				System.out.println("optionElement.getText() : "
-						+ optionElement.getText());
+	    if (optionElement.getText().equals(value)) {
 
-				if (optionElement.getText().equals(value)) {
+	     Common.selectFromComboByVisibleElement(e, value);
+	     
+	     counter++;
+	    }
 
-					Common.selectFromComboByVisibleElement(e, value);
+	    if (counter > 0) {
+	     break;
+	    }
 
-					counter++;
-				}
+	   }
 
-				if (counter > 0) {
-					break;
-				}
+	   timeCounter++;
 
-			}
+	   if (counter > 0) {
+	    break;
+	   }
 
-			timeCounter++;
+	  }
 
-			if (counter > 0) {
-				break;
-			}
+	  return new DashboardTimeNAttendanceCaVerification(driver);
+	 }
 
+	 public DashboardTimeNAttendanceCaVerification enterInInTime(String value) {
+
+	  System.out.println("Time counter " + timeCounter);
+
+	  WebElement intime = driver.findElement(By
+	    .xpath("//div[contains(@class,'DataVal')][" + timeCounter
+	      + "]//input[@id='defaultEntryIn']"));
+
+	  Common.type(intime, value);
+
+	  return new DashboardTimeNAttendanceCaVerification(driver);
+	 }
+
+	 public DashboardTimeNAttendanceCaVerification enterInOutTime(String value) {
+
+	  WebElement outtime = driver.findElement(By
+	    .xpath("//div[contains(@class,'DataVal')][" + timeCounter
+	      + "]//input[@id='defaultEntryOut']"));
+
+	  Common.type(outtime, value);
+
+	  return new DashboardTimeNAttendanceCaVerification(driver);
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+
+	 
+	 
+	 
+	 	@FindBy(xpath = "//button[contains(text(),'OK')]")
+		WebElement ok_button;
+		
+	 	@FindBy(xpath = "//i[@id='popupclose']/..")
+		WebElement pop_close_btn;
+	 
+	 	@FindBy(xpath = ".//li[@id='header-user']//span[1]")
+		WebElement Username_drop_down;
+		
+		@FindBy(xpath = ".//div[@id='dataGrid']/div[1]//a[contains(text(),'View')]")
+		WebElement view_btn;
+		
+		@FindBy(xpath = ".//li[@id='header-user']//a[contains(text(),'My Transaction History')]")
+		WebElement My_trasection_history_menu;
+		
+		@FindBy(xpath = ".//a[@id='btnPending']")
+		WebElement panding_btn;
+		
+	 public SettingsTimeAttendanceSetupVerification Outdoor_request_Cancel_View_option() {
+			Common.pause(1);
+			
+			
+			Common.clickOn(driver, ok_button);
+			Common.pause(2);
+			Common.clickOn(driver, pop_close_btn);
+			Common.pause(2);
+			Common.clickOn(driver, Username_drop_down);
+			Common.pause(2);
+			Common.clickOn(driver, My_trasection_history_menu);
+			Common.pause(2);
+			Common.clickOn(driver, panding_btn);
+			Common.pause(2);
+			return new SettingsTimeAttendanceSetupVerification(driver);
 		}
-
-		return new DashboardTimeNAttendanceCaVerification(driver);
-	}
-
-	public DashboardTimeNAttendanceCaVerification enterInInTime(String value) {
-
-		System.out.println("Time counter " + timeCounter);
-
-		WebElement intime = driver.findElement(By
-				.xpath("//div[contains(@class,'DataVal')][" + timeCounter
-						+ "]//input[@id='defaultEntryIn']"));
-
-		Common.type(intime, value);
-
-		return new DashboardTimeNAttendanceCaVerification(driver);
-	}
-
-	public DashboardTimeNAttendanceCaVerification enterInOutTime(String value) {
-
-		WebElement outtime = driver.findElement(By
-				.xpath("//div[contains(@class,'DataVal')][" + timeCounter
-						+ "]//input[@id='defaultEntryOut']"));
-
-		Common.type(outtime, value);
-
-		return new DashboardTimeNAttendanceCaVerification(driver);
-	}
-
-	public DashboardTimeNAttendanceCaVerification clickOnTotalworkingHourLable() {
-
-		WebElement workingHours = driver.findElement(By
-				.xpath("//div[contains(@class,'DataVal')]["
-						+ DashboardTimeNAttendanceCaIndexPage.timeCounter
-						+ "]//div[4]"));
-
-		Common.clickOn(driver, workingHours);
-
-		return new DashboardTimeNAttendanceCaVerification(driver);
-	}
+		
 
 }

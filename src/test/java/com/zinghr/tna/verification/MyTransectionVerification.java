@@ -18,6 +18,12 @@ public class MyTransectionVerification extends AbstractPage{
 	@FindBy(xpath = ".//span[contains(text(),'Regularization Approval')]")
 	WebElement Regularization_approval;
 	
+	@FindBy(xpath = ".//span[contains(text(),'Apply OutDoor')]")
+	WebElement Apply_outdoor;
+	
+	@FindBy(xpath = ".//span[contains(text(),'Remarks for Cancel')]")
+	WebElement Remark_for_Cancel;
+	
 	public boolean check_time_and_attendance_page_verification() {
 		if (view_btn.isDisplayed()) {
 			return true;
@@ -29,6 +35,22 @@ public class MyTransectionVerification extends AbstractPage{
 	
 	public boolean check_Reguleriztion_lbl_after_click_view_button_ontime_and_attendance_page_verification() {
 		if (Regularization_approval.isDisplayed() ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean check_Reguleriztion_cancel_button_verification() {
+		if (Remark_for_Cancel.isDisplayed() ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean check_Reguleriztion_view_button_verification() {
+		if (Apply_outdoor.isDisplayed() ) {
 			return true;
 		} else {
 			return false;

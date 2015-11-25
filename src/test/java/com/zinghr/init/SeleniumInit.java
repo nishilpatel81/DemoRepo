@@ -74,27 +74,30 @@ public class SeleniumInit {
 	public static String osName = "";
 	public static String browserVersion = "";
 
-	protected LoginIndexPage loginIndexpage;
-	protected LoginVerificationPage loginVerificationPage;
-	protected SignupIndexPage signupIndexpage;
-	protected SignupVerificationPage signupVerification;
-	protected MyTransectionIndexpage myTransectionIndexpage;
-	protected MyTransectionVerification myTransectionVerification;
+	public LoginIndexPage loginIndexpage;
+	public LoginVerificationPage loginVerificationPage;
+	public SignupIndexPage signupIndexpage;
+	public SignupVerificationPage signupVerification;
+	public MyTransectionIndexpage myTransectionIndexpage;
+	public MyTransectionVerification myTransectionVerification;
+	public DashboardTimeNAttendanceCaIndexPage dbTnaCalIndexPage;
+	public DashboardTimeNAttendanceCaVerification dbTnaCalVerificationPage;
+	
+
+	public SettingsTimeAttendanceSetupIndexPage taSetupIndexPage;
+	public SettingsTimeAttendanceSetupVerification taSetupVerificationPage;
+	public OASIndexPage oasIndexPage;
+	public OASVerificationPage oasVerificationPage;
+	
+	
 	
 	protected static String screenshot_folder_path = null;
 	public static String currentTest; // current running test
 
 	protected static Logger logger = Logger.getLogger("testing");
 	protected WebDriver driver;
-	protected DashboardTimeNAttendanceCaIndexPage dbTnaCalIndexPage;
-	protected DashboardTimeNAttendanceCaVerification dbTnaCalVerificationPage;
 	
-
-	public SettingsTimeAttendanceSetupIndexPage taSetupIndexPage;
-	public SettingsTimeAttendanceSetupVerification taSetupVerificationPage;
-	protected OASIndexPage oasIndexPage;
-	protected OASVerificationPage oasVerificationPage;
-
+	
 	// Common Common = new Common(driver);
 
 	/* Page's declaration */
