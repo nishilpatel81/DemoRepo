@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.zinghr.init.AbstractPage;
 import com.zinghr.init.Common;
+import com.zinghr.init.TestData;
 
 public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 
@@ -450,8 +451,62 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 	
 	public boolean verifyShiftTotalTimevalue() {
 		
-		return shiftTotal_time.isDisplayed();
+		String time = shiftTotal_time1.getAttribute("");
+		if (TestData.total_time.equalsIgnoreCase(time))
+		{
+			return true;
+		}
+		else
+		{
+			System.out.println("======-_-_-_-_Wrong Time_-_-_-_-=======");
+			return false;
+		}
 	}
 	
+	@FindBy(xpath = "")
+	WebElement swipe_seperator;
+	
+	public boolean verifySwipeSeperator() {
+		return swipe_seperator.isDisplayed() && swipe_seperator.toString().equalsIgnoreCase(TestData.swipe_value);
+	}
+	
+	@FindBy(xpath = "")
+	WebElement employee_value1_outdoor;
+	@FindBy(xpath = "")
+	WebElement employee_value2_regularize;
+	@FindBy(xpath = "")
+	WebElement employee_value3_shift;
+	@FindBy(xpath = "")
+	WebElement employee_value4_extra;
+	@FindBy(xpath = "")
+	WebElement employee_value5_coff;
+	
+	public boolean verifyEmployeeValueOutdoorChecked() {
+		return employee_value1_outdoor.isSelected();
+	}
+	public boolean verifyEmployeeValueRegChecked() {
+		return employee_value2_regularize.isSelected();
+	}
+	public boolean verifyEmployeeValueShiftChecked() {
+		return employee_value3_shift.isSelected();
+	}
+	public boolean verifyEmployeeValueExtraChecked() {
+		return employee_value4_extra.isSelected();
+	}
+	public boolean verifyEmployeeValueCoffChecked() {
+		return employee_value5_coff.isSelected();
+	}
+	
+	@FindBy(xpath = "")
+	WebElement outdoor_btn_dashboard;
+	public boolean verifyOutdoorBtnDashboard() {
+		
+		if(!outdoor_btn_dashboard.isDisplayed()){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 	
 }

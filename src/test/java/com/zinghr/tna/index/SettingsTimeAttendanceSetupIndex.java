@@ -852,11 +852,11 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 	
 		}
 		
-		
+/* Method by tarpan: 25-nov 		*/
 	@Test
 	public void selectfollowShiftRostering() {
 		int numOfFailure = 0;
-		log("Testcase Id :Setup_32 Setup_38 Setup_39 Setup_43 ");
+		log("Testcase Id :Setup_32 Setup_38 Setup_39 Setup_43 Setup_44 Setup_46 ");
 		log("Testcase Discription :  ");
 
 		log("Step 1: Open url:<a>" + testUrl + "</a>");
@@ -885,6 +885,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 			numOfFailure++;
 		}
 		
+/* <<<<<<<<<Testcase Id: SetUp_32>>>>>>>>*/			
 		log("Step 12: Enter alphanumeric value in 'Shift name' field. "+TestData.shift_name);
 		
 		taSetupVerificationPage = taSetupIndexPage.enterShiftName(TestData.shift_name);
@@ -897,7 +898,8 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 			Common.logStatus("fail");
 			numOfFailure++;
 		}
-		
+	
+/* <<<<<<<<<Testcase Id: SetUp_38>>>>>>>>*/		
 		log("Step 13: Enter numeric value in 'Shift In_time' field. "+TestData.intime);
 
 		taSetupVerificationPage = taSetupIndexPage.enterInTime(TestData.intime);
@@ -911,7 +913,8 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 			Common.logStatus("fail");
 			numOfFailure++;
 		}
-
+		
+/* <<<<<<<<<Testcase Id: SetUp_39>>>>>>>>*/
 		log("Step 12: Enter numeric value in 'Shift Out_time' field. "+TestData.outtime);
 
 		taSetupVerificationPage = taSetupIndexPage.enterOutTime(TestData.outtime);
@@ -925,7 +928,8 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 			Common.logStatus("fail");
 			numOfFailure++;
 		}
-		
+
+/* <<<<<<<<<Testcase Id: SetUp_43>>>>>>>>*/
 		log("To verify that 'Shift Total Minutes' should be readonly mode.");
 		
 		if (taSetupVerificationPage.verifyShiftTotalTime()) {
@@ -935,8 +939,9 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 			Common.logStatus("fail");
 			numOfFailure++;
 		}
-		
-		log("");
+
+/* <<<<<<<<<Testcase Id: 44>>>>>>>>*/
+		log("Shift Total Minutes' should calculate the total mind from In Time & Out Time.");
 		
 		if (taSetupVerificationPage.verifyShiftTotalTimevalue()) {
 			Common.logStatus("pass");
@@ -949,9 +954,112 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 		if (numOfFailure > 0) {
 			Assert.assertTrue(false);
 		}
+		
+/* <<<<<<<<<Testcase Id: 46>>>>>>>>*/
+		log("Step 13: Enter numeric value into 'Swpie Seperator Parameter' field. "+TestData.swipe_value);
+
+		taSetupVerificationPage = taSetupIndexPage.enterSwipeSeperator(TestData.swipe_value);
+
+		log("To verify 'Swipe Separator Parameter' text box should be present & should accept only numeric values.");
+		
+		if (taSetupVerificationPage.verifySwipeSeperator()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
 
 	}		
+
+/*--- Method by tarpan: 25-nov ______-----*/
+	@Test
+	public void allowEmployeeForApply() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_55 Setup_56");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
 	
+		taSetupVerificationPage = taSetupIndexPage.empoloyeeApply();
+
+		log("To verify that by default following values should be selected in the check box:");
+		log("Outdoor / Work from Home Requests");
+		if (taSetupVerificationPage.verifyEmployeeValueOutdoorChecked()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		log("Regularization");
+		if (taSetupVerificationPage.verifyEmployeeValueRegChecked()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		log("Shift / Weekly Off Change Requests");
+		if (taSetupVerificationPage.verifyEmployeeValueShiftChecked()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		log("Extra Time");
+		if (taSetupVerificationPage.verifyEmployeeValueExtraChecked()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		log("Compensatory Off");
+		if (taSetupVerificationPage.verifyEmployeeValueCoffChecked()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		log("Step 10: Uncheck ");
+		
+		taSetupVerificationPage = taSetupIndexPage.empoloyeeApplyOutdoorunchecked();
+		log("To verify if the check box for Outdoor/WFH is unchecked, it should not be displayed on the Dashboard calender.");
 	
+		if (taSetupVerificationPage.verifyOutdoorBtnDashboard()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+	}
 	
 }

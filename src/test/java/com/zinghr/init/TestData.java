@@ -17,8 +17,8 @@ public class TestData {
 	public static String outtime = "18:00";*/
 	
 	public static String shift_name = "abcd123";
-	public static String intime = "08:30";
-	public static String outtime = "17:30";
+	/*public static String intime = "08:30";
+	public static String outtime = "17:30";*/
 	
 	public static String company_code_se = "AMBUJA";
 	public static String employe_code_se = "ADMIN";
@@ -76,7 +76,24 @@ public class TestData {
 	public static String email_s = "tarpan999@mailinator.com";
 	public static String contactno_s = "9429186891";
 	public static String invalidContactno = "dsjh(*&^(^("; 
+	public static String swipe_value = "12345";
 	
 	public static String lessthan3 = rndmString(2);
 	public static String largeContactNum = new StringBuilder(14).append(rndmNumber(14)).append(rndmNumber(14)).toString(); 
+
+	public static int randBetween(int start, int end) {
+        return start + (int)Math.round(Math.random() * (end - start));
+    }
+	static int hour1 = TestData.randBetween(7, 12); //Hours will be displayed in between 9 to 22
+    static int min = TestData.randBetween(0, 59);
+    
+    static int hour2 = TestData.randBetween(13, 20);
+
+    public static String intime = hour1+":"+min;
+    public static String outtime = hour2+":"+min;
+   
+
+  public static int diff = (((hour2)*60)+min)-(((hour1)*60)+min);
+    
+    public static String total_time = Integer.toString(diff) ;
 }

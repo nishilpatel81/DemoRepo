@@ -267,7 +267,41 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 	
+	public SettingsTimeAttendanceSetupVerification enterSwipeSeperator(String value) {
+		
+		Common.clickOn(driver, shiftOut_time);
+		Common.type(shiftOut_time, value);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
 	
-	
+	public SettingsTimeAttendanceSetupVerification empoloyeeApply()
+	{
+		clickSettingsIcon();
+		clickTimeAndAttendenseFromCircle();
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
 
+	@FindBy(xpath = "")
+	WebElement home_icon;
+	public SettingsTimeAttendanceSetupVerification goToDashboard()
+	{
+		Common.clickOn(driver, home_icon);
+		Common.pause(2);
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	@FindBy(xpath = "")
+	WebElement outdoor_checkbox;
+	@FindBy(xpath = "")
+	WebElement save;
+	public SettingsTimeAttendanceSetupVerification empoloyeeApplyOutdoorunchecked()
+	{
+		Common.clickOn(driver, outdoor_checkbox);
+		Common.clickOn(driver, save);
+		goToDashboard();
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	
 }
