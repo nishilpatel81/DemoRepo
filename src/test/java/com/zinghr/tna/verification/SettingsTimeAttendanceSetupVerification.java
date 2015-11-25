@@ -399,4 +399,57 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 				&& shiftTimeTo_textfield.equals("17:00");
 	}
 
+
+	@FindBy(xpath = "")
+	WebElement checked_marking_manager;
+
+	public boolean verifyMarkingManagerChecked() {
+
+		return checked_marking_manager.isDisplayed();
+	}
+	
+
+	@FindBy(xpath = "")
+	WebElement shift_master_link;
+
+	public boolean verifyShiftMasterLink() {
+
+		return shift_master_link.isDisplayed();
+	}
+	
+	@FindBy(xpath = "")
+	WebElement shift_name;
+
+	public boolean verifyShiftName() {
+		return shiftName_textfield.isDisplayed();
+	}
+	
+	@FindBy(xpath = "")
+	WebElement shiftIn_time;
+	
+	public boolean verifyShiftInTime() {
+		return shiftIn_time.isDisplayed();
+	}
+	
+	@FindBy(xpath = "")
+	WebElement shiftOut_time;
+	
+	public boolean verifyShiftOutTime() {
+		return shiftOut_time.isDisplayed();
+	}
+	
+	@FindBy(xpath = "")
+	WebElement shiftTotal_time;
+	
+	public boolean verifyShiftTotalTime() {
+		return shiftTotal_time.isDisplayed();
+	}
+	
+	@FindBy(xpath = "")
+	WebElement shiftTotal_time1;
+	
+	public boolean verifyShiftTotalTimevalue() {
+		
+		return shiftTotal_time.isDisplayed();
+	}
 }

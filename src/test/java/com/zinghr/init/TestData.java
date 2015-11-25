@@ -13,9 +13,12 @@ public class TestData {
 	public static String company_code_dl = "KIWIQA123";
 	public static String employe_code_dl = "Admin123";
 	public static String password_dl = "Admin@1234";
-	public static String intime = "12:00";
-	public static String outtime = "18:00";
+/*	public static String intime = "12:00";
+	public static String outtime = "18:00";*/
 	
+	public static String shift_name = "abcd123";
+	public static String intime = "08:30";
+	public static String outtime = "17:30";
 	
 	public static String company_code_se = "AMBUJA";
 	public static String employe_code_se = "ADMIN";

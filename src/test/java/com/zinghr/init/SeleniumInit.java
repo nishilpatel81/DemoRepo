@@ -51,6 +51,7 @@ public class SeleniumInit {
 	public String large_contact_no = TestData.largeContactNum;
 	public String invalid_email = TestData.rndm_invalid_email(2);
 	public String blank = " ";
+	public String account_name1 = s_company_name + "test";
 	public String s_display_name = TestData.rndmString(6);
 	public String account_name = s_company_name + "test";
 	public String a_pswd2 = "T";

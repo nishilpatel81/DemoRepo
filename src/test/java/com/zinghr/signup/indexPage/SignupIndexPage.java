@@ -286,17 +286,16 @@ public SignupVerificationPage enterActivationcode(String a)
 	return new SignupVerificationPage(driver);
 }
 
-	public SignupVerificationPage SignUpsuccessfully() 
+	public SignupVerificationPage SignUpsuccessfully(String email, String cmp_name, String display_name,String no) 
 	{
 
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(4));
-		enterDisplayName(TestData.rndmString(6));
+		enterCompanyCode(s_company_name);
+		enterDisplayName(s_display_name);
 		Common.pause(2);
-		enterEmailid(TestData.rndmemail(3));
-		selectcountry();
-		selectcountry();
-		entercontactno(TestData.contactno_s);
+		enterEmailid(emailt);
+		selectOthercountry();
+		entercontactno(no);
 		clicksignup30days();
 	
 		return new SignupVerificationPage(driver);
@@ -310,8 +309,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email);
-		selectcountry();
-		selectcountry();
+		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
 	
@@ -325,8 +323,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email);
-		selectcountry();
-		selectcountry();
+		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
 		return new SignupVerificationPage(driver);
@@ -339,8 +336,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email);
-		selectcountry();
-		selectcountry();
+		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
 		return new SignupVerificationPage(driver);
@@ -352,8 +348,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email);
-		selectcountry();
-		selectcountry();
+		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
 		return new SignupVerificationPage(driver);
@@ -367,8 +362,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email);
-		selectcountry();
-		selectcountry();
+		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
 	
@@ -382,8 +376,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email);
-		selectcountry();
-		selectcountry();
+		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
 		return new SignupVerificationPage(driver);
@@ -396,8 +389,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email);
-		selectcountry();
-		selectcountry();
+		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
 		return new SignupVerificationPage(driver);
@@ -411,8 +403,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email);
-		selectcountry();
-		selectcountry();
+		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
 	
@@ -427,8 +418,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email);
-		selectcountry();
-		selectcountry();
+		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
 	
@@ -443,8 +433,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email);
-		selectcountry();
-		selectcountry();
+		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
 	
@@ -557,17 +546,17 @@ public SignupVerificationPage enterActivationcode(String a)
 		return new SignupVerificationPage(driver);
 	}
 	
-	public SignupVerificationPage checkbox()
+	public SignupVerificationPage checkbox(String email, String cmp_name,String display_name,String no)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(4));
-		enterDisplayName(TestData.rndmString(6));
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
-		enterEmailid(TestData.rndmemail(2));
+		enterEmailid(email);
 		
 		selectOthercountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		
 		checkCheckbox();
 		clicksignup30days();
@@ -575,16 +564,16 @@ public SignupVerificationPage enterActivationcode(String a)
 		return new SignupVerificationPage(driver);
 	}
 	
-	public SignupVerificationPage emailVerification(String email2)
+	public SignupVerificationPage emailVerification(String email2,String cmp_name,String display_name,String no)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(4));
-		enterDisplayName(TestData.rndmString(6));
+		enterCompanyCode(s_company_name);
+		enterDisplayName(s_display_name);
 		Common.pause(2);
 		enterEmailid(email2);
 		selectOthercountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		clicksignup30days();
 		clickGoButton(email2);
 		/*Common.clickOn(driver, mail);
@@ -593,16 +582,16 @@ public SignupVerificationPage enterActivationcode(String a)
 		return new SignupVerificationPage(driver);
 	}
 	
-	public SignupVerificationPage emailFormat(String email2)
+	public SignupVerificationPage emailFormat(String email2,String cmp_name,String display_name,String no)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(4));
-		enterDisplayName(TestData.rndmString(6));
+		enterCompanyCode(s_company_name);
+		enterDisplayName(s_display_name);
 		Common.pause(2);
 		enterEmailid(email2);
 		selectOthercountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		clicksignup30days();
 		clickGoButton(email2);
 		clickMail(email2);
@@ -611,17 +600,17 @@ public SignupVerificationPage enterActivationcode(String a)
 		return new SignupVerificationPage(driver);
 	}
 	
-	public SignupVerificationPage emailClickbutton(String email2)
+	public SignupVerificationPage emailClickbutton(String email2,String cmp_name,String display_name,String no)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(4));
-		enterDisplayName(TestData.rndmString(6));
+		enterCompanyCode(s_company_name);
+		enterDisplayName(s_display_name);
 		Common.pause(2);
 		enterEmailid(email2);
 		
 		selectOthercountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		
 		clicksignup30days();
 		clickGoButton(email2);
@@ -632,12 +621,12 @@ public SignupVerificationPage enterActivationcode(String a)
 	}
 	
 	
-	public SignupVerificationPage activateTwice(String email2,String cmp_name ,String ac_name, String pswd, String no)
+	public SignupVerificationPage activateTwice(String email2,String cmp_name ,String display_name, String pswd, String no, String ac_name, String ac_name1)
 	{
 
 		Common.pause(2);
 		enterCompanyCode(cmp_name);
-		enterDisplayName(ac_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email2);
 		
@@ -656,24 +645,24 @@ public SignupVerificationPage enterActivationcode(String a)
 	//	driver.switchTo().defaultContent();
 		Common.pause(2);
 		clickHereButton();
-		enterAccountName(ac_name);
+		enterAccountName(ac_name1);
 		enterPassword(pswd);
 		clickActivateButton();
 		
 		return new SignupVerificationPage(driver);
 	}
 	
-	public SignupVerificationPage enterData(String email2, String ac_name, String pswd)
+	public SignupVerificationPage enterData(String email2,String cmp_name ,String display_name, String pswd,String no ,String ac_name)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(4));
-		enterDisplayName(ac_name);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email2);
 		
 		selectOthercountry();
-		entercontactno(TestData.contactno_s);
+		entercontactno(no);
 		
 		clicksignup30days();
 		clickGoButton(email2);
@@ -696,15 +685,17 @@ public SignupVerificationPage enterActivationcode(String a)
 		return new SignupVerificationPage(driver);
 	}
 
-	public SignupVerificationPage blankPassword(String email2, String ac_name, String pswd)
+	public SignupVerificationPage blankPassword(String email2,String cmp_name, String display_name, String pswd,String no,String ac_name)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(4));
-		enterDisplayName(ac_name);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
-		enterEmailid(email2);selectOthercountry();
-		entercontactno(TestData.contactno_s);clicksignup30days();
+		enterEmailid(email2);
+		selectOthercountry();
+		entercontactno(no);
+		clicksignup30days();
 		clickGoButton(email2);
 		clickMail(email2);
 		clickHereButton();
@@ -715,15 +706,16 @@ public SignupVerificationPage enterActivationcode(String a)
 		return new SignupVerificationPage(driver);
 	}
 	
-	public SignupVerificationPage pswdStatus1(String email2, String ac_name,String pswd2)
+	public SignupVerificationPage pswdStatus1(String email2, String cmp_name,String display_name,String pswd2,String no,String ac_name)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(TestData.rndmString(4));
-		enterDisplayName(ac_name);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email2);selectOthercountry();
-		entercontactno(TestData.contactno_s);clicksignup30days();
+		entercontactno(no);
+		clicksignup30days();
 		clickGoButton(email2);
 		clickMail(email2);
 		clickHereButton();
@@ -756,12 +748,12 @@ public SignupVerificationPage enterActivationcode(String a)
 		return new SignupVerificationPage(driver);
 	}
 	
-	public SignupVerificationPage updateAccountName(String email2, String cmp_name,String ac_name,String ac_name1, String pswd, String no)
+	public SignupVerificationPage updateAccountName(String email2, String cmp_name,String display_name, String pswd, String no, String ac_name)
 	{
 
 		Common.pause(2);
 		enterCompanyCode(cmp_name);
-		enterDisplayName(ac_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email2);
 		selectOthercountry();
@@ -770,7 +762,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		clickGoButton(email2);
 		clickMail(email2);
 		clickHereButton();
-		enterAccountName(ac_name1);
+		enterAccountName(ac_name);
 		enterPassword(pswd);
 		clickActivateButton();
 		Common.pause(5);
