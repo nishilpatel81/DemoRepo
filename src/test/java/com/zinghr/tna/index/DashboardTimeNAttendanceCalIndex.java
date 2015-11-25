@@ -675,7 +675,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 	public void Outdoor_request_Cancel_View_option() {
 
 		int numOfFailure = 0;
-		log("Testcase Id : TNA_56");
+		log("Testcase Id : TNA_57");
 
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
 
@@ -715,7 +715,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 
 		dbTnaCalIndexPage.Outdoor_request_Cancel_View_option();
 
-		log("To verify In time & Out Time should be blank by default and allow to enter time");
+		log("To verify Outdoor request Cancel & View options are available");
 
 		if (dbTnaCalVerificationPage
 				.Outdoor_request_Cancel_View_option_verification()) {
@@ -731,5 +731,185 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 
 	}
 	
+	/*--- Method by Rudresh: 25-nov ______-----*/
+	@Test
+	public void WeeklyOffMessage() {
 
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_63");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+
+		log("Step 6: Click on WOFF Swap Button");
+
+		dbTnaCalIndexPage.clickWoffSwapButton();
+
+
+		log("To verify valid message is display");
+
+		if (dbTnaCalVerificationPage
+				.WeeklyOffMessage_verification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+	
+	
+	@Test
+	public void ApplyWeeklyOffPageOpen() {
+
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_63");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+		
+		log("Step 6: Click on Weekly off date.");
+
+		log("Step 7: Click on WOFF Swap Button");
+		dbTnaCalIndexPage.ApplyWeeklyOffPageOpen();
+		
+		log("Apply weekly off page opens");
+
+		if (dbTnaCalVerificationPage
+				.ApplyWeeklyOffPageOpen_verification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+	
+	@Test
+	public void Selectdatedisplay() {
+
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_63");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+		
+		log("Step 6: Click on Weekly off date.");
+
+		log("Step 7: Click on WOFF Swap Button");
+		dbTnaCalIndexPage.Selectdatedisplay();
+		
+		log("The select date is displayed in the selected date space");
+
+		if (dbTnaCalVerificationPage
+				.Selectdatedisplay_verification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+	@Test
+	public void SwapOffRemarkTextBox() {
+
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_63");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+		
+		log("Step 6: Click on Weekly off date.");
+
+		log("Step 7: Click on WOFF Swap Button");
+		dbTnaCalIndexPage.SwapOffRemarkTextBox();
+		
+		log("The select date is displayed in the selected date space");
+
+		if (dbTnaCalVerificationPage
+				.SwapOffRemarkTextBox_verification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+	
 }

@@ -399,5 +399,54 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 			return false;
 		}
 	}
+	
+	@FindBy(xpath = "//div[contains(text(),'Please select any cell with WO status.')]")
+	WebElement woff_message;
+	
+	public boolean WeeklyOffMessage_verification() {
+
+		if (woff_message.isDisplayed()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	@FindBy(xpath = ".//span[contains(text(),'Apply Weekly Off')]")
+	WebElement Apply_week_off_lbl;
+	
+	public boolean ApplyWeeklyOffPageOpen_verification() {
+
+		if (Apply_week_off_lbl.isDisplayed()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@FindBy(xpath = ".//input[@id='AppDate']")
+	WebElement Selected_date_tbox;
+	
+	public boolean Selectdatedisplay_verification() {
+
+		if (Selected_date_tbox.toString().contains(dbTnaCalIndexPage.onlydate)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	@FindBy(xpath = ".//textarea[@id='txtRemarks']")
+	WebElement swepp_off_remark_tbox;
+	
+	public boolean SwapOffRemarkTextBox_verification() {
+
+		if (swepp_off_remark_tbox.isDisplayed()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 }

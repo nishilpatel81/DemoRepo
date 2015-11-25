@@ -1,6 +1,7 @@
 package com.zinghr.tna.indexPage;
 
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +19,9 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public static String onlydate="";
+	public static String date="";
 	@FindBy(xpath = "//span[contains(@class,'fc-button-next')]")
 	WebElement nextMonthArrow_button;
 
@@ -66,6 +69,16 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 
 		return new DashboardTimeNAttendanceCaVerification(driver);
 	}
+	
+	@FindBy(xpath = "//a[contains(.,'WOFF Swap')]")
+	WebElement Woff_swap_button;
+	
+	public DashboardTimeNAttendanceCaVerification clickWoffSwapButton() {
+		Common.pause(1);
+		Common.clickOn(driver, Woff_swap_button);
+		return new DashboardTimeNAttendanceCaVerification(driver);
+	}
+	
 
 	@FindBy(xpath = "//button[@id='BtnApplyReg'][contains(.,'Apply Now')]")
 	WebElement applyNow_button;
@@ -177,7 +190,7 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 	@FindBy(xpath = ".//a[@id='btnPending']")
 	WebElement panding_btn;
 
-	public SettingsTimeAttendanceSetupVerification Outdoor_request_Cancel_View_option() {
+	public DashboardTimeNAttendanceCaVerification Outdoor_request_Cancel_View_option() {
 		Common.pause(1);
 
 		Common.clickOn(driver, ok_button);
@@ -190,7 +203,82 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		Common.pause(2);
 		Common.clickOn(driver, panding_btn);
 		Common.pause(2);
-		return new SettingsTimeAttendanceSetupVerification(driver);
+		return new DashboardTimeNAttendanceCaVerification(driver);
 	}
+	
+	@FindBy(xpath = ".//td[@class='fc-header-left']/span[1]")
+	WebElement left_month_toogle_btn;
+	
+	@FindBy(xpath=".//td[contains(@class,'bgWeeklyOff')]")
+	private List<WebElement> Weeklyoffday;
+	
+	public DashboardTimeNAttendanceCaVerification ApplyWeeklyOffPageOpen() {
+		
+		
+		int Weeklyoff_size=Weeklyoffday.size();
+		Random rnd = new Random();
+		int i = rnd.nextInt(Weeklyoff_size);
+		Common.pause(1);
 
+		Common.clickOn(driver, left_month_toogle_btn);
+		Common.pause(2);
+		Common.clickOn(driver, left_month_toogle_btn);
+		Common.pause(2);
+		Weeklyoffday.get(i).click();
+		date=Weeklyoffday.get(i).getAttribute("data-date");
+		onlydate= date.substring(8,10);
+		System.out.println(onlydate);
+		System.out.println(date);
+		Common.pause(2);
+		clickWoffSwapButton();
+		Common.pause(2);
+		return new DashboardTimeNAttendanceCaVerification(driver);
+	}
+	
+	public DashboardTimeNAttendanceCaVerification Selectdatedisplay() {
+		
+		
+		int Weeklyoff_size=Weeklyoffday.size();
+		Random rnd = new Random();
+		int i = rnd.nextInt(Weeklyoff_size);
+		Common.pause(1);
+
+		Common.clickOn(driver, left_month_toogle_btn);
+		Common.pause(2);
+		Common.clickOn(driver, left_month_toogle_btn);
+		Common.pause(2);
+		Weeklyoffday.get(i).click();
+		String date=Weeklyoffday.get(i).getAttribute("data-date");
+		String onlydate= date.substring(8,10);
+		System.out.println(onlydate);
+		System.out.println(date);
+		Common.pause(2);
+		clickWoffSwapButton();
+		Common.pause(2);
+		return new DashboardTimeNAttendanceCaVerification(driver);
+	}
+	
+	public DashboardTimeNAttendanceCaVerification SwapOffRemarkTextBox() {
+		
+		
+		int Weeklyoff_size=Weeklyoffday.size();
+		Random rnd = new Random();
+		int i = rnd.nextInt(Weeklyoff_size);
+		Common.pause(1);
+
+		Common.clickOn(driver, left_month_toogle_btn);
+		Common.pause(2);
+		Common.clickOn(driver, left_month_toogle_btn);
+		Common.pause(2);
+		Weeklyoffday.get(i).click();
+		String date=Weeklyoffday.get(i).getAttribute("data-date");
+		String onlydate= date.substring(8,10);
+		System.out.println(onlydate);
+		System.out.println(date);
+		Common.pause(2);
+		clickWoffSwapButton();
+		Common.pause(2);
+		return new DashboardTimeNAttendanceCaVerification(driver);
+	}
+	
 }
