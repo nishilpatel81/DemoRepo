@@ -508,5 +508,46 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 			return false;
 		}
 	}
+/*	@FindBy(xpath = .//div[@class='questions']/div[5]/label") 
+ *  WebElement extraTime_options_list */	
 	
+	@FindBy(xpath = ".//input[@value='CompOff']/.[@name='check']/..")
+	WebElement extraTime_coff;
+	@FindBy(xpath = ".//input[@value='OverTime']/.[@name='check']/..")
+	WebElement extraTime_OT;
+	@FindBy(xpath = ".//input[@value='LeaveBalance']/.[@name='check']/..")
+	WebElement extraTime_leave_balanc;
+	@FindBy(xpath = ".//input[@value='OtherPayment']/.[@name='check']/..")
+	WebElement extraTime_other_paymnt;
+	
+	@FindBy(xpath = ".//div[@class='questions']/div[5]/label/input")
+	WebElement extraTime_option_checkbox;
+	
+	public boolean verifyExtraTimeOptions() {
+		
+		if(extraTime_coff.isDisplayed()&& extraTime_OT.isDisplayed() && extraTime_leave_balanc.isDisplayed() && extraTime_other_paymnt.isDisplayed()){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public boolean verifyExtraTimeOptionCheckbox() {
+		return extraTime_option_checkbox.isDisplayed();
+	}
+	
+	public boolean verifyExtraTimeOptionCheckboxNotselected() {
+		return extraTime_option_checkbox.isSelected();
+	}
+
+	@FindBy(xpath = ".//div[6]/label[contains(text(),'Yes')]")
+	WebElement we_allow_yes;
+	@FindBy(xpath = ".//div[6]/label[contains(text(),'No')]")
+	WebElement we_allow_no;
+	
+	public boolean verifyWeAllowYesNo() {
+		
+		return we_allow_yes.isDisplayed() && we_allow_no.isDisplayed();
+	}
 }

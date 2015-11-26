@@ -874,6 +874,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 		log("Step 10: Select 'Yes' for follow Shift Rostering in 3rd block.");
 		log("Step 11: Click on 'Shift Master' link.");
 		
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
 		taSetupVerificationPage = taSetupIndexPage.selectYesFollowShiftRostering();
 		
 		log("Shift Master link is displayed or not.");
@@ -978,7 +979,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 
 /*--- Method by tarpan: 25-nov ______-----*/
 	@Test
-	public void allowEmployeeForApply() {
+	public void fourthBlockSetMyAttendance() {
 		int numOfFailure = 0;
 		log("Testcase Id :Setup_55 Setup_56");
 		log("Testcase Discription :  ");
@@ -995,10 +996,11 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 		log("Step 7: Click on Time and attendence option from Circle");
 		log("Step 8: Select 'SET MY ATTENDANCE' option.");
 		log("Step 9: Check 'Common' group.");
+		log("Step 10: For Fourth block..");
 	
-		taSetupVerificationPage = taSetupIndexPage.empoloyeeApply();
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
 
-		log("To verify that by default following values should be selected in the check box:");
+		log("To verify that by default following values are selected in the check box:");
 		log("Outdoor / Work from Home Requests");
 		if (taSetupVerificationPage.verifyEmployeeValueOutdoorChecked()) {
 			Common.logStatus("pass");
@@ -1057,6 +1059,136 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 			numOfFailure++;
 		}
 		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+	}
+	
+	/*--- Method by tarpan: 26-nov ______-----*/	
+	@Test
+	public void fifthBlockSetMyAttendance() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_57 Setup_58");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10: For Fifth block..");
+	
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
+
+		log("To verify that The Fifth block contains following option in Extra Time earned can be converted to: ");
+		log("Compensatory Off"); 
+		log("Over Time");
+		log("Leave balance credit"); 
+		log("Other Payment(L2)");
+
+		if (taSetupVerificationPage.verifyExtraTimeOptions()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+/* Testcase is :: Setup 58		*/
+		log("To verify that Check box is present for all these fields.");
+	
+		if (taSetupVerificationPage.verifyExtraTimeOptionCheckbox()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+/* Testcase is :: Setup 59		*/
+
+		log("To verify that By default none of the values are selected.");
+		
+		if (taSetupVerificationPage.verifyExtraTimeOptionCheckboxNotselected()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+	}
+	
+	@Test
+	public void sixthBlockProxyApply() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_60 Setup_61 Setup_62");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10: For Six block..");
+	
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
+
+		log("To verify Proxy rights to HR or Admin to Apply on behalf of Employees with Radio button Yes No is displayed.");
+
+		if (taSetupVerificationPage.verifyWeAllowYesNo()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+/* Testcase is :: Setup 61		*/
+		log("Step 10: Select 'Yes' button.");
+
+		taSetupVerificationPage = taSetupIndexPage.proxyApplyYes();
+		/*if (taSetupVerificationPage.verifyWeAllowYesNo()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}*/
+
+/* Testcase is :: Setup 62		*/
+
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
+		
+		log("Step 11: Select 'No' radio button.");
+		
+		taSetupVerificationPage = taSetupIndexPage.proxyApplyNo();
+		
+		log("To verify that Proxy rights are not displayed in Zing Login on selecting the radio button 'No'.");
+
+		/*if (taSetupVerificationPage.verifyWeAllowYesNo()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}*/
 		if (numOfFailure > 0) {
 			Assert.assertTrue(false);
 		}

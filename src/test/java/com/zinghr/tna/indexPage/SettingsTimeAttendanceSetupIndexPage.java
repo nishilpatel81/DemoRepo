@@ -226,8 +226,8 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 	
 	public SettingsTimeAttendanceSetupVerification selectYesFollowShiftRostering()
 	{
-		clickSettingsIcon();
-		clickTimeAndAttendenseFromCircle();
+		/*clickSettingsIcon();
+		clickTimeAndAttendenseFromCircle();*/
 		Common.clickOn(driver, yes_radio_btn);
 		Common.clickOn(driver, shiftMaster_link);
 		
@@ -275,8 +275,9 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 	
-	public SettingsTimeAttendanceSetupVerification empoloyeeApply()
+	public SettingsTimeAttendanceSetupVerification setMyAttendancefromCircle()
 	{
+		log("===================================================================");
 		clickSettingsIcon();
 		clickTimeAndAttendenseFromCircle();
 		return new SettingsTimeAttendanceSetupVerification(driver);
@@ -293,13 +294,57 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 	
 	@FindBy(xpath = "")
 	WebElement outdoor_checkbox;
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//a[contains(text(),'Save')]")
 	WebElement save;
 	public SettingsTimeAttendanceSetupVerification empoloyeeApplyOutdoorunchecked()
 	{
 		Common.clickOn(driver, outdoor_checkbox);
 		Common.clickOn(driver, save);
 		goToDashboard();
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	@FindBy(xpath = ".//div[6]/label[contains(text(),'Yes')]")
+	WebElement proxy_radio_yes;
+	@FindBy(xpath = ".//div[6]/label[2]")
+	WebElement proxy_radio_no;
+	@FindBy(xpath = "//button[contains(text(),'OK')]")
+	 WebElement ok;
+	public SettingsTimeAttendanceSetupVerification proxyApplyYes()
+	{
+		if(proxy_radio_yes.isSelected()){
+			Common.pause(2);
+			Common.clickOn(driver, save);
+			Common.pause(2);
+			Common.clickOn(driver, ok);
+		}
+		else{
+		Common.clickOn(driver, proxy_radio_yes);
+		Common.clickOn(driver, save);
+		Common.pause(2);
+		Common.clickOn(driver, ok);
+		}
+		driver.switchTo().defaultContent();
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	public SettingsTimeAttendanceSetupVerification proxyApplyNo()
+	{
+		if(proxy_radio_no.isSelected()){
+			Common.pause(2);
+			Common.clickOn(driver, save);
+			Common.pause(2);
+			Common.clickOn(driver, ok);
+		}
+		else{
+		Common.clickOn(driver, proxy_radio_no);
+		Common.pause(2);
+		Common.clickOn(driver, save);
+		Common.pause(2);
+		Common.clickOn(driver, ok);
+		}
+		driver.switchTo().defaultContent();
+
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 	

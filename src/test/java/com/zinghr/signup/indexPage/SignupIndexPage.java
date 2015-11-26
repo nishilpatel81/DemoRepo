@@ -135,7 +135,6 @@ public SignupVerificationPage selectOthercountry()
 	int i = rnd.nextInt(country_list.size());
 	country_list.get(i).click();
 	
-	
 	return new SignupVerificationPage(driver);
 }
 
@@ -147,7 +146,6 @@ public SignupVerificationPage NoCountry()
 	return new SignupVerificationPage(driver);
 }
 
-
 public SignupVerificationPage entercontactno(String conct_s) 
 {
 	Common.clickOn(driver, contactno_fld);
@@ -155,8 +153,6 @@ public SignupVerificationPage entercontactno(String conct_s)
 
 	return new SignupVerificationPage(driver);
 }
-
-
 
 public SignupVerificationPage clickTermsOfUse() 
 {
