@@ -871,7 +871,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 	public void SwapOffRemarkTextBox() {
 
 		int numOfFailure = 0;
-		log("Testcase Id : TNA_63");
+		log("Testcase Id : TNA_69");
 
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
 
@@ -906,6 +906,100 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 			numOfFailure++;
 		}
 
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+	
+	/*--- Method by Rudresh: 26-nov ______-----*/
+	@Test
+	public void SwapOffApplyNowButton() {
+
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_70");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+		
+		log("Step 6: Click on Weekly off date.");
+
+		log("Step 7: Click on WOFF Swap Button");
+		dbTnaCalIndexPage.SwapOffApplyNowButton();
+		
+		log("To verify Apply now button is displayed");
+
+		if (dbTnaCalVerificationPage
+				.SwapOffApplyNowButton_verification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+	@Test
+	public void SwapOff_this_year_last_year_tabs() {
+
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_74");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+		
+		log("Step 6: Click on 'Username' dropdown menu.");
+		log("Step 7: Click on 'Username' my trasection history tab.");
+		log("Step 8: Click on Time and attendance notification tab.");
+		
+		myTransectionIndexpage.clickUserDropdown();
+		myTransectionIndexpage.clickMyTransectionTab();
+		myTransectionIndexpage.clickTimeandAttendanceTab();
+		
+		log("To check User is able to view Time and Attendance notification");
+		if(dbTnaCalVerificationPage.SwapOff_this_year_last_year_tabs_verification())
+		{
+			Common.logStatus("pass");
+		}
+		else
+		{
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
 		if (numOfFailure > 0) {
 			Assert.assertTrue(false);
 		}

@@ -41,6 +41,29 @@ public class MyTransectionIndexpage extends AbstractPage{
 	@FindBy(xpath = "//i[@id='popupclose']/..")
 	WebElement pop_close_btn;
 	
+	
+	
+	public MyTransectionVerification clickUserDropdown()
+	{
+		Common.clickOn(driver, Username_drop_down);
+		return new MyTransectionVerification(driver);
+		
+	}
+	
+	public MyTransectionVerification clickMyTransectionTab()
+	{
+		Common.clickOn(driver, My_trasection_history_menu);
+		return new MyTransectionVerification(driver);
+		
+	}
+	
+	public MyTransectionVerification clickTimeandAttendanceTab()
+	{
+		Common.clickOn(driver, Time_and_Attendance_Notification_tab);
+		return new MyTransectionVerification(driver);
+		
+	}
+	
 	public MyTransectionVerification check_time_and_attendance_page()
 	{
 		Common.clickOn(driver, Username_drop_down);

@@ -32,10 +32,12 @@ import com.zinghr.login.verification.LoginVerificationPage;
 import com.zinghr.signup.indexPage.SignupIndexPage;
 import com.zinghr.signup.verification.SignupVerificationPage;
 import com.zinghr.tna.index.MyTransectionIndex;
+import com.zinghr.tna.indexPage.ApproverNotificationIndexPage;
 import com.zinghr.tna.indexPage.DashboardTimeNAttendanceCaIndexPage;
 import com.zinghr.tna.indexPage.MyTransectionIndexpage;
 import com.zinghr.tna.indexPage.OASIndexPage;
 import com.zinghr.tna.indexPage.SettingsTimeAttendanceSetupIndexPage;
+import com.zinghr.tna.verification.ApproverNotificationVerification;
 import com.zinghr.tna.verification.DashboardTimeNAttendanceCaVerification;
 import com.zinghr.tna.verification.MyTransectionVerification;
 import com.zinghr.tna.verification.OASVerificationPage;
@@ -82,8 +84,8 @@ public class SeleniumInit {
 	public MyTransectionVerification myTransectionVerification;
 	public DashboardTimeNAttendanceCaIndexPage dbTnaCalIndexPage;
 	public DashboardTimeNAttendanceCaVerification dbTnaCalVerificationPage;
-	
-
+	public ApproverNotificationIndexPage approverNotificationIndexPage;
+	public ApproverNotificationVerification approverNotificationVerification;
 	public SettingsTimeAttendanceSetupIndexPage taSetupIndexPage;
 	public SettingsTimeAttendanceSetupVerification taSetupVerificationPage;
 	public OASIndexPage oasIndexPage;
@@ -340,8 +342,7 @@ public class SeleniumInit {
 		signupIndexpage = new SignupIndexPage(driver);
 		signupVerification = new SignupVerificationPage(driver);
 		dbTnaCalIndexPage = new DashboardTimeNAttendanceCaIndexPage(driver);
-		dbTnaCalVerificationPage = new DashboardTimeNAttendanceCaVerification(
-				driver);
+		dbTnaCalVerificationPage = new DashboardTimeNAttendanceCaVerification(driver);
 
 		taSetupIndexPage=new  SettingsTimeAttendanceSetupIndexPage(driver);
 		taSetupVerificationPage = new SettingsTimeAttendanceSetupVerification(driver);
@@ -349,6 +350,8 @@ public class SeleniumInit {
 		oasVerificationPage = new OASVerificationPage(driver);
 		myTransectionIndexpage =new MyTransectionIndexpage(driver);
 		myTransectionVerification = new MyTransectionVerification(driver);
+		approverNotificationIndexPage = new ApproverNotificationIndexPage(driver);
+		approverNotificationVerification = new ApproverNotificationVerification(driver);
 	}
 
 	/**

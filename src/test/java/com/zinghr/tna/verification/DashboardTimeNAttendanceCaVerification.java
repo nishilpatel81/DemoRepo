@@ -448,5 +448,31 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 			return false;
 		}
 	}
+	@FindBy(xpath = ".//a[@id='btnApplyWeeklyOff']")
+	WebElement apply_now_button;
+	
+	public boolean SwapOffApplyNowButton_verification() {
 
+		if (apply_now_button.isDisplayed()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	@FindBy(xpath = ".//a[@id='thisyear']")
+	WebElement This_year_button;
+	
+	@FindBy(xpath = ".//a[@id='lastyear']")
+	WebElement Last_year_button;
+
+	public boolean SwapOff_this_year_last_year_tabs_verification() {
+
+		if (apply_now_button.isDisplayed()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 }

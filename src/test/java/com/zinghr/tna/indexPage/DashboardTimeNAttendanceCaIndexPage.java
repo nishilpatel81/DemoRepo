@@ -280,5 +280,27 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		Common.pause(2);
 		return new DashboardTimeNAttendanceCaVerification(driver);
 	}
+	public DashboardTimeNAttendanceCaVerification SwapOffApplyNowButton() {
+		
+		
+		int Weeklyoff_size=Weeklyoffday.size();
+		Random rnd = new Random();
+		int i = rnd.nextInt(Weeklyoff_size);
+		Common.pause(1);
+
+		Common.clickOn(driver, left_month_toogle_btn);
+		Common.pause(2);
+		Common.clickOn(driver, left_month_toogle_btn);
+		Common.pause(2);
+		Weeklyoffday.get(i).click();
+		String date=Weeklyoffday.get(i).getAttribute("data-date");
+		String onlydate= date.substring(8,10);
+		System.out.println(onlydate);
+		System.out.println(date);
+		Common.pause(2);
+		clickWoffSwapButton();
+		Common.pause(2);
+		return new DashboardTimeNAttendanceCaVerification(driver);
+	}
 	
 }
