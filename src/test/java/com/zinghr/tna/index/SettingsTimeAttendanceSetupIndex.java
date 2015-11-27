@@ -1146,7 +1146,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 		log("Step 7: Click on Time and attendence option from Circle");
 		log("Step 8: Select 'SET MY ATTENDANCE' option.");
 		log("Step 9: Check 'Common' group.");
-		log("Step 10: For Six block..");
+		log("Step 10: For Six block.."); 
 	
 		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
 
@@ -1194,4 +1194,176 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 		}
 	}
 	
+	/*--- Method by tarpan: 27-nov ______-----*/		
+	@Test
+	public void ruleWorkingHours() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_66");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10:  Check Rule Type 'Working Hours' "); 
+	
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
+	
+/* Testcase is :: Setup 66 _-_-_-_-_*/
+		log("Step 11: Working Hours first text field: "+TestData.full_time); 
+		log("Step 12: Working Hours second text field: "+TestData.half_time); 
+		taSetupVerificationPage = taSetupIndexPage.checkWorkingHours(TestData.full_time,TestData.half_time);
+
+		log("To verify that box text box in Working Hours is allow only numeric values with max length till 3 characters.");
+
+		if (taSetupVerificationPage.verifyworkinghoursFieldLength()) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+	}
+	
+	
+	@Test
+	public void ruleLateComing() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_70");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10:  Check Rule Type 'Late Comming' "); 
+	
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
+	
+/* Testcase is :: Setup 70 _-_-_-_-_*/
+		log("Step 11: Working Hours first text field: "+TestData.mins); 
+		log("Step 12: Working Hours second text field: "+TestData.times); 
+		taSetupVerificationPage = taSetupIndexPage.checklateWorking(TestData.mins,TestData.times);
+
+		log("To verify that The System should allow 3 times late till 30 mind from the In Time set in the system, then the status is 'Present'.");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}*/
+	}
+	
+	@Test
+	public void ruleEarlyGoing() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_72");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10:  Check Rule Type 'Earlt Going'. "); 
+	
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
+	
+/* Testcase is :: Setup 72 _-_-_-_-_*/
+		log("Step 11: Early Going first text field: "+TestData.mins); 
+		log("Step 12: Early Going second text field: "+TestData.times); 
+		
+		taSetupVerificationPage = taSetupIndexPage.checkEarlyGoing(TestData.mins,TestData.times);
+
+		log("To verify that The System should allow 3 times late till 30 mind from the In Time set in the system, then the status is 'Present'.");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}*/
+	}
+	
+	@Test
+	public void ruleFlexiTiming() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_74");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10:  Check Rule Type 'Flexi Timing'. "); 
+	
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
+	
+/* Testcase is :: Setup 72 _-_-_-_-_*/
+		log("Step 11: Flexi Timing first field mins: "+TestData.mins); 
+		log("Step 12: Flexi Timing second field total mins: "+TestData.totol_times);
+		log("Step 13: Flexi Timing third field times: "+TestData.times);
+		
+		taSetupVerificationPage = taSetupIndexPage.checkFlexiTimie(TestData.mins,TestData.totol_times,TestData.times);
+
+		log("To verify that the system should allow 2 times flexi time and the status should be Present.");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}*/
+	}
 }

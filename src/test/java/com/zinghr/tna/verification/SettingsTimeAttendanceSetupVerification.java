@@ -550,4 +550,23 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 		
 		return we_allow_yes.isDisplayed() && we_allow_no.isDisplayed();
 	}
+	
+	@FindBy(xpath = ".//*[@id='WorkingHrs']/div/input[1]")
+	WebElement work_hour_full;
+	@FindBy(xpath = ".//*[@id='WorkingHrs']/div/input[2]")
+	WebElement work_hour_half;
+	public boolean verifyworkinghoursFieldLength() {
+		
+		int field1= work_hour_full.getAttribute("value").length();
+		int field2= work_hour_half.getAttribute("value").length();
+			
+
+		if(field1==3 && field2==3)
+		{
+			return true;
+		}
+		else{
+		return false;
+		}
+	}
 }

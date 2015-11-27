@@ -348,5 +348,89 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 	
+	@FindBy(xpath = ".//*[@id='WorkingHrs']/div[1]/label/input")
+	WebElement work_hour_radio_btn;
+	@FindBy(xpath = ".//*[@id='WorkingHrs']/div/input[1]")
+	WebElement work_hour_full;
+	@FindBy(xpath = ".//*[@id='WorkingHrs']/div/input[2]")
+	WebElement work_hour_half;
 	
+	public SettingsTimeAttendanceSetupVerification checkWorkingHours(String num1, String num2)
+	{
+		Common.clickOn(driver, work_hour_radio_btn);
+		Common.pause(1);
+		Common.clickOn(driver, work_hour_full);
+		work_hour_full.clear();
+		Common.type(work_hour_full, num1);
+		Common.clickOn(driver, work_hour_half);
+		work_hour_half.clear();
+		Common.type(work_hour_half, num2);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	@FindBy(xpath = ".//*[@id='LateComming']/div[1]/label/input")
+	WebElement late_work_checkbox;
+	@FindBy(xpath = ".//*[@id='LateComming']/div/input[1]")
+	WebElement late_mins;
+	@FindBy(xpath = ".//*[@id='LateComming']/div/input[2]")
+	WebElement late_times;
+	
+	public SettingsTimeAttendanceSetupVerification checklateWorking(String num1, String num2)
+	{
+		Common.clickOn(driver, late_work_checkbox);
+		Common.pause(1);
+		Common.clickOn(driver, late_mins);
+		Common.type(late_mins, num1);
+		Common.clickOn(driver, late_times);
+		Common.type(late_times, num2);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	@FindBy(xpath = ".//*[@id='WorkingHrs']")
+	WebElement side_click;
+	@FindBy(xpath = ".//*[@id='EarlyGoing']/div[1]/label/input")
+	WebElement early_go_checkbox;
+	@FindBy(xpath = ".//*[@id='EarlyGoing']/div/input[1]")
+	WebElement early_mins;
+	@FindBy(xpath = ".//*[@id='EarlyGoing']/div/input[2]")
+	WebElement early_times;
+	public SettingsTimeAttendanceSetupVerification checkEarlyGoing(String num1, String num2)
+	{
+		Common.clickOn(driver, side_click);
+		Common.scrollToVertical(driver, early_go_checkbox);
+		Common.clickOn(driver, early_go_checkbox);
+		Common.pause(1);
+		Common.clickOn(driver, early_mins);
+		Common.type(late_mins, num1);
+		Common.clickOn(driver, early_times);
+		Common.type(late_times, num2);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	
+	@FindBy(xpath = "")
+	WebElement flexi_checkbox;
+	@FindBy(xpath = "")
+	WebElement flexi_mins;
+	@FindBy(xpath = "")
+	WebElement flexi_total_times;
+	@FindBy(xpath = "")
+	WebElement flexi_times;
+	public SettingsTimeAttendanceSetupVerification checkFlexiTimie(String num1, String num2, String num3)
+	{
+		Common.clickOn(driver, side_click);
+		Common.scrollToVertical(driver, flexi_checkbox);
+		Common.clickOn(driver, flexi_checkbox);
+		Common.pause(1);
+		Common.clickOn(driver, flexi_mins);
+		Common.type(late_mins, num1);
+		Common.clickOn(driver, flexi_total_times);
+		Common.type(late_times, num2);
+		Common.clickOn(driver, flexi_times);
+		Common.type(late_times, num3);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
 }

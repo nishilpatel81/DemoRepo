@@ -29,6 +29,12 @@ public class TestData {
 	public static String youtube= "https://www.youtube.com/channel/";
 	public static String gplus = "https://plus.google.com/+Zinghr/posts";
 	public static String linkedin= "https://www.linkedin.com/company/zinghr";
+	public static String full_time= "300";
+	public static String half_time= "123";	
+	public static String mins= "30";
+	public static String times= "3";
+	public static String times2= "2";
+	public static String totol_times= "150";
 	
 	public static String blank = " ";
 	public static String invalid = "%&^%6545as";
