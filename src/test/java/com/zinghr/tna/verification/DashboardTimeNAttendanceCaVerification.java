@@ -61,6 +61,14 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 		return bool;
 	}
 
+	@FindBy(xpath = "//div[@class='modal-body']//div[contains(.,'Regularization has been Applied Successfully.')]")
+	WebElement regularazationAppliedSuceesfullyMessage_alert;
+
+	public boolean verifyregularazationAppliedSuceesfullyMessageisDisplayed() {
+		Common.pause(2);
+		return regularazationAppliedSuceesfullyMessage_alert.isDisplayed();
+	}
+
 	public boolean verifyNextMonthIsDisplayed() {
 
 		boolean bool = false;
@@ -215,20 +223,22 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 	@FindBy(xpath = "//select[contains(@class,'dvShiftSelect0')]")
 	WebElement shiftname_dropdown;
 
+	@FindBy(xpath = "//div[contains(@class,'DataVal')]//label[contains(@class,'dvShift')]")
+	List<WebElement> defaultShiftName_header;
+
 	public boolean byDefaultShiftNameIsdisplayed() {
 
-		boolean bool = false;
-		List<WebElement> getAllOption = shiftname_dropdown.findElements(By
-				.xpath("option"));
-
-		System.out.println("get" + getAllOption.size());
-
-		if (getAllOption.size() > 0) {
-			bool = true;
-
-		}
-
-		return bool;
+		/*
+		 * List<WebElement> getAllOption = shiftname_dropdown.findElements(By
+		 * .xpath("option"));
+		 * 
+		 * System.out.println("get" + getAllOption.size());
+		 * 
+		 * if (getAllOption.size() > 0) { bool = true;
+		 * 
+		 * }
+		 */
+		return defaultShiftName_header.size() > 0;
 	}
 
 	public boolean verifyTotalWorkingHours() {
@@ -399,10 +409,10 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 			return false;
 		}
 	}
-	
+
 	@FindBy(xpath = "//div[contains(text(),'Please select any cell with WO status.')]")
 	WebElement woff_message;
-	
+
 	public boolean WeeklyOffMessage_verification() {
 
 		if (woff_message.isDisplayed()) {
@@ -411,10 +421,10 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 			return false;
 		}
 	}
-	
+
 	@FindBy(xpath = ".//span[contains(text(),'Apply Weekly Off')]")
 	WebElement Apply_week_off_lbl;
-	
+
 	public boolean ApplyWeeklyOffPageOpen_verification() {
 
 		if (Apply_week_off_lbl.isDisplayed()) {
@@ -426,7 +436,7 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 
 	@FindBy(xpath = ".//input[@id='AppDate']")
 	WebElement Selected_date_tbox;
-	
+
 	public boolean Selectdatedisplay_verification() {
 
 		if (Selected_date_tbox.toString().contains(dbTnaCalIndexPage.onlydate)) {
@@ -435,11 +445,10 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 			return false;
 		}
 	}
-	
-	
+
 	@FindBy(xpath = ".//textarea[@id='txtRemarks']")
 	WebElement swepp_off_remark_tbox;
-	
+
 	public boolean SwapOffRemarkTextBox_verification() {
 
 		if (swepp_off_remark_tbox.isDisplayed()) {
@@ -448,9 +457,10 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 			return false;
 		}
 	}
+
 	@FindBy(xpath = ".//a[@id='btnApplyWeeklyOff']")
 	WebElement apply_now_button;
-	
+
 	public boolean SwapOffApplyNowButton_verification() {
 
 		if (apply_now_button.isDisplayed()) {
@@ -459,10 +469,10 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 			return false;
 		}
 	}
-	
+
 	@FindBy(xpath = ".//a[@id='thisyear']")
 	WebElement This_year_button;
-	
+
 	@FindBy(xpath = ".//a[@id='lastyear']")
 	WebElement Last_year_button;
 
@@ -474,5 +484,14 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 			return false;
 		}
 	}
-	
+
+	public boolean shiftNameDropDownIsDisplayed() {
+
+		return driver.findElement(
+				By.xpath("//div[contains(@class,'DataVal')]["
+						+ dbTnaCalIndexPage.timeCounter
+						+ "]//select[contains(@class,'shifttype ')]"))
+				.isDisplayed();
+
+	}
 }

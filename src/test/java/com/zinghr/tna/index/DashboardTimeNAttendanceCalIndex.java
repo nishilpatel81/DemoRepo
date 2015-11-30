@@ -1,5 +1,6 @@
 package com.zinghr.tna.index;
 
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -408,7 +409,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 	public void byDefaultShiftNameAvailability() {
 
 		int numOfFailure = 0;
-		log("Testcase Id : TNA_23,TNA_24");
+		log("Testcase Id : TNA_22");
 		log("Testcase Discription :  ");
 
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
@@ -433,9 +434,12 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 
 		dbTnaCalIndexPage.clickRegularizeButton();
 
-		log("Step 7: Select Action : ShiftWoChange ");
-
-		dbTnaCalIndexPage.selectValueOfSelectionActionDropdown("ShiftWoChange");
+		/*
+		 * log("Step 7: Select Action : ShiftWoChange ");
+		 * 
+		 * dbTnaCalIndexPage.selectValueOfSelectionActionDropdown("ShiftWoChange"
+		 * );
+		 */
 
 		log("By Default shift is displayed under Shift Name Header ");
 
@@ -452,10 +456,12 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 
 	}
 
+	/**/
+
 	@Test
 	public void totalWorkedHoursCalculation() {
 		int numOfFailure = 0;
-		log("Testcase Id : TNA_28");
+		log("Testcase Id : TNA_25,TNA_26,TNA_28");
 		log("Testcase Discription :  ");
 
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
@@ -492,7 +498,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 
 		dbTnaCalIndexPage.clickOnTotalworkingHourLable();
 
-		log("Verify Total Working Time");
+		log("Verify Total Working Time And Intime and Outtime is editable");
 
 		if (dbTnaCalVerificationPage.verifyTotalWorkingHours()) {
 			Common.logStatus("pass");
@@ -576,6 +582,65 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 
 	}
 
+	@Test
+	public void applyRegularazationFunctionality() {
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_33");
+		log("Testcase Discription :  ");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+
+		log("Step 6: Click on Regularize Button");
+
+		dbTnaCalIndexPage.clickRegularizeButton();
+
+		log("Step 7: Select Action : Regularization ");
+
+		dbTnaCalIndexPage
+				.selectValueOfSelectionActionDropdown("Regularization");
+
+		log("Step 8 : Enter In Time and Out Time  " + "<br>In Time : 8:00"
+				+ "<br>Out Time : 17:00 ");
+		dbTnaCalIndexPage.enterInInTime("8:00");
+
+		dbTnaCalIndexPage.enterInOutTime("17:00");
+
+		log("Step 9: Click Apply now Button ");
+
+		dbTnaCalIndexPage.clickApplyNowButton();
+
+		log("Verify Regularization apply Confiramation is displayed ");
+
+		if (dbTnaCalVerificationPage
+				.verifyregularazationAppliedSuceesfullyMessageisDisplayed()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+
 	/*
 	 * @Test public void defaultShiftInAndOutTime() {
 	 * 
@@ -586,7 +651,6 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 	 * 
 	 * log("Step 2: Enter Company Code:" + TestData.company_code);
 	 * log("Step 3: Enter Employee Code: " + TestData.employe_code);
-	 * log("Step 4: Enter Password: " + TestData.password);
 	 * 
 	 * loginVerificationPage = loginIndexpage.loginSuccessfully();
 	 * log("Verify that Home page is open or not");
@@ -618,6 +682,55 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 	 * 
 	 * }
 	 */
+
+	@Test
+	public void shiftNameDropDownFunctionality() {
+
+		int numOfFailure = 0;
+		log("Testcase Id : TNA_52");
+		log("Testcase Discription :  ");
+
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+
+		if (loginVerificationPage.loginpagewithvalidcredentialverification()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		log("Step 5: Click on Proceed Button");
+
+		log("Step 6: Click on Regularize Button");
+
+		dbTnaCalIndexPage.clickRegularizeButton();
+
+		log("Step 7: Select Action : ShiftWoChange ");
+
+		dbTnaCalIndexPage.selectValueOfSelectionActionDropdown("ShiftWoChange");
+
+		log("Verify Shift Name Dropdown is displayed");
+
+		if (dbTnaCalVerificationPage.shiftNameDropDownIsDisplayed()) {
+
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
 
 	@Test
 	public void Regulerization_with_outdoor_intime_outtime_editable() {
@@ -730,7 +843,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		}
 
 	}
-	
+
 	/*--- Method by Rudresh: 25-nov ______-----*/
 	@Test
 	public void WeeklyOffMessage() {
@@ -760,11 +873,9 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 
 		dbTnaCalIndexPage.clickWoffSwapButton();
 
-
 		log("To verify valid message is display");
 
-		if (dbTnaCalVerificationPage
-				.WeeklyOffMessage_verification()) {
+		if (dbTnaCalVerificationPage.WeeklyOffMessage_verification()) {
 			Common.logStatus("pass");
 		} else {
 			Common.logStatus("fail");
@@ -776,8 +887,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		}
 
 	}
-	
-	
+
 	@Test
 	public void ApplyWeeklyOffPageOpen() {
 
@@ -801,16 +911,15 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		}
 
 		log("Step 5: Click on Proceed Button");
-		
+
 		log("Step 6: Click on Weekly off date.");
 
 		log("Step 7: Click on WOFF Swap Button");
 		dbTnaCalIndexPage.ApplyWeeklyOffPageOpen();
-		
+
 		log("Apply weekly off page opens");
 
-		if (dbTnaCalVerificationPage
-				.ApplyWeeklyOffPageOpen_verification()) {
+		if (dbTnaCalVerificationPage.ApplyWeeklyOffPageOpen_verification()) {
 			Common.logStatus("pass");
 		} else {
 			Common.logStatus("fail");
@@ -822,7 +931,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		}
 
 	}
-	
+
 	@Test
 	public void Selectdatedisplay() {
 
@@ -846,16 +955,15 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		}
 
 		log("Step 5: Click on Proceed Button");
-		
+
 		log("Step 6: Click on Weekly off date.");
 
 		log("Step 7: Click on WOFF Swap Button");
 		dbTnaCalIndexPage.Selectdatedisplay();
-		
+
 		log("The select date is displayed in the selected date space");
 
-		if (dbTnaCalVerificationPage
-				.Selectdatedisplay_verification()) {
+		if (dbTnaCalVerificationPage.Selectdatedisplay_verification()) {
 			Common.logStatus("pass");
 		} else {
 			Common.logStatus("fail");
@@ -867,6 +975,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		}
 
 	}
+
 	@Test
 	public void SwapOffRemarkTextBox() {
 
@@ -890,16 +999,15 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		}
 
 		log("Step 5: Click on Proceed Button");
-		
+
 		log("Step 6: Click on Weekly off date.");
 
 		log("Step 7: Click on WOFF Swap Button");
 		dbTnaCalIndexPage.SwapOffRemarkTextBox();
-		
+
 		log("The select date is displayed in the selected date space");
 
-		if (dbTnaCalVerificationPage
-				.SwapOffRemarkTextBox_verification()) {
+		if (dbTnaCalVerificationPage.SwapOffRemarkTextBox_verification()) {
 			Common.logStatus("pass");
 		} else {
 			Common.logStatus("fail");
@@ -911,7 +1019,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		}
 
 	}
-	
+
 	/*--- Method by Rudresh: 26-nov ______-----*/
 	@Test
 	public void SwapOffApplyNowButton() {
@@ -936,16 +1044,15 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		}
 
 		log("Step 5: Click on Proceed Button");
-		
+
 		log("Step 6: Click on Weekly off date.");
 
 		log("Step 7: Click on WOFF Swap Button");
 		dbTnaCalIndexPage.SwapOffApplyNowButton();
-		
+
 		log("To verify Apply now button is displayed");
 
-		if (dbTnaCalVerificationPage
-				.SwapOffApplyNowButton_verification()) {
+		if (dbTnaCalVerificationPage.SwapOffApplyNowButton_verification()) {
 			Common.logStatus("pass");
 		} else {
 			Common.logStatus("fail");
@@ -957,6 +1064,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		}
 
 	}
+
 	@Test
 	public void SwapOff_this_year_last_year_tabs() {
 
@@ -980,30 +1088,28 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 		}
 
 		log("Step 5: Click on Proceed Button");
-		
+
 		log("Step 6: Click on 'Username' dropdown menu.");
 		log("Step 7: Click on 'Username' my trasection history tab.");
 		log("Step 8: Click on Time and attendance notification tab.");
-		
+
 		myTransectionIndexpage.clickUserDropdown();
 		myTransectionIndexpage.clickMyTransectionTab();
 		myTransectionIndexpage.clickTimeandAttendanceTab();
-		
+
 		log("To check User is able to view Time and Attendance notification");
-		if(dbTnaCalVerificationPage.SwapOff_this_year_last_year_tabs_verification())
-		{
+		if (dbTnaCalVerificationPage
+				.SwapOff_this_year_last_year_tabs_verification()) {
 			Common.logStatus("pass");
-		}
-		else
-		{
+		} else {
 			Common.logStatus("fail");
 			numOfFailure++;
 		}
-		
+
 		if (numOfFailure > 0) {
 			Assert.assertTrue(false);
 		}
 
 	}
-	
+
 }

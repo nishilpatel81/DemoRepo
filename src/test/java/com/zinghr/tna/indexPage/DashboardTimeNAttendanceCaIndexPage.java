@@ -19,9 +19,9 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-	
-	public static String onlydate="";
-	public static String date="";
+
+	public static String onlydate = "";
+	public static String date = "";
 	@FindBy(xpath = "//span[contains(@class,'fc-button-next')]")
 	WebElement nextMonthArrow_button;
 
@@ -69,16 +69,15 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 
 		return new DashboardTimeNAttendanceCaVerification(driver);
 	}
-	
+
 	@FindBy(xpath = "//a[contains(.,'WOFF Swap')]")
 	WebElement Woff_swap_button;
-	
+
 	public DashboardTimeNAttendanceCaVerification clickWoffSwapButton() {
 		Common.pause(1);
 		Common.clickOn(driver, Woff_swap_button);
 		return new DashboardTimeNAttendanceCaVerification(driver);
 	}
-	
 
 	@FindBy(xpath = "//button[@id='BtnApplyReg'][contains(.,'Apply Now')]")
 	WebElement applyNow_button;
@@ -135,6 +134,29 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		}
 
 		return new DashboardTimeNAttendanceCaVerification(driver);
+	}
+
+	public static String dateOfRegularazation = "";
+	public static String workedHours = "";
+
+	public void featchSelectedDateApplyRegularizationData() {
+
+		dateOfRegularazation = Common.getTextJS(driver, driver.findElement(By
+				.xpath("//div[contains(@class,'DataVal')]["
+						+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+						+ "]/div/div[3]/div[1]/label")));
+
+		workedHours = driver.findElement(
+				By.xpath("//div[contains(@class,'DataVal')]["
+						+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+						+ "]//div[4]")).getText();
+
+		System.out.println("date : " + date + "worked hours :" + workedHours);
+
+		System.out.println("date :" + "//div[contains(@class,'DataVal')]["
+				+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+				+ "]/div/div[3]/div[1]/label");
+
 	}
 
 	public DashboardTimeNAttendanceCaVerification enterInInTime(String value) {
@@ -205,17 +227,16 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		Common.pause(2);
 		return new DashboardTimeNAttendanceCaVerification(driver);
 	}
-	
+
 	@FindBy(xpath = ".//td[@class='fc-header-left']/span[1]")
 	WebElement left_month_toogle_btn;
-	
-	@FindBy(xpath=".//td[contains(@class,'bgWeeklyOff')]")
+
+	@FindBy(xpath = ".//td[contains(@class,'bgWeeklyOff')]")
 	private List<WebElement> Weeklyoffday;
-	
+
 	public DashboardTimeNAttendanceCaVerification ApplyWeeklyOffPageOpen() {
-		
-		
-		int Weeklyoff_size=Weeklyoffday.size();
+
+		int Weeklyoff_size = Weeklyoffday.size();
 		Random rnd = new Random();
 		int i = rnd.nextInt(Weeklyoff_size);
 		Common.pause(1);
@@ -225,8 +246,8 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		Common.clickOn(driver, left_month_toogle_btn);
 		Common.pause(2);
 		Weeklyoffday.get(i).click();
-		date=Weeklyoffday.get(i).getAttribute("data-date");
-		onlydate= date.substring(8,10);
+		date = Weeklyoffday.get(i).getAttribute("data-date");
+		onlydate = date.substring(8, 10);
 		System.out.println(onlydate);
 		System.out.println(date);
 		Common.pause(2);
@@ -234,11 +255,10 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		Common.pause(2);
 		return new DashboardTimeNAttendanceCaVerification(driver);
 	}
-	
+
 	public DashboardTimeNAttendanceCaVerification Selectdatedisplay() {
-		
-		
-		int Weeklyoff_size=Weeklyoffday.size();
+
+		int Weeklyoff_size = Weeklyoffday.size();
 		Random rnd = new Random();
 		int i = rnd.nextInt(Weeklyoff_size);
 		Common.pause(1);
@@ -248,8 +268,8 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		Common.clickOn(driver, left_month_toogle_btn);
 		Common.pause(2);
 		Weeklyoffday.get(i).click();
-		String date=Weeklyoffday.get(i).getAttribute("data-date");
-		String onlydate= date.substring(8,10);
+		String date = Weeklyoffday.get(i).getAttribute("data-date");
+		String onlydate = date.substring(8, 10);
 		System.out.println(onlydate);
 		System.out.println(date);
 		Common.pause(2);
@@ -257,11 +277,10 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		Common.pause(2);
 		return new DashboardTimeNAttendanceCaVerification(driver);
 	}
-	
+
 	public DashboardTimeNAttendanceCaVerification SwapOffRemarkTextBox() {
-		
-		
-		int Weeklyoff_size=Weeklyoffday.size();
+
+		int Weeklyoff_size = Weeklyoffday.size();
 		Random rnd = new Random();
 		int i = rnd.nextInt(Weeklyoff_size);
 		Common.pause(1);
@@ -271,8 +290,8 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		Common.clickOn(driver, left_month_toogle_btn);
 		Common.pause(2);
 		Weeklyoffday.get(i).click();
-		String date=Weeklyoffday.get(i).getAttribute("data-date");
-		String onlydate= date.substring(8,10);
+		String date = Weeklyoffday.get(i).getAttribute("data-date");
+		String onlydate = date.substring(8, 10);
 		System.out.println(onlydate);
 		System.out.println(date);
 		Common.pause(2);
@@ -280,10 +299,10 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		Common.pause(2);
 		return new DashboardTimeNAttendanceCaVerification(driver);
 	}
+
 	public DashboardTimeNAttendanceCaVerification SwapOffApplyNowButton() {
-		
-		
-		int Weeklyoff_size=Weeklyoffday.size();
+
+		int Weeklyoff_size = Weeklyoffday.size();
 		Random rnd = new Random();
 		int i = rnd.nextInt(Weeklyoff_size);
 		Common.pause(1);
@@ -293,8 +312,8 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		Common.clickOn(driver, left_month_toogle_btn);
 		Common.pause(2);
 		Weeklyoffday.get(i).click();
-		String date=Weeklyoffday.get(i).getAttribute("data-date");
-		String onlydate= date.substring(8,10);
+		String date = Weeklyoffday.get(i).getAttribute("data-date");
+		String onlydate = date.substring(8, 10);
 		System.out.println(onlydate);
 		System.out.println(date);
 		Common.pause(2);
@@ -302,5 +321,22 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 		Common.pause(2);
 		return new DashboardTimeNAttendanceCaVerification(driver);
 	}
-	
+
+	public DashboardTimeNAttendanceCaVerification clickOkButton() {
+
+		Common.clickOn(driver, ok_button);
+
+		return new DashboardTimeNAttendanceCaVerification(driver);
+
+	}
+
+	public DashboardTimeNAttendanceCaVerification clickPopUpCloseButton()
+
+	{
+		Common.clickOn(driver, pop_close_btn);
+
+		return new DashboardTimeNAttendanceCaVerification(driver);
+
+	}
+
 }
