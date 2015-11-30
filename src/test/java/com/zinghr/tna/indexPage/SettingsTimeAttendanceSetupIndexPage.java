@@ -1,6 +1,7 @@
 package com.zinghr.tna.indexPage;
 
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -221,14 +222,45 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//div[@class='questions']/div[3]/label[1]")
 	WebElement yes_radio_btn;
+	@FindBy(xpath = ".//*[@id='ddlShiftList']//option")
+	List<WebElement> shift_list;
+	@FindBy(xpath = ".//*[@id='ddlShiftList']")
+	WebElement shift_field;
+	
+	
+	public SettingsTimeAttendanceSetupVerification selectShift()
+	{
+		Common.clickOn(driver, shift_field);
+		Random rnd = new Random();
+		int i = rnd.nextInt(shift_list.size());
+		if(i>1)
+		{
+			shift_list.get(i).click();
+		}
+	
+		else
+		{
+			i++;
+			shift_list.get(i).click();
+		}
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
 	
 	public SettingsTimeAttendanceSetupVerification selectYesFollowShiftRostering()
 	{
 		/*clickSettingsIcon();
 		clickTimeAndAttendenseFromCircle();*/
 		Common.clickOn(driver, yes_radio_btn);
+//		Common.clickOn(driver, shiftMaster_link);
+//		selectShift();
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	public SettingsTimeAttendanceSetupVerification selectShiftMaster()
+	{
 		Common.clickOn(driver, shiftMaster_link);
 		
 		return new SettingsTimeAttendanceSetupVerification(driver);
@@ -245,7 +277,7 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//*[@id='txtInTime']")
 	WebElement shiftIn_time;
 	
 	public SettingsTimeAttendanceSetupVerification enterInTime(String time) {
@@ -256,7 +288,7 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//*[@id='txtOutTime']")
 	WebElement shiftOut_time;
 	
 	public SettingsTimeAttendanceSetupVerification enterOutTime(String time) {
@@ -267,10 +299,12 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 	
+	@FindBy(xpath = ".//*[@id='txtSwSePar']")
+	WebElement swipe_sep;
 	public SettingsTimeAttendanceSetupVerification enterSwipeSeperator(String value) {
 		
-		Common.clickOn(driver, shiftOut_time);
-		Common.type(shiftOut_time, value);
+		Common.clickOn(driver, swipe_sep);
+		Common.type(swipe_sep, value);
 		
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
@@ -294,12 +328,11 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 	
 	@FindBy(xpath = "")
 	WebElement outdoor_checkbox;
-	@FindBy(xpath = "//a[contains(text(),'Save')]")
-	WebElement save;
+	
 	public SettingsTimeAttendanceSetupVerification empoloyeeApplyOutdoorunchecked()
 	{
 		Common.clickOn(driver, outdoor_checkbox);
-		Common.clickOn(driver, save);
+		clickSavebtn();
 		goToDashboard();
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
@@ -314,13 +347,13 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 	{
 		if(proxy_radio_yes.isSelected()){
 			Common.pause(2);
-			Common.clickOn(driver, save);
+			clickSavebtn();
 			Common.pause(2);
 			Common.clickOn(driver, ok);
 		}
 		else{
 		Common.clickOn(driver, proxy_radio_yes);
-		Common.clickOn(driver, save);
+		clickSavebtn();
 		Common.pause(2);
 		Common.clickOn(driver, ok);
 		}
@@ -332,19 +365,29 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 	{
 		if(proxy_radio_no.isSelected()){
 			Common.pause(2);
-			Common.clickOn(driver, save);
+			clickSavebtn();
 			Common.pause(2);
 			Common.clickOn(driver, ok);
 		}
 		else{
 		Common.clickOn(driver, proxy_radio_no);
 		Common.pause(2);
-		Common.clickOn(driver, save);
+		clickSavebtn();
 		Common.pause(2);
 		Common.clickOn(driver, ok);
 		}
 		driver.switchTo().defaultContent();
 
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	@FindBy(xpath = ".//a[@class='btn btn-primary TNAGroupSave']")
+	WebElement save_btn;
+	
+	public SettingsTimeAttendanceSetupVerification clickSavebtn()
+	{
+		Common.clickOn(driver, save_btn);
+		Common.clickOn(driver, ok);
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 	
@@ -402,9 +445,9 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 		Common.clickOn(driver, early_go_checkbox);
 		Common.pause(1);
 		Common.clickOn(driver, early_mins);
-		Common.type(late_mins, num1);
+		Common.type(early_mins, num1);
 		Common.clickOn(driver, early_times);
-		Common.type(late_times, num2);
+		Common.type(early_times, num2);
 		
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
@@ -418,7 +461,7 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 	WebElement flexi_total_times;
 	@FindBy(xpath = "")
 	WebElement flexi_times;
-	public SettingsTimeAttendanceSetupVerification checkFlexiTimie(String num1, String num2, String num3)
+	public SettingsTimeAttendanceSetupVerification checkFlexiTime(String num1, String num2, String num3 )
 	{
 		Common.clickOn(driver, side_click);
 		Common.scrollToVertical(driver, flexi_checkbox);
@@ -433,4 +476,139 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 		
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
+	
+	@FindBy(xpath = "")
+	WebElement extratime_checkbox;
+	@FindBy(xpath = "")
+	WebElement extratime_mins_prior;
+	@FindBy(xpath = "")
+	WebElement extratime_mins_post;
+	@FindBy(xpath = "")
+	WebElement extratime_mins_early;
+	@FindBy(xpath = "")
+	WebElement extratime_mins_late;
+	@FindBy(xpath = "")
+	WebElement extratime_mins_day;
+	@FindBy(xpath = "")
+	WebElement extratime_mins_week;
+	@FindBy(xpath = "")
+	WebElement extratime_mins_month;
+	@FindBy(xpath = "")
+	WebElement extratime_mins_year;
+	public SettingsTimeAttendanceSetupVerification checkExtraTime(String num1, String num2, String num3 ,String num4, String num5, String num6 ,String num7, String num8)
+	{
+		Common.clickOn(driver, side_click);
+		Common.scrollToVertical(driver, extratime_checkbox);
+		Common.clickOn(driver, extratime_checkbox);
+		Common.pause(1);
+		Common.clickOn(driver, extratime_mins_prior);
+		Common.type(late_mins, num1);
+		Common.clickOn(driver, extratime_mins_post);
+		Common.type(late_times, num2);
+		Common.clickOn(driver, extratime_mins_early);
+		Common.type(late_times, num3);
+		Common.clickOn(driver, extratime_mins_late);
+		Common.type(late_times, num4);
+		Common.clickOn(driver, extratime_mins_day);
+		Common.type(late_times, num5);
+		Common.clickOn(driver, extratime_mins_week);
+		Common.type(late_times, num6);
+		Common.clickOn(driver, extratime_mins_month);
+		Common.type(late_times, num7);
+		Common.clickOn(driver, extratime_mins_year);
+		Common.type(late_times, num8);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	@FindBy(xpath = "")
+	WebElement checkbox_singleSwipe;
+	@FindBy(xpath = "")
+	WebElement singleSwipe_present;
+	@FindBy(xpath = "")
+	WebElement singleSwipe_absent;
+	
+	public SettingsTimeAttendanceSetupVerification checkSingleSwipePresent()
+	{
+		Common.clickOn(driver, side_click);
+		Common.scrollToVertical(driver, checkbox_singleSwipe);
+		Common.clickOn(driver, checkbox_singleSwipe);
+		Common.clickOn(driver, singleSwipe_present);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	public SettingsTimeAttendanceSetupVerification checkSingleSwipeAbsent()
+	{
+		Common.clickOn(driver, side_click);
+		Common.scrollToVertical(driver, checkbox_singleSwipe);
+		Common.clickOn(driver, checkbox_singleSwipe);
+		Common.clickOn(driver, singleSwipe_absent);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	@FindBy(xpath = "")
+	WebElement checkbox_noSwipe;
+	@FindBy(xpath = "")
+	WebElement noSwipe_present;
+	@FindBy(xpath = "")
+	WebElement noSwipe_absent;
+	
+	public SettingsTimeAttendanceSetupVerification checkNoSwipePresent()
+	{
+		Common.clickOn(driver, side_click);
+		Common.scrollToVertical(driver, checkbox_noSwipe);
+		Common.clickOn(driver, checkbox_noSwipe);
+		Common.clickOn(driver, noSwipe_present);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	public SettingsTimeAttendanceSetupVerification checkNoSwipeAbsent()
+	{
+		Common.clickOn(driver, side_click);
+		Common.scrollToVertical(driver, checkbox_noSwipe);
+		Common.clickOn(driver, checkbox_noSwipe);
+		Common.clickOn(driver, noSwipe_absent);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	@FindBy(xpath = ".//*[@id='Comp Off Weekday']/div[1]/label/input")
+	WebElement checkbox_compoff_weekday;
+	@FindBy(xpath = ".//div[@id='Comp Off Weekday']//.[@class='form-control']")
+	WebElement compoff_mins_weekday;
+	@FindBy(xpath = "")
+	WebElement compoff_radio_btn_overtime;
+	
+	public SettingsTimeAttendanceSetupVerification checkcompOffWeekday(String num1)
+	{
+		Common.clickOn(driver, side_click);
+		Common.scrollToVertical(driver, checkbox_compoff_weekday);
+		Common.clickOn(driver, checkbox_compoff_weekday);
+		Common.clickOn(driver, compoff_mins_weekday);
+		Common.type(compoff_mins_weekday, num1);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	@FindBy(xpath = "")
+	WebElement checkbox_compoff_holiday;
+	@FindBy(xpath = "")
+	WebElement compoff_mins_holiday;
+	@FindBy(xpath = "")
+	WebElement compoff_radio_btn_overtime_working;
+	
+	public SettingsTimeAttendanceSetupVerification checkcompOffHoliday(String num1)
+	{
+		Common.clickOn(driver, side_click);
+		Common.scrollToVertical(driver, checkbox_compoff_holiday);
+		Common.clickOn(driver, checkbox_compoff_holiday);
+		Common.clickOn(driver, compoff_mins_holiday);
+		Common.type(compoff_mins_holiday, num1);
+		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
 }

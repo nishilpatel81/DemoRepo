@@ -410,7 +410,7 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 	}
 	
 
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//a[contains(.,'Shift Master')]")
 	WebElement shift_master_link;
 
 	public boolean verifyShiftMasterLink() {
@@ -418,42 +418,45 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 		return shift_master_link.isDisplayed();
 	}
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//input[@id='txtShiftName']")
 	WebElement shift_name;
 
 	public boolean verifyShiftName() {
 		return shiftName_textfield.isDisplayed();
 	}
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//*[@id='txtInTime']")
 	WebElement shiftIn_time;
 	
 	public boolean verifyShiftInTime() {
 		return shiftIn_time.isDisplayed();
 	}
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//*[@id='txtOutTime']")
 	WebElement shiftOut_time;
 	
 	public boolean verifyShiftOutTime() {
 		return shiftOut_time.isDisplayed();
 	}
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//input[@id='txtShftTtlMin']")
 	WebElement shiftTotal_time;
 	
 	public boolean verifyShiftTotalTime() {
 		return shiftTotal_time.isDisplayed();
 	}
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//input[@id='txtShftTtlMin']")
 	WebElement shiftTotal_time1;
 	
 	public boolean verifyShiftTotalTimevalue() {
 		
-		String time = shiftTotal_time1.getAttribute("");
+		
+		String time = shiftTotal_time1.getAttribute("value");
 		if (TestData.total_time.equalsIgnoreCase(time))
 		{
+			log("Total shift time is:::::: " + time+"=== "+TestData.total_time);
+			
 			return true;
 		}
 		else
@@ -463,11 +466,11 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 		}
 	}
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//*[@id='txtSwSePar']")
 	WebElement swipe_seperator;
 	
 	public boolean verifySwipeSeperator() {
-		return swipe_seperator.isDisplayed() && swipe_seperator.toString().equalsIgnoreCase(TestData.swipe_value);
+		return swipe_seperator.isDisplayed() && swipe_seperator.getAttribute("value").equalsIgnoreCase(TestData.swipe_value);
 	}
 	
 	@FindBy(xpath = "")

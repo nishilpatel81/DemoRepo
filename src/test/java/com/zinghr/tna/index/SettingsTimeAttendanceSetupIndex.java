@@ -856,7 +856,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 	@Test
 	public void selectfollowShiftRostering() {
 		int numOfFailure = 0;
-		log("Testcase Id :Setup_32 Setup_38 Setup_39 Setup_43 Setup_44 Setup_46 ");
+		log("Testcase Id :Setup_32 Setup_38 Setup_39 Setup_43 Setup_44 Setup_45 Setup_46 ");
 		log("Testcase Discription :  ");
 
 		log("Step 1: Open url:<a>" + testUrl + "</a>");
@@ -876,7 +876,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 		
 		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
 		taSetupVerificationPage = taSetupIndexPage.selectYesFollowShiftRostering();
-		
+	
 		log("Shift Master link is displayed or not.");
 
 		if (taSetupVerificationPage.verifyShiftMasterLink()) {
@@ -889,6 +889,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 /* <<<<<<<<<Testcase Id: SetUp_32>>>>>>>>*/			
 		log("Step 12: Enter alphanumeric value in 'Shift name' field. "+TestData.shift_name);
 		
+		taSetupVerificationPage = taSetupIndexPage.selectShiftMaster();
 		taSetupVerificationPage = taSetupIndexPage.enterShiftName(TestData.shift_name);
 		
 		log("Shift Name text box should be displayed and it should accept alpha numeric values");
@@ -956,7 +957,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 			Assert.assertTrue(false);
 		}
 		
-/* <<<<<<<<<Testcase Id: 46>>>>>>>>*/
+/* <<<<<<<<<Testcase Id: 46 & 45>>>>>>>>*/
 		log("Step 13: Enter numeric value into 'Swpie Seperator Parameter' field. "+TestData.swipe_value);
 
 		taSetupVerificationPage = taSetupIndexPage.enterSwipeSeperator(TestData.swipe_value);
@@ -1198,7 +1199,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 	@Test
 	public void ruleWorkingHours() {
 		int numOfFailure = 0;
-		log("Testcase Id :Setup_66");
+		log("Testcase Id :Setup_66 Setup_83");
 		log("Testcase Discription :  ");
 
 		log("Step 1: Open url:<a>" + testUrl + "</a>");
@@ -1220,7 +1221,9 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 /* Testcase is :: Setup 66 _-_-_-_-_*/
 		log("Step 11: Working Hours first text field: "+TestData.full_time); 
 		log("Step 12: Working Hours second text field: "+TestData.half_time); 
+		
 		taSetupVerificationPage = taSetupIndexPage.checkWorkingHours(TestData.full_time,TestData.half_time);
+		taSetupVerificationPage = taSetupIndexPage.clickSavebtn();
 
 		log("To verify that box text box in Working Hours is allow only numeric values with max length till 3 characters.");
 
@@ -1261,8 +1264,8 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
 	
 /* Testcase is :: Setup 70 _-_-_-_-_*/
-		log("Step 11: Working Hours first text field: "+TestData.mins); 
-		log("Step 12: Working Hours second text field: "+TestData.times); 
+		log("Step 11: Late coming first text field: "+TestData.mins); 
+		log("Step 12: Late coming second text field: "+TestData.times); 
 		taSetupVerificationPage = taSetupIndexPage.checklateWorking(TestData.mins,TestData.times);
 
 		log("To verify that The System should allow 3 times late till 30 mind from the In Time set in the system, then the status is 'Present'.");
@@ -1283,7 +1286,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 	@Test
 	public void ruleEarlyGoing() {
 		int numOfFailure = 0;
-		log("Testcase Id :Setup_72");
+		log("Testcase Id :Setup_72 Setup_73");
 		log("Testcase Discription :  ");
 
 		log("Step 1: Open url:<a>" + testUrl + "</a>");
@@ -1318,15 +1321,29 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 			numOfFailure++;
 		}
 		
+/* Testcase is :: Setup 73 _-_-_-_-_*/		
+		
+		taSetupVerificationPage = taSetupIndexPage.checkEarlyGoing(TestData.mins,TestData.times);
+
+		log("To verify that The System should allow 3 times late till 30 mind from the In Time set in the system, then the status is 'Present'.");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}*/
+		
 		if (numOfFailure > 0) {
 			Assert.assertTrue(false);
-		}*/
+		}
 	}
 	
 	@Test
 	public void ruleFlexiTiming() {
 		int numOfFailure = 0;
-		log("Testcase Id :Setup_74");
+		log("Testcase Id :Setup_74 Setup_75");
 		log("Testcase Discription :  ");
 
 		log("Step 1: Open url:<a>" + testUrl + "</a>");
@@ -1345,12 +1362,12 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 	
 		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
 	
-/* Testcase is :: Setup 72 _-_-_-_-_*/
+/* Testcase is :: Setup 74 and Setup 75 _-_-_-_-_*/
 		log("Step 11: Flexi Timing first field mins: "+TestData.mins); 
 		log("Step 12: Flexi Timing second field total mins: "+TestData.totol_times);
 		log("Step 13: Flexi Timing third field times: "+TestData.times);
 		
-		taSetupVerificationPage = taSetupIndexPage.checkFlexiTimie(TestData.mins,TestData.totol_times,TestData.times);
+		taSetupVerificationPage = taSetupIndexPage.checkFlexiTime(TestData.mins,TestData.totol_times,TestData.times);
 
 		log("To verify that the system should allow 2 times flexi time and the status should be Present.");
 
@@ -1361,6 +1378,250 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 			Common.logStatus("fail");
 			numOfFailure++;
 		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}*/
+	}
+	
+
+	/*--- Method by tarpan: 30-nov ______-----*/		
+	@Test
+	public void ruleExtraTiming() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_76");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10:  Check Rule Type 'Extra Timing'. "); 
+	
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
+	
+/* Testcase is :: Setup 76 _-_-_-_-_*/
+		log("Step 11: Extra Timing first field: "+TestData.extra_time_1); 
+		log("Step 12: Extra Timing second field: "+TestData.extra_time_2);
+		log("Step 13: Extra Timing third field: "+TestData.extra_time_3);
+		log("Step 13: Extra Timing fourth field: "+TestData.extra_time_4);
+		log("Step 13: Extra Timing fifth field: "+TestData.extra_time_5);
+		log("Step 13: Extra Timing sixth field: "+TestData.extra_time_6);
+		log("Step 13: Extra Timing seventh field: "+TestData.extra_time_7);
+		log("Step 13: Extra Timing eighth field: "+TestData.extra_time_8);
+		
+		taSetupVerificationPage = taSetupIndexPage.checkExtraTime(TestData.extra_time_1,TestData.extra_time_2,TestData.extra_time_3,TestData.extra_time_4 ,TestData.extra_time_5, TestData.extra_time_6 ,TestData.extra_time_7, TestData.extra_time_8);
+
+		log("To verify that The Extra Timing Rules should be configured in the system after setting the time in the setup.");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}*/
+	}
+	
+			
+	@Test
+	public void ruleSingleSwipe() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_77 Setup_78 ");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10:  Check Rule Type 'Single Swipe'. "); 
+	
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
+	
+/* Testcase is :: Setup 77 _-_-_-_-_*/
+		
+		taSetupVerificationPage = taSetupIndexPage.checkSingleSwipePresent();
+
+		log("To verfiy that If the radio button selected is Present for single swipe then the status should be Present.");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}  */
+		
+/* Testcase is :: Setup 78 _-_-_-_-_*/	
+
+		taSetupVerificationPage = taSetupIndexPage.checkSingleSwipeAbsent();
+
+		log("To verfiy that If the radio button selected is Absent for single swipe then the status should be Absent.");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		} 
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}*/
+	}
+	
+	@Test
+	public void ruleNoSwipe() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_79 Setup_80 ");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10:  Check Rule Type 'No Swipe'. "); 
+	
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
+	
+/* Testcase is :: Setup 79 _-_-_-_-_*/
+		
+		taSetupVerificationPage = taSetupIndexPage.checkNoSwipePresent();
+
+		log("To verify that If the radio button selected is Present for No swipe then the status should be Present.");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}  */
+		
+/* Testcase is :: Setup 80 _-_-_-_-_*/		
+		
+		taSetupVerificationPage = taSetupIndexPage.checkNoSwipeAbsent();
+
+		log("To verify that If the radio button selected is Absent for No swipe then the status should be Absent.");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		} 
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}*/
+	}
+	
+	@Test
+	public void ruleCompoffWeekDay() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_81 ");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10:  Check Rule Type 'Comp off for extra time worked on weekdays'. "); 
+	
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
+	
+/* Testcase is :: Setup 81 _-_-_-_-_*/
+		
+		taSetupVerificationPage = taSetupIndexPage.checkcompOffWeekday(TestData.mins);
+
+		log("To verify that The 'Comp off for extra time worked on weekdays' should be configured in the system after setting the time in the setup");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		} 
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}*/
+	}
+	
+	@Test
+	public void ruleCompoffHoliDay() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_82 ");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10:  Check Rule Type 'Comp off for working on weekly off / holidays'. "); 
+	
+		taSetupVerificationPage = taSetupIndexPage.setMyAttendancefromCircle();
+	
+/* Testcase is :: Setup 82 _-_-_-_-_*/
+		
+		taSetupVerificationPage = taSetupIndexPage.checkcompOffHoliday(TestData.mins);
+
+		log("To verify that The 'Comp off for extra time worked on weekdays' should be configured in the system after setting the time in the setup");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		} 
 		
 		if (numOfFailure > 0) {
 			Assert.assertTrue(false);
