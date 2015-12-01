@@ -1,5 +1,6 @@
 package com.zinghr.tna.indexPage;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
@@ -317,23 +318,33 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//*[@class='fa fa-2x fa-home']")
 	WebElement home_icon;
 	public SettingsTimeAttendanceSetupVerification goToDashboard()
 	{
+		
 		Common.clickOn(driver, home_icon);
 		Common.pause(2);
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//div[@class='questions']/div[4]/label[1]/input")
 	WebElement outdoor_checkbox;
 	
 	public SettingsTimeAttendanceSetupVerification empoloyeeApplyOutdoorunchecked()
 	{
-		Common.clickOn(driver, outdoor_checkbox);
-		clickSavebtn();
-		goToDashboard();
+		if(outdoor_checkbox.isSelected())
+		{
+			Common.clickOn(driver, outdoor_checkbox);
+			clickSavebtn();
+			driver.switchTo().defaultContent();
+			goToDashboard();
+		}
+		else{
+			clickSavebtn();
+			driver.switchTo().defaultContent();
+			goToDashboard();
+		}
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 	
@@ -608,6 +619,39 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 		Common.clickOn(driver, compoff_mins_holiday);
 		Common.type(compoff_mins_holiday, num1);
 		
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
+	
+	@FindBy(xpath = ".//*[@class='sidebar-collapse btn']")
+	WebElement sideBar_menu_btn;
+	/*@FindBy(xpath = "")
+	WebElement download_link;*/
+	@FindBy(xpath = ".//*[@class='fa fa-2x fa-plus-circle']")
+	WebElement employee_master_menu;
+	@FindBy(xpath = ".//*[@class='fa fa-download']")
+	WebElement download_link;
+	
+	public SettingsTimeAttendanceSetupVerification employeeMasterDownload()
+	{
+		Common.pause(2);
+		Common.clickOn(driver, sideBar_menu_btn);
+	//	Common.scrollToVertical(driver, employee_master_menu);
+		Common.jsClick(driver, employee_master_menu);
+		Common.pause(2);
+		for(String winhandle : driver.getWindowHandles())
+		{
+			driver.switchTo().window(winhandle);
+		}
+		Common.clickOn(driver, download_link);
+		Common.pause(5);
+		  try{  
+	          Runtime.getRuntime().exec("\"C:\\Users\\KSPL08\\Downloads\\EmployeeMaster.xls\"");  
+	          }
+		  catch(IOException  e){
+	              e.printStackTrace();
+	          }  
+
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
 	

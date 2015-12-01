@@ -473,56 +473,70 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 		return swipe_seperator.isDisplayed() && swipe_seperator.getAttribute("value").equalsIgnoreCase(TestData.swipe_value);
 	}
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//div[@class='questions']/div[4]/label[1]/input")
 	WebElement employee_value1_outdoor;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//div[@class='questions']/div[4]/label[2]/input")
 	WebElement employee_value2_regularize;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//div[@class='questions']/div[4]/label[4]/input")
 	WebElement employee_value3_shift;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//div[@class='questions']/div[4]/label[5]/input")
 	WebElement employee_value4_extra;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//div[@class='questions']/div[4]/label[6]/input")
 	WebElement employee_value5_coff;
 	
 	public boolean verifyEmployeeValueOutdoorChecked() {
-		return employee_value1_outdoor.isSelected();
-	}
-	public boolean verifyEmployeeValueRegChecked() {
-		return employee_value2_regularize.isSelected();
-	}
-	public boolean verifyEmployeeValueShiftChecked() {
-		return employee_value3_shift.isSelected();
-	}
-	public boolean verifyEmployeeValueExtraChecked() {
-		return employee_value4_extra.isSelected();
-	}
-	public boolean verifyEmployeeValueCoffChecked() {
-		return employee_value5_coff.isSelected();
-	}
-	
-	@FindBy(xpath = "")
-	WebElement outdoor_btn_dashboard;
-	public boolean verifyOutdoorBtnDashboard() {
-		
-		if(!outdoor_btn_dashboard.isDisplayed()){
+		Common.highlightElement(driver, employee_value1_outdoor);
+		if(employee_value1_outdoor.isSelected()){
 			return true;
 		}
 		else{
-			return false;
+		return false;
 		}
+	}
+	public boolean verifyEmployeeValueRegChecked() {
+		Common.highlightElement(driver, employee_value2_regularize);
+
+		return employee_value2_regularize.isSelected();
+	}
+	public boolean verifyEmployeeValueShiftChecked() {
+		Common.highlightElement(driver, employee_value3_shift);
+
+		return employee_value3_shift.isSelected();
+	}
+	public boolean verifyEmployeeValueExtraChecked() {
+		Common.highlightElement(driver, employee_value4_extra);
+
+		return employee_value4_extra.isSelected();
+	}
+	public boolean verifyEmployeeValueCoffChecked() {
+		Common.highlightElement(driver, employee_value5_coff);
+
+		return employee_value5_coff.isSelected();
+	}
+	
+	@FindBy(xpath = ".//*[@id='btnTnaPanel']/a[2]")
+	WebElement outdoor_btn_dashboard;
+	public boolean verifyOutdoorBtnDashboard() {
+		try{
+		outdoor_btn_dashboard.isDisplayed();
+		return false;
+		}
+		catch(Exception e){
+			return true;
+			}
 	}
 /*	@FindBy(xpath = .//div[@class='questions']/div[5]/label") 
  *  WebElement extraTime_options_list */	
 	
-	@FindBy(xpath = ".//input[@value='CompOff']/.[@name='check']/..")
+	@FindBy(xpath = "")
 	WebElement extraTime_coff;
-	@FindBy(xpath = ".//input[@value='OverTime']/.[@name='check']/..")
+	@FindBy(xpath = "")
 	WebElement extraTime_OT;
-	@FindBy(xpath = ".//input[@value='LeaveBalance']/.[@name='check']/..")
+	@FindBy(xpath = "")
 	WebElement extraTime_leave_balanc;
-	@FindBy(xpath = ".//input[@value='OtherPayment']/.[@name='check']/..")
+	@FindBy(xpath = "")
 	WebElement extraTime_other_paymnt;
-	
+	 
 	@FindBy(xpath = ".//div[@class='questions']/div[5]/label/input")
 	WebElement extraTime_option_checkbox;
 	

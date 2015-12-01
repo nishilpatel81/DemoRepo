@@ -1199,7 +1199,7 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 	@Test
 	public void ruleWorkingHours() {
 		int numOfFailure = 0;
-		log("Testcase Id :Setup_66 Setup_83");
+		log("Testcase Id :Setup_66 Setup_83 Setup_84");
 		log("Testcase Discription :  ");
 
 		log("Step 1: Open url:<a>" + testUrl + "</a>");
@@ -1612,6 +1612,47 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 /* Testcase is :: Setup 82 _-_-_-_-_*/
 		
 		taSetupVerificationPage = taSetupIndexPage.checkcompOffHoliday(TestData.mins);
+
+		log("To verify that The 'Comp off for extra time worked on weekdays' should be configured in the system after setting the time in the setup");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		} 
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}*/
+	}
+	
+	
+	/*--- Method by tarpan: 1-Dec ______-----*/		
+	@Test
+	public void EmployeeMasterUpload() {
+		int numOfFailure = 0;
+		log("Testcase Id :Setup_85 ");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10:  Check Rule Type 'Comp off for working on weekly off / holidays'. "); 
+	
+/* Testcase is :: Setup 85 _-_-_-_-_*/
+		
+		taSetupVerificationPage = taSetupIndexPage.employeeMasterDownload();
 
 		log("To verify that The 'Comp off for extra time worked on weekdays' should be configured in the system after setting the time in the setup");
 
