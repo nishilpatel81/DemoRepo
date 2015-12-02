@@ -291,8 +291,8 @@ public class SignupVerificationPage extends AbstractPage {
 						By.xpath(".//input[@id='btnSecureLogin']"))
 						.isDisplayed()
 				&& driver.getCurrentUrl().equalsIgnoreCase(login_url))
-
 			return true;
+		
 		else {
 			return false;
 		}

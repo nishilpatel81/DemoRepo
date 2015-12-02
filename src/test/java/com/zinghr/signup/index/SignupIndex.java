@@ -1058,6 +1058,8 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 	
+// By tarpan 2- Dec	
+	
 	@Test(priority = 31)
 	public void invalidActivationCode() throws Exception {
 		int numOfFailure = 0;

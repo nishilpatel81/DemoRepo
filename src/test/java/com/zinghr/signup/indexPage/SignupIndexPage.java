@@ -926,7 +926,6 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterDisplayName(ac_name);
 		Common.pause(2);
 		enterEmailid(email3);
-		
 		selectOthercountry();
 		entercontactno(no);
 		

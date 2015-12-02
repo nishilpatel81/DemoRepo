@@ -6,7 +6,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 public class TestData {
 
-	public static String company_code = "TESTQA";
+	public static String company_code = "ADMINQA";
 	public static String employe_code = "Admin";
 	public static String password = "Baps@200";
 	

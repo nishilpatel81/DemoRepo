@@ -1587,6 +1587,8 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 		}*/
 	}
 	
+	// 2-Dec method by tarpan
+	
 	@Test
 	public void ruleCompoffHoliDay() {
 		int numOfFailure = 0;
