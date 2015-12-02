@@ -10,19 +10,19 @@ import com.zinghr.init.TestData;
 public class SignupIndex extends SeleniumInit {
 
 	@Test(priority = 1)
-	public void SignUpPage() throws Exception {
+	public void HomePage() throws Exception {
 
 		int numOfFailure = 0;
 
 		log("Test Case Id : SU_02 ");
-		log("Testcase Discription : SignUp page verification. ");
+		log("Testcase Discription : Home page verification. ");
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
 
-		signupVerification = signupIndexpage.SignupPage();
+		signupVerification = signupIndexpage.HomePage(TestData.company_code,TestData.employe_code,TestData.password);
 
-		log("To verify that user is able to view 'Sign UP' page");
+		log("To verify that user is able to view Home page.");
 
-		if (signupVerification.verifySignupPage()) {
+		if (signupVerification.verifyHomePage()) {
 			Common.logStatus("Pass");
 
 		} else {
@@ -36,7 +36,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 2)
 	public void companynameFieldAlphanumeric() throws Exception {
 		int numOfFailure = 0;
 
@@ -64,7 +64,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 3)
 	public void companynameFieldBlank() throws Exception {
 		int numOfFailure = 0;
 
@@ -73,7 +73,7 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
 		log("Step 2: Enter Blank space in company Name: " + blank);
 
-		signupVerification = signupIndexpage.blankCompanyCode(emailt,s_company_name,s_display_name,contact_no);
+		signupVerification = signupIndexpage.blankCompanyCode(emailt,blank,s_display_name,contact_no);
 
 		log("To verify that the company name field do not accept blank space.");
 
@@ -91,7 +91,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 4)
 	public void companynameFieldlessthan3() throws Exception {
 		int numOfFailure = 0;
 
@@ -119,7 +119,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 5)
 	public void companynameFieldEmpty() throws Exception {
 		int numOfFailure = 0;
 
@@ -150,7 +150,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 6)
 	public void displaynameFieldAlphabet() throws Exception {
 		int numOfFailure = 0;
 
@@ -184,7 +184,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 8)
+	@Test(priority = 7)
 	public void displaynameFieldInvalid() throws Exception {
 		int numOfFailure = 0;
 
@@ -218,7 +218,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 9)
+	@Test(priority = 8)
 	public void displaynameFieldBlank() throws Exception {
 		int numOfFailure = 0;
 
@@ -246,7 +246,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 10)
+	@Test(priority = 9)
 	public void emailidFieldValid() throws Exception {
 		int numOfFailure = 0;
 
@@ -274,7 +274,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 11)
+	@Test(priority = 10)
 	public void emailidFieldInvalid() throws Exception {
 		int numOfFailure = 0;
 
@@ -301,7 +301,7 @@ public class SignupIndex extends SeleniumInit {
 		}
 	}
 
-	@Test(priority = 12)
+	@Test(priority = 11)
 	public void emailidFieldBlank() throws Exception {
 		int numOfFailure = 0;
 
@@ -328,7 +328,7 @@ public class SignupIndex extends SeleniumInit {
 		}
 	}
 
-	@Test(priority = 13)
+	@Test(priority = 12)
 	public void selectCountry() throws Exception {
 		int numOfFailure = 0;
 
@@ -359,7 +359,7 @@ public class SignupIndex extends SeleniumInit {
 		}
 	}
 
-	@Test(priority = 14)
+	@Test(priority = 13)
 	public void selectNoCountry() throws Exception {
 		int numOfFailure = 0;
 
@@ -390,7 +390,7 @@ public class SignupIndex extends SeleniumInit {
 		}
 	}
 
-	@Test(priority = 15)
+	@Test(priority = 14)
 	public void contactNumFieldValid() throws Exception {
 		int numOfFailure = 0;
 
@@ -421,7 +421,7 @@ public class SignupIndex extends SeleniumInit {
 		}
 	}
 
-	@Test(priority = 16)
+	@Test(priority = 15)
 	public void contactNumFieldInvalid() throws Exception {
 		int numOfFailure = 0;
 
@@ -452,7 +452,7 @@ public class SignupIndex extends SeleniumInit {
 		}
 	}
 
-	@Test(priority = 17)
+	@Test(priority = 16)
 	public void contactNumFieldMorethan10() throws Exception {
 		int numOfFailure = 0;
 
@@ -483,7 +483,7 @@ public class SignupIndex extends SeleniumInit {
 		}
 	}
 
-	@Test(priority = 18)
+	@Test(priority = 17)
 	public void contactNumFieldBlank() throws Exception {
 		int numOfFailure = 0;
 
@@ -514,7 +514,7 @@ public class SignupIndex extends SeleniumInit {
 		}
 	}
 
-	@Test(priority = 19)
+	@Test(priority = 18)
 	public void termsAndprivacy() throws Exception {
 		int numOfFailure = 0;
 
@@ -566,7 +566,7 @@ public class SignupIndex extends SeleniumInit {
 		}
 	}
 
-	@Test(priority = 20)
+	@Test(priority = 19)
 	public void checkbox() throws Exception {
 		int numOfFailure = 0;
 
@@ -597,7 +597,7 @@ public class SignupIndex extends SeleniumInit {
 		}
 	}
 
-	@Test(priority = 21)
+	@Test(priority = 20)
 	public void activationPage() throws Exception {
 		int numOfFailure = 0;
 
@@ -629,7 +629,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 22)
+	@Test(priority = 21)
 	public void emailverification() throws Exception {
 		int numOfFailure = 0;
 
@@ -661,7 +661,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 23)
+	@Test(priority = 22)
 	public void emailFormat() throws Exception {
 		int numOfFailure = 0;
 
@@ -693,7 +693,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 24)
+	@Test(priority = 23)
 	public void emailContents() throws Exception {
 		int numOfFailure = 0;
 
@@ -725,7 +725,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 25)
+	@Test(priority = 24)
 	public void emailClickHereBtn() throws Exception {
 		int numOfFailure = 0;
 
@@ -763,7 +763,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 26)
+	@Test(priority = 25)
 	public void activateTwice() throws Exception {
 		int numOfFailure = 0;
 
@@ -801,7 +801,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 27)
+	@Test(priority = 26)
 	public void enterPaswd() throws Exception {
 		int numOfFailure = 0;
 
@@ -860,7 +860,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 28)
+	@Test(priority = 27)
 	public void enterBlankPassword() throws Exception {
 		int numOfFailure = 0;
 
@@ -878,7 +878,7 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 10: Enter Blank Password: " + blank);
 
 		signupVerification = signupIndexpage.blankPassword(emailt,s_company_name ,s_display_name,
-				a_pswd1,contact_no,account_name);
+				blank,contact_no,account_name);
 
 		log("To verify that Password field do not accept blank data.");
 
@@ -898,7 +898,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 29)
+	@Test(priority = 28)
 	public void pswdProgressStatus() throws Exception {
 		int numOfFailure = 0;
 
@@ -971,11 +971,11 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 30)
+	@Test(priority = 29)
 	public void updateAccountName() throws Exception {
 		int numOfFailure = 0;
 
-		log("Test Case Id : A_SU_14 ");
+		log("Test Case Id : A_SU_14 A_SU_18");
 		log("Testcase Discription : Update account name in 'Activation Page'.");
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
 		log("Step 2: Enter company Name: " + s_company_name);
@@ -1010,7 +1010,7 @@ public class SignupIndex extends SeleniumInit {
 
 	}
 
-	@Test(priority = 31)
+	@Test(priority = 30)
 	public void activateSuccessfullyMesg() throws Exception {
 		int numOfFailure = 0;
 
@@ -1057,6 +1057,46 @@ public class SignupIndex extends SeleniumInit {
 		}
 
 	}
+	
+	@Test(priority = 31)
+	public void invalidActivationCode() throws Exception {
+		int numOfFailure = 0;
+
+		log("Test Case Id : A_SU_17 ");
+		log("Testcase Discription : Activate successfully verification. ");
+		log("Step 1 : Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter company Name: " + s_company_name);
+		log("Step 3: Display Employee Name: " + s_display_name);
+		log("Step 4: Enter Email id: " + emailt);
+		log("Step 5: Select any one country");
+		log("Step 6: Enter Contact no: " + contact_no);
+		log("Step 7: Click on 'Sign Up for 30 days trial' button.");
+		log("Step 8: Open ZingHR activation mail.");
+		log("Step 9: Click on 'Click Here' button in mail.");
+		log("Step 10: Enter Password: " + a_pswd);
+
+		signupVerification = signupIndexpage.invalidActivationCode(emailt,
+				s_company_name, s_display_name, account_name, a_pswd,
+				contact_no);
+
+		log("To verify that error message is displayed if user enters invalid activation code in Activation code field.");
+
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+		if (signupVerification.verifyInvalidActivationCode()) {
+			Common.logStatus("Pass");
+		} else {
+			Common.logStatus("Fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+	
 
 	@Test(priority = 32)
 	public void blankPswdActCode() throws Exception {
@@ -1078,7 +1118,7 @@ public class SignupIndex extends SeleniumInit {
 
 		signupVerification = signupIndexpage
 				.blankPaswdActfield(emailt, s_company_name, s_display_name,
-						account_name, blank, contact_no);
+						blank, blank, contact_no);
 
 		log("To verify that appropriate alert message is displayed if user sign ups with empty Activation Code and Password field");
 

@@ -93,6 +93,20 @@ public class SignupIndexPage extends AbstractPage {
 	@FindBy (xpath=".//input[@id='txtActivationCode']")
 	private WebElement activation_field;
 	
+	@FindBy (xpath=".//input[@id='txtSecureCompanyCode']")
+	private WebElement cmp_login;
+	@FindBy (xpath=".//input[@id='txtSecureEmployeeCode']")
+	private WebElement emp_login;
+	@FindBy (xpath=".//input[@id='txtSecurePassword']")
+	private WebElement pswd_login;
+	@FindBy (xpath=".//input[@id='btnSecureLogin']")
+	private WebElement login_btn;
+	@FindBy (xpath=".//*[@id='btnDemoData']/div[2]/a")
+	private WebElement proceed_btn;
+	
+	@FindBy (xpath=".//input[@id='txtActivationCode']")
+	private WebElement activation_code;
+	
 	String winHandleBefore= driver.getWindowHandle();
 	
 
@@ -266,8 +280,28 @@ public SignupVerificationPage getActinumber()
 	return new SignupVerificationPage(driver);
 }
 
-public SignupVerificationPage SignupPage()
+public SignupVerificationPage clearActivationcode()
 {
+	Common.clickOn(driver, activation_code);
+	activation_code.clear();
+	Common.pause(1);
+	Common.type(activation_code, "345671");
+	
+	return new SignupVerificationPage(driver);
+}
+
+
+public SignupVerificationPage HomePage(String cmp_code , String emp_code , String pswd)
+{
+	Common.clickOn(driver, cmp_login);
+	Common.type(cmp_login, cmp_code);
+	Common.clickOn(driver, emp_login);
+	Common.type(cmp_login, emp_code);
+	Common.clickOn(driver, pswd_login);
+	Common.type(cmp_login, pswd);
+	Common.clickOn(driver, login_btn);
+	Common.pause(2);
+	Common.clickOn(driver, proceed_btn);
 				
 	return new SignupVerificationPage(driver);
 		
@@ -460,6 +494,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterEmailid(email);
 		NoCountry();
 		entercontactno(no);
+		clicksignup30days();
 		return new SignupVerificationPage(driver);
 	}
 	
@@ -644,6 +679,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterAccountName(ac_name1);
 		enterPassword(pswd);
 		clickActivateButton();
+		Common.waitForElement(driver, By.xpath(".//a[@id='ErrorLogin']"));
 		
 		return new SignupVerificationPage(driver);
 	}
@@ -744,7 +780,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		return new SignupVerificationPage(driver);
 	}
 	
-	public SignupVerificationPage updateAccountName(String email2, String cmp_name,String display_name, String pswd, String no, String ac_name)
+	public SignupVerificationPage updateAccountName(String email2, String cmp_name,String display_name, String ac_name, String pswd, String no)
 	{
 
 		Common.pause(2);
@@ -781,6 +817,30 @@ public SignupVerificationPage enterActivationcode(String a)
 		clickGoButton(email2);
 		clickMail(email2);
 		clickHereButton();
+		enterAccountName(ac_name1);
+		enterPassword(pswd);
+		clickActivateButton();
+		System.out.println("========================");
+		Common.waitForElement(driver, By.xpath("//span[contains(text(),'Dear')]"));
+		
+		return new SignupVerificationPage(driver);
+	}
+	
+	public SignupVerificationPage invalidActivationCode(String email2, String cmp_name,String ac_name,String ac_name1, String pswd, String no )
+	{
+
+		Common.pause(2);
+		enterCompanyCode(TestData.rndmString(4));
+		enterDisplayName(ac_name);
+		Common.pause(2);
+		enterEmailid(email2);
+		selectOthercountry();
+		entercontactno(no);
+		clicksignup30days();
+		clickGoButton(email2);
+		clickMail(email2);
+		clickHereButton();
+		clearActivationcode();
 		enterAccountName(ac_name1);
 		enterPassword(pswd);
 		clickActivateButton();

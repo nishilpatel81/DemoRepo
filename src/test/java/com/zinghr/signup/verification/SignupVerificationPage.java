@@ -13,9 +13,9 @@ public class SignupVerificationPage extends AbstractPage {
 		// TODO Auto-generated constructor stub
 	}
 
-	public boolean verifySignupPage() {
+	public boolean verifyHomePage() {
 		Common.pause(1);
-		return driver.findElement(By.xpath(".//*[@id='txtCompanyName']"))
+		return driver.findElement(By.xpath(".//div[@id='content']"))
 				.isDisplayed();
 
 	}
@@ -215,8 +215,8 @@ public class SignupVerificationPage extends AbstractPage {
 	}
 
 	public boolean verifyactivateTwice() {
-		Common.pause(30000);
-		return driver.findElement(By.xpath("//span[contains(text(),'Dear')]"))
+
+		return driver.findElement(By.xpath(".//a[@id='ErrorLogin']"))
 				.isDisplayed();
 	}
 
@@ -254,13 +254,32 @@ public class SignupVerificationPage extends AbstractPage {
 
 	public boolean verifyBlankPsswd() {
 		Common.pause(2);
-		return driver.findElement(
-				By.xpath(".//input[contains(@class,'invalid')]")).isDisplayed();
+		return driver
+				.findElement(
+						By.xpath(".//input[@class='mandatory required field newPassword requiredInput pop-hover invalid']"))
+				.isDisplayed()
+				&& driver
+						.findElement(
+								By.xpath(".//input[@class='form-control required textLower requiredInput pop-hover invalid']"))
+						.isDisplayed();
 	}
 
 	public boolean verifyUpdateAccountName() {
 
 		return driver.findElement(By.xpath("//span[contains(text(),'Dear')]"))
+				.isDisplayed();
+	}
+
+	public boolean verifyInvalidActivationCode() {
+
+		Common.pause(2);
+		Common.waitForElement(
+				driver,
+				By.xpath("html/body/div[1]/div/div/div[1]/div"));
+
+		return driver
+				.findElement(
+						By.xpath("html/body/div[1]/div/div/div[1]/div"))
 				.isDisplayed();
 	}
 
@@ -270,20 +289,20 @@ public class SignupVerificationPage extends AbstractPage {
 		if (driver.findElement(By.xpath(".//img[@id='imgLogo']")).isDisplayed()
 				&& driver.findElement(
 						By.xpath(".//input[@id='btnSecureLogin']"))
-						.isDisplayed()&&driver.getCurrentUrl().equalsIgnoreCase(login_url))
+						.isDisplayed()
+				&& driver.getCurrentUrl().equalsIgnoreCase(login_url))
 
 			return true;
-		else
-		{
+		else {
 			return false;
 		}
 	}
-	
+
 	public boolean verifyTwiseActivateWithSameCode() {
 
 		Common.pause(2);
 		return driver.findElement(By.xpath(".//div[@class='error-500']"))
 				.isDisplayed();
 	}
-	
+
 }
