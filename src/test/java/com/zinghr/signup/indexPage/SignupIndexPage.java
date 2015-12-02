@@ -822,7 +822,6 @@ public SignupVerificationPage enterActivationcode(String a)
 		clickActivateButton();
 		System.out.println("========================");
 		Common.waitForElement(driver, By.xpath("//span[contains(text(),'Dear')]"));
-		
 		return new SignupVerificationPage(driver);
 	}
 	
@@ -837,6 +836,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
+		Common.pause(2);
 		clickGoButton(email2);
 		clickMail(email2);
 		clickHereButton();
@@ -844,8 +844,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterAccountName(ac_name1);
 		enterPassword(pswd);
 		clickActivateButton();
-		System.out.println("========================");
-		Common.waitForElement(driver, By.xpath("//span[contains(text(),'Dear')]"));
+		Common.pause(2);
 		
 		return new SignupVerificationPage(driver);
 	}
@@ -867,8 +866,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterAccountName(ac_name1);
 		enterPassword(pswd);
 		clickActivateButton();
-		Common.pause(5);
-		Common.waitForElement(driver, By.xpath("//span[contains(text(),'Dear')]"));
+		Common.pause(2);
 		
 		return new SignupVerificationPage(driver);
 	}
