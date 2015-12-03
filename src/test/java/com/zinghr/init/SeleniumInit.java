@@ -301,7 +301,7 @@ public class SeleniumInit {
 
 			capability = DesiredCapabilities.chrome();
 			System.setProperty("webdriver.chrome.driver",
-					"C:\\chromedriver.exe");
+					"E:\\Rahul_R/Jars/chromedriver.exe");
 			// driver = new RemoteWebDriver(new
 			// URL("http://localhost:4444/wd/hub"), capability);
 			capability.setBrowserName("chrome");

@@ -26,8 +26,8 @@ public class TestData {
 	public static String password_s = "Baps@200";
 	public static String facebook = "https://www.facebook.com/zinghr";
 	public static String twitter = "https://twitter.com/ZingHR";
-	public static String youtube= "https://www.youtube.com/channel/";
-	public static String gplus = "https://plus.google.com/+Zinghr/posts";
+	public static String youtube= "https://www.youtube.com/channel";
+	public static String gplus = "https://plus.google.com/+Zinghr";
 	public static String linkedin= "https://www.linkedin.com/company/zinghr";
 	public static String full_time= "300";
 	public static String half_time= "123";	
@@ -35,14 +35,14 @@ public class TestData {
 	public static String times= "3";
 	public static String times2= "2";
 	public static String totol_times= "150";
-	public static String extra_time_1 = "";
-	public static String extra_time_2 = "";
-	public static String extra_time_3 = "";
-	public static String extra_time_4 = "";
-	public static String extra_time_5 = "";
-	public static String extra_time_6 = "";
-	public static String extra_time_7 = "";
-	public static String extra_time_8 = "";
+	public static String extra_time_1 = "1";
+	public static String extra_time_2 = "2";
+	public static String extra_time_3 = "3";
+	public static String extra_time_4 = "4";
+	public static String extra_time_5 = "5";
+	public static String extra_time_6 = "6";
+	public static String extra_time_7 = "7";
+	public static String extra_time_8 = "8";
 	
 	public static String blank = " ";
 	public static String invalid = "%&^%6545as";
