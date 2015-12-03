@@ -355,6 +355,7 @@ public class LoginVerificationPage extends AbstractPage {
 		} else {
 			return false;
 		}
+		
 	}
 	public boolean back_to_login_button_verification() {
 		if (companyCode_txt_fld.isDisplayed() && employeeCode_txt_fld.isDisplayed() && password_txt_fld.isDisplayed()
