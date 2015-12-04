@@ -31,16 +31,17 @@ import com.zinghr.login.indexPage.LoginIndexPage;
 import com.zinghr.login.verification.LoginVerificationPage;
 import com.zinghr.signup.indexPage.SignupIndexPage;
 import com.zinghr.signup.verification.SignupVerificationPage;
-import com.zinghr.tna.index.MyTransectionIndex;
 import com.zinghr.tna.indexPage.ApproverNotificationIndexPage;
 import com.zinghr.tna.indexPage.DashboardTimeNAttendanceCaIndexPage;
 import com.zinghr.tna.indexPage.MyTransectionIndexpage;
 import com.zinghr.tna.indexPage.OASIndexPage;
+import com.zinghr.tna.indexPage.PendingRequestIndexPage;
 import com.zinghr.tna.indexPage.SettingsTimeAttendanceSetupIndexPage;
 import com.zinghr.tna.verification.ApproverNotificationVerification;
 import com.zinghr.tna.verification.DashboardTimeNAttendanceCaVerification;
 import com.zinghr.tna.verification.MyTransectionVerification;
 import com.zinghr.tna.verification.OASVerificationPage;
+import com.zinghr.tna.verification.PendingRequestVerification;
 import com.zinghr.tna.verification.SettingsTimeAttendanceSetupVerification;
 
 public class SeleniumInit {
@@ -63,6 +64,7 @@ public class SeleniumInit {
 	public String a_pswd1 = "Test123";
 	public String a_pswd = "Test@123";
 
+	
 	public String suiteName = "";
 	public String testName = "";
 	/* Minimum requirement for test configur ation */
@@ -90,15 +92,14 @@ public class SeleniumInit {
 	public SettingsTimeAttendanceSetupVerification taSetupVerificationPage;
 	public OASIndexPage oasIndexPage;
 	public OASVerificationPage oasVerificationPage;
-	
-	
-	
+	public PendingRequestIndexPage pendingReqIndexPage;
+	public PendingRequestVerification pendingReqVerificationPage;
+
 	protected static String screenshot_folder_path = null;
 	public static String currentTest; // current running test
 
 	protected static Logger logger = Logger.getLogger("testing");
 	protected WebDriver driver;
-	
 
 	// Common Common = new Common(driver);
 
@@ -301,7 +302,7 @@ public class SeleniumInit {
 
 			capability = DesiredCapabilities.chrome();
 			System.setProperty("webdriver.chrome.driver",
-					"E:\\Rahul_R/Jars/chromedriver.exe");
+					"C:\\chromedriver.exe");
 			// driver = new RemoteWebDriver(new
 			// URL("http://localhost:4444/wd/hub"), capability);
 			capability.setBrowserName("chrome");
@@ -342,16 +343,22 @@ public class SeleniumInit {
 		signupIndexpage = new SignupIndexPage(driver);
 		signupVerification = new SignupVerificationPage(driver);
 		dbTnaCalIndexPage = new DashboardTimeNAttendanceCaIndexPage(driver);
-		dbTnaCalVerificationPage = new DashboardTimeNAttendanceCaVerification(driver);
+		dbTnaCalVerificationPage = new DashboardTimeNAttendanceCaVerification(
+				driver);
 
-		taSetupIndexPage=new  SettingsTimeAttendanceSetupIndexPage(driver);
-		taSetupVerificationPage = new SettingsTimeAttendanceSetupVerification(driver);
+		taSetupIndexPage = new SettingsTimeAttendanceSetupIndexPage(driver);
+		taSetupVerificationPage = new SettingsTimeAttendanceSetupVerification(
+				driver);
 		oasIndexPage = new OASIndexPage(driver);
 		oasVerificationPage = new OASVerificationPage(driver);
-		myTransectionIndexpage =new MyTransectionIndexpage(driver);
+		myTransectionIndexpage = new MyTransectionIndexpage(driver);
 		myTransectionVerification = new MyTransectionVerification(driver);
-		approverNotificationIndexPage = new ApproverNotificationIndexPage(driver);
-		approverNotificationVerification = new ApproverNotificationVerification(driver);
+		approverNotificationIndexPage = new ApproverNotificationIndexPage(
+				driver);
+		approverNotificationVerification = new ApproverNotificationVerification(
+				driver);
+		pendingReqIndexPage = new PendingRequestIndexPage(driver);
+		pendingReqVerificationPage = new PendingRequestVerification(driver);
 	}
 
 	/**

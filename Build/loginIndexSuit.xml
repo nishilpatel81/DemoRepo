@@ -14,8 +14,6 @@
 		value="http://automation.zinghr.com/2015/pages/Authentication/login.aspx" />
 
 
-
-
 	<listeners>
 
 		<listener class-name="com.zinghr.utility.CustomReporter" />
