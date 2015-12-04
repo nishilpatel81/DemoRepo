@@ -156,7 +156,7 @@ public class LoginVerificationPage extends AbstractPage {
 	}
 	
 	public boolean after_account_block_verification() {
-		WebElement block_acc_alert = driver.findElement(By.xpath("//div[contains(text(),'YOUR LOGIN ID LOCKED')]"));
+		WebElement block_acc_alert = driver.findElement(By.xpath("//div[contains(text(),'YOUR LOGIN ID DISABLED')]"));
 		if (block_acc_alert.isDisplayed()) {
 			return true;
 		} else {

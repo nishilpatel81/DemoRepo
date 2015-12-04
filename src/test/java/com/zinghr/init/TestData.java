@@ -6,7 +6,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 public class TestData {
 
-	public static String company_code = "TESTQA";
+	public static String company_code = "ADMINQA";
 	public static String employe_code = "Admin";
 	public static String password = "Baps@200";
 	
@@ -20,7 +20,7 @@ public class TestData {
 	/*public static String intime = "08:30";
 	public static String outtime = "17:30";*/
 	
-	public static String company_code_se = "AMBUJA";
+	public static String company_code_se = "CYOLTEST";
 	public static String employe_code_se = "ADMIN";
 	public static String password_se = "Baps@2000";
 	public static String password_s = "Baps@200";
@@ -72,7 +72,7 @@ public class TestData {
 	
 	public static String rndmemail(int i)
 	{
-		String email = new StringBuilder(30).append("kiwitest").append(rndmNumber(i)).append("@mailinator.com").toString();
+		String email = new StringBuilder(30).append("kiwitest1").append(rndmNumber(i)).append("@mailinator.com").toString();
 		
 		return email;
 	}
