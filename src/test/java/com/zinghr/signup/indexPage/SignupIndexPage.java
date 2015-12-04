@@ -728,6 +728,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
+		Common.pause(2);
 		clickGoButton(email2);
 		clickMail(email2);
 		clickHereButton();

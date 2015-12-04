@@ -257,11 +257,7 @@ public class SignupVerificationPage extends AbstractPage {
 		return driver
 				.findElement(
 						By.xpath(".//input[@class='mandatory required field newPassword requiredInput pop-hover invalid']"))
-				.isDisplayed()
-				&& driver
-						.findElement(
-								By.xpath(".//input[@class='form-control required textLower requiredInput pop-hover invalid']"))
-						.isDisplayed();
+				.isDisplayed();
 	}
 
 	public boolean verifyUpdateAccountName() {

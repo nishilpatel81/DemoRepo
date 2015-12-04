@@ -1083,9 +1083,9 @@ public class SignupIndex extends SeleniumInit {
 
 		log("To verify that error message is displayed if user enters invalid activation code in Activation code field.");
 
-		for (String winHandle : driver.getWindowHandles()) {
+		/*for (String winHandle : driver.getWindowHandles()) {
 			driver.switchTo().window(winHandle);
-		}
+		}*/
 		if (signupVerification.verifyInvalidActivationCode()) {
 			Common.logStatus("Pass");
 		} else {
