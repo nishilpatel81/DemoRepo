@@ -10,7 +10,7 @@
 
 	<!-- Put target browser name as below: 1) Firefox : firefox 2) chrome : 
 		chrome 3) IExplorer : ie8 / ie9 -->
-	<parameter name="selenium.browser" value="chrome" />
+	<parameter name="selenium.browser" value="firefox" />
 	<parameter name="selenium.url"
 		value="http://automation.zinghr.com/2015/pages/authentication/login.aspx" />
 
@@ -23,7 +23,7 @@
 
 	</listeners>
 
-	<test name="TNA_1,TNA_2,TNA_3 : To test My TNA section on dashboard">
+	<!-- <test name="TNA_1,TNA_2,TNA_3 : To test My TNA section on dashboard">
 		<classes>
 			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
 				<methods>
@@ -147,10 +147,97 @@
 		<classes>
 			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
 				<methods>
+					<include name="Regulerization_with_outdoor_intime_outtime_editable" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test
+		name="TNA_57 : To verify Outdoor request Cancel and View options are available ">
+		<classes>
+			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
+				<methods>
 					<include name="Outdoor_request_Cancel_View_option" />
 				</methods>
 			</class>
 		</classes>
 	</test>
+	
+	<test
+		name="TNA_57 : To verify Outdoor request Cancel and View options are available ">
+		<classes>
+			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
+				<methods>
+					<include name="Outdoor_request_Cancel_View_option" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test
+		name="TNA_63 : Weekly off alert message">
+		<classes>
+			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
+				<methods>
+					<include name="WeeklyOffMessage" />
+				</methods>
+			</class>
+		</classes>
+	</test> -->
 
+	<!-- <test
+		name="TNA_64 : Apply weekly off page">
+		<classes>
+			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
+				<methods>
+					<include name="ApplyWeeklyOffPageOpen" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	 -->
+<!-- 	<test
+		name="TNA_65 : The select date is displayed in the selected date space">
+		<classes>
+			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
+				<methods>
+					<include name="Selectdatedisplay" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	 -->
+	<test
+		name="TNA_69 : To verify Remarks text box is displayed">
+		<classes>
+			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
+				<methods>
+					<include name="SwapOffRemarkTextBox" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+		<test
+		name="TNA_70 : To verify Apply now button is displayed">
+		<classes>
+			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
+				<methods>
+					<include name="SwapOffApplyNowButton" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test
+		name="TNA_74 : To verify This Year, Last Year and Custom tabs are displayed ">
+		<classes>
+			<class name="com.zinghr.tna.index.DashboardTimeNAttendanceCalIndex">
+				<methods>
+					<include name="SwapOff_this_year_last_year_tabs" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
 </suite>

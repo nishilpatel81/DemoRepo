@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" verbose="10" name="Failed suite [Failed suite [Failed suite [Failed suite [ZingHr - Time and Attendance Setup]]]]">
+  <parameter name="selenium.port" value="4444"/>
+  <parameter name="selenium.host" value="localhost"/>
+  <parameter name="selenium.browser" value="chrome"/>
+  <parameter name="selenium.url" value="http://qa.zinghr.com/2015/pages/authentication/login.aspx"/>
+  <listeners>
+    <listener class-name="com.zinghr.utility.CustomReporter"/>
+  </listeners>
+  <test name=" Setup_85 :  selectfollowShiftRostering.(failed)(failed)(failed)(failed)">
+    <classes>
+      <class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+        <methods>
+          <include name="tearDown"/>
+          <include name="fetchSuiteConfiguration"/>
+          <include name="setUp"/>
+          <include name="fourthBlockSetMyAttendance"/>
+        </methods>
+      </class> <!-- com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex -->
+    </classes>
+  </test> <!--  Setup_85 :  selectfollowShiftRostering.(failed)(failed)(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [ZingHr - Time and Attendance Setup]]]] -->

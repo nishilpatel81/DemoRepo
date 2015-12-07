@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Login" verbose="10" parallel="tests" thread-count="3">
+
+	<!-- Put IP of localhost/Grid Hub machine -->
+	<parameter name="selenium.host" value="localhost" />
+
+	<!-- Put Port of localhost RC/Grid Hub machine -->
+	<parameter name="selenium.port" value="4444" />
+
+	<!-- Put target browser name as below: 1) Firefox : firefox 2) chrome : 
+		chrome 3) IExplorer : ie8 / ie9 -->
+	<parameter name="selenium.browser" value="chrome" />
+	<parameter name="selenium.url"
+		value="http://automation.zinghr.com/2015/pages/Authentication/login.aspx" />
+
+
+
+
+	<listeners>
+
+		<listener class-name="com.zinghr.utility.CustomReporter" />
+
+	</listeners>
+
+
+	<!-- <test name="TNA_44 : To test Pending Request Page is open">
+		<classes>
+			<class name="com.zinghr.tna.index.PendingRequestIndex">
+				<methods>
+					<include name="pendingRequestPageIsDisplayed" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test
+		name="TNA_47 : To test Approve, Edit, Reject Button is displayed against Request ">
+		<classes>
+			<class name="com.zinghr.tna.index.PendingRequestIndex">
+				<methods>
+					<include name="approveRejectEditButIsDisplayedOnPendingReqPage" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="TNA_48 : Regularization Approval pop up is displayed">
+		<classes>
+			<class name="com.zinghr.tna.index.PendingRequestIndex">
+				<methods>
+					<include name="regularazationApprovalPopupIsDisplayed" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+ -->
+
+
+	<test name="TNA_49,TNA_50 : Regularization Approval pop up is displayed">
+		<classes>
+			<class name="com.zinghr.tna.index.PendingRequestIndex">
+				<methods>
+					<include name="intimeAndoutTimeIsEditable" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+</suite>

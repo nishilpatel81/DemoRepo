@@ -31,7 +31,6 @@ import com.zinghr.login.indexPage.LoginIndexPage;
 import com.zinghr.login.verification.LoginVerificationPage;
 import com.zinghr.signup.indexPage.SignupIndexPage;
 import com.zinghr.signup.verification.SignupVerificationPage;
-import com.zinghr.tna.index.MyTransectionIndex;
 import com.zinghr.tna.indexPage.ApproverNotificationIndexPage;
 import com.zinghr.tna.indexPage.DashboardTimeNAttendanceCaIndexPage;
 import com.zinghr.tna.indexPage.MyTransectionIndexpage;
@@ -65,6 +64,7 @@ public class SeleniumInit {
 	public String a_pswd1 = "Test123";
 	public String a_pswd = "Test@123";
 
+	
 	public String suiteName = "";
 	public String testName = "";
 	/* Minimum requirement for test configur ation */
@@ -93,7 +93,6 @@ public class SeleniumInit {
 	public OASIndexPage oasIndexPage;
 	public OASVerificationPage oasVerificationPage;
 	public PendingRequestIndexPage pendingReqIndexPage;
-	
 	public PendingRequestVerification pendingReqVerificationPage;
 
 	protected static String screenshot_folder_path = null;

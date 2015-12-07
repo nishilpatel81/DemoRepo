@@ -156,7 +156,7 @@ public class LoginVerificationPage extends AbstractPage {
 	}
 	
 	public boolean after_account_block_verification() {
-		WebElement block_acc_alert = driver.findElement(By.xpath("//div[contains(text(),'YOUR LOGIN ID LOCKED')]"));
+		WebElement block_acc_alert = driver.findElement(By.xpath("//div[contains(text(),'YOUR LOGIN ID DISABLED')]"));
 		if (block_acc_alert.isDisplayed()) {
 			return true;
 		} else {
@@ -349,12 +349,13 @@ public class LoginVerificationPage extends AbstractPage {
 		}
 	}
 	public boolean Forgot_password_enter_valid_data_in_company_employee_code_verification() {
-		WebElement forgotpass_lbl = driver.findElement(By.xpath(".//span[contains(text(),'Company Code Incorrect')]"));
+		WebElement forgotpass_lbl = driver.findElement(By.xpath(".//span[contains(text(),'Successful')]"));
 		if (forgotpass_lbl.isDisplayed()) {
 			return true;
 		} else {
 			return false;
 		}
+		
 	}
 	public boolean back_to_login_button_verification() {
 		if (companyCode_txt_fld.isDisplayed() && employeeCode_txt_fld.isDisplayed() && password_txt_fld.isDisplayed()

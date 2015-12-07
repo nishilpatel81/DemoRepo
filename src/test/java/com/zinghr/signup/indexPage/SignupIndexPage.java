@@ -137,7 +137,7 @@ public SignupVerificationPage enterEmailid(String email_s)
 
 public SignupVerificationPage selectcountry() 
 {
-	Common.clickOn(driver, country_List);
+	Common.clickOn(driver, country_List); 
 		
 	return new SignupVerificationPage(driver);
 }
@@ -784,7 +784,7 @@ public SignupVerificationPage enterActivationcode(String a)
 	public SignupVerificationPage updateAccountName(String email2, String cmp_name,String display_name, String ac_name, String pswd, String no)
 	{
 
-		Common.pause(2);
+		Common.pause(1);
 		enterCompanyCode(cmp_name);
 		enterDisplayName(display_name);
 		Common.pause(2);
@@ -821,7 +821,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterAccountName(ac_name1);
 		enterPassword(pswd);
 		clickActivateButton();
-		System.out.println("========================");
+		System.out.println("==========Wait For Activate Account==============");
 		Common.waitForElement(driver, By.xpath("//span[contains(text(),'Dear')]"));
 		return new SignupVerificationPage(driver);
 	}
@@ -846,7 +846,8 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterPassword(pswd);
 		clickActivateButton();
 		Common.pause(2);
-		
+		System.out.println("==========Wait For Activate Account==============");
+	
 		return new SignupVerificationPage(driver);
 	}
 	
@@ -941,3 +942,15 @@ public SignupVerificationPage enterActivationcode(String a)
 		return new SignupVerificationPage(driver);
 	}
 }
+
+
+
+/*clicksignup30days();
+clickGoButton(email3);
+clickMail(email3);
+clickHereButton();
+Common.pause(2);
+enterActivationcode(activation_no);
+enterAccountName(ac_name1);
+enterPassword(pswd);
+clickActivateButton();*/

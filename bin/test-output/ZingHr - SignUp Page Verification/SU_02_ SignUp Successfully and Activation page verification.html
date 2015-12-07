@@ -1,0 +1,938 @@
+<html>
+<head>
+<title>TestNG:  SU_02: SignUp Successfully and Activation page verification</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>SU_02: SignUp Successfully and Activation page verification</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>5/0/28</td>
+</tr><tr>
+<td>Started on:</td><td>Mon Nov 23 15:01:08 IST 2015</td>
+</tr>
+<tr><td>Total time:</td><td>227 seconds (227581 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex<br>Parameters: public void com.zinghr.signup.index.SignupIndex.displaynameFieldAlphabet() throws java.lang.Exception, org.testng.TestRunner@7ceb3185</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: Unable to connect to host 127.0.0.1 on port 7055 after 45000 ms. Firefox console output:
+251263	addons.xpi	WARN	Disabling foreign installed add-on wrc@avast.com in winreg-app-global
+1448271251263	addons.xpi-utils	DEBUG	Make addon winreg-app-global:wrc@avast.com visible
+1448271251263	DeferredSave.extensions.json	DEBUG	Save changes
+1448271251263	DeferredSave.extensions.json	DEBUG	Data changed while write in progress
+1448271251263	DeferredSave.extensions.json	DEBUG	Save changes
+1448271251263	addons.xpi	DEBUG	Updating XPIState for {&quot;id&quot;:&quot;wrc@avast.com&quot;,&quot;syncGUID&quot;:&quot;yMYujaP6tBSe&quot;,&quot;location&quot;:&quot;winreg-app-global&quot;,&quot;version&quot;:&quot;10.2.0.187&quot;,&quot;type&quot;:&quot;extension&quot;,&quot;internalName&quot;:null,&quot;updateURL&quot;:&quot;http://firefoxplugin.ff.avast.com/aos/updates.rdf?id=%ITEM_ID%&amp;status=%ITEM_STATUS%&amp;os=%APP_OS%&quot;,&quot;updateKey&quot;:&quot;MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDc6F6CPnst0FEpMpqBguj6WJgVaJXY+5FVWXPVZc2o/tv83KHmeMBjy9z8JCerdDVHCKGOHWRO8XWEpaxhdyfsek3wABigweRHlRFNHZxFhSzqJfIbkNVmfzKF2kPjoi881h0V4EqrnGjSIPjW7E5NPM0UH14hqauQaKH66lK5LQIDAQAB&quot;,&quot;optionsURL&quot;:null,&quot;optionsType&quot;:null,&quot;aboutURL&quot;:null,&quot;iconURL&quot;:&quot;chrome://wrc/content/common/skin/img/icon48.png&quot;,&quot;icon64URL&quot;:&quot;chrome://wrc/content/common/skin/img/icon64.png&quot;,&quot;defaultLocale&quot;:{&quot;name&quot;:&quot;Avast Online Security&quot;,&quot;description&quot;:&quot;Avast Browser Security and Web Reputation Plugin. Offering protection against known phishing and malware sites, improving your browsing overall browsing experience with crowd sourced web reputation rating.&quot;,&quot;creator&quot;:&quot;AVAST Software&quot;,&quot;homepageURL&quot;:&quot;http://www.avast.com/&quot;},&quot;visible&quot;:true,&quot;active&quot;:false,&quot;userDisabled&quot;:true,&quot;appDisabled&quot;:false,&quot;descriptor&quot;:&quot;C:\\Program Files\\AVAST Software\\Avast\\WebRep\\FF&quot;,&quot;installDate&quot;:1446074994612,&quot;updateDate&quot;:1446074994612,&quot;applyBackgroundUpdates&quot;:1,&quot;bootstrap&quot;:false,&quot;size&quot;:2179362,&quot;sourceURI&quot;:null,&quot;releaseNotesURI&quot;:null,&quot;softDisabled&quot;:false,&quot;foreignInstall&quot;:true,&quot;hasBinaryComponents&quot;:false,&quot;strictCompatibility&quot;:false,&quot;locales&quot;:[],&quot;targetApplications&quot;:[{&quot;id&quot;:&quot;{ec8030f7-c20a-464f-9b0e-13a3a9e97384}&quot;,&quot;minVersion&quot;:&quot;3.0&quot;,&quot;maxVersion&quot;:&quot;25.0&quot;}],&quot;targetPlatforms&quot;:[],&quot;multiprocessCompatible&quot;:false,&quot;signedState&quot;:0}
+1448271251264	addons.xpi	DEBUG	Updating database with changes to installed add-ons
+1448271251264	addons.xpi-utils	DEBUG	Updating add-on states
+1448271251265	addons.xpi-utils	DEBUG	Writing add-ons list
+1448271251271	addons.manager	DEBUG	Registering shutdown blocker for XPIProvider
+1448271251271	addons.manager	DEBUG	Provider finished startup: XPIProvider
+1448271251271	addons.manager	DEBUG	Starting provider: LightweightThemeManager
+1448271251271	addons.manager	DEBUG	Registering shutdown blocker for LightweightThemeManager
+1448271251271	addons.manager	DEBUG	Provider finished startup: LightweightThemeManager
+1448271251271	addons.manager	DEBUG	Starting provider: GMPProvider
+1448271251276	addons.manager	DEBUG	Registering shutdown blocker for GMPProvider
+1448271251276	addons.manager	DEBUG	Provider finished startup: GMPProvider
+1448271251276	addons.manager	DEBUG	Starting provider: PluginProvider
+1448271251276	addons.manager	DEBUG	Registering shutdown blocker for PluginProvider
+1448271251276	addons.manager	DEBUG	Provider finished startup: PluginProvider
+1448271251276	addons.manager	DEBUG	Completed startup sequence
+1448271252199	DeferredSave.extensions.json	DEBUG	Write succeeded
+1448271252199	addons.xpi-utils	DEBUG	XPI Database saved, setting schema version preference to 17
+1448271252199	DeferredSave.extensions.json	DEBUG	Starting timer
+1448271252203	addons.repository	DEBUG	No addons.json found.
+1448271252204	DeferredSave.addons.json	DEBUG	Save changes
+1448271252205	DeferredSave.addons.json	DEBUG	Starting timer
+1448271252231	addons.manager	DEBUG	Starting provider: PreviousExperimentProvider
+1448271252232	addons.manager	DEBUG	Registering shutdown blocker for PreviousExperimentProvider
+1448271252232	addons.manager	DEBUG	Provider finished startup: PreviousExperimentProvider
+1448271252234	DeferredSave.extensions.json	DEBUG	Starting write
+1448271252241	DeferredSave.extensions.json	DEBUG	Write succeeded
+1448271252404	DeferredSave.addons.json	DEBUG	Starting write
+1448271252411	DeferredSave.addons.json	DEBUG	Write succeeded
+
+Command duration or timeout: 45.43 seconds
+Build info: version: &apos;2.47.1&apos;, revision: &apos;411b314&apos;, time: &apos;2015-07-30 03:03:16&apos;
+System info: host: &apos;HP&apos;, ip: &apos;192.168.1.35&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_65&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:242)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:128)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:155)
+	at com.zinghr.init.SeleniumInit.setUp(SeleniumInit.java:318)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:653)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+Caused by: org.openqa.selenium.remote.ErrorHandler$UnknownServerException: Unable to connect to host 127.0.0.1 on port 7055 after 45000 ms. Firefox console output:
+251263	addons.xpi	WARN	Disabling foreign installed add-on wrc@avast.com in winreg-app-global
+1448271251263	addons.xpi-utils	DEBUG	Make addon winreg-app-global:wrc@avast.com visible
+1448271251263	DeferredSave.extensions.json	DEBUG	Save changes
+1448271251263	DeferredSave.extensions.json	DEBUG	Data changed while write in progress
+1448271251263	DeferredSave.extensions.json	DEBUG	Save changes
+1448271251263	addons.xpi	DEBUG	Updating XPIState for {&quot;id&quot;:&quot;wrc@avast.com&quot;,&quot;syncGUID&quot;:&quot;yMYujaP6tBSe&quot;,&quot;location&quot;:&quot;winreg-app-global&quot;,&quot;version&quot;:&quot;10.2.0.187&quot;,&quot;type&quot;:&quot;extension&quot;,&quot;internalName&quot;:null,&quot;updateURL&quot;:&quot;http://firefoxplugin.ff.avast.com/aos/updates.rdf?id=%ITEM_ID%&amp;status=%ITEM_STATUS%&amp;os=%APP_OS%&quot;,&quot;updateKey&quot;:&quot;MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDc6F6CPnst0FEpMpqBguj6WJgVaJXY+5FVWXPVZc2o/tv83KHmeMBjy9z8JCerdDVHCKGOHWRO8XWEpaxhdyfsek3wABigweRHlRFNHZxFhSzqJfIbkNVmfzKF2kPjoi881h0V4EqrnGjSIPjW7E5NPM0UH14hqauQaKH66lK5LQIDAQAB&quot;,&quot;optionsURL&quot;:null,&quot;optionsType&quot;:null,&quot;aboutURL&quot;:null,&quot;iconURL&quot;:&quot;chrome://wrc/content/common/skin/img/icon48.png&quot;,&quot;icon64URL&quot;:&quot;chrome://wrc/content/common/skin/img/icon64.png&quot;,&quot;defaultLocale&quot;:{&quot;name&quot;:&quot;Avast Online Security&quot;,&quot;description&quot;:&quot;Avast Browser Security and Web Reputation Plugin. Offering protection against known phishing and malware sites, improving your browsing overall browsing experience with crowd sourced web reputation rating.&quot;,&quot;creator&quot;:&quot;AVAST Software&quot;,&quot;homepageURL&quot;:&quot;http://www.avast.com/&quot;},&quot;visible&quot;:true,&quot;active&quot;:false,&quot;userDisabled&quot;:true,&quot;appDisabled&quot;:false,&quot;descriptor&quot;:&quot;C:\\Program Files\\AVAST Software\\Avast\\WebRep\\FF&quot;,&quot;installDate&quot;:1446074994612,&quot;updateDate&quot;:1446074994612,&quot;applyBackgroundUpdates&quot;:1,&quot;bootstrap&quot;:false,&quot;size&quot;:2179362,&quot;sourceURI&quot;:null,&quot;releaseNotesURI&quot;:null,&quot;softDisabled&quot;:false,&quot;foreignInstall&quot;:true,&quot;hasBinaryComponents&quot;:false,&quot;strictCompatibility&quot;:false,&quot;locales&quot;:[],&quot;targetApplications&quot;:[{&quot;id&quot;:&quot;{ec8030f7-c20a-464f-9b0e-13a3a9e97384}&quot;,&quot;minVersion&quot;:&quot;3.0&quot;,&quot;maxVersion&quot;:&quot;25.0&quot;}],&quot;targetPlatforms&quot;:[],&quot;multiprocessCompatible&quot;:false,&quot;signedState&quot;:0}
+1448271251264	addons.xpi	DEBUG	Updating database with changes to installed add-ons
+1448271251264	addons.xpi-utils	DEBUG	Updating add-on states
+1448271251265	addons.xpi-utils	DEBUG	Writing add-ons list
+1448271251271	addons.manager	DEBUG	Registering shutdown blocker for XPIProvider
+1448271251271	addons.manager	DEBUG	Provider finished startup: XPIProvider
+1448271251271	addons.manager	DEBUG	Starting provider: LightweightThemeManager
+1448271251271	addons.manager	DEBUG	Registering shutdown blocker for LightweightThemeManager
+1448271251271	addons.manager	DEBUG	Provider finished startup: LightweightThemeManager
+1448271251271	addons.manager	DEBUG	Starting provider: GMPProvider
+1448271251276	addons.manager	DEBUG	Registering shutdown blocker for GMPProvider
+1448271251276	addons.manager	DEBUG	Provider finished startup: GMPProvider
+1448271251276	addons.manager	DEBUG	Starting provider: PluginProvider
+1448271251276	addons.manager	DEBUG	Registering shutdown blocker for PluginProvider
+1448271251276	addons.manager	DEBUG	Provider finished startup: PluginProvider
+1448271251276	addons.manager	DEBUG	Completed startup sequence
+1448271252199	DeferredSave.extensions.json	DEBUG	Write succeeded
+1448271252199	addons.xpi-utils	DEBUG	XPI Database saved, setting schema version preference to 17
+1448271252199	DeferredSave.extensions.json	DEBUG	Starting timer
+1448271252203	addons.repository	DEBUG	No addons.json found.
+1448271252204	DeferredSave.addons.json	DEBUG	Save changes
+1448271252205	DeferredSave.addons.json	DEBUG	Starting timer
+1448271252231	addons.manager	DEBUG	Starting provider: PreviousExperimentProvider
+1448271252232	addons.manager	DEBUG	Registering shutdown blocker for PreviousExperimentProvider
+1448271252232	addons.manager	DEBUG	Provider finished startup: PreviousExperimentProvider
+1448271252234	DeferredSave.extensions.json	DEBUG	Starting write
+1448271252241	DeferredSave.extensions.json	DEBUG	Write succeeded
+1448271252404	DeferredSave.addons.json	DEBUG	Starting write
+1448271252411	DeferredSave.addons.json	DEBUG	Write succeeded
+
+Build info: version: &apos;2.47.1&apos;, revision: &apos;411b314&apos;, time: &apos;2015-07-30 03:03:16&apos;
+System info: host: &apos;HP&apos;, ip: &apos;192.168.1.35&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_65&apos;
+Driver info: driver.version: FirefoxDriver
+	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.start(NewProfileExtensionConnection.java:120)
+	at org.openqa.selenium.firefox.FirefoxDriver.startClient(FirefoxDriver.java:275)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:116)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:222)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:215)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:133)
+	at sun.reflect.GeneratedConstructorAccessor24.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultDriverProvider.callConstructor(DefaultDriverProvider.java:85)
+	at org.openqa.selenium.remote.server.DefaultDriverProvider.newInstance(DefaultDriverProvider.java:79)
+	at org.openqa.selenium.remote.server.DefaultDriverFactory.newInstance(DefaultDriverFactory.java:62)
+	at org.openqa.selenium.remote.server.DefaultSession$BrowserCreator.call(DefaultSession.java:222)
+	at org.openqa.selenium.remote.server.DefaultSession$BrowserCreator.call(DefaultSession.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1025797795", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1025797795'><pre>org.openqa.selenium.WebDriverException: Unable to connect to host 127.0.0.1 on port 7055 after 45000 ms. Firefox console output:
+251263	addons.xpi	WARN	Disabling foreign installed add-on wrc@avast.com in winreg-app-global
+1448271251263	addons.xpi-utils	DEBUG	Make addon winreg-app-global:wrc@avast.com visible
+1448271251263	DeferredSave.extensions.json	DEBUG	Save changes
+1448271251263	DeferredSave.extensions.json	DEBUG	Data changed while write in progress
+1448271251263	DeferredSave.extensions.json	DEBUG	Save changes
+1448271251263	addons.xpi	DEBUG	Updating XPIState for {&quot;id&quot;:&quot;wrc@avast.com&quot;,&quot;syncGUID&quot;:&quot;yMYujaP6tBSe&quot;,&quot;location&quot;:&quot;winreg-app-global&quot;,&quot;version&quot;:&quot;10.2.0.187&quot;,&quot;type&quot;:&quot;extension&quot;,&quot;internalName&quot;:null,&quot;updateURL&quot;:&quot;http://firefoxplugin.ff.avast.com/aos/updates.rdf?id=%ITEM_ID%&amp;status=%ITEM_STATUS%&amp;os=%APP_OS%&quot;,&quot;updateKey&quot;:&quot;MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDc6F6CPnst0FEpMpqBguj6WJgVaJXY+5FVWXPVZc2o/tv83KHmeMBjy9z8JCerdDVHCKGOHWRO8XWEpaxhdyfsek3wABigweRHlRFNHZxFhSzqJfIbkNVmfzKF2kPjoi881h0V4EqrnGjSIPjW7E5NPM0UH14hqauQaKH66lK5LQIDAQAB&quot;,&quot;optionsURL&quot;:null,&quot;optionsType&quot;:null,&quot;aboutURL&quot;:null,&quot;iconURL&quot;:&quot;chrome://wrc/content/common/skin/img/icon48.png&quot;,&quot;icon64URL&quot;:&quot;chrome://wrc/content/common/skin/img/icon64.png&quot;,&quot;defaultLocale&quot;:{&quot;name&quot;:&quot;Avast Online Security&quot;,&quot;description&quot;:&quot;Avast Browser Security and Web Reputation Plugin. Offering protection against known phishing and malware sites, improving your browsing overall browsing experience with crowd sourced web reputation rating.&quot;,&quot;creator&quot;:&quot;AVAST Software&quot;,&quot;homepageURL&quot;:&quot;http://www.avast.com/&quot;},&quot;visible&quot;:true,&quot;active&quot;:false,&quot;userDisabled&quot;:true,&quot;appDisabled&quot;:false,&quot;descriptor&quot;:&quot;C:\\Program Files\\AVAST Software\\Avast\\WebRep\\FF&quot;,&quot;installDate&quot;:1446074994612,&quot;updateDate&quot;:1446074994612,&quot;applyBackgroundUpdates&quot;:1,&quot;bootstrap&quot;:false,&quot;size&quot;:2179362,&quot;sourceURI&quot;:null,&quot;releaseNotesURI&quot;:null,&quot;softDisabled&quot;:false,&quot;foreignInstall&quot;:true,&quot;hasBinaryComponents&quot;:false,&quot;strictCompatibility&quot;:false,&quot;locales&quot;:[],&quot;targetApplications&quot;:[{&quot;id&quot;:&quot;{ec8030f7-c20a-464f-9b0e-13a3a9e97384}&quot;,&quot;minVersion&quot;:&quot;3.0&quot;,&quot;maxVersion&quot;:&quot;25.0&quot;}],&quot;targetPlatforms&quot;:[],&quot;multiprocessCompatible&quot;:false,&quot;signedState&quot;:0}
+1448271251264	addons.xpi	DEBUG	Updating database with changes to installed add-ons
+1448271251264	addons.xpi-utils	DEBUG	Updating add-on states
+1448271251265	addons.xpi-utils	DEBUG	Writing add-ons list
+1448271251271	addons.manager	DEBUG	Registering shutdown blocker for XPIProvider
+1448271251271	addons.manager	DEBUG	Provider finished startup: XPIProvider
+1448271251271	addons.manager	DEBUG	Starting provider: LightweightThemeManager
+1448271251271	addons.manager	DEBUG	Registering shutdown blocker for LightweightThemeManager
+1448271251271	addons.manager	DEBUG	Provider finished startup: LightweightThemeManager
+1448271251271	addons.manager	DEBUG	Starting provider: GMPProvider
+1448271251276	addons.manager	DEBUG	Registering shutdown blocker for GMPProvider
+1448271251276	addons.manager	DEBUG	Provider finished startup: GMPProvider
+1448271251276	addons.manager	DEBUG	Starting provider: PluginProvider
+1448271251276	addons.manager	DEBUG	Registering shutdown blocker for PluginProvider
+1448271251276	addons.manager	DEBUG	Provider finished startup: PluginProvider
+1448271251276	addons.manager	DEBUG	Completed startup sequence
+1448271252199	DeferredSave.extensions.json	DEBUG	Write succeeded
+1448271252199	addons.xpi-utils	DEBUG	XPI Database saved, setting schema version preference to 17
+1448271252199	DeferredSave.extensions.json	DEBUG	Starting timer
+1448271252203	addons.repository	DEBUG	No addons.json found.
+1448271252204	DeferredSave.addons.json	DEBUG	Save changes
+1448271252205	DeferredSave.addons.json	DEBUG	Starting timer
+1448271252231	addons.manager	DEBUG	Starting provider: PreviousExperimentProvider
+1448271252232	addons.manager	DEBUG	Registering shutdown blocker for PreviousExperimentProvider
+1448271252232	addons.manager	DEBUG	Provider finished startup: PreviousExperimentProvider
+1448271252234	DeferredSave.extensions.json	DEBUG	Starting write
+1448271252241	DeferredSave.extensions.json	DEBUG	Write succeeded
+1448271252404	DeferredSave.addons.json	DEBUG	Starting write
+1448271252411	DeferredSave.addons.json	DEBUG	Write succeeded
+
+Command duration or timeout: 45.43 seconds
+Build info: version: &apos;2.47.1&apos;, revision: &apos;411b314&apos;, time: &apos;2015-07-30 03:03:16&apos;
+System info: host: &apos;HP&apos;, ip: &apos;192.168.1.35&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_65&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:242)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:128)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:155)
+	at com.zinghr.init.SeleniumInit.setUp(SeleniumInit.java:318)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:653)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+Caused by: org.openqa.selenium.remote.ErrorHandler$UnknownServerException: Unable to connect to host 127.0.0.1 on port 7055 after 45000 ms. Firefox console output:
+251263	addons.xpi	WARN	Disabling foreign installed add-on wrc@avast.com in winreg-app-global
+1448271251263	addons.xpi-utils	DEBUG	Make addon winreg-app-global:wrc@avast.com visible
+1448271251263	DeferredSave.extensions.json	DEBUG	Save changes
+1448271251263	DeferredSave.extensions.json	DEBUG	Data changed while write in progress
+1448271251263	DeferredSave.extensions.json	DEBUG	Save changes
+1448271251263	addons.xpi	DEBUG	Updating XPIState for {&quot;id&quot;:&quot;wrc@avast.com&quot;,&quot;syncGUID&quot;:&quot;yMYujaP6tBSe&quot;,&quot;location&quot;:&quot;winreg-app-global&quot;,&quot;version&quot;:&quot;10.2.0.187&quot;,&quot;type&quot;:&quot;extension&quot;,&quot;internalName&quot;:null,&quot;updateURL&quot;:&quot;http://firefoxplugin.ff.avast.com/aos/updates.rdf?id=%ITEM_ID%&amp;status=%ITEM_STATUS%&amp;os=%APP_OS%&quot;,&quot;updateKey&quot;:&quot;MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDc6F6CPnst0FEpMpqBguj6WJgVaJXY+5FVWXPVZc2o/tv83KHmeMBjy9z8JCerdDVHCKGOHWRO8XWEpaxhdyfsek3wABigweRHlRFNHZxFhSzqJfIbkNVmfzKF2kPjoi881h0V4EqrnGjSIPjW7E5NPM0UH14hqauQaKH66lK5LQIDAQAB&quot;,&quot;optionsURL&quot;:null,&quot;optionsType&quot;:null,&quot;aboutURL&quot;:null,&quot;iconURL&quot;:&quot;chrome://wrc/content/common/skin/img/icon48.png&quot;,&quot;icon64URL&quot;:&quot;chrome://wrc/content/common/skin/img/icon64.png&quot;,&quot;defaultLocale&quot;:{&quot;name&quot;:&quot;Avast Online Security&quot;,&quot;description&quot;:&quot;Avast Browser Security and Web Reputation Plugin. Offering protection against known phishing and malware sites, improving your browsing overall browsing experience with crowd sourced web reputation rating.&quot;,&quot;creator&quot;:&quot;AVAST Software&quot;,&quot;homepageURL&quot;:&quot;http://www.avast.com/&quot;},&quot;visible&quot;:true,&quot;active&quot;:false,&quot;userDisabled&quot;:true,&quot;appDisabled&quot;:false,&quot;descriptor&quot;:&quot;C:\\Program Files\\AVAST Software\\Avast\\WebRep\\FF&quot;,&quot;installDate&quot;:1446074994612,&quot;updateDate&quot;:1446074994612,&quot;applyBackgroundUpdates&quot;:1,&quot;bootstrap&quot;:false,&quot;size&quot;:2179362,&quot;sourceURI&quot;:null,&quot;releaseNotesURI&quot;:null,&quot;softDisabled&quot;:false,&quot;foreignInstall&quot;:true,&quot;hasBinaryComponents&quot;:false,&quot;strictCompatibility&quot;:false,&quot;locales&quot;:[],&quot;targetApplications&quot;:[{&quot;id&quot;:&quot;{ec8030f7-c20a-464f-9b0e-13a3a9e97384}&quot;,&quot;minVersion&quot;:&quot;3.0&quot;,&quot;maxVersion&quot;:&quot;25.0&quot;}],&quot;targetPlatforms&quot;:[],&quot;multiprocessCompatible&quot;:false,&quot;signedState&quot;:0}
+1448271251264	addons.xpi	DEBUG	Updating database with changes to installed add-ons
+1448271251264	addons.xpi-utils	DEBUG	Updating add-on states
+1448271251265	addons.xpi-utils	DEBUG	Writing add-ons list
+1448271251271	addons.manager	DEBUG	Registering shutdown blocker for XPIProvider
+1448271251271	addons.manager	DEBUG	Provider finished startup: XPIProvider
+1448271251271	addons.manager	DEBUG	Starting provider: LightweightThemeManager
+1448271251271	addons.manager	DEBUG	Registering shutdown blocker for LightweightThemeManager
+1448271251271	addons.manager	DEBUG	Provider finished startup: LightweightThemeManager
+1448271251271	addons.manager	DEBUG	Starting provider: GMPProvider
+1448271251276	addons.manager	DEBUG	Registering shutdown blocker for GMPProvider
+1448271251276	addons.manager	DEBUG	Provider finished startup: GMPProvider
+1448271251276	addons.manager	DEBUG	Starting provider: PluginProvider
+1448271251276	addons.manager	DEBUG	Registering shutdown blocker for PluginProvider
+1448271251276	addons.manager	DEBUG	Provider finished startup: PluginProvider
+1448271251276	addons.manager	DEBUG	Completed startup sequence
+1448271252199	DeferredSave.extensions.json	DEBUG	Write succeeded
+1448271252199	addons.xpi-utils	DEBUG	XPI Database saved, setting schema version preference to 17
+1448271252199	DeferredSave.extensions.json	DEBUG	Starting timer
+1448271252203	addons.repository	DEBUG	No addons.json found.
+1448271252204	DeferredSave.addons.json	DEBUG	Save changes
+1448271252205	DeferredSave.addons.json	DEBUG	Starting timer
+1448271252231	addons.manager	DEBUG	Starting provider: PreviousExperimentProvider
+1448271252232	addons.manager	DEBUG	Registering shutdown blocker for PreviousExperimentProvider
+1448271252232	addons.manager	DEBUG	Provider finished startup: PreviousExperimentProvider
+1448271252234	DeferredSave.extensions.json	DEBUG	Starting write
+1448271252241	DeferredSave.extensions.json	DEBUG	Write succeeded
+1448271252404	DeferredSave.addons.json	DEBUG	Starting write
+1448271252411	DeferredSave.addons.json	DEBUG	Write succeeded
+
+Build info: version: &apos;2.47.1&apos;, revision: &apos;411b314&apos;, time: &apos;2015-07-30 03:03:16&apos;
+System info: host: &apos;HP&apos;, ip: &apos;192.168.1.35&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_65&apos;
+Driver info: driver.version: FirefoxDriver
+	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.start(NewProfileExtensionConnection.java:120)
+	at org.openqa.selenium.firefox.FirefoxDriver.startClient(FirefoxDriver.java:275)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:116)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:222)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:215)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:133)
+	at sun.reflect.GeneratedConstructorAccessor24.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultDriverProvider.callConstructor(DefaultDriverProvider.java:85)
+	at org.openqa.selenium.remote.server.DefaultDriverProvider.newInstance(DefaultDriverProvider.java:79)
+	at org.openqa.selenium.remote.server.DefaultDriverFactory.newInstance(DefaultDriverFactory.java:62)
+	at org.openqa.selenium.remote.server.DefaultSession$BrowserCreator.call(DefaultSession.java:222)
+	at org.openqa.selenium.remote.server.DefaultSession$BrowserCreator.call(DefaultSession.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+</pre></div></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.setUp()'><b>setUp</b><br>Test class: com.zinghr.signup.index.SignupIndex</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.SignUpPage()'><b>SignUpPage</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1439632660" onClick='toggleBox("Output-1439632660", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1439632660" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1439632660">
+<br></br>Test Case Id : SU_02 <br/>
+<br></br>Testcase Discription : SignUp page verification. <br/>
+<br></br>Step 1 : Open url:<a>http://automation.zinghr.com/2015/pages/Authentication/SignUp.aspx</a><br/>
+<br></br>Verify that ZingHR SignUp page is open or not.<br/>
+<br><Strong><font color=#008000>Pass</font></strong></br><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.companynameFieldAlphanumeric()'><b>companynameFieldAlphanumeric</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1828873985" onClick='toggleBox("Output-1828873985", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1828873985" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1828873985">
+<br></br>Test Case Id : SU_03 <br/>
+<br></br>Testcase Discription : Field validation for 'Company name' field<br/>
+<br></br>Step 1 : Open url:<a>http://automation.zinghr.com/2015/pages/Authentication/SignUp.aspx</a><br/>
+<br></br>Step 2: Enter Alphanumeric value in company Name: wxwT<br/>
+<br></br>To verify that user is able to enter Alphanumeric characters in 'Company Name' field<br/>
+<br><Strong><font color=#008000>Pass</font></strong></br><br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.companynameFieldBlank()'><b>companynameFieldBlank</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-110053477" onClick='toggleBox("Output-110053477", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-110053477" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-110053477">
+<br></br>Test Case Id : SU_04 <br/>
+<br></br>Testcase Discription : Field validation for 'Company name' field<br/>
+<br></br>Step 1 : Open url:<a>http://automation.zinghr.com/2015/pages/Authentication/SignUp.aspx</a><br/>
+<br></br>Step 2: Enter Blank space in company Name:  <br/>
+<br></br>To verify that the company name field do not accept blank space<br/>
+<br><Strong><font color=#008000>Pass</font></strong></br><br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.companynameFieldEmpty()'><b>companynameFieldEmpty</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-53940034" onClick='toggleBox("Output-53940034", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-53940034" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-53940034">
+<br></br>Test Case Id : SU_07 <br/>
+<br></br>Testcase Discription : Field validation for 'Company name' field<br/>
+<br></br>Step 1 : Open url:<a>http://automation.zinghr.com/2015/pages/Authentication/SignUp.aspx</a><br/>
+<br></br>Step 2: Do not enter any data into 'Company Code'.<br/>
+<br></br>Step 3: Display Employee Name: dWeERg<br/>
+<br></br>Step 4: Enter Email id: kiwitest-669588736@mailinator.com<br/>
+<br></br>Step 5: Select any country<br/>
+<br></br>Step 6: Enter Contact no: 9429186891<br/>
+<br></br>To verify that appropriate alert message 'Please Enter company name' is displayed when user sign ups with empty Company Name field<br/>
+<br><Strong><font color=#008000>Pass</font></strong></br><br/>
+</div>
+</td>
+<td></td>
+<td>19</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.companynameFieldlessthan3()'><b>companynameFieldlessthan3</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-300983713" onClick='toggleBox("Output-300983713", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-300983713" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-300983713">
+<br></br>Test Case Id : SU_06 <br/>
+<br></br>Testcase Discription : Field validation for 'Company name' field<br/>
+<br></br>Step 1 : Open url:<a>http://automation.zinghr.com/2015/pages/Authentication/SignUp.aspx</a><br/>
+<br></br>Step 2: Enter less than three characters in company Name: nL<br/>
+<br></br>To verify that appropriate error message is displayed if user enters less than three characters in 'Company Name' field<br/>
+<br><Strong><font color=#008000>Pass</font></strong></br><br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.activateSuccessfully()'><b>activateSuccessfully</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-2072313080" onClick='toggleBox("Output-2072313080", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2072313080" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2072313080">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.activateSuccessfullyMesg()'><b>activateSuccessfullyMesg</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1608633989" onClick='toggleBox("Output-1608633989", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1608633989" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1608633989">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.activateTwice()'><b>activateTwice</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-101874302" onClick='toggleBox("Output-101874302", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-101874302" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-101874302">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.activationPage()'><b>activationPage</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-843710487" onClick='toggleBox("Output-843710487", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-843710487" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-843710487">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.blankPswdActCode()'><b>blankPswdActCode</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-267814113" onClick='toggleBox("Output-267814113", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-267814113" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-267814113">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.checkbox()'><b>checkbox</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-575715826" onClick='toggleBox("Output-575715826", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-575715826" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-575715826">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.contactNumFieldBlank()'><b>contactNumFieldBlank</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1262408432" onClick='toggleBox("Output-1262408432", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1262408432" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1262408432">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.contactNumFieldInvalid()'><b>contactNumFieldInvalid</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1874028013" onClick='toggleBox("Output-1874028013", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1874028013" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1874028013">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.contactNumFieldMorethan10()'><b>contactNumFieldMorethan10</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1830745997" onClick='toggleBox("Output-1830745997", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1830745997" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1830745997">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.contactNumFieldValid()'><b>contactNumFieldValid</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1280429864" onClick='toggleBox("Output-1280429864", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1280429864" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1280429864">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.displaynameFieldAlphabet()'><b>displaynameFieldAlphabet</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1989132530" onClick='toggleBox("Output-1989132530", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1989132530" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1989132530">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.displaynameFieldBlank()'><b>displaynameFieldBlank</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-640808588" onClick='toggleBox("Output-640808588", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-640808588" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-640808588">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.displaynameFieldInvalid()'><b>displaynameFieldInvalid</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-836427078" onClick='toggleBox("Output-836427078", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-836427078" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-836427078">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.emailClickHereBtn()'><b>emailClickHereBtn</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-319670866" onClick='toggleBox("Output-319670866", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-319670866" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-319670866">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.emailContents()'><b>emailContents</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1215946669" onClick='toggleBox("Output-1215946669", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1215946669" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1215946669">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.emailFormat()'><b>emailFormat</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-726408598" onClick='toggleBox("Output-726408598", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-726408598" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-726408598">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.emailidFieldBlank()'><b>emailidFieldBlank</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1904288897" onClick='toggleBox("Output-1904288897", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1904288897" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1904288897">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.emailidFieldInvalid()'><b>emailidFieldInvalid</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-461129530" onClick='toggleBox("Output-461129530", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-461129530" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-461129530">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.emailidFieldValid()'><b>emailidFieldValid</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1668837760" onClick='toggleBox("Output-1668837760", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1668837760" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1668837760">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.emailverification()'><b>emailverification</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-709133385" onClick='toggleBox("Output-709133385", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-709133385" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-709133385">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.enterBlankPassword()'><b>enterBlankPassword</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1026483832" onClick='toggleBox("Output-1026483832", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1026483832" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1026483832">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.enterPaswd()'><b>enterPaswd</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-408069119" onClick='toggleBox("Output-408069119", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-408069119" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-408069119">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.previouslyActivateCode1()'><b>previouslyActivateCode1</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1976401987" onClick='toggleBox("Output-1976401987", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1976401987" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1976401987">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.pswdProgressStatus()'><b>pswdProgressStatus</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1959239586" onClick='toggleBox("Output-1959239586", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1959239586" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1959239586">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.selectCountry()'><b>selectCountry</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-125844477" onClick='toggleBox("Output-125844477", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-125844477" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-125844477">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.selectNoCountry()'><b>selectNoCountry</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-2031588185" onClick='toggleBox("Output-2031588185", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2031588185" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2031588185">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.termsAndprivacy()'><b>termsAndprivacy</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1327234595" onClick='toggleBox("Output-1327234595", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1327234595" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1327234595">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+<tr>
+<td title='com.zinghr.signup.index.SignupIndex.updateAccountName()'><b>updateAccountName</b><br>Test class: com.zinghr.signup.index.SignupIndex<br/>
+<a href="#Output-1940055334" onClick='toggleBox("Output-1940055334", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1940055334" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1940055334">
+<br> <b>Please look to the screenshot - </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.zinghr.signup.index.SignupIndex@6108b2d7</td></tr>
+</table><p>
+</body>
+</html>

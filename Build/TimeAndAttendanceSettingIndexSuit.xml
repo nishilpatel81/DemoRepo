@@ -12,7 +12,7 @@
 		chrome 3) IExplorer : ie8 / ie9 -->
 	<parameter name="selenium.browser" value="chrome" />
 	<parameter name="selenium.url"
-		value="http://automation.zinghr.com/2015/pages/authentication/login.aspx" />
+		value="http://qa.zinghr.com/2015/pages/authentication/login.aspx" />
 
 
 
@@ -24,7 +24,7 @@
 	</listeners>
 	
 	
-
+<!-- 
 	<test name="Setup_02,Setup_03,Setup_04 : To test TNA functionality">
 		<classes>
 			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
@@ -37,7 +37,7 @@
 	
 	
 	
-<!-- 	<test name="Setup_05,Setup_06,Setup_07,Setup_09 : To test TNA functionality">
+	<test name="Setup_05,Setup_06,Setup_07,Setup_09 : To test TNA functionality">
 		<classes>
 			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
 				<methods>
@@ -68,6 +68,20 @@
 			</class>
 		</classes>
 	</test>
+	
+	
+	<test
+		name="Setup_23: To verify if If the Manager Marking is selected then the system should allow to mark the attendance through OAS.">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="markingManagerChecked" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
 	<test
 		name="Setup_24,Setup_25(Pending) : To test 
 		Second Block option and by default value functionality ">
@@ -79,6 +93,7 @@
 			</class>
 		</classes>
 	</test>
+	
 	<test name=" Setup_26 : To Test third block Option Availability ">
 		<classes>
 			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
@@ -88,6 +103,7 @@
 			</class>
 		</classes>
 	</test>
+	
 	<test
 		name=" Setup_27,Setup_28,Setup_29,Setup_30,Setup_31,Setup_34,Setup_35,Setup_36,Setup_35,Setup_37,Setup_45,Setup_49,Setup_50 
 		: To Test Shift Roster Yes Button Functionality ">
@@ -99,8 +115,7 @@
 			</class>
 		</classes>
 	</test>
-
-
+	
 	<test name="  Setup_33,Setup_41,Setup_42_Setup_48: To Test Manadatory field field  of shift master dialog ">
 		<classes>
 			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
@@ -111,10 +126,18 @@
 		</classes>
 	</test>
 
+	<test name="  Setup_32,Setup_38,Setup_39: Shift Master form.">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="selectfollowShiftRostering" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 
 
-
-test name=" Setup_52 :  To Test Shift Roster No Button Functionality ">
+	<test name=" Setup_52 :  To Test Shift Roster No Button Functionality ">
 		<classes>
 			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
 				<methods>
@@ -124,11 +147,86 @@ test name=" Setup_52 :  To Test Shift Roster No Button Functionality ">
 		</classes>
 	</test>
 
+	<test name=" Setup_60 :  Sixthbox.">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="sixthBlockProxyApply" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name=" Setup_66 :  selectfollowShiftRostering.">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="EmployeeMasterUpload" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 
+	<test name=" Setup_70 :  Rule Late commings.">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="ruleLateComing" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name=" Setup_72 :  Rule Early Going.">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="ruleEarlyGoing" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+  
+	<test name=" Setup_74 :  Rule Flexi Timing.">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="ruleFlexiTiming" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 
-
-  -->
-
-
+	<test name=" Setup_81 :  Comp-off weekday.">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="ruleFlexiTiming" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name=" Setup_82 :  Comp-off Holiday.">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="ruleFlexiTiming" />
+				</methods>
+			</class>
+		</classes>
+	</test>	
+	
+	
+	<test name=" Setup_85 :  selectfollowShiftRostering.">
+		<classes>
+			<class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
+				<methods>
+					<include name="fifthBlockSetMyAttendance" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	-->	
 
 </suite>

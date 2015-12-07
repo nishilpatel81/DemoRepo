@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Login" verbose="10" parallel="tests" thread-count="3">
+<suite name="ZingHr - Login" verbose="10" parallel="true" thread-count="1">
 
 	<!-- Put IP of localhost/Grid Hub machine -->
 	<parameter name="selenium.host" value="localhost" />
@@ -14,8 +14,6 @@
 		value="http://automation.zinghr.com/2015/pages/Authentication/login.aspx" />
 
 
-
-
 	<listeners>
 
 		<listener class-name="com.zinghr.utility.CustomReporter" />
@@ -23,7 +21,7 @@
 	</listeners>
 
 
-	<test name="login page verification">
+<!-- 	<test name="login page verification">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -130,7 +128,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 	
 	
 	<test name="L_13: To verify that after the 4 wrong attempts user's account is blocked">
@@ -153,7 +151,7 @@
 		</classes>
 	</test>
 	
-	<test name="L_16: To verify that user is redirected to targeted page after clicking on social icons(fb,twitter,g+,ln,youtube">
+	<!-- <test name="L_16: To verify that user is redirected to targeted page after clicking on social icons(fb,twitter,g+,ln,youtube">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -161,9 +159,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 	
-<!-- 	unauthenticate error during verification
+	<!-- unauthenticate error during verification
 	
 	<test name="L_17: To verify that user is redirected to targeted page after clicking on 'View Latest Announcements','View Support Portal','Raise a ticket' hyperlink">
 		<classes>
@@ -173,9 +171,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
-	
-	<test name="L_18: To verify that alert message is displayed if user directly clicks on 'Punch In' button">
+	</test>
+	 -->
+	<!-- <test name="L_18: To verify that alert message is displayed if user directly clicks on 'Punch In' button">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -283,7 +281,7 @@
 			</class>
 		</classes>
 	</test>
-	<!-- <test name="FP_03: To verify that appropriate alert message is displayed when user submit empty company and employee code">
+	<test name="FP_03: To verify that appropriate alert message is displayed when user submit empty company and employee code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -291,7 +289,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>  -->
+	</test> 
 	<test name="FP_04: To verify that appropriate error messages is displayed when user enters invalid Company code and Employee code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -301,7 +299,7 @@
 			</class>
 		</classes>
 	</test>
-	<!-- <test name="FP_05: To verify that successful message is displayed after clicking on Submit button (For both Mobile and email)">
+	<test name="FP_05: To verify that successful message is displayed after clicking on Submit button (For both Mobile and email)">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -309,7 +307,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
+	</test>
 	<test name="FP_06: To verify that user is redirected to Login page after clicking on 'Back to login' hyperlink">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -318,6 +316,6 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 	
 </suite>

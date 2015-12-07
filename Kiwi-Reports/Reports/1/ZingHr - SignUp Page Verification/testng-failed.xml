@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" verbose="10" name="Failed suite [ZingHr - SignUp Page Verification]">
+  <parameter name="selenium.port" value="4444"/>
+  <parameter name="selenium.host" value="localhost"/>
+  <parameter name="selenium.browser" value="firefox"/>
+  <parameter name="selenium.url" value="http://automation.zinghr.com/2015/pages/Authentication/SignUp.aspx"/>
+  <listeners>
+    <listener class-name="com.zinghr.utility.CustomReporter"/>
+  </listeners>
+  <test name="A_SU_19: To verify that after clicking on Activate Account button user account is activated successfully.(failed)">
+    <classes>
+      <class name="com.zinghr.signup.index.SignupIndex">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="fetchSuiteConfiguration"/>
+          <include name="fetchSuiteConfiguration"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+          <include name="blankPswdActCode"/>
+        </methods>
+      </class> <!-- com.zinghr.signup.index.SignupIndex -->
+    </classes>
+  </test> <!-- A_SU_19: To verify that after clicking on Activate Account button user account is activated successfully.(failed) -->
+</suite> <!-- Failed suite [ZingHr - SignUp Page Verification] -->

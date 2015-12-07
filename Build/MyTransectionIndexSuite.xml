@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="My Transection History" verbose="10" parallel="tests" thread-count="1">
+<suite name="ZingHr - My Transection History" verbose="10" parallel="tests" thread-count="1">
 
 	<!-- Put IP of localhost/Grid Hub machine -->
 	<parameter name="selenium.host" value="localhost" />
@@ -16,6 +16,7 @@
 	<listeners>
 		<listener class-name="com.zinghr.utility.CustomReporter" />
 	</listeners>
+	
 	
 	<!-- <test name="TNA_34: To check User is able to view My Transaction History page">
 		<classes>
