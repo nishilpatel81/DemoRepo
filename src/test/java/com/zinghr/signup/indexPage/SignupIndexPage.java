@@ -943,14 +943,3 @@ public SignupVerificationPage enterActivationcode(String a)
 	}
 }
 
-
-
-/*clicksignup30days();
-clickGoButton(email3);
-clickMail(email3);
-clickHereButton();
-Common.pause(2);
-enterActivationcode(activation_no);
-enterAccountName(ac_name1);
-enterPassword(pswd);
-clickActivateButton();*/
