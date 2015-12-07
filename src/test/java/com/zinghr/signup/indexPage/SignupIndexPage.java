@@ -238,11 +238,11 @@ public SignupVerificationPage clickMail(String email2)
 {
 
 	if(mail.isDisplayed()){
-	Common.clickOn(driver, mail);
+		Common.clickOn(driver, mail);
 	}
-	else if(emptymail.isDisplayed())
+	else
 	{
-		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$44");
+		log("====== No activation mail found. =======");
 		clickGoButton(email2);
 	}
 	Common.pause(2);
@@ -547,11 +547,10 @@ public SignupVerificationPage enterActivationcode(String a)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(s_company_name);
-		enterDisplayName(s_display_name);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
-		enterEmailid(email);
-		
+		enterEmailid(email);	
 		selectOthercountry();
 		entercontactno(no);
 		clicksignup30days();
@@ -584,11 +583,9 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterCompanyCode(cmp_name);
 		enterDisplayName(display_name);
 		Common.pause(2);
-		enterEmailid(email);
-		
+		enterEmailid(email);	
 		selectOthercountry();
 		entercontactno(no);
-		
 		checkCheckbox();
 		clicksignup30days();
 		
@@ -599,8 +596,8 @@ public SignupVerificationPage enterActivationcode(String a)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(s_company_name);
-		enterDisplayName(s_display_name);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email2);
 		selectOthercountry();
@@ -617,8 +614,8 @@ public SignupVerificationPage enterActivationcode(String a)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(s_company_name);
-		enterDisplayName(s_display_name);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email2);
 		selectOthercountry();
@@ -635,14 +632,12 @@ public SignupVerificationPage enterActivationcode(String a)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(s_company_name);
-		enterDisplayName(s_display_name);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(email2);
-		
 		selectOthercountry();
 		entercontactno(no);
-		
 		clicksignup30days();
 		clickGoButton(email2);
 		clickMail(email2);
