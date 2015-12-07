@@ -192,6 +192,7 @@ public SignupVerificationPage checkCheckbox()
 public SignupVerificationPage clicksignup30days() 
 {
 	Common.clickOn(driver, signUp_30_day_btn);
+	Common.pause(2);
 	
 	return new SignupVerificationPage(driver);
 }
@@ -237,12 +238,14 @@ public SignupVerificationPage clickGoButton(String email2)
 public SignupVerificationPage clickMail(String email2)
 {
 
-	if(mail.isDisplayed()){
+	try{
+		if(mail.isDisplayed())
+		{
 		Common.clickOn(driver, mail);
-	}
-	else
+	}}
+	catch(Exception e)
 	{
-		log("====== No activation mail found. =======");
+		log("<h3>====== No activation mail found. =======</h3>");
 		clickGoButton(email2);
 	}
 	Common.pause(2);
@@ -320,8 +323,8 @@ public SignupVerificationPage enterActivationcode(String a)
 	{
 
 		Common.pause(2);
-		enterCompanyCode(s_company_name);
-		enterDisplayName(s_display_name);
+		enterCompanyCode(cmp_name);
+		enterDisplayName(display_name);
 		Common.pause(2);
 		enterEmailid(emailt);
 		selectOthercountry();

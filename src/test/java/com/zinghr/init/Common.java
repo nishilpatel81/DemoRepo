@@ -499,7 +499,7 @@ public class Common {
 	public static void waitForElement(WebDriver driver, By element) {
 
 		try {
-			wait = new WebDriverWait(driver, 6000);
+			wait = new WebDriverWait(driver, 600);
 			wait.until(visibilityOfElementLocated(element));
 		} catch (Exception e) {
 		}

@@ -36,7 +36,7 @@ public class TestData {
 	public static String times2= "2";
 	public static String totol_times= "150";
 	public static String extra_time_1 = "1";
-	public static String extra_time_2 = "2";
+	public static String extra_time_2 = "2";   
 	public static String extra_time_3 = "3";
 	public static String extra_time_4 = "4";
 	public static String extra_time_5 = "5";
@@ -59,7 +59,7 @@ public class TestData {
 	public static int rndmNumber(int length) {
 
 		Random randm = new Random();
-		int numNoRange = randm.nextInt();
+		int numNoRange = randm.nextInt(999999);
 		return numNoRange;
 
 	}
@@ -72,7 +72,7 @@ public class TestData {
 	
 	public static String rndmemail(int i)
 	{
-		String email = new StringBuilder(30).append("kiwitest2").append(rndmNumber(i)).append("@mailinator.com").toString();
+		String email = new StringBuilder(30).append("kiwitest").append(rndmNumber(i)).append(rndmString(2)).append("@mailinator.com").toString();
 		
 		return email;
 	}
