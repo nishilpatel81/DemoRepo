@@ -938,7 +938,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterAccountName(ac_name1);
 		enterPassword(pswd);
 		clickActivateButton();
-	
+		Common.pause(2);
 		return new SignupVerificationPage(driver);
 	}
 }
