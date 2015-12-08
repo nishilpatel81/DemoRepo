@@ -281,7 +281,7 @@ public class SignupVerificationPage extends AbstractPage {
 
 	public boolean verifyloginPage() {
 
-		String login_url = "http://qa.zinghr.com/2015/Pages/Authentication/Login.aspx";
+		String login_url = "http://automation.zinghr.com/2015/Pages/Authentication/Login.aspx";
 		if (driver.findElement(By.xpath(".//img[@id='imgLogo']")).isDisplayed()
 				&& driver.findElement(
 						By.xpath(".//input[@id='btnSecureLogin']"))

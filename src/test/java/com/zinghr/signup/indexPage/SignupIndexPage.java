@@ -192,7 +192,7 @@ public SignupVerificationPage checkCheckbox()
 public SignupVerificationPage clicksignup30days() 
 {
 	Common.clickOn(driver, signUp_30_day_btn);
-	Common.pause(2);
+	Common.pause(3);
 	
 	return new SignupVerificationPage(driver);
 }
@@ -657,20 +657,21 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterCompanyCode(cmp_name);
 		enterDisplayName(display_name);
 		Common.pause(2);
-		enterEmailid(email2);
-		
+		enterEmailid(email2);	
 		selectOthercountry();
-		entercontactno(no);
-		
+		entercontactno(no);	
 		clicksignup30days();
+		
 		clickGoButton(email2);
 		clickMail(email2);
 		clickHereButton();
+		
 		enterAccountName(ac_name);
 		enterPassword(pswd);
 		clickActivateButton();
-		Common.pause(2);
+		Common.pause(3);
 		driver.switchTo().window(winHandleBefore);
+		
 	//	driver.switchTo().defaultContent();
 		Common.pause(2);
 		clickHereButton();
@@ -903,15 +904,15 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterDisplayName(ac_name);
 		Common.pause(2);
 		enterEmailid(email2);
-		
 		selectOthercountry();
-		entercontactno(no);
-		
+		entercontactno(no);		
 		clicksignup30days();
+		
 		clickGoButton(email2);
 		clickMail(email2);
 		clickHereButton();
 		Common.pause(2);
+		
 		String activation_no = activation_field.getAttribute("value");		
 		enterAccountName(ac_name1);
 		enterPassword(pswd);
