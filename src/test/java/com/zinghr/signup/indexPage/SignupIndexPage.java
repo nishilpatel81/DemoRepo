@@ -945,6 +945,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterPassword(pswd);
 		clickActivateButton();
 	//	log("===== Second time account activated ======");
+	/*mldfnsdljosdjv*/	
 		Common.pause(2);
 		return new SignupVerificationPage(driver);
 	}
