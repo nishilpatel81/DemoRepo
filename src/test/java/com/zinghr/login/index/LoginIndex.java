@@ -205,6 +205,8 @@ public class LoginIndex extends SeleniumInit {
 
 	}
 
+	
+	
 	@Test
 	public void invalidcompanycode()
 	{
@@ -289,11 +291,17 @@ public class LoginIndex extends SeleniumInit {
 	{
 		int numOfFailure = 0;
 		log("Test Case Id : L_13 ");
+		driver.get("http://automation.zinghr.com/2015/Pages/Authentication/signup.aspx");
+		signupVerification = signupIndexpage.activateSuccessfully(emailt,
+			    s_company_name, s_display_name, account_name, a_pswd,
+			    contact_no);
+		Common.pause(2);
+		//driver.get("http://automation.zinghr.com/2015/Pages/Authentication/login.aspx");
 		loginlandingpage();
-		log("Step 2: Enter Company Code:"+TestData.company_code_se);
+		log("Step 2: Enter Company Code:"+account_name);
 		log("Step 3: Enter Employee Code:"+TestData.employe_code_se);
 		log("Step 4: Enter Password: "+TestData.password_se);
-		loginVerificationPage=loginIndexpage.accountblocked();
+		loginVerificationPage=loginIndexpage.accountblocked(account_name);
 		log("To verify that after the 4 wrong attempts user's account is blocked");
 		if(loginVerificationPage.account_block_verification())
 		{
@@ -316,11 +324,14 @@ public class LoginIndex extends SeleniumInit {
 	{
 		int numOfFailure = 0;
 		log("Test Case Id : L_14 ");
+		
+		
+		
 		loginlandingpage();
-		log("Step 2: Enter Company Code:"+TestData.company_code_se);
+		log("Step 2: Enter Company Code:"+account_name);
 		log("Step 3: Enter Employee Code:"+TestData.employe_code_se);
 		log("Step 4: Enter Password: "+TestData.password_s);
-		loginVerificationPage=loginIndexpage.afteraccountblocked();
+		loginVerificationPage=loginIndexpage.afteraccountblocked(account_name);
 		log("To verify that appropriate message is displayed after the user's account is blocked");
 		if(loginVerificationPage.after_account_block_verification())
 		{

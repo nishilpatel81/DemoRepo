@@ -245,8 +245,8 @@ public SignupVerificationPage clickMail(String email2)
 	}}
 	catch(Exception e)
 	{
-		log("<h3>====== No activation mail found. =======</h3>");
-		clickGoButton(email2);
+		log("<h3>======  Activation mail is not getting. =======</h3>");
+	
 	}
 	Common.pause(2);
 	return new SignupVerificationPage(driver);
@@ -907,18 +907,23 @@ public SignupVerificationPage enterActivationcode(String a)
 		selectOthercountry();
 		entercontactno(no);		
 		clicksignup30days();
-		
+	//	log("===== first click sign30 button======");
 		clickGoButton(email2);
 		clickMail(email2);
 		clickHereButton();
 		Common.pause(2);
-		
+	//	log("===== first time activation mail open======");
+
 		String activation_no = activation_field.getAttribute("value");		
 		enterAccountName(ac_name1);
 		enterPassword(pswd);
 		clickActivateButton();
+		Common.waitForElement(driver, By.xpath("//span[contains(text(),'Dear')]"));
 		Common.pause(2);
+	//	log("===== First time account activated..======");
+		
 		driver.switchTo().window(winHandleBefore);
+	//	log("===== Go back to previous page of Signup ======");
 		Common.goToUrl(driver, signup_url);
 		Common.pause(4);
 		enterCompanyCode(cmp_name);
@@ -927,16 +932,19 @@ public SignupVerificationPage enterActivationcode(String a)
 		enterEmailid(email3);
 		selectOthercountry();
 		entercontactno(no);
-		
 		clicksignup30days();
+	//	log("===== Second time click on sign30 button ======");
+		
 		clickGoButton(email3);
 		clickMail(email3);
 		clickHereButton();
 		Common.pause(2);
+	//	log("===== Second time activation mail open ======");
 		enterActivationcode(activation_no);
 		enterAccountName(ac_name1);
 		enterPassword(pswd);
 		clickActivateButton();
+	//	log("===== Second time account activated ======");
 		Common.pause(2);
 		return new SignupVerificationPage(driver);
 	}

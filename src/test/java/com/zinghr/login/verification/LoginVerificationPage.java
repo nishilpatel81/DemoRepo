@@ -349,7 +349,7 @@ public class LoginVerificationPage extends AbstractPage {
 		}
 	}
 	public boolean Forgot_password_enter_valid_data_in_company_employee_code_verification() {
-		WebElement forgotpass_lbl = driver.findElement(By.xpath(".//span[contains(text(),'Successful')]"));
+		WebElement forgotpass_lbl = driver.findElement(By.xpath(".//div[contains(text(),'Password is sent successfully to your registered email id')]"));
 		if (forgotpass_lbl.isDisplayed()) {
 			return true;
 		} else {

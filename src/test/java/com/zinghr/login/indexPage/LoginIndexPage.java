@@ -16,6 +16,8 @@ public class LoginIndexPage extends AbstractPage {
 		// TODO Auto-generated constructor stub
 	}
 
+	public String company;
+	
 	@FindBy(xpath = "//input[@id='txtSecureCompanyCode']")
 	WebElement companyCode_txt_fld;
 
@@ -216,9 +218,10 @@ public class LoginIndexPage extends AbstractPage {
 		return new LoginVerificationPage(driver);
 	}
 	
-	public LoginVerificationPage accountblocked()
+	public LoginVerificationPage accountblocked(String cmp_code)
 	{
-		enterCompanyCode(TestData.company_code_se);
+		company=cmp_code;
+		enterCompanyCode(cmp_code);
 		enterEmployeeCode(TestData.employe_code_se);
 		enterPassword(TestData.password_se);
 		clickLoginButton();
@@ -243,9 +246,9 @@ public class LoginIndexPage extends AbstractPage {
 		clickLoginButton();
 		return new LoginVerificationPage(driver);
 	}
-	public LoginVerificationPage afteraccountblocked()
+	public LoginVerificationPage afteraccountblocked(String cmp_code)
 	{
-		enterCompanyCode(TestData.company_code_se);
+		enterCompanyCode(company);
 		enterEmployeeCode(TestData.employe_code_se);
 		enterPassword(TestData.password_s);
 		clickLoginButton();
@@ -397,6 +400,7 @@ public class LoginIndexPage extends AbstractPage {
 		Common.type(fp_companyCode_txt_fld,TestData.company_code);
 		Common.type(fp_employee_txt_fld, TestData.employe_code);
 		Common.clickOn(driver, submit_btn);
+		Common.pause(1);
 		return new LoginVerificationPage(driver);
 	}
 	public LoginVerificationPage back_to_login_button()
