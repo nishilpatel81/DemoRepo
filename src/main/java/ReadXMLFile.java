@@ -1607,8 +1607,6 @@ public class ReadXMLFile {
 		}
 
 	}
-	
-/*	     */
 
 	public void generateReport(List<XmlSuite> arg0, List<ISuite> arg1,
 			String arg2) {

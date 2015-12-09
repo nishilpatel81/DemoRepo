@@ -93,7 +93,7 @@ public class DashboardTimeNAttendanceCaIndexPage extends AbstractPage {
 
 	public static int counter = 0;
 
-	public static int timeCounter = 0;
+	public static int timeCounter;
 
 	public DashboardTimeNAttendanceCaVerification selectValueOfSelectionActionDropdown(
 			String value) {

@@ -198,9 +198,9 @@ public class CustomReporter extends CustomReporterListener
 	    public void testCaseNo() {
 
 	    	  m_out.println("<td bgcolor='#99CCFF' colspan='4' align='left' height='30px'><h3 style='margin-top:0px;margin-bottom:0px;'> Total Test Cases  : "
-	    	    + (failedCounter + passed) + "</br> Failed Test Cases  : "
-	    	    + (failedCounter) + "</br> Passed Test cases : " 
-	    	    + passed+ "</br></h3></td>");
+	    	    + (failedCounter + passed) + "<br> Failed Test Cases  : "
+	    	    + (failedCounter) + "<br> Passed Test cases : " 
+	    	    + passed+ "<br></h3></td>");
 
 	    	 }
 	    
@@ -355,20 +355,22 @@ public class CustomReporter extends CustomReporterListener
 	     * 
 	     */
 	    private void startResultSummaryTable(String style) {
-	        tableStart(style, "summary");
-	        Date date = new Date();
-	        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm a z,MM/dd/yyyy");
-	      
-	        
-	       
-	        
-	        m_out.println("<tr><td colspan='4'><center><h2>Failed Test Cases Analysis</h2></center></td></tr>");
-		    // m_out.println("<tr><td colspan='4'>To view Full Report : <a href=\"http://52.0.218.82:8080/job/dev2_Pley_Chrome/HTML_Report/\">http://52.0.218.82:8080/job/dev2_Pley_Chrome/HTML_Report</a></td></tr>");
-		    m_out.println("<tr><td colspan='4'>Overall test suite completion : <b>"+Time+" minutes</b></br> Date and Time of Run: <b>"+sdf.format(date)+"</b></br> Browser Name : <b>"+SeleniumInit.browserName+"</b></br> Browser Version: <b>"+SeleniumInit.browserVersion+"</b> </br>OS: <b>"+SeleniumInit.osName+"</b></td></tr>");
-		    m_out.println("<tr bgcolor='grey'><th>Test Cases</th>"
-		                + "<th>Failure Reason</th><th>Failure Error</th><th>Total Time<br/>(sec.)</th></tr>");
-		    m_row = 0;
-	    }
+	    	  tableStart(style, "summary");
+	    	  Date date = new Date();
+	    	  SimpleDateFormat sdf = new SimpleDateFormat("HH:mm a z,MM/dd/yyyy");
+
+	    	  m_out.println("<tr><td colspan='4'><center><h2>Failed Test Cases Analysis</h2></center></td></tr>");
+	    	  // m_out.println("<tr><td colspan='4'>To view Full Report : <a href=\"http://52.0.218.82:8080/job/dev2_Pley_Chrome/HTML_Report/\">http://52.0.218.82:8080/job/dev2_Pley_Chrome/HTML_Report</a></td></tr>");
+	    	  m_out.println("<tr><td colspan='4'>Overall test suite completion : <b>"
+	    	    + Time + " minutes</b><br> Date and Time of Run: <b>"
+	    	    + sdf.format(date) + "</b><br> Browser Name : <b>"
+	    	    + SeleniumInit.browserName + "</b><br> Browser Version: <b>"
+	    	    + SeleniumInit.browserVersion + "</b> <br>OS: <b>"
+	    	    + SeleniumInit.osName + "</b></td></tr>");
+	    	  m_out.println("<tr bgcolor='grey'><th>Test Cases</th>"
+	    	    + "<th>Failure Reason</th><th>Failure Error</th><th>Total Time<br/>(sec.)</th></tr>");
+	    	  m_row = 0;
+	    	 }
 
 	    private String qualifiedName(ITestNGMethod method) {
 	        StringBuilder addon = new StringBuilder();
@@ -728,12 +730,11 @@ public class CustomReporter extends CustomReporterListener
 	    }
 
 	    private void tableStart(String cssclass, String id) {
-	        m_out.println("<table border=\"5\" cellspacing=\"0\" cellpadding=\"0\""
-	                + (cssclass != null ? " class=\"" + cssclass + "\""
-	                        : " ")
-	                + (id != null ? " id=\"" + id + "\"" : "") + ">");
-	        m_row = 0;
-	    }
+	    	  m_out.println("<table border=\"5\" cellspacing=\"0\" cellpadding=\"10\""
+	    	    + (cssclass != null ? " class=\"" + cssclass + "\"" : " ")
+	    	    + (id != null ? " id=\"" + id + "\"" : "") + ">");
+	    	  m_row = 0;
+	    	 }
 
 	    private void tableColumnStart(String label) {
 	        m_out.print("<th>" + label + "</th>");

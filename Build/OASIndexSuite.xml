@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="ZingHr - OAS" verbose="10" parallel="tests" thread-count="3">
+<suite name="OAS" verbose="10" parallel="tests" thread-count="5">
 
 	<!-- Put IP of localhost/Grid Hub machine -->
 	<parameter name="selenium.host" value="localhost" />
@@ -14,6 +14,8 @@
 		value="http://automation.zinghr.com/2015/pages/Authentication/login.aspx" />
 
 
+
+
 	<listeners>
 
 		<listener class-name="com.zinghr.utility.CustomReporter" />
@@ -21,7 +23,7 @@
 	</listeners>
 
 
-	<test name="OAS_01 To OAS_05 and OAS_07:To verify the contents of the title">
+	<test name="To verify the contents of the title">
 		<classes>
 			<class name="com.zinghr.tna.index.OASIndex">
 				<methods>
@@ -30,8 +32,8 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="OAS_09:To verify select all records functionality">
+
+	<test name="To verify select all records functionality">
 		<classes>
 			<class name="com.zinghr.tna.index.OASIndex">
 				<methods>
@@ -40,7 +42,8 @@
 			</class>
 		</classes>
 	</test>
-	<test name="OAS_10:To verify No records found message is displayed but the search text box is not display.">
+	<test
+		name="To verify No records found message is displayed but the search text box is not display.">
 		<classes>
 			<class name="com.zinghr.tna.index.OASIndex">
 				<methods>
@@ -49,7 +52,8 @@
 			</class>
 		</classes>
 	</test>
-	<test name="OAS_11:To verify Total Absent, Present and Leave count is getting display">
+	<test
+		name="To verify Total Absent, Present and Leave count is getting display">
 		<classes>
 			<class name="com.zinghr.tna.index.OASIndex">
 				<methods>
@@ -58,7 +62,8 @@
 			</class>
 		</classes>
 	</test>
-	<test name="OAS_12:To verify Save as Draft, Apply Rules and Send for Approval tabs are getting display">
+	<test
+		name="To verify Save as Draft, Apply Rules and Send for Approval tabs are getting display">
 		<classes>
 			<class name="com.zinghr.tna.index.OASIndex">
 				<methods>

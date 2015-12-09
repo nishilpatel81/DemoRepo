@@ -16,7 +16,9 @@ public class LoginIndexPage extends AbstractPage {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String company;
+	public static String company;
+	
+	
 	
 	@FindBy(xpath = "//input[@id='txtSecureCompanyCode']")
 	WebElement companyCode_txt_fld;
@@ -248,6 +250,7 @@ public class LoginIndexPage extends AbstractPage {
 	}
 	public LoginVerificationPage afteraccountblocked(String cmp_code)
 	{
+		System.out.println(company);
 		enterCompanyCode(company);
 		enterEmployeeCode(TestData.employe_code_se);
 		enterPassword(TestData.password_s);

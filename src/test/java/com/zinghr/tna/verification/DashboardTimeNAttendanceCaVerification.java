@@ -168,7 +168,7 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 		int option2 = 0;
 		int option3 = 0;
 
-		/* System.out.println(selectActionDropDown_list.size()); */
+		System.out.println(selectActionDropDown_list.size());
 
 		for (WebElement e : selectActionDropDown_list) {
 
@@ -264,36 +264,48 @@ public class DashboardTimeNAttendanceCaVerification extends AbstractPage {
 		System.out.println("Time counter "
 				+ DashboardTimeNAttendanceCaIndexPage.timeCounter);
 
-		return driver
-				.findElement(
-						By.xpath("//div[contains(@class,'DataVal')]["
-								+ DashboardTimeNAttendanceCaIndexPage.timeCounter
-								+ "]//select[@id='ReasonSelect']/option[contains(.,'Late Arrival')]"))
-				.isDisplayed()
-				&& driver
-						.findElement(
-								By.xpath("//div[contains(@class,'DataVal')]["
-										+ DashboardTimeNAttendanceCaIndexPage.timeCounter
-										+ "]//select[@id='ReasonSelect']/option[contains(.,'Missed Swipe')]"))
-						.isDisplayed()
-				&& driver
-						.findElement(
-								By.xpath("//div[contains(@class,'DataVal')]["
-										+ DashboardTimeNAttendanceCaIndexPage.timeCounter
-										+ "]//select[@id='ReasonSelect']/option[contains(.,'Outdoor/Client Visit')]"))
-						.isDisplayed()
-				&& driver
-						.findElement(
-								By.xpath("//div[contains(@class,'DataVal')]["
-										+ DashboardTimeNAttendanceCaIndexPage.timeCounter
-										+ "]//select[@id='ReasonSelect']/option[contains(.,'PunchIn Approval')]"))
-						.isDisplayed()
-				&& driver
-						.findElement(
-								By.xpath("//div[contains(@class,'DataVal')]["
-										+ DashboardTimeNAttendanceCaIndexPage.timeCounter
-										+ "]//select[@id='ReasonSelect']/option[contains(.,'Others')]"))
-						.isDisplayed();
+		boolean bool = false;
+
+		try {
+
+			if (driver
+					.findElement(
+							By.xpath("//div[contains(@class,'DataVal')]["
+									+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+									+ "]//select[@id='ReasonSelect']/option[contains(.,'Late Arrival')]"))
+					.isDisplayed()
+					&& driver
+							.findElement(
+									By.xpath("//div[contains(@class,'DataVal')]["
+											+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+											+ "]//select[@id='ReasonSelect']/option[contains(.,'Missed Swipe')]"))
+							.isDisplayed()
+					&& driver
+							.findElement(
+									By.xpath("//div[contains(@class,'DataVal')]["
+											+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+											+ "]//select[@id='ReasonSelect']/option[contains(.,'Outdoor/Client Visit')]"))
+							.isDisplayed()
+					&& driver
+							.findElement(
+									By.xpath("//div[contains(@class,'DataVal')]["
+											+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+											+ "]//select[@id='ReasonSelect']/option[contains(.,'PunchIn Approval')]"))
+							.isDisplayed()
+					&& driver
+							.findElement(
+									By.xpath("//div[contains(@class,'DataVal')]["
+											+ DashboardTimeNAttendanceCaIndexPage.timeCounter
+											+ "]//select[@id='ReasonSelect']/option[contains(.,'Others')]"))
+							.isDisplayed()) {
+				bool = true;
+			}
+
+		} catch (Exception e) {
+			bool = false;
+		}
+
+		return bool;
 	}
 
 	public boolean verifyRegularazationReasonDropDownoptionIsDisplayedonce() {

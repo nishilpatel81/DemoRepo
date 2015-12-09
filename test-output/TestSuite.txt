@@ -1,14 +1,25 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 135.37 sec <<< FAILURE! - in TestSuite
-enterBlankPassword(com.zinghr.signup.index.SignupIndex)  Time elapsed: 115.217 sec  <<< FAILURE!
-org.openqa.selenium.NoSuchElementException: Timed out after 15 seconds. Unable to locate the element
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 504.925 sec <<< FAILURE! - in TestSuite
+activateSuccessfully(com.zinghr.signup.index.SignupIndex)  Time elapsed: 491.807 sec  <<< FAILURE!
+org.openqa.selenium.WebDriverException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 03:03:16'
+System info: host: 'HP', ip: '192.168.1.35', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_65'
+Driver info: driver.version: EventFiringWebDriver
+Command duration or timeout: 1.36 seconds
 Build info: version: '2.47.1', revision: 'unknown', time: '2015-07-30 11:02:44'
 System info: host: 'HP', ip: '192.168.1.35', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_60'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:138)
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=42.0, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webdriver.remote.sessionid=84e803cc-1a62-4b09-95a9-8a3bbaf420f5, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 84e803cc-1a62-4b09-95a9-8a3bbaf420f5
+*** Element info: {Using=xpath, value=.//button[@class='btn btn-primary']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:445)
@@ -17,7 +28,7 @@ Driver info: driver.version: RemoteWebDriver
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.AjaxElementLocator.access$001(AjaxElementLocator.java:41)
 	at org.openqa.selenium.support.pagefactory.AjaxElementLocator$SlowLoadingElement.isLoaded(AjaxElementLocator.java:157)
-	at org.openqa.selenium.support.ui.SlowLoadableComponent.get(SlowLoadableComponent.java:70)
+	at org.openqa.selenium.support.ui.SlowLoadableComponent.get(SlowLoadableComponent.java:49)
 	at org.openqa.selenium.support.pagefactory.AjaxElementLocator.findElement(AjaxElementLocator.java:87)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
 	at com.sun.proxy.$Proxy8.getWrappedElement(Unknown Source)
@@ -30,18 +41,14 @@ Driver info: driver.version: RemoteWebDriver
 	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:500)
 	at com.zinghr.init.Common.highlightElement(Common.java:939)
 	at com.zinghr.init.Common.clickOn(Common.java:528)
-	at com.zinghr.signup.indexPage.SignupIndexPage.selectOthercountry(SignupIndexPage.java:147)
-	at com.zinghr.signup.indexPage.SignupIndexPage.blankPassword(SignupIndexPage.java:728)
-	at com.zinghr.signup.index.SignupIndex.enterBlankPassword(SignupIndex.java:880)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":".//div[@id='countries_msdd']"}
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+	at com.zinghr.signup.indexPage.SignupIndexPage.clickOkbtn(SignupIndexPage.java:271)
+	at com.zinghr.signup.indexPage.SignupIndexPage.activateSuccessfully(SignupIndexPage.java:889)
+	at com.zinghr.signup.index.SignupIndex.activateSuccessfully(SignupIndex.java:1162)
+Caused by: org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
 Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 03:03:16'
 System info: host: 'HP', ip: '192.168.1.35', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_65'
-Driver info: driver.version: unknown
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Driver info: driver.version: EventFiringWebDriver
 Build info: version: '2.47.1', revision: 'unknown', time: '2015-07-30 11:02:44'
 System info: host: 'HP', ip: '192.168.1.35', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_60'
 Driver info: driver.version: unknown
-	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/KSPL08/AppData/Local/Temp/anonymous8544269435203895436webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10667)
-	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/KSPL08/AppData/Local/Temp/anonymous8544269435203895436webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:623)
 

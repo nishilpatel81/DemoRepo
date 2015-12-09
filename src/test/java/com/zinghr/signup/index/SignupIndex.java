@@ -805,7 +805,7 @@ public class SignupIndex extends SeleniumInit {
 	public void enterPaswd() throws Exception {
 		int numOfFailure = 0;
 
-		log("Test Case Id : A_SU_08 A_SU_10 ");
+		log("Test Case Id : A_SU_08, A_SU_10 ");
 		log("Testcase Discription : Click here button in email.");
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
 		log("Step 2: Enter company Name: " + s_company_name);

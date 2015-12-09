@@ -1,6 +1,5 @@
 package com.zinghr.tna.index;
 
-import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -514,7 +513,7 @@ public class DashboardTimeNAttendanceCalIndex extends SeleniumInit {
 	}
 
 	@Test
-	public void applyRegularizationfunctionality() {
+	public void applyRegularizationReasonfunctionality() {
 
 		int numOfFailure = 0;
 		log("Testcase Id : TNA_29,TNA_30");

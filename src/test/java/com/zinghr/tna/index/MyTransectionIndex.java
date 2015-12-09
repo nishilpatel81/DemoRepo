@@ -229,4 +229,33 @@ public class MyTransectionIndex extends SeleniumInit {
 			Assert.assertTrue(false);
 		}
 	}
+
+	@Test
+	public void thisYearLastYearCustomButtonIsDisplayed() {
+
+		int numOfFailure = 0;
+		loginwithvalidcredential();
+		log("Step 5: Click on 'Username' dropdown menu.");
+		log("Step 6: Click on my trasection history tab.");
+
+		myTransectionVerification = myTransectionIndexpage.clickUserDropdown();
+
+		myTransectionVerification = myTransectionIndexpage
+				.clickMyTransectionTab();
+
+		log("Verify This Year, Last year, Custom button is displayed on my history Page");
+		if (myTransectionVerification
+				.verifyThisYearLastYearCustomTabisDisplayed()) {
+			Common.logStatus("pass");
+		} else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+
 }

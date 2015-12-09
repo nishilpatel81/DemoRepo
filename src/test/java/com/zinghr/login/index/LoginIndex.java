@@ -286,7 +286,7 @@ public class LoginIndex extends SeleniumInit {
 
 	}
 	
-	@Test(priority = 1)
+	@Test
 	public void account_is_blocked()
 	{
 		int numOfFailure = 0;
@@ -319,7 +319,7 @@ public class LoginIndex extends SeleniumInit {
 
 	}
 	
-	@Test(priority = 2)
+	@Test(priority = 0)
 	public void after_account_is_blocked()
 	{
 		int numOfFailure = 0;

@@ -296,7 +296,7 @@ public class LoginVerificationPage extends AbstractPage {
 	}
 	
 	public boolean click_punchin_button_with_valid_data_credential_not_store_in_db_verification() {
-		WebElement punchin_alert = driver.findElement(By.xpath(".//div[contains(text(),'Punch-In/Out Is Not Mapped To You')]"));
+		WebElement punchin_alert = driver.findElement(By.xpath(".//div[contains(text(),'User Id / Password Is Incorrect.!')]"));
 		if (punchin_alert.isDisplayed()) {
 			return true;
 		} else {
@@ -333,7 +333,10 @@ public class LoginVerificationPage extends AbstractPage {
 
 	}
 	public boolean Forgot_password_enter_blank_data_in_company_employee_code_verification() {
-		if (fp_companyCode_txt_fld.toString().length() > 0 && fp_employee_txt_fld.toString().length() > 0) {
+		
+		System.out.println("sdjkkashdasd"+fp_companyCode_txt_fld.getText().length());
+		System.out.println("alksdjajsdf"+fp_employee_txt_fld.getText().length());
+		if (fp_companyCode_txt_fld.getText().length() > 0 && fp_employee_txt_fld.getText().length() > 0) {
 			return true;
 		} else {
 			return false;

@@ -10,9 +10,6 @@
 	<name>ZingHR</name>
 	<url>http://maven.apache.org</url>
 
-
-
-
   <repositories>
 <repository>
 <id>projectrepo</id>
@@ -33,11 +30,8 @@
   <version.logback>1.0.6</version.logback>
   <version.velocity>1.5</version.velocity>
   <failsafe.report>test-output</failsafe.report>
+
 </properties>
-
-
-
-
  <dependencies>
   <!-- <dependency> <groupId>net.sf.opencsv</groupId> <artifactId>opencsv</artifactId> 
    <version>2.3</version> </dependency> --> <!-- for reading data from csv -->

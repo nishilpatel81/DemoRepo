@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="ZingHr - Login" verbose="10" parallel="true" thread-count="1">
+<suite name="ZingHR - Login" verbose="10" parallel="tests" thread-count="5">
 
 	<!-- Put IP of localhost/Grid Hub machine -->
 	<parameter name="selenium.host" value="localhost" />
@@ -14,6 +14,8 @@
 		value="http://automation.zinghr.com/2015/pages/Authentication/login.aspx" />
 
 
+
+
 	<listeners>
 
 		<listener class-name="com.zinghr.utility.CustomReporter" />
@@ -21,18 +23,8 @@
 	</listeners>
 
 
-<!-- 	<test name="login page verification">
-		<classes>
-			<class name="com.zinghr.login.index.LoginIndex">
-				<methods>
-					<include name="loginlandingpage" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-
-
-	<test name="L_08: To verify that user is able to login with valid credentials">
+	<test
+		name="L_08: To verify that user is able to login with valid credentials">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -51,7 +43,8 @@
 			</class>
 		</classes>
 	</test>
-	<test name="L_03: To verify that user is able to enter data in Employee code field">
+	<test
+		name="L_03: To verify that user is able to enter data in Employee code field">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -60,7 +53,8 @@
 			</class>
 		</classes>
 	</test>
-	<test name="L_04: To verify that alert message is displayed if user logins with empty Company Code">
+	<test
+		name="L_04: To verify that alert message is displayed if user logins with empty Company Code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -69,10 +63,11 @@
 			</class>
 		</classes>
 	</test>
-	
-	
-	
-	<test name="L_05: To verify that alert message is displayed if user logins with empty Employee Code">
+
+
+
+	<test
+		name="L_05: To verify that alert message is displayed if user logins with empty Employee Code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -81,8 +76,9 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="L_06: To verify that user is able to enter data in Password field">
+
+	<test
+		name="L_06: To verify that user is able to enter data in Password field">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -91,8 +87,9 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="L_07: To verify that alert message is displayed if user logins with empty password">
+
+	<test
+		name="L_07: To verify that alert message is displayed if user logins with empty password">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -101,8 +98,9 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="L_10: To verify that appropriate error message is displayed when user enters invalid company code">
+
+	<test
+		name="L_10: To verify that appropriate error message is displayed when user enters invalid company code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -111,7 +109,8 @@
 			</class>
 		</classes>
 	</test>
-	<test name="L_11: To verify that appropriate error message is displayed when user enters invalid company code">
+	<test
+		name="L_11: To verify that appropriate error message is displayed when user enters invalid company code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -120,7 +119,8 @@
 			</class>
 		</classes>
 	</test>
-	<test name="L_12: To verify that appropriate error message is displayed when user enters invalid password">
+	<test
+		name="L_12: To verify that appropriate error message is displayed when user enters invalid password">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -128,10 +128,11 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
-	
-	
-	<test name="L_13: To verify that after the 4 wrong attempts user's account is blocked">
+	</test>
+
+
+	<test
+		name="L_13: To verify that after the 4 wrong attempts user's account is blocked">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -140,8 +141,9 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="L_14: To verify that appropriate message is displayed after the user's account is blocked">
+
+	<test
+		name="L_14: To verify that appropriate message is displayed after the user's account is blocked">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -150,8 +152,9 @@
 			</class>
 		</classes>
 	</test>
-	
-	<!-- <test name="L_16: To verify that user is redirected to targeted page after clicking on social icons(fb,twitter,g+,ln,youtube">
+
+	<test
+		name="L_16: To verify that user is redirected to targeted page after clicking on social icons(fb,twitter,g+,ln,youtube">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -159,11 +162,13 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
-	
-	<!-- unauthenticate error during verification
-	
-	<test name="L_17: To verify that user is redirected to targeted page after clicking on 'View Latest Announcements','View Support Portal','Raise a ticket' hyperlink">
+	</test>
+
+<!-- 	unauthenticate error during verification
+	<test
+		name="L_17: To verify 
+		that user is redirected to targeted page after clicking on 'View Latest Announcements','View 
+		Support Portal','Raise a ticket' hyperlink">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -172,8 +177,9 @@
 			</class>
 		</classes>
 	</test>
-	 -->
-	<!-- <test name="L_18: To verify that alert message is displayed if user directly clicks on 'Punch In' button">
+ -->
+	<test
+		name="L_18: To verify that alert message is displayed if user directly clicks on 'Punch In' button">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -182,8 +188,9 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="L_19: To verify that alert message is displayed if user clicks on Punch In button with empty employee code">
+
+	<test
+		name="L_19: To verify that alert message is displayed if user clicks on Punch In button with empty employee code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -192,8 +199,9 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="L_20: To verify that alert message is displayed if user clicks on Punch In button with empty password">
+
+	<test
+		name="L_20: To verify that alert message is displayed if user clicks on Punch In button with empty password">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -202,8 +210,9 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="L_21: To verify that appropriate error message is displayed if user enter invalid company code">
+
+	<test
+		name="L_21: To verify that appropriate error message is displayed if user enter invalid company code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -212,8 +221,9 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="L_22: To verify that appropriate error message is displayed when user enters invalid employee code">
+
+	<test
+		name="L_22: To verify that appropriate error message is displayed when user enters invalid employee code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -222,8 +232,9 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="L_23: To verify that appropriate error message is displayed when user Punch Ins with invalid password">
+
+	<test
+		name="L_23: To verify that appropriate error message is displayed when user Punch Ins with invalid password">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -232,8 +243,9 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="L_24: To verify that successful message is displayed when user Punch Ins with valid credentials">
+
+	<!-- <test
+		name="L_24: To verify that successful message is displayed when user Punch Ins with valid credentials">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -241,19 +253,22 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-	
-	<test name="L_25: To verify that appropiate error message is displayed if the users account in not configured in DB">
+	</test> -->
+
+	<test
+		name="L_25: To verify that appropiate error message is displayed if the users account in not configured in DB">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
-					<include name="click_punchin_button_with_valid_data_credential_not_store_in_db" />
+					<include
+						name="click_punchin_button_with_valid_data_credential_not_store_in_db" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	
-	<test name="L_26: To verify that appropriate alert message is displayed when user directly clicks on Punch out button without doing Punch in">
+
+	<!-- <test
+		name="L_26: To verify that appropriate alert message is displayed when user directly clicks on Punch out button without doing Punch in">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -261,9 +276,10 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-	
-	<test name="FP_01: To verify that user is redirected to Forgot password page after clicking on Forgot Password hyperlink">
+	</test> -->
+
+	<test
+		name="FP_01: To verify that user is redirected to Forgot password page after clicking on Forgot Password hyperlink">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -272,7 +288,8 @@
 			</class>
 		</classes>
 	</test>
-	<test name="FP_02: To verify that user is able to enter data in Company and Employee code field">
+	<test
+		name="FP_02: To verify that user is able to enter data in Company and Employee code field">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -281,34 +298,44 @@
 			</class>
 		</classes>
 	</test>
-	<test name="FP_03: To verify that appropriate alert message is displayed when user submit empty company and employee code">
+	<!-- <test
+		name="FP_03: To verify that appropriate alert message is displayed when user submit empty company and employee code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
-					<include name="Fargot_password_enter_blank_data_in_company_employee_code" />
+					<include
+						name="Fargot_password_enter_blank_data_in_company_employee_code" />
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	<test name="FP_04: To verify that appropriate error messages is displayed when user enters invalid Company code and Employee code">
+	</test> -->
+
+	<test
+		name="FP_04: To verify that appropriate error messages is displayed when user enters invalid Company code and Employee code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
-					<include name="Fargot_password_enter_invalid_data_in_company_employee_code" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="FP_05: To verify that successful message is displayed after clicking on Submit button (For both Mobile and email)">
-		<classes>
-			<class name="com.zinghr.login.index.LoginIndex">
-				<methods>
-					<include name="Fargot_password_enter_valid_data_in_company_employee_code" />
+					<include
+						name="Fargot_password_enter_invalid_data_in_company_employee_code" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="FP_06: To verify that user is redirected to Login page after clicking on 'Back to login' hyperlink">
+	<test
+		name="FP_05: To verify that successful message is displayed after clicking on Submit button (For both Mobile and email)">
+		<classes>
+			<class name="com.zinghr.login.index.LoginIndex">
+				<methods>
+					<include
+						name="Fargot_password_enter_valid_data_in_company_employee_code" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+	<test
+		name="FP_06: To verify that user is redirected to Login page after clicking on 'Back to login' hyperlink">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -316,6 +343,6 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
-	
+	</test>
+
 </suite>

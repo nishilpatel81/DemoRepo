@@ -76,4 +76,19 @@ public class MyTransectionVerification extends AbstractPage {
 		return date.isDisplayed() && time.isDisplayed();
 	}
 
+	@FindBy(xpath = "//a[@id='thisyear']")
+	WebElement thisyear_button;
+
+	@FindBy(xpath = "//a[@id='lastyear']")
+	WebElement lastyear_button;
+
+	@FindBy(xpath = "//a[@id='YearRange']")
+	WebElement custom_button;
+
+	public boolean verifyThisYearLastYearCustomTabisDisplayed() {
+
+		return thisyear_button.isDisplayed() && lastyear_button.isDisplayed()
+				&& custom_button.isDisplayed();
+	}
+
 }
