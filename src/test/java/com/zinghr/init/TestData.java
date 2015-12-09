@@ -2,7 +2,6 @@ package com.zinghr.init;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Random;
 
 import org.apache.commons.lang.RandomStringUtils;
@@ -66,7 +65,7 @@ public class TestData {
 	public static int rndmNumber(int length) {
 
 		Random randm = new Random();
-		int numNoRange = randm.nextInt(999999);
+		int numNoRange = randm.nextInt(99999);
 		return numNoRange;
 
 	}
@@ -79,7 +78,7 @@ public class TestData {
 
 	public static String rndmemail(int i) {
 		String email = new StringBuilder(30).append("testkiwi")
-				.append(rndmNumber(i)).append(rndmString(2))
+				.append(rndmNumber(i)).append(rndmString(3))
 				.append("@mailinator.com").toString();
 
 		return email;
