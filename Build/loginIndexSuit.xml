@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="ZingHR - Login" verbose="10" parallel="tests" thread-count="5">
+<suite name="ZingHR - Login" verbose="10" parallel="tests" thread-count="3">
 
 	<!-- Put IP of localhost/Grid Hub machine -->
 	<parameter name="selenium.host" value="localhost" />
@@ -132,26 +132,17 @@
 
 
 	<test
-		name="L_13: To verify that after the 4 wrong attempts user's account is blocked">
+		name="L_13, L_14: To verify that after the 4 wrong attempts user's account is blocked and appropriate message is displayed after the user's account is blocked">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
 					<include name="account_is_blocked" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-
-	<test
-		name="L_14: To verify that appropriate message is displayed after the user's account is blocked">
-		<classes>
-			<class name="com.zinghr.login.index.LoginIndex">
-				<methods>
 					<include name="after_account_is_blocked" />
 				</methods>
 			</class>
 		</classes>
 	</test>
+
 
 	<test
 		name="L_16: To verify that user is redirected to targeted page after clicking on social icons(fb,twitter,g+,ln,youtube">
