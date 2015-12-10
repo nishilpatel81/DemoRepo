@@ -192,7 +192,7 @@ public SignupVerificationPage checkCheckbox()
 public SignupVerificationPage clicksignup30days() 
 {
 	Common.clickOn(driver, signUp_30_day_btn);
-	Common.pause(3);
+	Common.pause(5);
 	
 	return new SignupVerificationPage(driver);
 }
@@ -941,6 +941,7 @@ public SignupVerificationPage enterActivationcode(String a)
 		Common.pause(2);
 	//	log("===== Second time activation mail open ======");
 		enterActivationcode(activation_no);
+		log("Previously used activatio code::"+activation_no);
 		enterAccountName(ac_name1);
 		enterPassword(pswd);
 		clickActivateButton();

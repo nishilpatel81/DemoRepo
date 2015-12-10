@@ -466,7 +466,7 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 6: Enter Contact no: " + large_contact_no);
 
 		signupVerification = signupIndexpage.invalidContactNum1(emailt,
-				s_company_name, s_display_name, large_contact_no);
+				s_company_name, s_display_name, TestData.more10);
 
 		log("To verify that Max length of 10 characters is provided to Contact Number field");
 
