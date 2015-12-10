@@ -328,7 +328,7 @@ public class LoginIndex extends SeleniumInit {
 		
 		
 		loginlandingpage();
-		log("Step 2: Enter Company Code:"+account_name);
+		log("Step 2: Enter Company Code:"+loginIndexpage.company);
 		log("Step 3: Enter Employee Code:"+TestData.employe_code_se);
 		log("Step 4: Enter Password: "+TestData.password_s);
 		loginVerificationPage=loginIndexpage.afteraccountblocked(account_name);
