@@ -1670,4 +1670,43 @@ public class SettingsTimeAttendanceSetupIndex extends SeleniumInit {
 			Assert.assertTrue(false);
 		}*/
 	}
+	
+	@Test
+	public void createNewEmployee() {
+		int numOfFailure = 0;
+		log("Testcase Id : ");
+		log("Testcase Discription :  ");
+
+		log("Step 1: Open url:<a>" + testUrl + "</a>");
+		log("Step 2: Enter Company Code:" + TestData.company_code);
+		log("Step 3: Enter Employee Code: " + TestData.employe_code);
+		log("Step 4: Enter Password: " + TestData.password);
+
+		driver.get("https://demo.zinghr.com/2015/Pages/Authentication/Login.aspx");
+		loginVerificationPage = loginIndexpage.loginSuccessfully();
+
+		log("Step 5: Click on Proceed Button");
+		log("Step 6: Click on Setting Icon");
+		log("Step 7: Click on Time and attendence option from Circle");
+		log("Step 8: Select 'SET MY ATTENDANCE' option.");
+		log("Step 9: Check 'Common' group.");
+		log("Step 10:  Check Rule Type 'Comp off for working on weekly off / holidays'. "); 
+	
+		
+		taSetupVerificationPage = taSetupIndexPage.createNewEmployee();
+
+		log("");
+
+		/*if (taSetupVerificationPage) {
+			Common.logStatus("pass");
+		} 
+		else {
+			Common.logStatus("fail");
+			numOfFailure++;
+		} 
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}*/
+	}
 }

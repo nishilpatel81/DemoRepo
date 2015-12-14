@@ -631,6 +631,25 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 	WebElement employee_master_menu;
 	@FindBy(xpath = ".//*[@class='fa fa-download']")
 	WebElement download_link;
+	@FindBy(xpath = "Add single employee = .//a[@id='NewEmp']")
+	WebElement addSingle_employee;
+	
+	public SettingsTimeAttendanceSetupVerification clickEmployeeMaster()
+	{
+		Common.pause(2);
+		Common.jsClick(driver, employee_master_menu);
+		return new SettingsTimeAttendanceSetupVerification(driver);
+
+	}
+	
+	public SettingsTimeAttendanceSetupVerification clickAddSingleEmployee()
+	{
+		Common.pause(1);
+		Common.jsClick(driver, addSingle_employee);
+		Common.pause(2);
+		return new SettingsTimeAttendanceSetupVerification(driver);
+
+	}
 	
 	public SettingsTimeAttendanceSetupVerification employeeMasterDownload()
 	{
@@ -654,5 +673,67 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 
 		return new SettingsTimeAttendanceSetupVerification(driver);
 	}
+	
+	
+	
+	@FindBy(xpath = "")
+	WebElement Employee_group;
+	@FindBy(xpath = "")
+	WebElement Employee_group_list;
+	@FindBy(xpath = "")
+	WebElement Attendance_group;
+	@FindBy(xpath = "")
+	WebElement Attendance_group_list;
+	@FindBy(xpath = "")
+	WebElement Leave_group;
+	@FindBy(xpath = "")
+	WebElement Leave_group_list;
+	@FindBy(xpath = "")
+	WebElement Calendar_group;
+	@FindBy(xpath = "")
+	WebElement Calendar_group_list;
+	@FindBy(xpath = "")
+	WebElement Attendance_mode_group;
+	@FindBy(xpath = "")
+	WebElement Attendance_mode_group_list;
+	@FindBy(xpath = "")
+	WebElement Attendance_rule_group;
+	@FindBy(xpath = "")
+	WebElement Attendance_rule_group_list;
+	@FindBy(xpath = "")
+	WebElement Designation;
+	@FindBy(xpath = "")
+	WebElement Designation_list;
+	@FindBy(xpath = "")
+	WebElement Grade;
+	@FindBy(xpath = "")
+	WebElement Grade_list;
+	@FindBy(xpath = "")
+	WebElement Division;
+	@FindBy(xpath = "")
+	WebElement Division_list;
+	@FindBy(xpath = "")
+	WebElement Salutation;
+	@FindBy(xpath = "")
+	WebElement Salutation_list;
+	@FindBy(xpath = "")
+	WebElement First_Name;
+	@FindBy(xpath = "")
+	WebElement Muiddle_Name;
+	@FindBy(xpath = "")
+	WebElement Last_Name;
+	@FindBy(xpath = "")
+	WebElement Father_Name ;
+	
+	
+
+	public SettingsTimeAttendanceSetupVerification createNewEmployee()
+	{
+		clickEmployeeMaster();
+		clickAddSingleEmployee();
+
+		return new SettingsTimeAttendanceSetupVerification(driver);
+	}
+	
 	
 }
