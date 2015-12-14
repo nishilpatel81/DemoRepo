@@ -17,6 +17,7 @@ import java.util.TimeZone;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -33,6 +34,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
+
 /**
  * Define Common Webdriver
  */
@@ -40,6 +42,7 @@ public class Common {
 
 	Date date = new Date();
 	protected static Wait<WebDriver> wait;
+	public static String alerttext;
 
 	/**
 	 * Find web-element for given locator.
@@ -199,6 +202,15 @@ public class Common {
 			element.click();
 		}
 
+	}
+	
+	public static void movetoalert(WebDriver webDriver) {
+
+		 try {
+		        Alert alert = webDriver.switchTo().alert();
+		        alerttext = alert.getText();
+		    } catch (Exception e) {
+		    }
 	}
 
 	/**

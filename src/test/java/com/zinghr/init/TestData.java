@@ -29,7 +29,7 @@ public class TestData {
 	 * "17:30";
 	 */
 
-	public static String company_code_se = "CYOLTEST";
+	public static String company_code_se = "CYOLTESTTEST";
 	public static String employe_code_se = "ADMIN";
 	public static String password_se = "Baps@2000";
 	public static String password_s = "Baps@200";

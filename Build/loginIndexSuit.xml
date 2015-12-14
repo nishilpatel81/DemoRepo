@@ -23,18 +23,7 @@
 	</listeners>
 
 
-	<test
-		name="L_08: To verify that user is able to login with valid credentials">
-		<classes>
-			<class name="com.zinghr.login.index.LoginIndex">
-				<methods>
-					<include name="loginwithvalidcredential" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-
-	<test name="L_02: To verify that Company Name field is editable">
+	<!-- <test name="L_02: To verify that Company Name field is editable">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -98,8 +87,32 @@
 			</class>
 		</classes>
 	</test>
+	
+		<test
+		name="L_08: To verify that user is able to login with valid credentials">
+		<classes>
+			<class name="com.zinghr.login.index.LoginIndex">
+				<methods>
+					<include name="loginwithvalidcredential" />
+				</methods>
+			</class>
+		</classes>
+	</test> -->
+		
+		<test
+		name="L_09: To verify that appropriate error message is displayed if user enter more than 10 characters in Company code field">
+		<classes>
+			<class name="com.zinghr.login.index.LoginIndex">
+				<methods>
+					<include name="MoreThanTenCharacters" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
 
-	<test
+	<!-- <test
 		name="L_10: To verify that appropriate error message is displayed when user enters invalid company code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -142,7 +155,17 @@
 			</class>
 		</classes>
 	</test>
-
+	
+	<test
+		name="L_15: To verify that 'Remember Me' Functionality is working">
+		<classes>
+			<class name="com.zinghr.login.index.LoginIndex">
+				<methods>
+					<include name="RememberMeFunctionality" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 
 	<test
 		name="L_16: To verify that user is redirected to targeted page after clicking on social icons(fb,twitter,g+,ln,youtube">
@@ -154,7 +177,7 @@
 			</class>
 		</classes>
 	</test>
-
+ -->
 <!-- 	unauthenticate error during verification
 	<test
 		name="L_17: To verify 
@@ -169,7 +192,7 @@
 		</classes>
 	</test>
  -->
-	<test
+	<!-- <test
 		name="L_18: To verify that alert message is displayed if user directly clicks on 'Punch In' button">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -233,7 +256,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 
 	<!-- <test
 		name="L_24: To verify that successful message is displayed when user Punch Ins with valid credentials">
@@ -246,7 +269,7 @@
 		</classes>
 	</test> -->
 
-	<test
+	<!-- <test
 		name="L_25: To verify that appropiate error message is displayed if the users account in not configured in DB">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -256,7 +279,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 
 	<!-- <test
 		name="L_26: To verify that appropriate alert message is displayed when user directly clicks on Punch out button without doing Punch in">
@@ -269,7 +292,7 @@
 		</classes>
 	</test> -->
 
-	<test
+	<!-- <test
 		name="FP_01: To verify that user is redirected to Forgot password page after clicking on Forgot Password hyperlink">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -288,7 +311,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 	<!-- <test
 		name="FP_03: To verify that appropriate alert message is displayed when user submit empty company and employee code">
 		<classes>
@@ -301,7 +324,7 @@
 		</classes>
 	</test> -->
 
-	<test
+	<!-- <test
 		name="FP_04: To verify that appropriate error messages is displayed when user enters invalid Company code and Employee code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -334,6 +357,6 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 
 </suite>

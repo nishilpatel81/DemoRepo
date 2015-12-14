@@ -205,7 +205,32 @@ public class LoginIndex extends SeleniumInit {
 
 	}
 
-	
+	@Test
+	public void MoreThanTenCharacters()
+	{
+		int numOfFailure = 0;
+		log("Test Case Id : L_09 ");
+		loginlandingpage();
+		log("Step 2: Enter Company Code:"+TestData.company_code_se);
+		log("Step 3: Enter Employee Code:"+TestData.employe_code);
+		log("Step 2: Enter Password: "+TestData.password);
+		loginVerificationPage=loginIndexpage.MoreThanTenCharacters();
+		log("To verify that appropriate error message is displayed if user enter more than 10 characters in Company code field");
+		if(loginVerificationPage.MoreThanTenCharactersverification())
+		{
+			Common.logStatus("pass");
+		}
+		else
+		{
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+
+	}
+
 	
 	@Test
 	public void invalidcompanycode()
@@ -349,6 +374,50 @@ public class LoginIndex extends SeleniumInit {
 
 	}
 	
+	
+	@Test(priority = 0)
+	public void RememberMeFunctionality()
+	{
+		int numOfFailure = 0;
+		log("Test Case Id : L_15 ");
+		
+		loginlandingpage();
+		log("Step 2: Enter Company Code:"+TestData.company_code);
+		log("Step 3: Enter Employee Code: "+TestData.employe_code);
+		log("Step 4: Enter Password: "+TestData.password);
+		
+		loginVerificationPage=loginIndexpage.loginSuccessfully();
+		log("Verify that Home page is open or not");
+		if(loginVerificationPage.loginpagewithvalidcredentialverification())
+		{
+			Common.logStatus("pass");
+		}
+		else
+		{
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		log("Step 5: Check Remember Me Checkbox");
+		log("Step 6: Click on logout button");
+		loginIndexpage.Logoutbutton();
+		log("To verify that 'Remember Me' Functionality is working");
+		if(loginVerificationPage.RememberMeFunctionality_verification())
+		{
+			Common.logStatus("pass");
+		}
+		else
+		{
+			Common.logStatus("fail");
+			numOfFailure++;
+		}
+		
+		
+		if (numOfFailure > 0) {
+			Assert.assertTrue(false);
+		}
+		
+
+	}
 	@Test
 	public void verifysocialicons()
 	{

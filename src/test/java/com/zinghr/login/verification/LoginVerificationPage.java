@@ -112,6 +112,17 @@ public class LoginVerificationPage extends AbstractPage {
 		}
 
 	}
+	
+	public boolean MoreThanTenCharactersverification() {
+		String alert="check your company code";
+		System.out.println("lksadlkhskd"+Common.alerttext);
+		if (Common.alerttext.contains(alert)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 
 	public boolean invalidcompanycodeverification() {
 		WebElement invalid_com_code_alert = driver
@@ -160,6 +171,18 @@ public class LoginVerificationPage extends AbstractPage {
 		if (block_acc_alert.isDisplayed()) {
 			return true;
 		} else {
+			return false;
+		}
+
+	}
+	
+	public boolean RememberMeFunctionality_verification() {
+		System.out.println("sdhkjshd"+companyCode_txt_fld.getAttribute("value"));
+		System.out.println("sdhkjshd"+employeeCode_txt_fld.getAttribute("value"));
+		if(companyCode_txt_fld.getAttribute("value").equalsIgnoreCase(TestData.company_code) && employeeCode_txt_fld.getAttribute("value").equalsIgnoreCase(TestData.employe_code) )
+		{
+			return true;
+		}else {
 			return false;
 		}
 

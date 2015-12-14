@@ -89,11 +89,26 @@ public class LoginIndexPage extends AbstractPage {
 	@FindBy(xpath = ".//a[contains(text(),'Back To Login')]")
 	WebElement back_to_login_link;
 	
+	@FindBy(xpath = ".//li[@id='header-user']//span[1]")
+	WebElement Username_drop_down;
+	
+	@FindBy(xpath = ".//li[@id='header-user']/ul/li[4]")
+	WebElement Logout_btn;
+	
 	public LoginVerificationPage loginlandingpage()
 	{
 		return new LoginVerificationPage(driver);
 	}
 	
+	public LoginVerificationPage Logoutbutton()
+	{
+		Common.clickOn(driver, Username_drop_down);
+		Common.pause(5);
+		Common.clickOn(driver, Logout_btn);
+		Common.pause(5);
+		
+		return new LoginVerificationPage(driver);
+	}
 	
 	public LoginVerificationPage enterCompanyCode(String cmpCode) {
 
@@ -189,6 +204,17 @@ public class LoginIndexPage extends AbstractPage {
 		enterCompanyCode(TestData.company_code);
 		enterEmployeeCode(TestData.employe_code);
 		clickLoginButton();
+		return new LoginVerificationPage(driver);
+	}
+	
+	public LoginVerificationPage MoreThanTenCharacters()
+	{
+		enterCompanyCode(TestData.company_code_se);
+		enterEmployeeCode(TestData.employe_code);
+		enterPassword(TestData.password);
+		clickLoginButton();
+		Common.movetoalert(driver);
+		Common.pause(1);
 		return new LoginVerificationPage(driver);
 	}
 	
