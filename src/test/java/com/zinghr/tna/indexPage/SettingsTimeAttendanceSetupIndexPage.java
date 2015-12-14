@@ -676,55 +676,54 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 	
 	
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlEmployeeGroup']")
 	WebElement Employee_group;
 	@FindBy(xpath = "")
 	WebElement Employee_group_list;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlAttendanceGroup']")
 	WebElement Attendance_group;
 	@FindBy(xpath = "")
 	WebElement Attendance_group_list;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlLeaveGroup']")
 	WebElement Leave_group;
 	@FindBy(xpath = "")
 	WebElement Leave_group_list;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlCalendarGroup']")
 	WebElement Calendar_group;
 	@FindBy(xpath = "")
 	WebElement Calendar_group_list;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlAttendanceModeGroup']")
 	WebElement Attendance_mode_group;
 	@FindBy(xpath = "")
 	WebElement Attendance_mode_group_list;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlAttendanceRuleGroup']")
 	WebElement Attendance_rule_group;
 	@FindBy(xpath = "")
 	WebElement Attendance_rule_group_list;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlDesignation']")
 	WebElement Designation;
 	@FindBy(xpath = "")
 	WebElement Designation_list;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlGrade']")
 	WebElement Grade;
 	@FindBy(xpath = "")
 	WebElement Grade_list;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlDivision']")
 	WebElement Division;
 	@FindBy(xpath = "")
 	WebElement Division_list;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlDivision']")
 	WebElement Salutation;
 	@FindBy(xpath = "")
 	WebElement Salutation_list;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//input[@id='txtFirstName']")
 	WebElement First_Name;
-	@FindBy(xpath = "")
-	WebElement Muiddle_Name;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//input[@id='txtMiddleName']")
+	WebElement Middle_Name;
+	@FindBy(xpath = ".//input[@id='txtLastName']")
 	WebElement Last_Name;
 	@FindBy(xpath = "")
 	WebElement Father_Name ;
-	
 	
 
 	public SettingsTimeAttendanceSetupVerification createNewEmployee()
