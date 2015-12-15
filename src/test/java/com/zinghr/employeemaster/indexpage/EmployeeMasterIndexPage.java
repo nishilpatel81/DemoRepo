@@ -18,35 +18,36 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 
 	@FindBy(xpath = ".//select[@id='ddlEmployeeGroup']")
 	WebElement Employee_group;
-	@FindBy(xpath = "")
-	WebElement Employee_group_list;
+	@FindBy(xpath = ".//*[@id='ddlEmployeeGroup']/option[2]")
+	WebElement Employee_group_common;
 	public EmployeeMasterVerificationPage selectEmployeeGroup()
 	{
-		
+		Common.clickOn(driver, Employee_group);
+		Common.clickOn(driver, Employee_group_common);
 		return new EmployeeMasterVerificationPage(driver);
 		
 	}
 	
 	@FindBy(xpath = ".//select[@id='ddlAttendanceGroup']")
 	WebElement Attendance_group;
-	@FindBy(xpath = "")
-	WebElement Attendance_group_list;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceGroup']/option[6]")
+	WebElement Attendance_group_common;
 	public EmployeeMasterVerificationPage selectAttendanceGroup()
 	{
-		
+		Common.clickOn(driver, Attendance_group);
+		Common.clickOn(driver, Attendance_group_common);
 		return new EmployeeMasterVerificationPage(driver);
-		
 	}
 	
 	@FindBy(xpath = ".//select[@id='ddlLeaveGroup']")
 	WebElement Leave_group;
-	@FindBy(xpath = "")
-	WebElement Leave_group_list;
+	@FindBy(xpath = ".//select[@id='ddlLeaveGroup']/option[4]")
+	WebElement Leave_group_common;
 	public EmployeeMasterVerificationPage selectLeaveGroup()
 	{
-		
+		Common.clickOn(driver, Leave_group);
+		Common.clickOn(driver, Leave_group_common);
 		return new EmployeeMasterVerificationPage(driver);
-		
 	}
 	
 	@FindBy(xpath = ".//select[@id='ddlCalendarGroup']")
@@ -62,7 +63,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	
 	@FindBy(xpath = ".//select[@id='ddlAttendanceModeGroup']")
 	WebElement Attendance_mode_group;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlAttendanceModeGroup']")
 	WebElement Attendance_mode_group_list;
 	public EmployeeMasterVerificationPage selectAttendanceModeGroup()
 	{
@@ -407,7 +408,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	WebElement employee_master_menu;
 	@FindBy(xpath = ".//*[@class='fa fa-download']")
 	WebElement download_link;
-	@FindBy(xpath = "Add single employee = .//a[@id='NewEmp']")
+	@FindBy(xpath = ".//a[@id='NewEmp']")
 	WebElement addSingle_employee;
 	public EmployeeMasterVerificationPage clickEmployeeMaster()
 	{

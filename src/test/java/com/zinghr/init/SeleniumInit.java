@@ -27,6 +27,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.internal.Utils;
 
+import com.zinghr.employeemaster.indexpage.EmployeeMasterIndexPage;
+import com.zinghr.employeemaster.verification.EmployeeMasterVerificationPage;
 import com.zinghr.login.indexPage.LoginIndexPage;
 import com.zinghr.login.verification.LoginVerificationPage;
 import com.zinghr.signup.indexPage.SignupIndexPage;
@@ -94,7 +96,9 @@ public class SeleniumInit {
 	public OASVerificationPage oasVerificationPage;
 	public PendingRequestIndexPage pendingReqIndexPage;
 	public PendingRequestVerification pendingReqVerificationPage;
-
+	public EmployeeMasterIndexPage employeemasterIndexPage;
+	public EmployeeMasterVerificationPage employeemasterVerificationPage;
+	
 	protected static String screenshot_folder_path = null;
 	public static String currentTest; // current running test
 
@@ -327,15 +331,16 @@ public class SeleniumInit {
 			this.driver = new SafariDriver(capability);
 		}
 
+		suiteName = testContext.getSuite().getName();
 		driver = new RemoteWebDriver(remote_grid, capability);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.get(testUrl);
+		driver.get(TestData.getURLFromExcel(suiteName));
 		driver.manage().window().maximize();
 		currentWindowHandle = driver.getWindowHandle();
 		System.out.println("Current Window Handle ID:--->"
 				+ currentWindowHandle);
 
-		suiteName = testContext.getSuite().getName();
+		
 		System.out.println("Current Xml Suite is:---->" + suiteName);
 
 		loginIndexpage = new LoginIndexPage(driver);
@@ -359,6 +364,8 @@ public class SeleniumInit {
 				driver);
 		pendingReqIndexPage = new PendingRequestIndexPage(driver);
 		pendingReqVerificationPage = new PendingRequestVerification(driver);
+		employeemasterIndexPage = new EmployeeMasterIndexPage(driver);
+		employeemasterVerificationPage = new EmployeeMasterVerificationPage(driver);
 	}
 
 	/**
