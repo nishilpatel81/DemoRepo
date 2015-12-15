@@ -36,8 +36,7 @@ public class EmployeeMasterIndex extends SeleniumInit {
 		employeemasterIndexPage.clickAddSingleEmployee();
 		
 		log("Step 8: Add all the valid details into 'Employee Creation' form.");
-		
-		
+		employeemasterIndexPage.createNewEmployee();
 		
 		
 		/*if (taSetupVerificationPage) {

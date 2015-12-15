@@ -1,5 +1,9 @@
 package com.zinghr.employeemaster.indexpage;
 
+import java.util.List;
+import java.util.Random;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -52,77 +56,87 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	
 	@FindBy(xpath = ".//select[@id='ddlCalendarGroup']")
 	WebElement Calendar_group;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlCalendarGroup']/option[3]")
 	WebElement Calendar_group_list;
 	public EmployeeMasterVerificationPage selectCalendarGroup()
 	{
-		
+		Common.clickOn(driver, Calendar_group);
+		Common.clickOn(driver, Calendar_group_list);
 		return new EmployeeMasterVerificationPage(driver);
-		
 	}
 	
 	@FindBy(xpath = ".//select[@id='ddlAttendanceModeGroup']")
 	WebElement Attendance_mode_group;
-	@FindBy(xpath = ".//select[@id='ddlAttendanceModeGroup']")
+	@FindBy(xpath = ".//select[@id='ddlAttendanceModeGroup']/option[5]")
 	WebElement Attendance_mode_group_list;
 	public EmployeeMasterVerificationPage selectAttendanceModeGroup()
 	{
-		
+		Common.clickOn(driver, Attendance_mode_group);
+		Common.clickOn(driver, Attendance_mode_group_list);
 		return new EmployeeMasterVerificationPage(driver);
 		
 	}
 	
 	@FindBy(xpath = ".//select[@id='ddlAttendanceRuleGroup']")
 	WebElement Attendance_rule_group;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlAttendanceRuleGroup']/option[2]")
 	WebElement Attendance_rule_group_list;
 	public EmployeeMasterVerificationPage selectAttendanceRuleGroup()
 	{
-		
+		Common.clickOn(driver, Attendance_rule_group);
+		Common.clickOn(driver, Attendance_rule_group_list);
 		return new EmployeeMasterVerificationPage(driver);
 		
 	}
 	
 	@FindBy(xpath = ".//select[@id='ddlDesignation']")
 	WebElement Designation;
-	@FindBy(xpath = "")
-	WebElement Designation_list;
+	@FindBy(xpath = ".//*[@id='ddlDesignation']/option[not(contains(text(),'Select'))]")
+	List<WebElement> Designation_list;
 	public EmployeeMasterVerificationPage selectDesignation()
 	{
-		
+		Common.clickOn(driver, Designation);
+		Random rndm = new Random();
+		int i = rndm.nextInt(Designation_list.size());
+		Designation_list.get(i).click();
 		return new EmployeeMasterVerificationPage(driver);
 		
 	}
 	
 	@FindBy(xpath = ".//select[@id='ddlGrade']")
 	WebElement Grade;
-	@FindBy(xpath = "")
-	WebElement Grade_list;
+	@FindBy(xpath = ".//*[@id='ddlGrade']/option[not(contains(text(),'Select'))]")
+	List<WebElement> Grade_list;
 	public EmployeeMasterVerificationPage selectGrade()
 	{
-		
+		Common.clickOn(driver, Grade);
+		Random rndm = new Random();
+		int i = rndm.nextInt(Grade_list.size());
+		Grade_list.get(i).click();
 		return new EmployeeMasterVerificationPage(driver);
-		
 	}
 	
 	@FindBy(xpath = ".//select[@id='ddlDivision']")
 	WebElement Division;
-	@FindBy(xpath = "")
-	WebElement Division_list;
+	@FindBy(xpath = ".//select[@id='ddlDivision']/option[not(contains(text(),'Select'))]")
+	List<WebElement> Division_list;
 	public EmployeeMasterVerificationPage selectDivision()
 	{
-		
+		Common.clickOn(driver, Grade);
+		Random rndm = new Random();
+		int i = rndm.nextInt(Division_list.size());
+		Division_list.get(i).click();
 		return new EmployeeMasterVerificationPage(driver);
 		
 	}
 	
 	@FindBy(xpath = ".//select[@id='ddlDivision']")
 	WebElement Salutation;
-	@FindBy(xpath = "")
+	@FindBy(xpath = ".//select[@id='ddlDivision']/option[not(contains(text(),'Select'))]")
 	WebElement Salutation_list;
 	public EmployeeMasterVerificationPage selectSalutation()
 	{
-		
+		Common.clickOn(driver, Salutation);
 		return new EmployeeMasterVerificationPage(driver);
 		
 	}
@@ -428,6 +442,16 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	
 	public EmployeeMasterVerificationPage createNewEmployee()
 	{
+		selectEmployeeGroup();
+		Common.scrollToVertical(driver, driver.findElement(By.xpath(".//span[@class='font-16 paddingLeft10']")));
+		selectAttendanceGroup();
+		selectLeaveGroup();
+		selectCalendarGroup();
+		selectAttendanceModeGroup();
+		selectAttendanceRuleGroup();
+		selectDesignation();
+		selectGrade();
+		selectDivision();
 		
 		return new EmployeeMasterVerificationPage(driver);
 		
