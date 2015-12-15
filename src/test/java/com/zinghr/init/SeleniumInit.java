@@ -114,6 +114,7 @@ public class SeleniumInit {
 	 * 
 	 * @param testContext
 	 */
+	
 	@BeforeTest(alwaysRun = true)
 	public void fetchSuiteConfiguration(ITestContext testContext) {
 		testUrl = testContext.getCurrentXmlTest().getParameter("selenium.url");
