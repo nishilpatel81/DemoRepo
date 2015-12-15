@@ -51,13 +51,13 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 		return bool;
 	}
 
-	@FindBy(xpath = "//a[@id='TabTNA']")
+	@FindBy(xpath = "//a[@id='TabTNA']/span[@class='step-name']")
 	WebElement setMyAttendance_header;
 
-	@FindBy(xpath = "//a[@id='TabLMS']")
+	@FindBy(xpath = "//a[@id='TabLMS']/span[@class='step-name']")
 	WebElement setupLeavePolicy_header;
 
-	@FindBy(xpath = "//a[@id='TabCal']")
+	@FindBy(xpath = "//a[@id='TabCal']/span[@class='step-name']")
 	WebElement setupCalendar_header;
 
 	public boolean verifysetMyAttendanceHeader() {
@@ -65,7 +65,8 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 		boolean bool = false;
 
 		if (setMyAttendance_header.isDisplayed()
-				&& setMyAttendance_header.getText().equals("Set My Attendance")) {
+				&& setMyAttendance_header.getText().equalsIgnoreCase(
+						"Set My Attendance")) {
 			bool = true;
 		}
 
@@ -77,7 +78,7 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 		boolean bool = false;
 
 		if (setupLeavePolicy_header.isDisplayed()
-				&& setupLeavePolicy_header.getText().equals(
+				&& setupLeavePolicy_header.getText().equalsIgnoreCase(
 						"Setup Leave Policy")) {
 			bool = true;
 		}
@@ -91,7 +92,8 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 		boolean bool = false;
 
 		if (setupCalendar_header.isDisplayed()
-				&& setupCalendar_header.getText().equals("Setup Calendar")) {
+				&& setupCalendar_header.getText().equalsIgnoreCase(
+						"Setup Calendar")) {
 			bool = true;
 		}
 
@@ -400,7 +402,6 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 				&& shiftTimeTo_textfield.equals("17:00");
 	}
 
-
 	@FindBy(xpath = "")
 	WebElement checked_marking_manager;
 
@@ -408,7 +409,6 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 
 		return checked_marking_manager.isDisplayed();
 	}
-	
 
 	@FindBy(xpath = "//a[contains(.,'Shift Master')]")
 	WebElement shift_master_link;
@@ -417,62 +417,61 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 
 		return shift_master_link.isDisplayed();
 	}
-	
+
 	@FindBy(xpath = "//input[@id='txtShiftName']")
 	WebElement shift_name;
 
 	public boolean verifyShiftName() {
 		return shiftName_textfield.isDisplayed();
 	}
-	
+
 	@FindBy(xpath = ".//*[@id='txtInTime']")
 	WebElement shiftIn_time;
-	
+
 	public boolean verifyShiftInTime() {
 		return shiftIn_time.isDisplayed();
 	}
-	
+
 	@FindBy(xpath = ".//*[@id='txtOutTime']")
 	WebElement shiftOut_time;
-	
+
 	public boolean verifyShiftOutTime() {
 		return shiftOut_time.isDisplayed();
 	}
-	
+
 	@FindBy(xpath = ".//input[@id='txtShftTtlMin']")
 	WebElement shiftTotal_time;
-	
+
 	public boolean verifyShiftTotalTime() {
 		return shiftTotal_time.isDisplayed();
 	}
-	
+
 	@FindBy(xpath = ".//input[@id='txtShftTtlMin']")
 	WebElement shiftTotal_time1;
-	
+
 	public boolean verifyShiftTotalTimevalue() {
-		
-		
+
 		String time = shiftTotal_time1.getAttribute("value");
-		if (TestData.total_time.equalsIgnoreCase(time))
-		{
-			log("Total shift time is:::::: " + time+"=== "+TestData.total_time);
-			
+		if (TestData.total_time.equalsIgnoreCase(time)) {
+			log("Total shift time is:::::: " + time + "=== "
+					+ TestData.total_time);
+
 			return true;
-		}
-		else
-		{
+		} else {
 			System.out.println("======-_-_-_-_Wrong Time_-_-_-_-=======");
 			return false;
 		}
 	}
-	
+
 	@FindBy(xpath = ".//*[@id='txtSwSePar']")
 	WebElement swipe_seperator;
-	
+
 	public boolean verifySwipeSeperator() {
-		return swipe_seperator.isDisplayed() && swipe_seperator.getAttribute("value").equalsIgnoreCase(TestData.swipe_value);
+		return swipe_seperator.isDisplayed()
+				&& swipe_seperator.getAttribute("value").equalsIgnoreCase(
+						TestData.swipe_value);
 	}
-	
+
 	@FindBy(xpath = ".//div[@class='questions']/div[4]/label[1]/input")
 	WebElement employee_value1_outdoor;
 	@FindBy(xpath = ".//div[@class='questions']/div[4]/label[2]/input")
@@ -483,51 +482,57 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 	WebElement employee_value4_extra;
 	@FindBy(xpath = ".//div[@class='questions']/div[4]/label[6]/input")
 	WebElement employee_value5_coff;
-	
+
 	public boolean verifyEmployeeValueOutdoorChecked() {
 		Common.highlightElement(driver, employee_value1_outdoor);
-		if(employee_value1_outdoor.isSelected()){
+		if (employee_value1_outdoor.isSelected()) {
 			return true;
-		}
-		else{
-		return false;
+		} else {
+			return false;
 		}
 	}
+
 	public boolean verifyEmployeeValueRegChecked() {
 		Common.highlightElement(driver, employee_value2_regularize);
 
 		return employee_value2_regularize.isSelected();
 	}
+
 	public boolean verifyEmployeeValueShiftChecked() {
 		Common.highlightElement(driver, employee_value3_shift);
 
 		return employee_value3_shift.isSelected();
 	}
+
 	public boolean verifyEmployeeValueExtraChecked() {
 		Common.highlightElement(driver, employee_value4_extra);
 
 		return employee_value4_extra.isSelected();
 	}
+
 	public boolean verifyEmployeeValueCoffChecked() {
 		Common.highlightElement(driver, employee_value5_coff);
 
 		return employee_value5_coff.isSelected();
 	}
-	
+
 	@FindBy(xpath = ".//*[@id='btnTnaPanel']/a[2]")
 	WebElement outdoor_btn_dashboard;
+
 	public boolean verifyOutdoorBtnDashboard() {
-		try{
-		outdoor_btn_dashboard.isDisplayed();
-		return false;
-		}
-		catch(Exception e){
+		try {
+			outdoor_btn_dashboard.isDisplayed();
+			return false;
+		} catch (Exception e) {
 			return true;
-			}
+		}
 	}
-/*	@FindBy(xpath = .//div[@class='questions']/div[5]/label") 
- *  WebElement extraTime_options_list */	
-	
+
+	/*
+	 * @FindBy(xpath = .//div[@class='questions']/div[5]/label") WebElement
+	 * extraTime_options_list
+	 */
+
 	@FindBy(xpath = "")
 	WebElement extraTime_coff;
 	@FindBy(xpath = "")
@@ -536,24 +541,25 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 	WebElement extraTime_leave_balanc;
 	@FindBy(xpath = "")
 	WebElement extraTime_other_paymnt;
-	 
+
 	@FindBy(xpath = ".//div[@class='questions']/div[5]/label/input")
 	WebElement extraTime_option_checkbox;
-	
+
 	public boolean verifyExtraTimeOptions() {
-		
-		if(extraTime_coff.isDisplayed()&& extraTime_OT.isDisplayed() && extraTime_leave_balanc.isDisplayed() && extraTime_other_paymnt.isDisplayed()){
+
+		if (extraTime_coff.isDisplayed() && extraTime_OT.isDisplayed()
+				&& extraTime_leave_balanc.isDisplayed()
+				&& extraTime_other_paymnt.isDisplayed()) {
 			return true;
-		}
-		else{
+		} else {
 			return false;
 		}
 	}
-	
+
 	public boolean verifyExtraTimeOptionCheckbox() {
 		return extraTime_option_checkbox.isDisplayed();
 	}
-	
+
 	public boolean verifyExtraTimeOptionCheckboxNotselected() {
 		return extraTime_option_checkbox.isSelected();
 	}
@@ -562,28 +568,26 @@ public class SettingsTimeAttendanceSetupVerification extends AbstractPage {
 	WebElement we_allow_yes;
 	@FindBy(xpath = ".//div[6]/label[contains(text(),'No')]")
 	WebElement we_allow_no;
-	
+
 	public boolean verifyWeAllowYesNo() {
-		
+
 		return we_allow_yes.isDisplayed() && we_allow_no.isDisplayed();
 	}
-	
+
 	@FindBy(xpath = ".//*[@id='WorkingHrs']/div/input[1]")
 	WebElement work_hour_full;
 	@FindBy(xpath = ".//*[@id='WorkingHrs']/div/input[2]")
 	WebElement work_hour_half;
-	public boolean verifyworkinghoursFieldLength() {
-		
-		int field1= work_hour_full.getAttribute("value").length();
-		int field2= work_hour_half.getAttribute("value").length();
-			
 
-		if(field1==3 && field2==3)
-		{
+	public boolean verifyworkinghoursFieldLength() {
+
+		int field1 = work_hour_full.getAttribute("value").length();
+		int field2 = work_hour_half.getAttribute("value").length();
+
+		if (field1 == 3 && field2 == 3) {
 			return true;
-		}
-		else{
-		return false;
+		} else {
+			return false;
 		}
 	}
 }

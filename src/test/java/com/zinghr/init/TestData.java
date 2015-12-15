@@ -9,6 +9,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+
 public class TestData {
 
 	public static String company_code = getCompanycodeFromExcel();
@@ -18,6 +19,12 @@ public class TestData {
 	public static String company_code_dl = "KIWIQA123";
 	public static String employe_code_dl = "Admin123";
 	public static String password_dl = "Admin@1234";
+	public static String company_code_emp = "ZINGQA0011";
+	 public static String employe_code_emp = "Admin";
+	 public static String password_emp = "Test@123";
+	
+	
+	
 	/*
 	 * public static String intime = "12:00"; public static String outtime =
 	 * "18:00";
@@ -160,5 +167,18 @@ public class TestData {
 		return getExcelSheet().getRow(1).getCell(2).getStringCellValue();
 
 	}
+	
+	 public static String getURLFromExcel(String suiteName) {
+
+		  String url = null;
+		  if (suiteName.contains("SignUp")) {
+		   url = getExcelSheet().getRow(1).getCell(3).getStringCellValue();
+		  } else {
+		   url = getExcelSheet().getRow(1).getCell(4).getStringCellValue();
+		  }
+		  System.out.println("======" + url + "=========");
+		  return url;
+
+		 }
 
 }
