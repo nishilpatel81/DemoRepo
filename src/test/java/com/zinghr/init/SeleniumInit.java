@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -27,6 +28,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.internal.Utils;
 
+import com.zinghr.employeemaster.indexpage.EmployeeMasterIndexPage;
+import com.zinghr.employeemaster.verification.EmployeeMasterVerificationPage;
 import com.zinghr.login.indexPage.LoginIndexPage;
 import com.zinghr.login.verification.LoginVerificationPage;
 import com.zinghr.signup.indexPage.SignupIndexPage;
@@ -64,7 +67,6 @@ public class SeleniumInit {
 	public String a_pswd1 = "Test123";
 	public String a_pswd = "Test@123";
 
-	
 	public String suiteName = "";
 	public String testName = "";
 	/* Minimum requirement for test configur ation */
@@ -94,6 +96,8 @@ public class SeleniumInit {
 	public OASVerificationPage oasVerificationPage;
 	public PendingRequestIndexPage pendingReqIndexPage;
 	public PendingRequestVerification pendingReqVerificationPage;
+	public EmployeeMasterIndexPage employeemasterIndexPage;
+	public EmployeeMasterVerificationPage employeeMasterVerificationPage;
 
 	protected static String screenshot_folder_path = null;
 	public static String currentTest; // current running test
@@ -113,7 +117,7 @@ public class SeleniumInit {
 	@BeforeTest(alwaysRun = true)
 	public void fetchSuiteConfiguration(ITestContext testContext) {
 		testUrl = testContext.getCurrentXmlTest().getParameter("selenium.url");
-		System.out.println("======" + testUrl + "=========");
+/*		System.out.println("======" + testUrl + "=========");*/
 		seleniumHub = testContext.getCurrentXmlTest().getParameter(
 				"selenium.host");
 		seleniumHubPort = testContext.getCurrentXmlTest().getParameter(
@@ -250,6 +254,8 @@ public class SeleniumInit {
 			browserVersion = capability.getVersion().toString();
 
 			System.out.println("=========" + "firefox Driver " + "==========");
+			driver = new RemoteWebDriver(remote_grid, capability);
+
 		} else if (targetBrowser.contains("ie8")) {
 
 			capability = DesiredCapabilities.internetExplorer();
@@ -284,7 +290,7 @@ public class SeleniumInit {
 		} else if (targetBrowser.contains("ie11")) {
 			capability = DesiredCapabilities.internetExplorer();
 			System.setProperty("webdriver.ie.driver",
-					"D:\\NFHS\\nfhs\\lib\\IEDriverServer.exe");
+					"D:/Automation Driver/IEDriverServer_x64_2.48.0/IEDriverServer.exe");
 
 			capability.setBrowserName("internet explorer");
 			capability
@@ -298,6 +304,21 @@ public class SeleniumInit {
 			browserName = capability.getVersion();
 			osName = capability.getPlatform().getCurrent().name();
 			browserVersion = capability.getVersion();
+
+			driver = new RemoteWebDriver(remote_grid, capability);
+
+		} else if (targetBrowser.contains("opera")) {
+			capability = DesiredCapabilities.opera();
+			System.setProperty("webdriver.opera.driver",
+					"D:/Automation Driver/operadriver_win64/operadriver.exe");
+
+			capability.setJavascriptEnabled(true);
+			browserName = capability.getVersion();
+			osName = capability.getPlatform().getCurrent().name();
+			browserVersion = capability.getVersion();
+
+			driver = new OperaDriver(capability);
+
 		} else if (targetBrowser.contains("chrome")) {
 
 			capability = DesiredCapabilities.chrome();
@@ -310,6 +331,8 @@ public class SeleniumInit {
 			browserName = capability.getVersion();
 			osName = capability.getPlatform().name();
 			browserVersion = capability.getVersion();
+			driver = new RemoteWebDriver(remote_grid, capability);
+
 		} else if (targetBrowser.contains("safari")) {
 
 			// System.setProperty("webdriver.safari.driver","/Users/jesus/Desktop/SafariDriver.safariextz");
@@ -326,10 +349,9 @@ public class SeleniumInit {
 			// profile);
 			this.driver = new SafariDriver(capability);
 		}
-
-		driver = new RemoteWebDriver(remote_grid, capability);
+		suiteName = testContext.getSuite().getName();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.get(testUrl);
+		driver.get(TestData.getURLFromExcel(suiteName));
 		driver.manage().window().maximize();
 		currentWindowHandle = driver.getWindowHandle();
 		System.out.println("Current Window Handle ID:--->"
@@ -359,6 +381,9 @@ public class SeleniumInit {
 				driver);
 		pendingReqIndexPage = new PendingRequestIndexPage(driver);
 		pendingReqVerificationPage = new PendingRequestVerification(driver);
+		employeemasterIndexPage = new EmployeeMasterIndexPage(driver);
+		employeeMasterVerificationPage = new EmployeeMasterVerificationPage(
+				driver);
 	}
 
 	/**
