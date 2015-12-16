@@ -150,20 +150,6 @@ public class TestData {
 		return firstSheet;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public static String getCompanycodeFromExcel() {
 
 		return getExcelSheet(0).getRow(1).getCell(0).getStringCellValue();
