@@ -9,7 +9,6 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-
 public class TestData {
 
 	public static String company_code = getCompanycodeFromExcel();
@@ -20,11 +19,9 @@ public class TestData {
 	public static String employe_code_dl = "Admin123";
 	public static String password_dl = "Admin@1234";
 	public static String company_code_emp = "ZINGQA0011";
-	 public static String employe_code_emp = "Admin";
-	 public static String password_emp = "Test@123";
-	
-	
-	
+	public static String employe_code_emp = "Admin";
+	public static String password_emp = "Test@123";
+
 	/*
 	 * public static String intime = "12:00"; public static String outtime =
 	 * "18:00";
@@ -127,7 +124,7 @@ public class TestData {
 
 	public static String total_time = Integer.toString(diff);
 
-	public static Sheet getExcelSheet() {
+	public static Sheet getExcelSheet(int sheetIndex) {
 		String dataFilePath = "Resource/DataConfiguration.xlsx";
 		File datafile = new File(dataFilePath);
 		String fullpath = datafile.getAbsolutePath();
@@ -142,7 +139,7 @@ public class TestData {
 					new File(fullpath));
 
 			Workbook workbook = new XSSFWorkbook(inputStream);
-			firstSheet = workbook.getSheetAt(0);
+			firstSheet = workbook.getSheetAt(sheetIndex);
 
 			workbook.close();
 			inputStream.close();
@@ -153,32 +150,46 @@ public class TestData {
 		return firstSheet;
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static String getCompanycodeFromExcel() {
 
-		return getExcelSheet().getRow(1).getCell(0).getStringCellValue();
+		return getExcelSheet(0).getRow(1).getCell(0).getStringCellValue();
 	}
 
 	public static String getEmployeeCodeFromExcel() {
-		return getExcelSheet().getRow(1).getCell(1).getStringCellValue();
+		return getExcelSheet(0).getRow(1).getCell(1).getStringCellValue();
 
 	}
 
 	public static String getPasswordFromExcel() {
-		return getExcelSheet().getRow(1).getCell(2).getStringCellValue();
+		return getExcelSheet(0).getRow(1).getCell(2).getStringCellValue();
 
 	}
-	
-	 public static String getURLFromExcel(String suiteName) {
 
-		  String url = null;
-		  if (suiteName.contains("SignUp")) {
-		   url = getExcelSheet().getRow(1).getCell(3).getStringCellValue();
-		  } else {
-		   url = getExcelSheet().getRow(1).getCell(4).getStringCellValue();
-		  }
-		  System.out.println("======" + url + "=========");
-		  return url;
+	public static String getURLFromExcel(String suiteName) {
 
-		 }
+		String url = null;
+		if (suiteName.contains("SignUp")) {
+			url = getExcelSheet(0).getRow(1).getCell(3).getStringCellValue();
+		} else {
+			url = getExcelSheet(0).getRow(1).getCell(4).getStringCellValue();
+		}
+		System.out.println("======" + url + "=========");
+		return url;
+
+	}
 
 }
