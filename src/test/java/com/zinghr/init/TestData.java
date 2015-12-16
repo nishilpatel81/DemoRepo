@@ -2,6 +2,7 @@ package com.zinghr.init;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Random;
 
 import org.apache.commons.lang.RandomStringUtils;
@@ -18,11 +19,10 @@ public class TestData {
 	public static String company_code_dl = "KIWIQA123";
 	public static String employe_code_dl = "Admin123";
 	public static String password_dl = "Admin@1234";
-	
 	public static String company_code_emp = "ZINGQA0011";
 	public static String employe_code_emp = "Admin";
 	public static String password_emp = "Test@123";
-	
+
 	/*
 	 * public static String intime = "12:00"; public static String outtime =
 	 * "18:00";
@@ -125,7 +125,7 @@ public class TestData {
 
 	public static String total_time = Integer.toString(diff);
 
-	public static Sheet getExcelSheet() {
+	public static Sheet getExcelSheet(int sheetIndex) {
 		String dataFilePath = "Resource/DataConfiguration.xlsx";
 		File datafile = new File(dataFilePath);
 		String fullpath = datafile.getAbsolutePath();
@@ -140,7 +140,7 @@ public class TestData {
 					new File(fullpath));
 
 			Workbook workbook = new XSSFWorkbook(inputStream);
-			firstSheet = workbook.getSheetAt(0);
+			firstSheet = workbook.getSheetAt(sheetIndex);
 
 			workbook.close();
 			inputStream.close();
@@ -153,16 +153,16 @@ public class TestData {
 
 	public static String getCompanycodeFromExcel() {
 
-		return getExcelSheet().getRow(1).getCell(0).getStringCellValue();
+		return getExcelSheet(0).getRow(1).getCell(0).getStringCellValue();
 	}
 
 	public static String getEmployeeCodeFromExcel() {
-		return getExcelSheet().getRow(1).getCell(1).getStringCellValue();
+		return getExcelSheet(0).getRow(1).getCell(1).getStringCellValue();
 
 	}
 
 	public static String getPasswordFromExcel() {
-		return getExcelSheet().getRow(1).getCell(2).getStringCellValue();
+		return getExcelSheet(0).getRow(1).getCell(2).getStringCellValue();
 
 	}
 
@@ -170,13 +170,62 @@ public class TestData {
 
 		String url = null;
 		if (suiteName.contains("SignUp")) {
-			url = getExcelSheet().getRow(1).getCell(3).getStringCellValue();
+			url = getExcelSheet(0).getRow(1).getCell(3).getStringCellValue();
 		} else {
-			url = getExcelSheet().getRow(1).getCell(4).getStringCellValue();
+			url = getExcelSheet(0).getRow(1).getCell(4).getStringCellValue();
 		}
 		System.out.println("======" + url + "=========");
 		return url;
 
 	}
+
+	static Random randm = new Random();
+	 
+	 public static int rndmday() {
+			int day = randm.nextInt(28-10)+10;
+			return day;
+		}
+	 public static String rndmmonth() {
+		 
+		 ArrayList<String> month = new ArrayList<String>();
+			
+		 month.add("Jan");
+		 month.add("Feb");
+		 month.add("Mar");
+		 month.add("Apr");
+		 month.add("May");
+		 month.add("Jun");
+		 month.add("Jul");
+		 month.add("Aug");
+		 month.add("Sep");
+		 month.add("Oct");
+		 month.add("Nov");
+		 month.add("Dec");
+		 
+		 int i = randm.nextInt(month.size());
+		 	String month1 = month.get(i);
+			return month1;
+		}
+	 public static int rndmyear() {
+		 	int start = 1970;
+		 	int end = 1997;
+			int day = randm.nextInt(end-start)+start;
+			return day;
+		}
+
+	 
+	 public static String rndBDY() {
+			String final_bday = new StringBuilder(20).append(rndmday())
+					.append(rndmmonth()).append(rndmyear()).toString();
+
+			return final_bday;
+		}
+	 
+	 public static String rndJoining() {
+			String final_bday = new StringBuilder(20).append(rndmday())
+					.append(rndmmonth()).append("2014").toString();
+
+			return final_bday;
+		}
 
 }

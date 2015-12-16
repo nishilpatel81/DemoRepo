@@ -8,7 +8,7 @@ import com.zinghr.init.TestData;
 public class EmployeeMasterIndex extends SeleniumInit {
 	
 	@Test
-	public void createNewEmployee() {
+	public void createNewEmployee() throws InterruptedException {
 		int numOfFailure = 0;
 		log("Testcase Id : ");
 		log("Testcase Discription :  ");
@@ -36,7 +36,8 @@ public class EmployeeMasterIndex extends SeleniumInit {
 		employeemasterIndexPage.clickAddSingleEmployee();
 		
 		log("Step 8: Add all the valid details into 'Employee Creation' form.");
-		employeemasterIndexPage.createNewEmployee();
+		
+		employeemasterIndexPage.createNewEmployee(TestData.rndJoining());
 		
 		
 		/*if (taSetupVerificationPage) {
