@@ -63,7 +63,7 @@ public class TestData {
 	public static String invalid = "%&^%6545as";
 
 	public static String rndmString(int length) {
-		String rnd1 = RandomStringUtils.randomAlphabetic(length);
+		String rnd1 = RandomStringUtils.randomAlphabetic(length).toUpperCase();
 		return rnd1;
 
 	}
@@ -226,6 +226,18 @@ public class TestData {
 					.append(rndmmonth()).append("2014").toString();
 
 			return final_bday;
+		}
+	 
+	 public static int rndm3no() {
+			int numNoRange = randm.nextInt(9999);
+			return numNoRange;
+
+		}
+	 
+	 public static String rndmPAN() {
+			String PAN_no = new StringBuilder(10).append(rndmString(3))
+					.append("PP").append(rndm3no()).append(rndmString(1)).toString();
+			return PAN_no;
 		}
 
 }
