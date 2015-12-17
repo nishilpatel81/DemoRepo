@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -39,12 +40,14 @@ import com.zinghr.tna.indexPage.MyTransectionIndexpage;
 import com.zinghr.tna.indexPage.OASIndexPage;
 import com.zinghr.tna.indexPage.PendingRequestIndexPage;
 import com.zinghr.tna.indexPage.SettingsTimeAttendanceSetupIndexPage;
+import com.zinghr.tna.indexPage.TnaScenarioIndexPage;
 import com.zinghr.tna.verification.ApproverNotificationVerification;
 import com.zinghr.tna.verification.DashboardTimeNAttendanceCaVerification;
 import com.zinghr.tna.verification.MyTransectionVerification;
 import com.zinghr.tna.verification.OASVerificationPage;
 import com.zinghr.tna.verification.PendingRequestVerification;
 import com.zinghr.tna.verification.SettingsTimeAttendanceSetupVerification;
+import com.zinghr.tna.verification.TnaScenarioVerification;
 
 public class SeleniumInit {
 
@@ -66,7 +69,6 @@ public class SeleniumInit {
 	public String a_pswd1 = "Test123";
 	public String a_pswd = "Test@123";
 
-	
 	public String suiteName = "";
 	public String testName = "";
 	/* Minimum requirement for test configur ation */
@@ -97,8 +99,10 @@ public class SeleniumInit {
 	public PendingRequestIndexPage pendingReqIndexPage;
 	public PendingRequestVerification pendingReqVerificationPage;
 	public EmployeeMasterIndexPage employeemasterIndexPage;
-	public EmployeeMasterVerificationPage employeemasterVerificationPage;
-	
+	public EmployeeMasterVerificationPage employeeMasterVerificationPage;
+	public TnaScenarioIndexPage tnaScenarioIndexPage;
+	public TnaScenarioVerification tnaScenarioVerification;
+
 	protected static String screenshot_folder_path = null;
 	public static String currentTest; // current running test
 
@@ -114,10 +118,11 @@ public class SeleniumInit {
 	 * 
 	 * @param testContext
 	 */
+
 	@BeforeTest(alwaysRun = true)
 	public void fetchSuiteConfiguration(ITestContext testContext) {
 		testUrl = testContext.getCurrentXmlTest().getParameter("selenium.url");
-		System.out.println("======" + testUrl + "=========");
+		/* System.out.println("======" + testUrl + "========="); */
 		seleniumHub = testContext.getCurrentXmlTest().getParameter(
 				"selenium.host");
 		seleniumHubPort = testContext.getCurrentXmlTest().getParameter(
@@ -254,6 +259,8 @@ public class SeleniumInit {
 			browserVersion = capability.getVersion().toString();
 
 			System.out.println("=========" + "firefox Driver " + "==========");
+			driver = new RemoteWebDriver(remote_grid, capability);
+
 		} else if (targetBrowser.contains("ie8")) {
 
 			capability = DesiredCapabilities.internetExplorer();
@@ -288,7 +295,7 @@ public class SeleniumInit {
 		} else if (targetBrowser.contains("ie11")) {
 			capability = DesiredCapabilities.internetExplorer();
 			System.setProperty("webdriver.ie.driver",
-					"D:\\NFHS\\nfhs\\lib\\IEDriverServer.exe");
+					"D:/Automation Driver/IEDriverServer_x64_2.48.0/IEDriverServer.exe");
 
 			capability.setBrowserName("internet explorer");
 			capability
@@ -302,6 +309,22 @@ public class SeleniumInit {
 			browserName = capability.getVersion();
 			osName = capability.getPlatform().getCurrent().name();
 			browserVersion = capability.getVersion();
+
+			driver = new RemoteWebDriver(remote_grid, capability);
+
+		} else if (targetBrowser.contains("opera")) {
+			System.out.println("Opera");
+			capability = DesiredCapabilities.opera();
+			System.setProperty("webdriver.opera.driver",
+					"C:/Users/KQSPL_R/Desktop/Automation Driver/operadriver_win32/operadriver.exe");
+
+			capability.setJavascriptEnabled(true);
+		/*	browserName = capability.getVersion();
+			osName = capability.getPlatform().getCurrent().name();
+			browserVersion = capability.getVersion();*/
+
+			driver = new OperaDriver(capability);
+
 		} else if (targetBrowser.contains("chrome")) {
 
 			capability = DesiredCapabilities.chrome();
@@ -314,11 +337,13 @@ public class SeleniumInit {
 			browserName = capability.getVersion();
 			osName = capability.getPlatform().name();
 			browserVersion = capability.getVersion();
+			driver = new RemoteWebDriver(remote_grid, capability);
+
 		} else if (targetBrowser.contains("safari")) {
 
-			// System.setProperty("webdriver.safari.driver","/Users/jesus/Desktop/SafariDriver.safariextz");
+			System.setProperty("webdriver.safari.driver",
+					"D:/Automation Driver/SafariDriver.safariextz");
 			// driver = new SafariDriver();
-			SafariDriver profile = new SafariDriver();
 
 			capability = DesiredCapabilities.safari();
 			capability.setJavascriptEnabled(true);
@@ -330,9 +355,8 @@ public class SeleniumInit {
 			// profile);
 			this.driver = new SafariDriver(capability);
 		}
-
+		testUrl = TestData.getURLFromExcel(suiteName);
 		suiteName = testContext.getSuite().getName();
-		driver = new RemoteWebDriver(remote_grid, capability);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get(TestData.getURLFromExcel(suiteName));
 		driver.manage().window().maximize();
@@ -340,7 +364,7 @@ public class SeleniumInit {
 		System.out.println("Current Window Handle ID:--->"
 				+ currentWindowHandle);
 
-		
+		suiteName = testContext.getSuite().getName();
 		System.out.println("Current Xml Suite is:---->" + suiteName);
 
 		loginIndexpage = new LoginIndexPage(driver);
@@ -365,7 +389,10 @@ public class SeleniumInit {
 		pendingReqIndexPage = new PendingRequestIndexPage(driver);
 		pendingReqVerificationPage = new PendingRequestVerification(driver);
 		employeemasterIndexPage = new EmployeeMasterIndexPage(driver);
-		employeemasterVerificationPage = new EmployeeMasterVerificationPage(driver);
+		employeeMasterVerificationPage = new EmployeeMasterVerificationPage(
+				driver);
+		tnaScenarioIndexPage = new TnaScenarioIndexPage();
+		tnaScenarioVerification = new TnaScenarioVerification();
 	}
 
 	/**
