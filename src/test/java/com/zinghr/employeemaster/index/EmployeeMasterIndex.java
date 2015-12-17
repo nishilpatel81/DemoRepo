@@ -7,6 +7,13 @@ import com.zinghr.init.TestData;
 
 public class EmployeeMasterIndex extends SeleniumInit {
 	
+	public static String a1= "Common";
+	public static String a2= "";
+	public static String a3= "";
+	public static String a4= "";
+	public static String a5= "";
+	
+	
 	@Test
 	public void createNewEmployee() throws InterruptedException {
 		int numOfFailure = 0;
@@ -18,7 +25,7 @@ public class EmployeeMasterIndex extends SeleniumInit {
 		log("Step 3: Enter Employee Code: " + TestData.employe_code_emp);
 		log("Step 4: Enter Password: " + TestData.password_emp);
 
-		driver.get("http://qa.zinghr.com/2015/pages/authentication/login.aspx");
+		driver.navigate().to("http://qa.zinghr.com/2015/pages/authentication/login.aspx");
 		loginVerificationPage = loginIndexpage.loginSuccessfully();
 
 		log("Step 5: Click on Proceed Button");
@@ -37,7 +44,7 @@ public class EmployeeMasterIndex extends SeleniumInit {
 		
 		log("Step 8: Add all the valid details into 'Employee Creation' form.");
 		log("Step 9: ");
-		employeemasterIndexPage.createNewEmployee(TestData.rndJoining());
+		employeemasterIndexPage.createNewEmployee(a1,a1,a1,TestData.attendance_mode1, TestData.attendance_mode2,TestData.attendance_mode3,TestData.shift_type);
 		
 		
 		/*if (taSetupVerificationPage) {

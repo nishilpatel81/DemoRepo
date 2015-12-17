@@ -20,517 +20,572 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		// TODO Auto-generated constructor stub
 	}
 
-
 	@FindBy(xpath = ".//select[@id='ddlEmployeeGroup']")
 	WebElement Employee_group;
 	@FindBy(xpath = ".//*[@id='ddlEmployeeGroup']/option[2]")
 	WebElement Employee_group_common;
-	String emp_group=""; 
-	
-	public EmployeeMasterVerificationPage selectEmployeeGroup()
-	{
-		Common.clickOn(driver, Employee_group);
-		Common.clickOn(driver, Employee_group_common);
-		emp_group = Employee_group_common.getText();
+	String emp_group = "";
+
+	public EmployeeMasterVerificationPage selectEmployeeGroup(String option) {
+		Common.selectFromComboByVisibleElement(Employee_group, option);
+		log(option);
+		Common.pause(1);
+		emp_group = option;
+		TestData.writeExcelData(1, 0, emp_group);
 		return new EmployeeMasterVerificationPage(driver);
-		
+
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlAttendanceGroup']")
 	WebElement Attendance_group;
 	@FindBy(xpath = ".//select[@id='ddlAttendanceGroup']/option[6]")
 	WebElement Attendance_group_common;
 	String attendance_group = "";
-	
-	public EmployeeMasterVerificationPage selectAttendanceGroup()
-	{
-		Common.clickOn(driver, Attendance_group);
-		Common.clickOn(driver, Attendance_group_common);
-		attendance_group = Attendance_group_common.getText();
+
+	public EmployeeMasterVerificationPage selectAttendanceGroup(String option) {
+		Common.selectFromComboByVisibleElement(Attendance_group, option);
+		log(option);
+		Common.pause(1);
+		attendance_group = option;
+		TestData.writeExcelData(1, 1, attendance_group);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlLeaveGroup']")
 	WebElement Leave_group;
 	@FindBy(xpath = ".//select[@id='ddlLeaveGroup']/option[4]")
 	WebElement Leave_group_common;
 	String leave_group = "";
-	
-	public EmployeeMasterVerificationPage selectLeaveGroup()
-	{
-		Common.clickOn(driver, Leave_group);
-		Common.clickOn(driver, Leave_group_common);
-		leave_group= Leave_group_common.getText();
+
+	public EmployeeMasterVerificationPage selectLeaveGroup(String option) {
+		Common.selectFromComboByVisibleElement(Leave_group, option);
+		log(option);
+		Common.pause(1);
+		leave_group = Leave_group_common.getText();
+		TestData.writeExcelData(1, 2, leave_group);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlCalendarGroup']")
 	WebElement Calendar_group;
 	@FindBy(xpath = ".//select[@id='ddlCalendarGroup']/option[3]")
 	WebElement Calendar_group_list;
 	String cal_group = "";
-	
-	public EmployeeMasterVerificationPage selectCalendarGroup()
-	{
+
+	public EmployeeMasterVerificationPage selectCalendarGroup() {
 		Common.clickOn(driver, Calendar_group);
 		Common.clickOn(driver, Calendar_group_list);
 		cal_group = Calendar_group_list.getText();
+		TestData.writeExcelData(1, 3, cal_group);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlAttendanceModeGroup']")
 	WebElement Attendance_mode_group;
 	@FindBy(xpath = ".//select[@id='ddlAttendanceModeGroup']/option[5]")
 	WebElement Attendance_mode_group_list;
 	String att_mode_group = "";
-	public EmployeeMasterVerificationPage selectAttendanceModeGroup()
-	{
+
+	public EmployeeMasterVerificationPage selectAttendanceModeGroup() {
 		Common.clickOn(driver, Attendance_mode_group);
 		Common.clickOn(driver, Attendance_mode_group_list);
 		att_mode_group = Attendance_mode_group_list.getText();
+		TestData.writeExcelData(1, 4, att_mode_group);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlAttendanceRuleGroup']")
 	WebElement Attendance_rule_group;
 	@FindBy(xpath = ".//select[@id='ddlAttendanceRuleGroup']/option[2]")
 	WebElement Attendance_rule_group_list;
 	String att_rule_group = "";
-	
-	public EmployeeMasterVerificationPage selectAttendanceRuleGroup()
-	{
+
+	public EmployeeMasterVerificationPage selectAttendanceRuleGroup() {
 		Common.clickOn(driver, Attendance_rule_group);
 		Common.clickOn(driver, Attendance_rule_group_list);
 		att_rule_group = Attendance_rule_group_list.getText();
-		return new EmployeeMasterVerificationPage(driver);	
+		TestData.writeExcelData(1, 5, att_rule_group);
+		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlGroup']")
 	WebElement Group;
 	@FindBy(xpath = ".//select[@id='ddlGroup']/option[3]")
 	WebElement Group_list;
-	String group ="";
-	
-	public EmployeeMasterVerificationPage selectGroup() throws InterruptedException
-	{
-		//Common.clickOn(driver, Group);
+	String group = "";
+
+	public EmployeeMasterVerificationPage selectGroup()
+			throws InterruptedException {
+		// Common.clickOn(driver, Group);
 		Common.clickOn(driver, Group);
 		Common.clickOn(driver, Group_list);
-		return new EmployeeMasterVerificationPage(driver);	
-	}
-	
-	
-	@FindBy(xpath = ".//select[@id='ddlDesignation']")
-	WebElement Designation;
-	String designation ="";
-	
-	public EmployeeMasterVerificationPage selectDesignation() throws InterruptedException
-	{
-		designation = Common.selectRandomOptionFromCombo(By.xpath(".//select[@id='ddlDesignation']"), driver);
-		Common.selectFromComboByVisibleElement(Designation, designation);
-		log("designation ="+designation);
-		return new EmployeeMasterVerificationPage(driver);	
-	}
-	
-	
-	@FindBy(xpath = ".//select[@id='ddlGrade']")
-	WebElement Grade;
-	String grade = "";	
-
-	public EmployeeMasterVerificationPage selectGrade() throws InterruptedException
-	{
-		grade =Common.selectRandomOptionFromCombo(By.xpath(".//select[@id='ddlGrade']"), driver);	
-		Common.selectFromComboByVisibleElement(Grade, grade);
-		log("grade = "+grade);
+		TestData.writeExcelData(1, 6, group);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
+	@FindBy(xpath = ".//select[@id='ddlDesignation']")
+	WebElement Designation;
+	String designation = "";
+
+	public EmployeeMasterVerificationPage selectDesignation()
+			throws InterruptedException {
+		designation = Common.selectRandomOptionFromCombo(
+				By.xpath(".//select[@id='ddlDesignation']"), driver);
+		Common.selectFromComboByVisibleElement(Designation, designation);
+		TestData.writeExcelData(1, 7, designation);
+		log("designation =" + designation);
+
+		return new EmployeeMasterVerificationPage(driver);
+	}
+
+	@FindBy(xpath = ".//select[@id='ddlGrade']")
+	WebElement Grade;
+	String grade = "";
+
+	public EmployeeMasterVerificationPage selectGrade()
+			throws InterruptedException {
+		grade = Common.selectRandomOptionFromCombo(
+				By.xpath(".//select[@id='ddlGrade']"), driver);
+		Common.selectFromComboByVisibleElement(Grade, grade);
+		log("grade = " + grade);
+		TestData.writeExcelData(1, 8, grade);
+		return new EmployeeMasterVerificationPage(driver);
+	}
+
 	@FindBy(xpath = ".//select[@id='ddlDivision']")
 	WebElement Division;
 	String division = "";
-	
-	public EmployeeMasterVerificationPage selectDivision() throws InterruptedException
-	{
-		division = Common.selectRandomOptionFromCombo(By.xpath(".//select[@id='ddlDivision']"), driver);
+
+	public EmployeeMasterVerificationPage selectDivision()
+			throws InterruptedException {
+		division = Common.selectRandomOptionFromCombo(
+				By.xpath(".//select[@id='ddlDivision']"), driver);
 		Common.selectFromComboByVisibleElement(Division, division);
-		log("Division = "+division);
+		log("Division = " + division);
+		TestData.writeExcelData(1, 9, division);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlSalutation']")
 	WebElement Salutation;
 	@FindBy(xpath = ".//select[@id='ddlSalutation']/option[2]")
 	WebElement Salutation_mr;
-	public EmployeeMasterVerificationPage selectSalutation()
-	{
+	String salutation = "";
+
+	public EmployeeMasterVerificationPage selectSalutation() {
 		Common.clickOn(driver, Salutation);
 		Common.clickOn(driver, Salutation_mr);
-		return new EmployeeMasterVerificationPage(driver);	
+		salutation = Salutation_mr.getText();
+		log("Salutation = " + salutation);
+		TestData.writeExcelData(1, 10, salutation);
+		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='txtFirstName']")
 	WebElement First_Name;
-	public EmployeeMasterVerificationPage enterFirstName()
-	{
+	String firstname = TestData.fname;
+
+	public EmployeeMasterVerificationPage enterFirstName() {
 		Common.clickOn(driver, First_Name);
-		Common.type(First_Name, "testtest");
+		Common.type(First_Name, firstname);
+		TestData.writeExcelData(1, 11, firstname);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='txtMiddleName']")
 	WebElement Middle_Name;
-	public EmployeeMasterVerificationPage enterMiddleName()
-	{
+	String middlename = TestData.mname;
+
+	public EmployeeMasterVerificationPage enterMiddleName() {
 		Common.clickOn(driver, Middle_Name);
-		Common.type(Middle_Name, "kiwi");
+		Common.type(Middle_Name, middlename);
+		TestData.writeExcelData(1, 12, middlename);
 		return new EmployeeMasterVerificationPage(driver);
-		
+
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='txtLastName']")
 	WebElement Last_Name;
-	public EmployeeMasterVerificationPage enterLastName()
-	{
+	String lastname = TestData.lastname;
+
+	public EmployeeMasterVerificationPage enterLastName() {
 		Common.clickOn(driver, Last_Name);
-		Common.type(Last_Name, "qa");
+		Common.type(Last_Name, lastname);
+		TestData.writeExcelData(1, 13, lastname);
 		Common.pause(2);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='txtFatherName']")
-	WebElement Father_Name ;
-	public EmployeeMasterVerificationPage enterFatherName()
-	{
+	WebElement Father_Name;
+	String fathername = TestData.fathername;
+
+	public EmployeeMasterVerificationPage enterFatherName() {
 		Common.clickOn(driver, Father_Name);
-		Common.type(Last_Name, "testqa");
+		Common.type(Father_Name, fathername);
+		TestData.writeExcelData(1, 14, fathername);
 		Common.pause(2);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='txtActualDateofBirth']")
-	WebElement Birth_date ;
-	public EmployeeMasterVerificationPage enterBirthdate()
-	{
+	WebElement Birth_date;
+	String bday = TestData.bday;
+
+	public EmployeeMasterVerificationPage enterBirthdate() {
 		Common.clickOn(driver, Birth_date);
 		Common.pause(1);
-		Common.type(Birth_date, TestData.rndBDY());
+		Common.type(Birth_date, bday);
+		TestData.writeExcelData(1, 15, bday);
 		Common.pause(2);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='txtDateOfJoining']")
-	WebElement date_of_joining ;
-	public EmployeeMasterVerificationPage enterDateJoining(String joining)
-	{
+	WebElement date_of_joining;
+	String joining_confirm = TestData.joining_confrm_Date;
+
+	public EmployeeMasterVerificationPage enterDateJoining(String joining) {
 		Common.clickOn(driver, date_of_joining);
 		Common.type(date_of_joining, joining);
-
-		log("Enter date of joining::"+joining);
+		TestData.writeExcelData(1, 16, joining_confirm);
+		log("Enter date of joining::" + joining);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='txtDateOfConfirmation']")
-	WebElement date_of_confirmation ;
-	public EmployeeMasterVerificationPage enterDateConfirmation(String confirmation)
-	{
+	WebElement date_of_confirmation;
+
+	public EmployeeMasterVerificationPage enterDateConfirmation(
+			String confirmation) {
 		Common.clickOn(driver, date_of_confirmation);
 		Common.type(date_of_confirmation, confirmation);
-		log("Enter date of joining::"+confirmation);
+		TestData.writeExcelData(1, 17, confirmation);
+		log("Enter date of Confirmation::" + confirmation);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//textarea[@id='txtAddress']")
-	WebElement Address ;
-	public EmployeeMasterVerificationPage enterAddress()
-	{
+	WebElement Address;
+
+	public EmployeeMasterVerificationPage enterAddress() {
 		Common.type(Address, "B-15, Siddheshwari soci-2, Ankleshwar");
+		TestData.writeExcelData(1, 18, "B-15, Siddheshwari soci-2, Ankleshwar");
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlCountryList']")
-	WebElement Country ;
+	WebElement Country;
 	@FindBy(xpath = ".//select[@id='ddlCountryList']/option[102]")
-	WebElement Country_india ;
-	public EmployeeMasterVerificationPage selectCountry()
-	{
+	WebElement Country_india;
+
+	public EmployeeMasterVerificationPage selectCountry() {
+
 		Common.clickOn(driver, Country);
 		Common.clickOn(driver, Country_india);
+		TestData.writeExcelData(1, 19, Country_india.getText());
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlStateList']")
-	WebElement State ;
+	WebElement State;
 	@FindBy(xpath = "")
-	WebElement State_gujarat ;
-	public EmployeeMasterVerificationPage selectState()
-	{
+	WebElement State_gujarat;
+
+	public EmployeeMasterVerificationPage selectState() {
+		/* TestData.writeExcelData(1, 20, value); */
 		Common.clickOn(driver, State);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlCityList']")
-	WebElement City ;
+	WebElement City;
 	@FindBy(xpath = "")
-	WebElement City_list ;
-	public EmployeeMasterVerificationPage selectCity()
-	{
+	WebElement City_list;
+
+	public EmployeeMasterVerificationPage selectCity() {/*
+														 * TestData.writeExcelData
+														 * (1, 21, value);
+														 */
 		Common.clickOn(driver, City);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='txtPAN']")
-	WebElement Pan ;
-	String pan_no=TestData.rndmPAN();;
-	public EmployeeMasterVerificationPage enterPan()
-	{
+	WebElement Pan;
+	String pan_no = TestData.rndmPAN();;
+
+	public EmployeeMasterVerificationPage enterPan() {
+
 		Common.clickOn(driver, Pan);
 		Common.type(Pan, pan_no);
+		TestData.writeExcelData(1, 23, pan_no);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='txtTelephone']")
-	WebElement Mobile_no ;
-	public EmployeeMasterVerificationPage enterMobileNo()
-	{
+	WebElement Mobile_no;
+
+	public EmployeeMasterVerificationPage enterMobileNo() {
+
 		Common.clickOn(driver, Mobile_no);
 		Common.type(Mobile_no, "9429186891");
+		TestData.writeExcelData(1, 25, "9429186891");
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='txtEmailId1']")
-	WebElement office_Email_id ;
+	WebElement office_Email_id;
 	String email_id = TestData.rndmemail(3);
-	public EmployeeMasterVerificationPage enterOfficeEmailid()
-	{
+
+	public EmployeeMasterVerificationPage enterOfficeEmailid() {
 		Common.clickOn(driver, office_Email_id);
 		Common.type(office_Email_id, email_id);
+		TestData.writeExcelData(1, 26, email_id);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlEmployementType']")
-	WebElement employee_type ;
+	WebElement employee_type;
 	@FindBy(xpath = ".//select[@id='ddlEmployementType']/option[3]")
-	WebElement employee_type_list ;
-	public EmployeeMasterVerificationPage selectEmployeeType()
-	{
+	WebElement employee_type_list;
+
+	public EmployeeMasterVerificationPage selectEmployeeType() {
 		Common.clickOn(driver, employee_type);
 		Common.clickOn(driver, employee_type_list);
+		/* TestData.writeExcelData(1, 29, value); */
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlUserType']")
-	WebElement user_type ;
+	WebElement user_type;
 	@FindBy(xpath = ".//select[@id='ddlUserType']/option[5]")
-	WebElement user_type_list ;
-	public EmployeeMasterVerificationPage selectUserType()
-	{
+	WebElement user_type_list;
+
+	public EmployeeMasterVerificationPage selectUserType() {
 		Common.clickOn(driver, user_type);
 		Common.clickOn(driver, user_type_list);
+		/* TestData.writeExcelData(1, 30, value); */
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//select[@id='ddlAttendanceMode1']")
-	WebElement attendance_mode_1 ;
+	WebElement attendance_mode_1;
 	@FindBy(xpath = ".//select[@id='ddlAttendanceMode2']")
-	WebElement attendance_mode_2 ;
-	@FindBy(xpath = "")
-	WebElement attendance_mode_3 ;
-	@FindBy(xpath = "")
-	WebElement attendance_mode_4 ;
-	@FindBy(xpath = "")
-	WebElement biometric;
-	@FindBy(xpath = "")
-	WebElement manager_marking ;
+	WebElement attendance_mode_2;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode3']")
+	WebElement attendance_mode_3;
+	@FindBy(xpath = ".//select[@id='ddlDefaultShift']")
+	WebElement default_shift;
+
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode1']/option[2]")
+	WebElement biometric_attnd_1;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode2']/option[2]")
+	WebElement biometric_attnd_2;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode3']/option[2]")
+	WebElement biometric_attnd_3;
+
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode1']/option[3]")
+	WebElement manager_marking_attnd_1;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode2']/option[3]")
+	WebElement manager_marking_attnd_2;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode3']/option[3]")
+	WebElement manager_marking_attnd_3;
+
 	@FindBy(xpath = ".//select[@id='ddlAttendanceMode1']/option[4]")
-	WebElement punchin1 ;
+	WebElement punchin_attnd_1;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode2']/option[4]")
+	WebElement punchin_attnd_2;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode3']/option[4]")
+	WebElement punchin_attnd_3;
+
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode1']/option[5]")
+	WebElement mobile_attnd_1;
 	@FindBy(xpath = ".//select[@id='ddlAttendanceMode2']/option[5]")
-	WebElement punchin2 ;	
-	@FindBy(xpath = "")
-	WebElement mobile ;
-	@FindBy(xpath = "")
-	WebElement swipecards ;
-	public EmployeeMasterVerificationPage selectAttendanceMode1()
-	{
-		Common.clickOn(driver, attendance_mode_1);
-		Common.clickOn(driver, punchin1);
-		Common.pause(2);
+	WebElement mobile_attnd_2;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode3']/option[5]")
+	WebElement mobile_attnd_3;
+
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode1']/option[6]")
+	WebElement swipecards_attnd_1;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode2']/option[6]")
+	WebElement swipecards_attnd_2;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode3']/option[6]")
+	WebElement swipecards_attnd_3;
+
+	@FindBy(xpath = ".//select[@id='ddlDefaultShift']/option[3]")
+	WebElement regular_shift;
+	@FindBy(xpath = ".//select[@id='ddlDefaultShift']/option[5]")
+	WebElement general;
+	@FindBy(xpath = ".//select[@id='ddlDefaultShift']/option[2]")
+	WebElement weekly_off;
+	@FindBy(xpath = ".//select[@id='ddlDefaultShift']/option[4]")
+	WebElement saturday_shift;
+
+	public EmployeeMasterVerificationPage selectAttendanceMode1(String option) {
+
+		Common.selectFromComboByVisibleElement(attendance_mode_1, option);
+		log(option);
+		TestData.writeExcelData(1, 31, option);
+		Common.pause(1);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	public EmployeeMasterVerificationPage selectAttendanceMode2()
-	{
-		Common.clickOn(driver, attendance_mode_2);
-		Common.clickOn(driver, punchin2);
-		Common.pause(2);
+
+	public EmployeeMasterVerificationPage selectAttendanceMode2(String option) {
+		Common.selectFromComboByVisibleElement(attendance_mode_2, option);
+		log(option);
+		TestData.writeExcelData(1, 32, option);
+		Common.pause(1);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	public EmployeeMasterVerificationPage selectAttendanceMode3()
-	{
-		
+
+	public EmployeeMasterVerificationPage selectAttendanceMode3(String option) {
+		Common.selectFromComboByVisibleElement(attendance_mode_3, option);
+		log(option);
+		TestData.writeExcelData(1, 33, option);
+		Common.pause(1);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	public EmployeeMasterVerificationPage selectAttendanceMode4()
-	{
-		
-		return new EmployeeMasterVerificationPage(driver);	
+
+	public EmployeeMasterVerificationPage selectDefaultShift(String option) {
+		Common.selectFromComboByVisibleElement(default_shift, option);
+		log(option);
+		TestData.writeExcelData(1, 34, option);
+		Common.pause(1);
+		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='getEmployeeSetting_ReportingManager1']")
-	WebElement reporting_manager_1 ;
-	@FindBy(xpath = "")
-	WebElement reporting_manager_2 ;
-	@FindBy(xpath = "")
-	WebElement reporting_manager_3 ;
-	@FindBy(xpath = "")
-	WebElement reporting_manager_4 ;
-	String reporting_man_1 ="Ravi Bajaj";
-	public EmployeeMasterVerificationPage enterReportingManager1()
-	{
+	WebElement reporting_manager_1;
+	@FindBy(xpath = ".//input[@id='getEmployeeSetting_ReportingManager2']")
+	WebElement reporting_manager_2;
+	@FindBy(xpath = ".//input[@id='getEmployeeSetting_ReportingManager3']")
+	WebElement reporting_manager_3;
+
+	String reporting_man_1 = "Arshad Ansari";
+	String reporting_man_2 = "Ravi Bajaj";
+	String reporting_man_3 = "Admin";
+
+	public EmployeeMasterVerificationPage enterReportingManager1(String name) {
 		Common.clickOn(driver, reporting_manager_1);
-		Common.type(reporting_manager_1, reporting_man_1);
-		Common.pause(2);
+		Common.type(reporting_manager_1, name);
+		TestData.writeExcelData(1, 35, name);
+		Common.pause(1);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	public EmployeeMasterVerificationPage enterReportingManager2()
-	{
-		
+
+	public EmployeeMasterVerificationPage enterReportingManager2(String name) {
+		Common.clickOn(driver, reporting_manager_2);
+		Common.type(reporting_manager_1, name);
+		TestData.writeExcelData(1, 36, name);
+		Common.pause(1);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
+	public EmployeeMasterVerificationPage enterReportingManager3(String name) {
+		Common.clickOn(driver, reporting_manager_3);
+		TestData.writeExcelData(1, 37, name);
+		Common.type(reporting_manager_1, name);
+		Common.pause(1);
+		return new EmployeeMasterVerificationPage(driver);
+	}
+
 	@FindBy(xpath = ".//input[@id='txtCTC']")
-	WebElement ctc ;
-	public EmployeeMasterVerificationPage enterCtc()
-	{
+	WebElement ctc;
+
+	public EmployeeMasterVerificationPage enterCtc() {
 		Common.clickOn(driver, ctc);
 		Common.type(ctc, "500000");
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='txtVariable']")
-	WebElement variable ;
-	public EmployeeMasterVerificationPage entervariable()
-	{
+	WebElement variable;
+
+	public EmployeeMasterVerificationPage entervariable() {
 		Common.clickOn(driver, variable);
 		Common.type(variable, "100000");
-		return new EmployeeMasterVerificationPage(driver);	
+		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
+
 	@FindBy(xpath = ".//input[@id='getCompensationBenefits_IsSalaryBreakUp']//.[@value='false']")
-	WebElement do_it_later_radio ;
-	public EmployeeMasterVerificationPage selectDoitLater()
-	{
+	WebElement do_it_later_radio;
+
+	public EmployeeMasterVerificationPage selectDoitLater() {
 		Common.clickOn(driver, do_it_later_radio);
 		Common.pause(1);
-		return new EmployeeMasterVerificationPage(driver);	
+		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	/*@FindBy(xpath = "")
-	WebElement assets ;
+
+	/*
+	 * @FindBy(xpath = "") WebElement assets ;
+	 * 
+	 * @FindBy(xpath = "") WebElement assets_list ; public
+	 * EmployeeMasterVerificationPage selectAssets() { Common.clickOn(driver,
+	 * assets);
+	 * 
+	 * return new EmployeeMasterVerificationPage(driver); }
+	 * 
+	 * @FindBy(xpath = "") WebElement bank_name ;
+	 * 
+	 * @FindBy(xpath = "") WebElement bnk_name_list ; public
+	 * EmployeeMasterVerificationPage selectBankName() { Common.clickOn(driver,
+	 * bank_name);
+	 * 
+	 * return new EmployeeMasterVerificationPage(driver); }
+	 * 
+	 * @FindBy(xpath = "") WebElement account_no ; public
+	 * EmployeeMasterVerificationPage enterAccountNumber() {
+	 * Common.clickOn(driver, account_no);
+	 * 
+	 * return new EmployeeMasterVerificationPage(driver); }
+	 */
+
 	@FindBy(xpath = "")
-	WebElement assets_list ;
-	public EmployeeMasterVerificationPage selectAssets()
-	{
-		Common.clickOn(driver, assets);
-		
-		return new EmployeeMasterVerificationPage(driver);	
-	}
-	
-	@FindBy(xpath = "")
-	WebElement bank_name ;
-	@FindBy(xpath = "")
-	WebElement bnk_name_list ;
-	public EmployeeMasterVerificationPage selectBankName()
-	{
-		Common.clickOn(driver, bank_name);
-		
-		return new EmployeeMasterVerificationPage(driver);	
-	}
-	
-	@FindBy(xpath = "")
-	WebElement account_no ;
-	public EmployeeMasterVerificationPage enterAccountNumber()
-	{
-		Common.clickOn(driver, account_no);
-		
-		return new EmployeeMasterVerificationPage(driver);	
-	}*/
-	
-	@FindBy(xpath = "")
-	WebElement save ;
-	public EmployeeMasterVerificationPage clickSavebtn()
-	{
+	WebElement save;
+
+	public EmployeeMasterVerificationPage clickSavebtn() {
 		Common.clickOn(driver, save);
-		
-		return new EmployeeMasterVerificationPage(driver);	
+
+		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	
-	
-	
-	
-	
+
 	@FindBy(xpath = ".//*[@class='sidebar-collapse btn']")
 	WebElement sideBar_menu_btn;
-	/*@FindBy(xpath = "")
-	WebElement download_link;*/
+	/*
+	 * @FindBy(xpath = "") WebElement download_link;
+	 */
 	@FindBy(xpath = ".//*[@class='fa fa-2x fa-plus-circle']")
 	WebElement employee_master_menu;
 	@FindBy(xpath = ".//*[@class='fa fa-download']")
 	WebElement download_link;
 	@FindBy(xpath = ".//a[@id='NewEmp']")
 	WebElement addSingle_employee;
-	public EmployeeMasterVerificationPage clickEmployeeMaster()
-	{
+
+	public EmployeeMasterVerificationPage clickEmployeeMaster() {
 		Common.pause(2);
 		Common.jsClick(driver, employee_master_menu);
 		return new EmployeeMasterVerificationPage(driver);
 	}
-	
-	public EmployeeMasterVerificationPage clickAddSingleEmployee()
-	{
+
+	public EmployeeMasterVerificationPage clickAddSingleEmployee() {
 		Common.pause(1);
 		Common.clickOn(driver, addSingle_employee);
 		Common.pause(2);
 		return new EmployeeMasterVerificationPage(driver);
 
 	}
-	
-	
-	public EmployeeMasterVerificationPage createNewEmployee(String j_date) throws InterruptedException
-	{
-		selectEmployeeGroup();
-	//	Common.scrollToVertical(driver, driver.findElement(By.xpath(".//span[@class='font-16 paddingLeft10']")));
-		selectAttendanceGroup();
-		selectLeaveGroup();
+
+	public EmployeeMasterVerificationPage createNewEmployee(
+			String employee_group, String attendance_group, String leave_group,
+			String attendance_mode1, String attendance_mode2,
+			String attendance_mode3, String shift_type)
+			throws InterruptedException {
+		selectEmployeeGroup(employee_group);
+		// Common.scrollToVertical(driver,
+		// driver.findElement(By.xpath(".//span[@class='font-16 paddingLeft10']")));
+		selectAttendanceGroup(attendance_group);
+		selectLeaveGroup(leave_group);
 		selectCalendarGroup();
 		selectAttendanceModeGroup();
 		selectAttendanceRuleGroup();
@@ -544,9 +599,8 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		enterLastName();
 		enterFatherName();
 		enterBirthdate();
-		enterDateJoining(j_date);
-		enterDateConfirmation(j_date);
-		log("Enter date of confirmation::"+j_date);
+		enterDateJoining(joining_confirm);
+		enterDateConfirmation(joining_confirm);
 		enterAddress();
 		selectCountry();
 		selectState();
@@ -557,18 +611,24 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		selectEmployeeType();
 		selectUserType();
 		Common.pause(2);
-		selectAttendanceMode1();
-		selectAttendanceMode2();
+		selectAttendanceMode1(attendance_mode1);
+		selectAttendanceMode2(attendance_mode2);
+		selectAttendanceMode3(attendance_mode3);
+		selectDefaultShift(shift_type);
 		Common.pause(2);
-		enterReportingManager1();
-		Common.scrollToVertical(driver, driver.findElement(By.xpath(".//div[@id='secCompensationAndBenefitsDetails']/div[1]/span[1]")));
+		enterReportingManager1(reporting_man_1);
+		enterReportingManager2(reporting_man_2);
+		enterReportingManager3(reporting_man_3);
+		Common.scrollToVertical(
+				driver,
+				driver.findElement(By
+						.xpath(".//div[@id='secCompensationAndBenefitsDetails']/div[1]/span[1]")));
 		enterCtc();
 		entervariable();
 		selectDoitLater();
-		
+
 		return new EmployeeMasterVerificationPage(driver);
-		
+
 	}
-	
-	
+
 }

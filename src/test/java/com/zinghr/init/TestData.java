@@ -71,6 +71,13 @@ public class TestData {
 		return rnd1;
 
 	}
+	
+	public static String rndmString2(int length) {
+		String rnd1 = RandomStringUtils.randomAlphabetic(length);
+		return rnd1;
+
+	}
+
 
 	public static int rndmNumber(int length) {
 
@@ -252,6 +259,32 @@ public class TestData {
 		return month1;
 	}
 
+	 public static String bday = rndBDY();
+	 public static String joining_confrm_Date = rndJoining();
+	 public static String pan = rndmPAN();
+	 public static String fname = firstname();
+	 public static String mname = middlename();
+	 public static String lastname = lastname();
+	 public static String fathername = fathername();
+	 
+	 /*For attendance mode options 1.Biometric
+	 							 2.Manager Marking
+	 							 3.PunchIN
+	 							 4.Mobile
+	 							 5.Swipecards*/
+	 public static String attendance_mode1 = "Biometric";
+	 public static String attendance_mode2 =  "PunchIN";
+	 public static String attendance_mode3 =  "Manager Marking";
+
+	 /*For attendance mode options 
+	  *  1.Weekly off
+		 2.Regular Shift
+		 3.Saturday Shift
+		 4.General
+		 5.*/
+	 public static String shift_type =  "General";
+
+	
 	public static int rndmyear() {
 		int start = 1970;
 		int end = 1997;
@@ -286,4 +319,28 @@ public class TestData {
 		return PAN_no;
 	}
 
+	 public static String firstname() {
+			String firstname = new StringBuilder(10).append("Test").append(rndmString2(3)).toString();
+			return firstname;
+		}
+	
+
+	 public static String middlename() {
+			String middlename = new StringBuilder(10).append("Kiwi").append(rndmString2(3)).toString();
+			return middlename;
+		}
+	 
+	 public static String lastname() {
+			String lastname = new StringBuilder(10).append("Qa").append(rndmString2(3)).toString();
+			return lastname;
+		}
+	 
+	 public static String fathername() {
+			String fathername = new StringBuilder(10).append("KiwQA").append(rndmString2(3)).toString();
+			return fathername;
+		}
+	
 }
+
+	
+
