@@ -2,12 +2,16 @@ package com.zinghr.init;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class TestData {
@@ -177,6 +181,46 @@ public class TestData {
 		System.out.println("======" + url + "=========");
 		return url;
 
+	}
+
+	public static void writeExcelData(int sheetNo, int columnNo, String value)
+
+	{
+		String dataFilePath = "Resource/DataConfiguration.xlsx";
+		File datafile = new File(dataFilePath);
+		String fullpath = datafile.getAbsolutePath();
+		XSSFSheet firstSheet = null;
+		try {
+
+			FileInputStream inputStream = new FileInputStream(
+					new File(fullpath));
+
+			XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
+			firstSheet = workbook.getSheetAt(sheetNo);
+
+			firstSheet.createRow(getlastRowcount(sheetNo) + 1)
+					.createCell(columnNo).setCellValue(value);
+
+			FileOutputStream fos = new FileOutputStream(new File(fullpath));
+			workbook.write(fos);
+
+			workbook.close();
+			inputStream.close();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		/*
+		 * getExcelSheet(sheetNo).createRow(getlastRowcount(1) + 10)
+		 * .createCell(1).setCellValue(value"hello");
+		 */
+
+	}
+
+	public static int getlastRowcount(int sheetNo) {
+
+		return getExcelSheet(sheetNo).getLastRowNum();
 	}
 
 	static Random randm = new Random();
