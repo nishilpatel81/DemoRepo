@@ -42,6 +42,7 @@ public class SettingsTimeAttendanceSetupIndexPage extends AbstractPage {
 
 		Common.clickOn(driver, settingIcon_btn);
 
+		
 		/* settingIcon_btn.click(); */
 
 		return new SettingsTimeAttendanceSetupVerification(driver);

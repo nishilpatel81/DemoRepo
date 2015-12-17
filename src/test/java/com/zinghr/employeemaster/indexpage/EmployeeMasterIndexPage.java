@@ -182,7 +182,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage enterFirstName()
 	{
 		Common.clickOn(driver, First_Name);
-		Common.type(First_Name, "test");
+		Common.type(First_Name, "testtest");
 		return new EmployeeMasterVerificationPage(driver);
 	}
 	
@@ -238,6 +238,8 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	{
 		Common.clickOn(driver, date_of_joining);
 		Common.type(date_of_joining, joining);
+
+		log("Enter date of joining::"+joining);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 	
@@ -248,6 +250,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	{
 		Common.clickOn(driver, date_of_confirmation);
 		Common.type(date_of_confirmation, confirmation);
+		log("Enter date of joining::"+confirmation);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 	
@@ -352,32 +355,37 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	
 	
 	@FindBy(xpath = ".//select[@id='ddlAttendanceMode1']")
-	WebElement attemdance_mode_1 ;
-	@FindBy(xpath = "")
+	WebElement attendance_mode_1 ;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode2']")
 	WebElement attendance_mode_2 ;
 	@FindBy(xpath = "")
-	WebElement attemdance_mode_3 ;
+	WebElement attendance_mode_3 ;
 	@FindBy(xpath = "")
 	WebElement attendance_mode_4 ;
 	@FindBy(xpath = "")
 	WebElement biometric;
 	@FindBy(xpath = "")
 	WebElement manager_marking ;
-	@FindBy(xpath = ".//select[@id='ddlAttendanceMode1']/option[5]")
-	WebElement punchin ;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode1']/option[4]")
+	WebElement punchin1 ;
+	@FindBy(xpath = ".//select[@id='ddlAttendanceMode2']/option[5]")
+	WebElement punchin2 ;	
 	@FindBy(xpath = "")
 	WebElement mobile ;
 	@FindBy(xpath = "")
 	WebElement swipecards ;
 	public EmployeeMasterVerificationPage selectAttendanceMode1()
 	{
-		Common.clickOn(driver, attemdance_mode_1);
-		Common.clickOn(driver, punchin);
+		Common.clickOn(driver, attendance_mode_1);
+		Common.clickOn(driver, punchin1);
+		Common.pause(2);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 	public EmployeeMasterVerificationPage selectAttendanceMode2()
 	{
-		
+		Common.clickOn(driver, attendance_mode_2);
+		Common.clickOn(driver, punchin2);
+		Common.pause(2);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 	public EmployeeMasterVerificationPage selectAttendanceMode3()
@@ -405,6 +413,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	{
 		Common.clickOn(driver, reporting_manager_1);
 		Common.type(reporting_manager_1, reporting_man_1);
+		Common.pause(2);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 	
@@ -430,7 +439,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage entervariable()
 	{
 		Common.clickOn(driver, variable);
-		Common.type(ctc, "100000");
+		Common.type(variable, "100000");
 		return new EmployeeMasterVerificationPage(driver);	
 	}
 	
@@ -515,6 +524,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 
 	}
 	
+	
 	public EmployeeMasterVerificationPage createNewEmployee(String j_date) throws InterruptedException
 	{
 		selectEmployeeGroup();
@@ -535,7 +545,6 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		enterFatherName();
 		enterBirthdate();
 		enterDateJoining(j_date);
-		log("Enter date of joining::"+j_date);
 		enterDateConfirmation(j_date);
 		log("Enter date of confirmation::"+j_date);
 		enterAddress();
@@ -547,7 +556,10 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		enterOfficeEmailid();
 		selectEmployeeType();
 		selectUserType();
+		Common.pause(2);
 		selectAttendanceMode1();
+		selectAttendanceMode2();
+		Common.pause(2);
 		enterReportingManager1();
 		Common.scrollToVertical(driver, driver.findElement(By.xpath(".//div[@id='secCompensationAndBenefitsDetails']/div[1]/span[1]")));
 		enterCtc();
