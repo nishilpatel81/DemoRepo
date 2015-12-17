@@ -30,7 +30,7 @@ public class SignupVerificationPage extends AbstractPage {
 		Common.pause(2);
 		return driver
 				.findElement(
-						By.xpath(".//*[@id='txtCompanyName']//.[@data-content='Please enter company name']"))
+						By.xpath(".//input[@id='txtCompanyName'][@data-content='Please enter company name']"))
 				.isDisplayed();
 	}
 

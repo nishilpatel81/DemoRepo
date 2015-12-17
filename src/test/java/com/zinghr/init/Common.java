@@ -819,12 +819,23 @@ public class Common {
 		ArrayList<String> arrayOfAllOption = new ArrayList<String>();
 	
 		for (WebElement ele : getAllOption) {
-			if (!ele.getText().startsWith("All")) {
+			
+			if (!ele.getText().startsWith("Select")) {
 				arrayOfAllOption.add(ele.getText());
 			}
 
 		}
+		System.out.println(" webel  "+getAllOption.size());
+		System.out.println(" list  "+arrayOfAllOption.size());
+		for(String a : arrayOfAllOption)
+		{
+			System.out.println(a);
+		}
+		
+		
 		int index = new Random().nextInt(arrayOfAllOption.size());
+		
+	
 		if (Integer.signum(index) == -1) {
 			index = -index;
 			// index=Math.abs(index);

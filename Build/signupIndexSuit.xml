@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="ZingHr - SignUp Module" verbose="10"
+<suite name="ZingHR - SignUp" verbose="10"
 	parallel="tests" thread-count="5">
 
 	<!-- Put IP of localhost/Grid Hub machine -->
@@ -10,11 +10,11 @@
 
 	<!-- Put target browser name as below: 1) Firefox : firefox 2) chrome : 
 		chrome 3) IExplorer : ie8 / ie9 -->
-	<parameter name="selenium.browser" value="firefox" />
-	<parameter name="selenium.url"
+	<parameter name="selenium.browser" value="chrome" />
+	<!-- <parameter name="selenium.url"
 		value="http://automation.zinghr.com/2015/pages/Authentication/SignUp.aspx" />
 
-
+ -->
 	<listeners>
 
 		<listener class-name="com.zinghr.utility.CustomReporter" />
@@ -32,7 +32,7 @@
 		</classes>
 	</test>  -->
 	
- 	<test name="SU_03: To verify that user is able to enter alphanumeric characters in 'Company Name' field">
+ 	<!-- <test name="SU_03: To verify that user is able to enter alphanumeric characters in 'Company Name' field">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
 				<methods>
@@ -40,7 +40,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 	
 	<test name="SU_04: To verify that the company name field do not accept blank space">
 		<classes>
@@ -51,7 +51,7 @@
 			</class>
 		</classes>
 	</test>
-	
+	<!-- 
 	<test
 		name="SU_06: To verify that error message is displayed when enters less than three characters in 'Company Name' field">
 		<classes>
@@ -385,4 +385,4 @@
 		</classes>
 	</test>
  
-</suite>
+ --></suite>

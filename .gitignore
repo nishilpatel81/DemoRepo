@@ -1,2 +1,5 @@
 /target/
 /Kiwi-Reports/
+/.classpath
+/test-output/
+/.gitignore

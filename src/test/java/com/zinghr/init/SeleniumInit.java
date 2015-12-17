@@ -97,6 +97,7 @@ public class SeleniumInit {
 	public PendingRequestIndexPage pendingReqIndexPage;
 	public PendingRequestVerification pendingReqVerificationPage;
 	public EmployeeMasterIndexPage employeemasterIndexPage;
+
 	public EmployeeMasterVerificationPage employeeMasterVerificationPage;
 
 	protected static String screenshot_folder_path = null;
@@ -114,11 +115,11 @@ public class SeleniumInit {
 	 * 
 	 * @param testContext
 	 */
-	
+
 	@BeforeTest(alwaysRun = true)
 	public void fetchSuiteConfiguration(ITestContext testContext) {
 		testUrl = testContext.getCurrentXmlTest().getParameter("selenium.url");
-/*		System.out.println("======" + testUrl + "=========");*/
+		/* System.out.println("======" + testUrl + "========="); */
 		seleniumHub = testContext.getCurrentXmlTest().getParameter(
 				"selenium.host");
 		seleniumHubPort = testContext.getCurrentXmlTest().getParameter(
@@ -350,7 +351,11 @@ public class SeleniumInit {
 			// profile);
 			this.driver = new SafariDriver(capability);
 		}
+
 		suiteName = testContext.getSuite().getName();
+		/*
+		 * driver = new RemoteWebDriver(remote_grid, capability);
+		 */
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get(TestData.getURLFromExcel(suiteName));
 		driver.manage().window().maximize();
@@ -358,7 +363,6 @@ public class SeleniumInit {
 		System.out.println("Current Window Handle ID:--->"
 				+ currentWindowHandle);
 
-		suiteName = testContext.getSuite().getName();
 		System.out.println("Current Xml Suite is:---->" + suiteName);
 
 		loginIndexpage = new LoginIndexPage(driver);
@@ -380,9 +384,11 @@ public class SeleniumInit {
 				driver);
 		approverNotificationVerification = new ApproverNotificationVerification(
 				driver);
+
 		pendingReqIndexPage = new PendingRequestIndexPage(driver);
 		pendingReqVerificationPage = new PendingRequestVerification(driver);
 		employeemasterIndexPage = new EmployeeMasterIndexPage(driver);
+
 		employeeMasterVerificationPage = new EmployeeMasterVerificationPage(
 				driver);
 	}

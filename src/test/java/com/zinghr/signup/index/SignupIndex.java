@@ -18,7 +18,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Testcase Discription : Home page verification. ");
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
 
-		signupVerification = signupIndexpage.HomePage(TestData.company_code,TestData.employe_code,TestData.password);
+		signupVerification = signupIndexpage.HomePage(TestData.company_code,
+				TestData.employe_code, TestData.password);
 
 		log("To verify that user is able to view Home page.");
 
@@ -46,7 +47,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 2: Enter Alphanumeric value in company Name: "
 				+ s_company_name);
 
-		signupVerification = signupIndexpage.alphanumCompanyName(emailt,s_company_name, s_display_name, contact_no);
+		signupVerification = signupIndexpage.alphanumCompanyName(emailt,
+				s_company_name, s_display_name, contact_no);
 
 		log("To verify that user is able to enter Alphanumeric characters in 'Company Name' field");
 
@@ -73,7 +75,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 1 : Open url:<a>" + testUrl + "</a>");
 		log("Step 2: Enter Blank space in company Name: " + blank);
 
-		signupVerification = signupIndexpage.blankCompanyCode(emailt,blank,s_display_name,contact_no);
+		signupVerification = signupIndexpage.blankCompanyCode(emailt, blank,
+				s_display_name, contact_no);
 
 		log("To verify that the company name field do not accept blank space.");
 
@@ -101,7 +104,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 2: Enter less than three characters in company Name: "
 				+ TestData.lessthan3);
 
-		signupVerification = signupIndexpage.lessthan3CompanyCode(emailt,TestData.lessthan3,s_display_name,contact_no);
+		signupVerification = signupIndexpage.lessthan3CompanyCode(emailt,
+				TestData.lessthan3, s_display_name, contact_no);
 
 		log("To verify that appropriate error message is displayed if user enters less than three characters in 'Company Name' field");
 
@@ -132,7 +136,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 5: Select any country");
 		log("Step 6: Enter Contact no: " + contact_no);
 
-		signupVerification = signupIndexpage.emptyCompanyCode(emailt,s_display_name,contact_no);
+		signupVerification = signupIndexpage.emptyCompanyCode(emailt,
+				s_display_name, contact_no);
 
 		log("To verify that appropriate alert message 'Please Enter company name' is displayed when user sign ups with empty Company Name field");
 
@@ -166,7 +171,8 @@ public class SignupIndex extends SeleniumInit {
 		 * log("Step 6: Enter Contact no: "+contact_no);
 		 */
 
-		signupVerification = signupIndexpage.alphabetDisplayname(emailt,s_company_name,s_display_name,contact_no);
+		signupVerification = signupIndexpage.alphabetDisplayname(emailt,
+				s_company_name, s_display_name, contact_no);
 
 		log("To verify that user is able to enter alphabets in 'Display Name' field");
 
@@ -200,7 +206,8 @@ public class SignupIndex extends SeleniumInit {
 		 * log("Step 6: Enter Contact no: "+contact_no);
 		 */
 
-		signupVerification = signupIndexpage.invalidDisplayAdminName(emailt,s_company_name,TestData.invalid,contact_no);
+		signupVerification = signupIndexpage.invalidDisplayAdminName(emailt,
+				s_company_name, TestData.invalid, contact_no);
 
 		log("To verify that appropriate error message is displayed when user enters special characters and numeric value in 'display Name' field");
 
@@ -225,10 +232,10 @@ public class SignupIndex extends SeleniumInit {
 		log("Test Case Id : SU_11 ");
 		log("Testcase Discription : Field validation for 'Display Name' field");
 		log("Step 1: Open url:<a>" + testUrl + "</a>");
-		log("Step 2: Enter Blank space in 'Display AdminName': "
-				+ blank);
+		log("Step 2: Enter Blank space in 'Display AdminName': " + blank);
 
-		signupVerification = signupIndexpage.blankDisplayAdminName(emailt,s_company_name,blank,contact_no);
+		signupVerification = signupIndexpage.blankDisplayAdminName(emailt,
+				s_company_name, blank, contact_no);
 
 		log("To verify that the company name field do not accept blank space");
 
@@ -580,7 +587,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 6: Enter Contact no: " + contact_no);
 		log("Step 7: Uncheck checkbox.");
 
-		signupVerification = signupIndexpage.checkbox(emailt,s_company_name,s_display_name,contact_no);
+		signupVerification = signupIndexpage.checkbox(emailt, s_company_name,
+				s_display_name, contact_no);
 
 		log("To verify that Alert message is displayed if user unchecked the Terms and condition checkbox");
 
@@ -611,7 +619,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 6: Enter Contact no: " + contact_no);
 		log("Step 7: Click on 'Sign Up for 30 days trial' button.");
 
-		signupVerification = signupIndexpage.SignUpsuccessfully(emailt,s_company_name,s_display_name,contact_no);
+		signupVerification = signupIndexpage.SignUpsuccessfully(emailt,
+				s_company_name, s_display_name, contact_no);
 
 		log("To verify Activation page is open or not with Successfully SignUp.");
 
@@ -643,7 +652,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 6: Enter Contact no: " + contact_no);
 		log("Step 7: Click on 'Sign Up for 30 days trial' button.");
 
-		signupVerification = signupIndexpage.emailVerification(emailt,s_company_name,s_display_name,contact_no);
+		signupVerification = signupIndexpage.emailVerification(emailt,
+				s_company_name, s_display_name, contact_no);
 
 		log("To verify Activation page is open or not with Successfully SignUp.");
 
@@ -675,7 +685,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 6: Enter Contact no: " + contact_no);
 		log("Step 7: Click on 'Sign Up for 30 days trial' button.");
 
-		signupVerification = signupIndexpage.emailFormat(emailt,s_company_name,s_display_name,contact_no);
+		signupVerification = signupIndexpage.emailFormat(emailt,
+				s_company_name, s_display_name, contact_no);
 
 		log("To verify that the Email is in Proper format.");
 
@@ -707,7 +718,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 6: Enter Contact no: " + contact_no);
 		log("Step 7: Click on 'Sign Up for 30 days trial' button.");
 
-		signupVerification = signupIndexpage.emailFormat(emailt,s_company_name,s_display_name,contact_no);
+		signupVerification = signupIndexpage.emailFormat(emailt,
+				s_company_name, s_display_name, contact_no);
 
 		log("To verify that user is able to view 'Thank You message' and 'Click Here' button in Email");
 
@@ -741,7 +753,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 8: Open activation mail.");
 		log("Step 9: Click on 'Click Here' button.");
 
-		signupVerification = signupIndexpage.emailClickbutton(emailt,s_company_name,s_display_name,contact_no);
+		signupVerification = signupIndexpage.emailClickbutton(emailt,
+				s_company_name, s_display_name, contact_no);
 
 		log("To verify that user is redirected to Active Sign up page after clicking on 'Click Here' button.");
 
@@ -781,7 +794,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 10: Enter Password: " + a_pswd);
 
 		signupVerification = signupIndexpage.activateTwice(emailt,
-				s_company_name, s_display_name, a_pswd, contact_no,account_name,account_name1);
+				s_company_name, s_display_name, a_pswd, contact_no,
+				account_name, account_name1);
 
 		log("To verify that user is not able to Activate account twice.");
 
@@ -819,8 +833,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 10: Enter Password: " + a_pswd1);
 
 		String winHandleBefore = driver.getWindowHandle();
-		signupVerification = signupIndexpage.enterData(emailt,s_company_name ,s_display_name,
-				a_pswd1,contact_no,account_name);
+		signupVerification = signupIndexpage.enterData(emailt, s_company_name,
+				s_display_name, a_pswd1, contact_no, account_name);
 
 		log("To verify that user is able to enter alphanumeric characters in Password field.");
 
@@ -877,8 +891,9 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 9: Click on 'Click Here' button in mail.");
 		log("Step 10: Enter Blank Password: " + blank);
 
-		signupVerification = signupIndexpage.blankPassword(emailt,s_company_name ,s_display_name,
-				blank,contact_no,account_name);
+		signupVerification = signupIndexpage
+				.blankPassword(emailt, s_company_name, s_display_name, blank,
+						contact_no, account_name);
 
 		log("To verify that Password field do not accept blank data.");
 
@@ -915,8 +930,9 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 9: Click on 'Click Here' button in mail.");
 		log("Step 10: Enter valid password.");
 
-		signupVerification = signupIndexpage.pswdStatus1(emailt,s_company_name,
-				s_display_name, a_pswd2,contact_no,account_name);
+		signupVerification = signupIndexpage.pswdStatus1(emailt,
+				s_company_name, s_display_name, a_pswd2, contact_no,
+				account_name);
 
 		log("To verify Password progress status as per user enter the password.");
 
@@ -1057,9 +1073,9 @@ public class SignupIndex extends SeleniumInit {
 		}
 
 	}
-	
-// By tarpan 2- Dec	
-	
+
+	// By tarpan 2- Dec
+
 	@Test(priority = 31)
 	public void invalidActivationCode() throws Exception {
 		int numOfFailure = 0;
@@ -1083,9 +1099,10 @@ public class SignupIndex extends SeleniumInit {
 
 		log("To verify that error message is displayed if user enters invalid activation code in Activation code field.");
 
-		/*for (String winHandle : driver.getWindowHandles()) {
-			driver.switchTo().window(winHandle);
-		}*/
+		/*
+		 * for (String winHandle : driver.getWindowHandles()) {
+		 * driver.switchTo().window(winHandle); }
+		 */
 		if (signupVerification.verifyInvalidActivationCode()) {
 			Common.logStatus("Pass");
 		} else {
@@ -1098,7 +1115,6 @@ public class SignupIndex extends SeleniumInit {
 		}
 
 	}
-	
 
 	@Test(priority = 32)
 	public void blankPswdActCode() throws Exception {
@@ -1118,9 +1134,8 @@ public class SignupIndex extends SeleniumInit {
 		log("Step 10: Update Account_Name: " + account_name);
 		log("Step 11: Enter Blank password and Activation Code':" + blank);
 
-		signupVerification = signupIndexpage
-				.blankPaswdActfield(emailt, s_company_name, s_display_name,
-						blank, blank, contact_no);
+		signupVerification = signupIndexpage.blankPaswdActfield(emailt,
+				s_company_name, s_display_name, blank, blank, contact_no);
 
 		log("To verify that appropriate alert message is displayed if user sign ups with empty Activation Code and Password field");
 

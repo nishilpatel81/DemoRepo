@@ -104,7 +104,10 @@ public class LoginIndexPage extends AbstractPage {
 	{
 		Common.clickOn(driver, Username_drop_down);
 		Common.pause(5);
-		Common.clickOn(driver, Logout_btn);
+		/*Common.clickOn(driver, Logout_btn);*/
+		
+		Logout_btn.click();
+		
 		Common.pause(5);
 		
 		return new LoginVerificationPage(driver);

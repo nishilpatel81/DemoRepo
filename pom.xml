@@ -50,6 +50,17 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.13</version>
 		</dependency>
+		<dependency>
+			<groupId>com.opera</groupId>
+			<artifactId>operadriver</artifactId>
+			<version>1.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-safari-driver</artifactId>
+			<version>2.48.2</version>
+		</dependency>
 
 
 		<dependency>
@@ -125,6 +136,14 @@
 			<version>1.5.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-exec</artifactId>
+			<version>1.3</version>
+		</dependency>
+
+
+
 	</dependencies>
 
 	<build>
@@ -137,8 +156,7 @@
 				<configuration>
 					<suiteXmlFiles>
 
-						<!-- <suiteXmlFile>build\VideogramHomePageIndexSuite.xml</suiteXmlFile> 
-							<suiteXmlFile>build\VideogramSignUpIndexSuite.xml</suiteXmlFile> -->
+						<suiteXmlFile> Build\loginIndexSuit.xml</suiteXmlFile>
 						<suiteXmlFile>Build\signupIndexSuit.xml</suiteXmlFile>
 
 

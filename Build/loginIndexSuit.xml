@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="ZingHR - Login" verbose="10" parallel="tests" thread-count="3">
+<suite name="ZingHR - Login" verbose="10" parallel="tests"
+	thread-count="3">
 
 	<!-- Put IP of localhost/Grid Hub machine -->
 	<parameter name="selenium.host" value="localhost" />
@@ -9,9 +10,9 @@
 
 	<!-- Put target browser name as below: 1) Firefox : firefox 2) chrome : 
 		chrome 3) IExplorer : ie8 / ie9 -->
-	<parameter name="selenium.browser" value="firefox" />
-	<parameter name="selenium.url"
-		value="http://automation.zinghr.com/2015/pages/Authentication/login.aspx" />
+	<parameter name="selenium.browser" value="chrome" />
+	<!-- <parameter name="selenium.url" value="http://automation.zinghr.com/2015/pages/Authentication/login.aspx" 
+		/> -->
 
 
 
@@ -23,7 +24,7 @@
 	</listeners>
 
 
-	<!-- <test name="L_02: To verify that Company Name field is editable">
+	 <test name="L_02: To verify that Company Name field is editable">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -87,8 +88,8 @@
 			</class>
 		</classes>
 	</test>
-	
-		<test
+
+	<test
 		name="L_08: To verify that user is able to login with valid credentials">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -97,9 +98,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
-		
-		<test
+	</test>
+
+	<test
 		name="L_09: To verify that appropriate error message is displayed if user enter more than 10 characters in Company code field">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -109,10 +110,10 @@
 			</class>
 		</classes>
 	</test>
-	
-	
 
-	<!-- <test
+
+
+	<test
 		name="L_10: To verify that appropriate error message is displayed when user enters invalid company code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -155,9 +156,8 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test
-		name="L_15: To verify that 'Remember Me' Functionality is working">
+ 
+	<test name="L_15: To verify that 'Remember Me' Functionality is working">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -176,23 +176,17 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
- -->
-<!-- 	unauthenticate error during verification
-	<test
-		name="L_17: To verify 
+	</test> 
+
+	<!-- unauthenticate error during verification <test name="L_17: To verify 
 		that user is redirected to targeted page after clicking on 'View Latest Announcements','View 
-		Support Portal','Raise a ticket' hyperlink">
-		<classes>
-			<class name="com.zinghr.login.index.LoginIndex">
-				<methods>
-					<include name="check_latestannouncement_viewsupportportal_Raiseticket" />
-				</methods>
-			</class>
-		</classes>
-	</test>
- -->
-	<!-- <test
+		Support Portal','Raise a ticket' hyperlink"> <classes> <class name="com.zinghr.login.index.LoginIndex"> 
+		<methods> <include name="check_latestannouncement_viewsupportportal_Raiseticket" 
+		/> </methods> </class> </classes> </test> -->
+		
+		
+		
+	 <test
 		name="L_18: To verify that alert message is displayed if user directly clicks on 'Punch In' button">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -256,20 +250,14 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
+	</test>
 
-	<!-- <test
-		name="L_24: To verify that successful message is displayed when user Punch Ins with valid credentials">
-		<classes>
-			<class name="com.zinghr.login.index.LoginIndex">
-				<methods>
-					<include name="click_punchin_button_with_valid_data" />
-				</methods>
-			</class>
-		</classes>
-	</test> -->
-
-	<!-- <test
+	<!-- <test name="L_24: To verify that successful message is displayed when 
+		user Punch Ins with valid credentials"> <classes> <class name="com.zinghr.login.index.LoginIndex"> 
+		<methods> <include name="click_punchin_button_with_valid_data" /> </methods> 
+		</class> </classes> </test>
+ -->
+	<test
 		name="L_25: To verify that appropiate error message is displayed if the users account in not configured in DB">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -279,20 +267,14 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
+	</test>
+<!-- 
+	<test name="L_26: To verify that appropriate alert message is displayed 
+		when user directly clicks on Punch out button without doing Punch in"> <classes> 
+		<class name="com.zinghr.login.index.LoginIndex"> <methods> <include name="click_punchout_button_without_punchin_procedure" 
+		/> </methods> </class> </classes> </test> -->
 
-	<!-- <test
-		name="L_26: To verify that appropriate alert message is displayed when user directly clicks on Punch out button without doing Punch in">
-		<classes>
-			<class name="com.zinghr.login.index.LoginIndex">
-				<methods>
-					<include name="click_punchout_button_without_punchin_procedure" />
-				</methods>
-			</class>
-		</classes>
-	</test> -->
-
-	<!-- <test
+	<test
 		name="FP_01: To verify that user is redirected to Forgot password page after clicking on Forgot Password hyperlink">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -311,20 +293,13 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
-	<!-- <test
-		name="FP_03: To verify that appropriate alert message is displayed when user submit empty company and employee code">
-		<classes>
-			<class name="com.zinghr.login.index.LoginIndex">
-				<methods>
-					<include
-						name="Fargot_password_enter_blank_data_in_company_employee_code" />
-				</methods>
-			</class>
-		</classes>
-	</test> -->
+	</test>
+	<!-- <test name="FP_03: To verify that appropriate alert message is displayed 
+		when user submit empty company and employee code"> <classes> <class name="com.zinghr.login.index.LoginIndex"> 
+		<methods> <include name="Fargot_password_enter_blank_data_in_company_employee_code" 
+		/> </methods> </class> </classes> </test> -->
 
-	<!-- <test
+	<test
 		name="FP_04: To verify that appropriate error messages is displayed when user enters invalid Company code and Employee code">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -357,6 +332,6 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
+	</test> 
 
 </suite>

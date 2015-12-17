@@ -3,21 +3,20 @@
 <suite thread-count="1" verbose="10" name="Failed suite [ZingHr - Time and Attendance Setup]">
   <parameter name="selenium.port" value="4444"/>
   <parameter name="selenium.host" value="localhost"/>
-  <parameter name="selenium.browser" value="chrome"/>
-  <parameter name="selenium.url" value="http://qa.zinghr.com/2015/pages/authentication/login.aspx"/>
+  <parameter name="selenium.browser" value="safari"/>
   <listeners>
     <listener class-name="com.zinghr.utility.CustomReporter"/>
   </listeners>
-  <test name=" Setup_85 :  selectfollowShiftRostering.(failed)">
+  <test name="Setup_05,Setup_06,Setup_07,Setup_09 : To test TNA functionality(failed)">
     <classes>
       <class name="com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex">
         <methods>
+          <include name="addNewAttendanceGroupTapFunctionality"/>
           <include name="tearDown"/>
-          <include name="fifthBlockSetMyAttendance"/>
           <include name="fetchSuiteConfiguration"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.zinghr.tna.index.SettingsTimeAttendanceSetupIndex -->
     </classes>
-  </test> <!--  Setup_85 :  selectfollowShiftRostering.(failed) -->
+  </test> <!-- Setup_05,Setup_06,Setup_07,Setup_09 : To test TNA functionality(failed) -->
 </suite> <!-- Failed suite [ZingHr - Time and Attendance Setup] -->

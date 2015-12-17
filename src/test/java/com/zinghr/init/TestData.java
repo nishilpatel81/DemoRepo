@@ -2,6 +2,7 @@ package com.zinghr.init;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Random;
 
 import org.apache.commons.lang.RandomStringUtils;
@@ -62,7 +63,7 @@ public class TestData {
 	public static String invalid = "%&^%6545as";
 
 	public static String rndmString(int length) {
-		String rnd1 = RandomStringUtils.randomAlphabetic(length);
+		String rnd1 = RandomStringUtils.randomAlphabetic(length).toUpperCase();
 		return rnd1;
 
 	}
@@ -176,6 +177,69 @@ public class TestData {
 		System.out.println("======" + url + "=========");
 		return url;
 
+	}
+
+	static Random randm = new Random();
+
+	public static int rndmday() {
+		int day = randm.nextInt(28 - 10) + 10;
+		return day;
+	}
+
+	public static String rndmmonth() {
+
+		ArrayList<String> month = new ArrayList<String>();
+
+		month.add("Jan");
+		month.add("Feb");
+		month.add("Mar");
+		month.add("Apr");
+		month.add("May");
+		month.add("Jun");
+		month.add("Jul");
+		month.add("Aug");
+		month.add("Sep");
+		month.add("Oct");
+		month.add("Nov");
+		month.add("Dec");
+
+		int i = randm.nextInt(month.size());
+		String month1 = month.get(i);
+		return month1;
+	}
+
+	public static int rndmyear() {
+		int start = 1970;
+		int end = 1997;
+		int day = randm.nextInt(end - start) + start;
+		return day;
+	}
+
+	public static String rndBDY() {
+		String final_bday = new StringBuilder(20).append(rndmday())
+				.append(rndmmonth()).append(rndmyear()).toString();
+
+		return final_bday;
+	}
+
+	public static String rndJoining() {
+		String final_bday = new StringBuilder(20).append(rndmday())
+				.append(rndmmonth()).append("2014").toString();
+
+		return final_bday;
+	}
+
+	public static int rndm3no() {
+		int numNoRange = randm.nextInt(9999);
+		return numNoRange;
+
+	}
+
+	public static String rndmPAN() {
+		String PAN_no = new StringBuilder(10).append(rndmString(3))
+				.append("PP").append(rndm3no()).append(rndmString(1))
+				.toString();
+		return PAN_no;
 	}
 
 }
