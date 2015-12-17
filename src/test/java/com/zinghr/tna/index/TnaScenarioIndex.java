@@ -1,5 +1,9 @@
 package com.zinghr.tna.index;
 
+
+
+
+	
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,7 +14,7 @@ import com.zinghr.init.TestData;
 public class TnaScenarioIndex extends SeleniumInit{
 
 	@Test
-	public void PunchInFunctionality()
+	public void PunchInFunctionality() throws InterruptedException
 	{
 		int numOfFailure = 0;
 		
@@ -50,6 +54,40 @@ public class TnaScenarioIndex extends SeleniumInit{
 			Common.logStatus("Fail");
 			numOfFailure++;
 		}
+		
+		log("Step 8: Click on PunchIn Checkbox.");
+		
+		tnaScenarioIndexPage.clickpunchinckeckbox();
+		
+		log("Step 9: Select any shift.");
+		
+		log("Step 10: Clcik on working hours checkbox.");
+		
+		log("Step 11: Enter full day minutes");
+		
+		log("Step 12: Enter full day minutes");
+		
+		log("Step 13: Clcik on Save button.");
+		
+		tnaScenarioIndexPage.savebutton();
+		
+		log("Step 14: Click on Employee Master menu");
+		
+		employeemasterIndexPage.clickEmployeeMaster();
+	//	String winHandleBefore= driver.getWindowHandle();
+		for(String winHandle : driver.getWindowHandles())
+		{
+			driver.switchTo().window(winHandle);
+		}
+
+		log("Step 15: Click on 'Add Single Employee'.");
+
+		employeemasterIndexPage.clickAddSingleEmployee();
+		
+		log("Step 16: Add all the valid details into 'Employee Creation' form.");
+		
+		
+		employeemasterIndexPage.createNewEmployee("Common","Common","Common",TestData.attendance_mode1, TestData.attendance_mode2,TestData.attendance_mode3,TestData.shift_type);		
 		
 		if (numOfFailure > 0) {
 			Assert.assertTrue(false);
