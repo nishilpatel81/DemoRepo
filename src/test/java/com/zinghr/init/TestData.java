@@ -190,7 +190,7 @@ public class TestData {
 
 	}
 
-	public static void writeExcelData(int sheetNo, int columnNo, String value)
+	public static void writeExcelData(int sheetNo, int rowNo ,int columnNo, String value)
 
 	{
 		String dataFilePath = "Resource/DataConfiguration.xlsx";

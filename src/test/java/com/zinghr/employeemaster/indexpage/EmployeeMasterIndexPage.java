@@ -20,6 +20,8 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		// TODO Auto-generated constructor stub
 	}
 
+	static int lastRowNoForEmployeeMaster = TestData.getlastRowcount(1)+1;
+	
 	@FindBy(xpath = ".//select[@id='ddlEmployeeGroup']")
 	WebElement Employee_group;
 	@FindBy(xpath = ".//*[@id='ddlEmployeeGroup']/option[2]")
@@ -31,7 +33,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		log(option);
 		Common.pause(1);
 		emp_group = option;
-		TestData.writeExcelData(1, 0, emp_group);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster ,0, emp_group);
 		return new EmployeeMasterVerificationPage(driver);
 
 	}
@@ -47,7 +49,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		log(option);
 		Common.pause(1);
 		attendance_group = option;
-		TestData.writeExcelData(1, 1, attendance_group);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 1, attendance_group);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -62,7 +64,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		log(option);
 		Common.pause(1);
 		leave_group = Leave_group_common.getText();
-		TestData.writeExcelData(1, 2, leave_group);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 2, leave_group);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -76,7 +78,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		Common.clickOn(driver, Calendar_group);
 		Common.clickOn(driver, Calendar_group_list);
 		cal_group = Calendar_group_list.getText();
-		TestData.writeExcelData(1, 3, cal_group);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 3, cal_group);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -90,7 +92,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		Common.clickOn(driver, Attendance_mode_group);
 		Common.clickOn(driver, Attendance_mode_group_list);
 		att_mode_group = Attendance_mode_group_list.getText();
-		TestData.writeExcelData(1, 4, att_mode_group);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 4, att_mode_group);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -104,7 +106,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		Common.clickOn(driver, Attendance_rule_group);
 		Common.clickOn(driver, Attendance_rule_group_list);
 		att_rule_group = Attendance_rule_group_list.getText();
-		TestData.writeExcelData(1, 5, att_rule_group);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 5, att_rule_group);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -119,7 +121,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		// Common.clickOn(driver, Group);
 		Common.clickOn(driver, Group);
 		Common.clickOn(driver, Group_list);
-		TestData.writeExcelData(1, 6, group);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 6, group);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -132,7 +134,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		designation = Common.selectRandomOptionFromCombo(
 				By.xpath(".//select[@id='ddlDesignation']"), driver);
 		Common.selectFromComboByVisibleElement(Designation, designation);
-		TestData.writeExcelData(1, 7, designation);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 7, designation);
 		log("designation =" + designation);
 
 		return new EmployeeMasterVerificationPage(driver);
@@ -148,7 +150,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 				By.xpath(".//select[@id='ddlGrade']"), driver);
 		Common.selectFromComboByVisibleElement(Grade, grade);
 		log("grade = " + grade);
-		TestData.writeExcelData(1, 8, grade);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 8, grade);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -162,7 +164,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 				By.xpath(".//select[@id='ddlDivision']"), driver);
 		Common.selectFromComboByVisibleElement(Division, division);
 		log("Division = " + division);
-		TestData.writeExcelData(1, 9, division);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 9, division);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -177,7 +179,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		Common.clickOn(driver, Salutation_mr);
 		salutation = Salutation_mr.getText();
 		log("Salutation = " + salutation);
-		TestData.writeExcelData(1, 10, salutation);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 10, salutation);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -188,7 +190,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage enterFirstName() {
 		Common.clickOn(driver, First_Name);
 		Common.type(First_Name, firstname);
-		TestData.writeExcelData(1, 11, firstname);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 11, firstname);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -199,7 +201,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage enterMiddleName() {
 		Common.clickOn(driver, Middle_Name);
 		Common.type(Middle_Name, middlename);
-		TestData.writeExcelData(1, 12, middlename);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 12, middlename);
 		return new EmployeeMasterVerificationPage(driver);
 
 	}
@@ -211,7 +213,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage enterLastName() {
 		Common.clickOn(driver, Last_Name);
 		Common.type(Last_Name, lastname);
-		TestData.writeExcelData(1, 13, lastname);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 13, lastname);
 		Common.pause(2);
 		return new EmployeeMasterVerificationPage(driver);
 	}
@@ -223,7 +225,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage enterFatherName() {
 		Common.clickOn(driver, Father_Name);
 		Common.type(Father_Name, fathername);
-		TestData.writeExcelData(1, 14, fathername);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 14, fathername);
 		Common.pause(2);
 		return new EmployeeMasterVerificationPage(driver);
 	}
@@ -236,7 +238,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 		Common.clickOn(driver, Birth_date);
 		Common.pause(1);
 		Common.type(Birth_date, bday);
-		TestData.writeExcelData(1, 15, bday);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 15, bday);
 		Common.pause(2);
 		return new EmployeeMasterVerificationPage(driver);
 	}
@@ -248,7 +250,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage enterDateJoining(String joining) {
 		Common.clickOn(driver, date_of_joining);
 		Common.type(date_of_joining, joining);
-		TestData.writeExcelData(1, 16, joining_confirm);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 16, joining_confirm);
 		log("Enter date of joining::" + joining);
 		return new EmployeeMasterVerificationPage(driver);
 	}
@@ -260,7 +262,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 			String confirmation) {
 		Common.clickOn(driver, date_of_confirmation);
 		Common.type(date_of_confirmation, confirmation);
-		TestData.writeExcelData(1, 17, confirmation);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 17, confirmation);
 		log("Enter date of Confirmation::" + confirmation);
 		return new EmployeeMasterVerificationPage(driver);
 	}
@@ -270,7 +272,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 
 	public EmployeeMasterVerificationPage enterAddress() {
 		Common.type(Address, "B-15, Siddheshwari soci-2, Ankleshwar");
-		TestData.writeExcelData(1, 18, "B-15, Siddheshwari soci-2, Ankleshwar");
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 18, "B-15, Siddheshwari soci-2, Ankleshwar");
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -283,7 +285,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 
 		Common.clickOn(driver, Country);
 		Common.clickOn(driver, Country_india);
-		TestData.writeExcelData(1, 19, Country_india.getText());
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 19, Country_india.getText());
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -319,7 +321,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 
 		Common.clickOn(driver, Pan);
 		Common.type(Pan, pan_no);
-		TestData.writeExcelData(1, 23, pan_no);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 23, pan_no);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -330,7 +332,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 
 		Common.clickOn(driver, Mobile_no);
 		Common.type(Mobile_no, "9429186891");
-		TestData.writeExcelData(1, 25, "9429186891");
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 25, "9429186891");
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -341,7 +343,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage enterOfficeEmailid() {
 		Common.clickOn(driver, office_Email_id);
 		Common.type(office_Email_id, email_id);
-		TestData.writeExcelData(1, 26, email_id);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 26, email_id);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
@@ -426,7 +428,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 
 		Common.selectFromComboByVisibleElement(attendance_mode_1, option);
 		log(option);
-		TestData.writeExcelData(1, 31, option);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 31, option);
 		Common.pause(1);
 		return new EmployeeMasterVerificationPage(driver);
 	}
@@ -434,7 +436,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage selectAttendanceMode2(String option) {
 		Common.selectFromComboByVisibleElement(attendance_mode_2, option);
 		log(option);
-		TestData.writeExcelData(1, 32, option);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 32, option);
 		Common.pause(1);
 		return new EmployeeMasterVerificationPage(driver);
 	}
@@ -442,7 +444,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage selectAttendanceMode3(String option) {
 		Common.selectFromComboByVisibleElement(attendance_mode_3, option);
 		log(option);
-		TestData.writeExcelData(1, 33, option);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 33, option);
 		Common.pause(1);
 		return new EmployeeMasterVerificationPage(driver);
 	}
@@ -450,7 +452,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage selectDefaultShift(String option) {
 		Common.selectFromComboByVisibleElement(default_shift, option);
 		log(option);
-		TestData.writeExcelData(1, 34, option);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 34, option);
 		Common.pause(1);
 		return new EmployeeMasterVerificationPage(driver);
 	}
@@ -469,7 +471,7 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage enterReportingManager1(String name) {
 		Common.clickOn(driver, reporting_manager_1);
 		Common.type(reporting_manager_1, name);
-		TestData.writeExcelData(1, 35, name);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 35, name);
 		Common.pause(1);
 		return new EmployeeMasterVerificationPage(driver);
 	}
@@ -477,14 +479,14 @@ public class EmployeeMasterIndexPage extends AbstractPage {
 	public EmployeeMasterVerificationPage enterReportingManager2(String name) {
 		Common.clickOn(driver, reporting_manager_2);
 		Common.type(reporting_manager_1, name);
-		TestData.writeExcelData(1, 36, name);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 36, name);
 		Common.pause(1);
 		return new EmployeeMasterVerificationPage(driver);
 	}
 
 	public EmployeeMasterVerificationPage enterReportingManager3(String name) {
 		Common.clickOn(driver, reporting_manager_3);
-		TestData.writeExcelData(1, 37, name);
+		TestData.writeExcelData(1,lastRowNoForEmployeeMaster , 37, name);
 		Common.type(reporting_manager_1, name);
 		Common.pause(1);
 		return new EmployeeMasterVerificationPage(driver);
