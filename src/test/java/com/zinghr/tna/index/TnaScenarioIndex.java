@@ -1,9 +1,5 @@
 package com.zinghr.tna.index;
 
-
-
-
-	
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
