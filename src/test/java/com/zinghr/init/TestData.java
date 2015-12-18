@@ -14,6 +14,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import com.zinghr.employeemaster.indexpage.EmployeeMasterIndexPage;
+
 public class TestData {
 
 	public static String company_code = getCompanycodeFromExcel();
@@ -71,13 +73,12 @@ public class TestData {
 		return rnd1;
 
 	}
-	
+
 	public static String rndmString2(int length) {
 		String rnd1 = RandomStringUtils.randomAlphabetic(length);
 		return rnd1;
 
 	}
-
 
 	public static int rndmNumber(int length) {
 
@@ -189,42 +190,44 @@ public class TestData {
 		return url;
 
 	}
+	
+	
+	static String dataFilePath = "Resource/DataConfiguration.xlsx";
+	static File datafile = new File(dataFilePath);
+	static String fullpath = datafile.getAbsolutePath();
+	static int rowNo = getlastRowcount(2) + 1;
 
-	public static void writeExcelData(int sheetNo, int rowNo ,int columnNo, String value)
+	public static void writeExcelDataforEmployeeMaster() {
 
-	{
-		String dataFilePath = "Resource/DataConfiguration.xlsx";
-		File datafile = new File(dataFilePath);
-		String fullpath = datafile.getAbsolutePath();
-		XSSFSheet firstSheet = null;
-		try {
+		XSSFWorkbook workbook = new XSSFWorkbook();
+		XSSFSheet sheet = workbook.getSheetAt(2);
+		int rowCount = 0;
 
-			FileInputStream inputStream = new FileInputStream(
-					new File(fullpath));
+		XSSFRow row = sheet.createRow(rowNo);
 
-			XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
-			firstSheet = workbook.getSheetAt(sheetNo);
+		int columnCount = 0;
 
-			firstSheet.createRow(getlastRowcount(sheetNo) + 1)
-					.createCell(columnNo).setCellValue(value);
+		System.out.println("excel Data "
+				+ EmployeeMasterIndexPage.excelData.size());
 
-			FileOutputStream fos = new FileOutputStream(new File(fullpath));
-			workbook.write(fos);
+		for (String field : EmployeeMasterIndexPage.excelData) {
+			XSSFCell cell = row.createCell(++columnCount);
+			if (field instanceof String) {
+				cell.setCellValue((String) field);
 
-			workbook.close();
-			inputStream.close();
+			}
 
-		} catch (Exception e) {
-			System.out.println(e);
 		}
 
-		/*
-		 * getExcelSheet(sheetNo).createRow(getlastRowcount(1) + 10)
-		 * .createCell(1).setCellValue(value"hello");
-		 */
+		try {
+			FileOutputStream outputStream = new FileOutputStream(fullpath);
+
+			workbook.write(outputStream);
+		} catch (Exception e) {
+
+		}
 
 	}
-
 	public static int getlastRowcount(int sheetNo) {
 
 		return getExcelSheet(sheetNo).getLastRowNum();
@@ -259,32 +262,28 @@ public class TestData {
 		return month1;
 	}
 
-	 public static String bday = rndBDY();
-	 public static String joining_confrm_Date = rndJoining();
-	 public static String pan = rndmPAN();
-	 public static String fname = firstname();
-	 public static String mname = middlename();
-	 public static String lastname = lastname();
-	 public static String fathername = fathername();
-	 
-	 /*For attendance mode options 1.Biometric
-	 							 2.Manager Marking
-	 							 3.PunchIN
-	 							 4.Mobile
-	 							 5.Swipecards*/
-	 public static String attendance_mode1 = "Biometric";
-	 public static String attendance_mode2 =  "PunchIN";
-	 public static String attendance_mode3 =  "Manager Marking";
+	public static String bday = rndBDY();
+	public static String joining_confrm_Date = rndJoining();
+	public static String pan = rndmPAN();
+	public static String fname = firstname();
+	public static String mname = middlename();
+	public static String lastname = lastname();
+	public static String fathername = fathername();
 
-	 /*For attendance mode options 
-	  *  1.Weekly off
-		 2.Regular Shift
-		 3.Saturday Shift
-		 4.General
-		 5.*/
-	 public static String shift_type =  "General";
+	/*
+	 * For attendance mode options 1.Biometric 2.Manager Marking 3.PunchIN
+	 * 4.Mobile 5.Swipecards
+	 */
+	public static String attendance_mode1 = "Biometric";
+	public static String attendance_mode2 = "PunchIN";
+	public static String attendance_mode3 = "Manager Marking";
 
-	
+	/*
+	 * For attendance mode options 1.Weekly off 2.Regular Shift 3.Saturday Shift
+	 * 4.General 5.
+	 */
+	public static String shift_type = "General";
+
 	public static int rndmyear() {
 		int start = 1970;
 		int end = 1997;
@@ -319,28 +318,28 @@ public class TestData {
 		return PAN_no;
 	}
 
-	 public static String firstname() {
-			String firstname = new StringBuilder(10).append("Test").append(rndmString2(3)).toString();
-			return firstname;
-		}
-	
+	public static String firstname() {
+		String firstname = new StringBuilder(10).append("Test")
+				.append(rndmString2(3)).toString();
+		return firstname;
+	}
 
-	 public static String middlename() {
-			String middlename = new StringBuilder(10).append("Kiwi").append(rndmString2(3)).toString();
-			return middlename;
-		}
-	 
-	 public static String lastname() {
-			String lastname = new StringBuilder(10).append("Qa").append(rndmString2(3)).toString();
-			return lastname;
-		}
-	 
-	 public static String fathername() {
-			String fathername = new StringBuilder(10).append("KiwQA").append(rndmString2(3)).toString();
-			return fathername;
-		}
-	
+	public static String middlename() {
+		String middlename = new StringBuilder(10).append("Kiwi")
+				.append(rndmString2(3)).toString();
+		return middlename;
+	}
+
+	public static String lastname() {
+		String lastname = new StringBuilder(10).append("Qa")
+				.append(rndmString2(3)).toString();
+		return lastname;
+	}
+
+	public static String fathername() {
+		String fathername = new StringBuilder(10).append("KiwQA")
+				.append(rndmString2(3)).toString();
+		return fathername;
+	}
+
 }
-
-	
-

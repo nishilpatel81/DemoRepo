@@ -62,7 +62,6 @@
 			<version>2.48.2</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
@@ -156,8 +155,8 @@
 				<configuration>
 					<suiteXmlFiles>
 
-						<suiteXmlFile> Build\loginIndexSuit.xml</suiteXmlFile>
-						<suiteXmlFile>Build\signupIndexSuit.xml</suiteXmlFile>
+						<!-- <suiteXmlFile> Build\loginIndexSuit.xml</suiteXmlFile> <suiteXmlFile>Build\signupIndexSuit.xml</suiteXmlFile> -->
+						<suiteXmlFile>Build\EmployeeMaster.xml</suiteXmlFile>
 
 
 

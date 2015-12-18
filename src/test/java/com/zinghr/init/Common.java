@@ -825,8 +825,8 @@ public class Common {
 			}
 
 		}
-		System.out.println(" webel  "+getAllOption.size());
-		System.out.println(" list  "+arrayOfAllOption.size());
+	//	System.out.println(" webel  "+getAllOption.size());
+	//	System.out.println(" list  "+arrayOfAllOption.size());
 		for(String a : arrayOfAllOption)
 		{
 			System.out.println(a);
@@ -841,7 +841,7 @@ public class Common {
 			// index=Math.abs(index);
 		}
 		selectedOption = arrayOfAllOption.get(index);
-		System.out.println("Selected Option Is---->" + selectedOption);
+		System.out.println("Selected Option Is----====>" + selectedOption);
 		return selectedOption;
 	}
 

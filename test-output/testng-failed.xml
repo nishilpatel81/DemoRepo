@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite verbose="10" name="Failed suite [ZingHR - SignUp]" parallel="tests">
+<suite thread-count="1" verbose="0" name="Failed suite [ZingHR - EmployeeMAster ]">
   <parameter name="selenium.port" value="4444"/>
   <parameter name="selenium.host" value="localhost"/>
   <parameter name="selenium.browser" value="chrome"/>
   <listeners>
     <listener class-name="com.zinghr.utility.CustomReporter"/>
   </listeners>
-  <test name="SU_04: To verify that the company name field do not accept blank space(failed)" parallel="tests">
+  <test name="Setup: To verify that user is able to enter alphanumeric characters in &#039;Company Name&#039; field(failed)">
     <classes>
-      <class name="com.zinghr.signup.index.SignupIndex">
+      <class name="com.zinghr.employeemaster.index.EmployeeMasterIndex">
         <methods>
+          <include name="createNewEmployee"/>
           <include name="tearDown"/>
           <include name="fetchSuiteConfiguration"/>
-          <include name="companynameFieldBlank"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.zinghr.signup.index.SignupIndex -->
+      </class> <!-- com.zinghr.employeemaster.index.EmployeeMasterIndex -->
     </classes>
-  </test> <!-- SU_04: To verify that the company name field do not accept blank space(failed) -->
-</suite> <!-- Failed suite [ZingHR - SignUp] -->
+  </test> <!-- Setup: To verify that user is able to enter alphanumeric characters in 'Company Name' field(failed) -->
+</suite> <!-- Failed suite [ZingHR - EmployeeMAster ] -->

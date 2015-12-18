@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="ZingHR - SignUp" verbose="10"
-	parallel="tests" thread-count="5">
+<suite name="ZingHR - SignUp" verbose="10" parallel="tests"
+	thread-count="5">
 
 	<!-- Put IP of localhost/Grid Hub machine -->
 	<parameter name="selenium.host" value="localhost" />
@@ -10,11 +10,9 @@
 
 	<!-- Put target browser name as below: 1) Firefox : firefox 2) chrome : 
 		chrome 3) IExplorer : ie8 / ie9 -->
-	<parameter name="selenium.browser" value="chrome" />
-	<!-- <parameter name="selenium.url"
-		value="http://automation.zinghr.com/2015/pages/Authentication/SignUp.aspx" />
-
- -->
+	<parameter name="selenium.browser" value="firefox" />
+	<!-- <parameter name="selenium.url" value="http://automation.zinghr.com/2015/pages/Authentication/SignUp.aspx" 
+		/> -->
 	<listeners>
 
 		<listener class-name="com.zinghr.utility.CustomReporter" />
@@ -22,17 +20,11 @@
 	</listeners>
 
 
-	<!-- <test name="SU_02: Home page verification">
-		<classes>
-			<class name="com.zinghr.signup.index.SignupIndex">
-				<methods>
-					<include name="HomePage" />
-				</methods>
-			</class>
-		</classes>
-	</test>  -->
-	
- 	<!-- <test name="SU_03: To verify that user is able to enter alphanumeric characters in 'Company Name' field">
+	<!-- <test name="SU_02: Home page verification"> <classes> <class name="com.zinghr.signup.index.SignupIndex"> 
+		<methods> <include name="HomePage" /> </methods> </class> </classes> </test> -->
+
+	<test
+		name="SU_03: To verify that user is able to enter alphanumeric characters in 'Company Name' field">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
 				<methods>
@@ -40,9 +32,10 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
-	
-	<test name="SU_04: To verify that the company name field do not accept blank space">
+	</test>
+
+	<test
+		name="SU_04: To verify that the company name field do not accept blank space">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
 				<methods>
@@ -51,7 +44,7 @@
 			</class>
 		</classes>
 	</test>
-	<!-- 
+
 	<test
 		name="SU_06: To verify that error message is displayed when enters less than three characters in 'Company Name' field">
 		<classes>
@@ -63,7 +56,8 @@
 		</classes>
 	</test>
 
- 	<test name="SU_07: To verify alert message is displayed when sign ups with empty 'Company Name' field.">
+	<test
+		name="SU_07: To verify alert message is displayed when sign ups with empty 'Company Name' field.">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
 				<methods>
@@ -72,8 +66,8 @@
 			</class>
 		</classes>
 	</test>
- 	
- 	<test
+
+	<test
 		name="SU_08: To verify that user is able to enter alphabets in 'Display Name' field.">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
@@ -83,7 +77,7 @@
 			</class>
 		</classes>
 	</test>
- 
+
 	<test
 		name="SU_09: To verify that appropriate error message is displayed when user enters special characters and numeric value in 'display Name' field">
 		<classes>
@@ -94,7 +88,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test
 		name="SU_11: To verify that the company name field do not accept blank space.">
 		<classes>
@@ -105,7 +99,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test name="SU_12: To verify that valid email format for 'Email id' field.">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
@@ -115,8 +109,9 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="SU_13: To verify error message is displayed when user enter invalid email in Email field.">
+
+	<test
+		name="SU_13: To verify error message is displayed when user enter invalid email in Email field.">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
 				<methods>
@@ -125,8 +120,8 @@
 			</class>
 		</classes>
 	</test>
- 	
- 	<test name="SU_14: To verify that Email id field do not accept blank data.">
+
+	<test name="SU_14: To verify that Email id field do not accept blank data.">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
 				<methods>
@@ -135,7 +130,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test name="SU_15: To verify that user is able to select other country name">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
@@ -144,16 +139,17 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
+	</test>
 
-	<test name="SU_16: To verify error message is displayed when user selects 'Select Country' option">
+	<test
+		name="SU_16: To verify error message is displayed when user selects 'Select Country' option">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
 				<methods>
 					<include name="selectNoCountry" />
 				</methods>
 			</class>
-		</classes> 
+		</classes>
 	</test>
 	<test
 		name="SU_17: To verify that user is able to enter numeric values in Contact Number field">
@@ -165,7 +161,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test
 		name="SU_18: To verify that error message is displayed when user enters alphabets and special characters in 'Contact Number' field">
 		<classes>
@@ -176,7 +172,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test
 		name="SU_20: To verify that Max length of 10 characters is provided to Contact Number field.">
 		<classes>
@@ -187,7 +183,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test
 		name="SU_21: To verify that Contact Number field do not accept blank data.">
 		<classes>
@@ -198,7 +194,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test
 		name="SU_22: To verify that user is redirected to taregeted page after clicking on 'terms of use' and 'privacy policy' hyperlink">
 		<classes>
@@ -209,7 +205,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test
 		name="SU_23: To verify that Alert message is displayed if user unchecked the Terms and condition checkbox.">
 		<classes>
@@ -219,8 +215,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	
+	</test>
+
 	<test
 		name="A_SU_01: To verify that user is redirected to Active Sign up page after clicking on 'Sign Up for 30 days trial' button">
 		<classes>
@@ -231,7 +227,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test
 		name="A_SU_02: To verify that after clicking on Sign up button an email is received by the user.">
 		<classes>
@@ -241,8 +237,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	
+	</test>
+
 	<test name="A_SU_03: To verify that the Email is in Proper format.">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
@@ -252,7 +248,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test
 		name="A_SU_04: To verify that user is able to view Thank You message and Click Here button in Email">
 		<classes>
@@ -263,7 +259,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test
 		name="A_SU_05: To verify that user is redirected to Active Sign up page after clicking on 'Click Here' button">
 		<classes>
@@ -273,8 +269,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
- 
+	</test>
+
 	<test
 		name="A_SU_06: To verify that user is not able to Activate account twice from same link.">
 		<classes>
@@ -284,9 +280,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	
- 	<test
+	</test>
+
+	<test
 		name="A_SU_08, A_SU_10: To verify that user is able to enter alphanumeric and Special characters in Password field.">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
@@ -295,8 +291,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	
+	</test>
+
 	<test
 		name="A_SU_12: To verify that Password field do not accept blank data.">
 		<classes>
@@ -307,7 +303,7 @@
 			</class>
 		</classes>
 	</test>
-		
+
 	<test
 		name="A_SU_13: To verify that the Password progress status changes from as per the password entered by the user.">
 		<classes>
@@ -317,8 +313,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	
+	</test>
+
 	<test
 		name="A_SU_14 - A_SU_18: To verify that user is able to edit Account/Company Name.">
 		<classes>
@@ -329,8 +325,8 @@
 			</class>
 		</classes>
 	</test>
- 	
- 	<test
+
+	<test
 		name="A_SU_15 - A_SU_16 - A_SU_20: To verify that after clicking on Activate Account button user account is activated successfully.">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
@@ -339,9 +335,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	
-	 <test
+	</test>
+
+	<test
 		name="A_SU_17: To verify that error message is displayed if user enters invalid activation code in Activation code field.">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
@@ -351,7 +347,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test
 		name="A_SU_19: To verify that after clicking on Activate Account button user account is activated successfully.">
 		<classes>
@@ -361,8 +357,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	
+	</test>
+
 	<test
 		name="A_SU_21- L_01: To verify that After clicking on 'Ok' button of successful message user is redirected to login page.">
 		<classes>
@@ -372,9 +368,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	
-  	<test
+	</test>
+
+	<test
 		name="A_SU_23: To verify that appropriate error message is displayed if user enters already used activation code and Company Name.">
 		<classes>
 			<class name="com.zinghr.signup.index.SignupIndex">
@@ -384,5 +380,5 @@
 			</class>
 		</classes>
 	</test>
- 
- --></suite>
+
+</suite>

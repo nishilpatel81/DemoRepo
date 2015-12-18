@@ -40,12 +40,14 @@ import com.zinghr.tna.indexPage.MyTransectionIndexpage;
 import com.zinghr.tna.indexPage.OASIndexPage;
 import com.zinghr.tna.indexPage.PendingRequestIndexPage;
 import com.zinghr.tna.indexPage.SettingsTimeAttendanceSetupIndexPage;
+import com.zinghr.tna.indexPage.TnaScenarioIndexPage;
 import com.zinghr.tna.verification.ApproverNotificationVerification;
 import com.zinghr.tna.verification.DashboardTimeNAttendanceCaVerification;
 import com.zinghr.tna.verification.MyTransectionVerification;
 import com.zinghr.tna.verification.OASVerificationPage;
 import com.zinghr.tna.verification.PendingRequestVerification;
 import com.zinghr.tna.verification.SettingsTimeAttendanceSetupVerification;
+import com.zinghr.tna.verification.TnaScenarioVerification;
 
 public class SeleniumInit {
 
@@ -99,6 +101,8 @@ public class SeleniumInit {
 	public EmployeeMasterIndexPage employeemasterIndexPage;
 
 	public EmployeeMasterVerificationPage employeeMasterVerificationPage;
+	public TnaScenarioIndexPage tnaScenarioIndexPage;
+	public TnaScenarioVerification tnaScenarioVerification;
 
 	protected static String screenshot_folder_path = null;
 	public static String currentTest; // current running test
@@ -291,8 +295,13 @@ public class SeleniumInit {
 			browserVersion = capability.getVersion();
 		} else if (targetBrowser.contains("ie11")) {
 			capability = DesiredCapabilities.internetExplorer();
+
+			File driverPath = new File("lib/IEDriverServer.exe");
+
+			System.out.println("driver path" + driverPath.getAbsolutePath());
+
 			System.setProperty("webdriver.ie.driver",
-					"D:/Automation Driver/IEDriverServer_x64_2.48.0/IEDriverServer.exe");
+					driverPath.getAbsolutePath());
 
 			capability.setBrowserName("internet explorer");
 			capability
@@ -310,22 +319,39 @@ public class SeleniumInit {
 			driver = new RemoteWebDriver(remote_grid, capability);
 
 		} else if (targetBrowser.contains("opera")) {
+
+			File driverPath = new File("lib/operadriver.exe");
+
+			System.out.println("driver path" + driverPath.getAbsolutePath());
+
 			capability = DesiredCapabilities.opera();
 			System.setProperty("webdriver.opera.driver",
-					"D:/Automation Driver/operadriver_win64/operadriver.exe");
+					driverPath.getAbsolutePath());
 
 			capability.setJavascriptEnabled(true);
 			browserName = capability.getVersion();
 			osName = capability.getPlatform().getCurrent().name();
 			browserVersion = capability.getVersion();
+			System.out.println("Opera");
+			capability = DesiredCapabilities.opera();
+
+			capability.setJavascriptEnabled(true);
+			/*
+			 * browserName = capability.getVersion(); osName =
+			 * capability.getPlatform().getCurrent().name(); browserVersion =
+			 * capability.getVersion();
+			 */
 
 			driver = new OperaDriver(capability);
 
 		} else if (targetBrowser.contains("chrome")) {
 
+			File driverPath = new File("lib/chromedriver.exe");
+
+			System.out.println("driver path" + driverPath.getAbsolutePath());
 			capability = DesiredCapabilities.chrome();
 			System.setProperty("webdriver.chrome.driver",
-					"C:\\chromedriver.exe");
+			/* "C:\\chromedriver.exe" */driverPath.getAbsolutePath());
 			// driver = new RemoteWebDriver(new
 			// URL("http://localhost:4444/wd/hub"), capability);
 			capability.setBrowserName("chrome");
@@ -337,9 +363,14 @@ public class SeleniumInit {
 
 		} else if (targetBrowser.contains("safari")) {
 
-			// System.setProperty("webdriver.safari.driver","/Users/jesus/Desktop/SafariDriver.safariextz");
+			File driverPath = new File("lib/SafariDriver.safariextz");
+
+			System.out.println("driver path" + driverPath.getAbsolutePath());
+
+			System.setProperty("webdriver.safari.driver",
+					driverPath.getAbsolutePath());
+
 			// driver = new SafariDriver();
-			SafariDriver profile = new SafariDriver();
 
 			capability = DesiredCapabilities.safari();
 			capability.setJavascriptEnabled(true);
@@ -351,17 +382,17 @@ public class SeleniumInit {
 			// profile);
 			this.driver = new SafariDriver(capability);
 		}
-
+		testUrl = TestData.getURLFromExcel(suiteName);
 		suiteName = testContext.getSuite().getName();
-		/*
-		 * driver = new RemoteWebDriver(remote_grid, capability);
-		 */
+
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get(TestData.getURLFromExcel(suiteName));
 		driver.manage().window().maximize();
 		currentWindowHandle = driver.getWindowHandle();
 		System.out.println("Current Window Handle ID:--->"
 				+ currentWindowHandle);
+
+		suiteName = testContext.getSuite().getName();
 
 		System.out.println("Current Xml Suite is:---->" + suiteName);
 
@@ -391,6 +422,12 @@ public class SeleniumInit {
 
 		employeeMasterVerificationPage = new EmployeeMasterVerificationPage(
 				driver);
+
+		employeeMasterVerificationPage = new EmployeeMasterVerificationPage(
+				driver);
+		tnaScenarioIndexPage = new TnaScenarioIndexPage(driver);
+		tnaScenarioVerification = new TnaScenarioVerification(driver);
+
 	}
 
 	/**

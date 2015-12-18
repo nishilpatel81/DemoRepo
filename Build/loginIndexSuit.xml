@@ -10,7 +10,7 @@
 
 	<!-- Put target browser name as below: 1) Firefox : firefox 2) chrome : 
 		chrome 3) IExplorer : ie8 / ie9 -->
-	<parameter name="selenium.browser" value="chrome" />
+	<parameter name="selenium.browser" value="firefox" />
 	<!-- <parameter name="selenium.url" value="http://automation.zinghr.com/2015/pages/Authentication/login.aspx" 
 		/> -->
 
@@ -24,7 +24,7 @@
 	</listeners>
 
 
-	 <test name="L_02: To verify that Company Name field is editable">
+	<test name="L_02: To verify that Company Name field is editable">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
 				<methods>
@@ -156,7 +156,7 @@
 			</class>
 		</classes>
 	</test>
- 
+
 	<test name="L_15: To verify that 'Remember Me' Functionality is working">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -176,17 +176,17 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
+	</test>
 
 	<!-- unauthenticate error during verification <test name="L_17: To verify 
 		that user is redirected to targeted page after clicking on 'View Latest Announcements','View 
 		Support Portal','Raise a ticket' hyperlink"> <classes> <class name="com.zinghr.login.index.LoginIndex"> 
 		<methods> <include name="check_latestannouncement_viewsupportportal_Raiseticket" 
 		/> </methods> </class> </classes> </test> -->
-		
-		
-		
-	 <test
+
+
+
+	<test
 		name="L_18: To verify that alert message is displayed if user directly clicks on 'Punch In' button">
 		<classes>
 			<class name="com.zinghr.login.index.LoginIndex">
@@ -255,8 +255,7 @@
 	<!-- <test name="L_24: To verify that successful message is displayed when 
 		user Punch Ins with valid credentials"> <classes> <class name="com.zinghr.login.index.LoginIndex"> 
 		<methods> <include name="click_punchin_button_with_valid_data" /> </methods> 
-		</class> </classes> </test>
- -->
+		</class> </classes> </test> -->
 	<test
 		name="L_25: To verify that appropiate error message is displayed if the users account in not configured in DB">
 		<classes>
@@ -268,8 +267,7 @@
 			</class>
 		</classes>
 	</test>
-<!-- 
-	<test name="L_26: To verify that appropriate alert message is displayed 
+	<!-- <test name="L_26: To verify that appropriate alert message is displayed 
 		when user directly clicks on Punch out button without doing Punch in"> <classes> 
 		<class name="com.zinghr.login.index.LoginIndex"> <methods> <include name="click_punchout_button_without_punchin_procedure" 
 		/> </methods> </class> </classes> </test> -->
@@ -332,6 +330,6 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
+	</test>
 
 </suite>
