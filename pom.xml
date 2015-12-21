@@ -120,8 +120,11 @@
 			<artifactId>gson</artifactId>
 			<version>2.2.4</version>
 		</dependency>
-		<!-- <dependency> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> 
-			<version>3.2</version> </dependency> -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.2</version>
+		</dependency>
 
 		<dependency>
 			<groupId>bouncycastle</groupId>
@@ -155,8 +158,9 @@
 				<configuration>
 					<suiteXmlFiles>
 
-						<!-- <suiteXmlFile> Build\loginIndexSuit.xml</suiteXmlFile> <suiteXmlFile>Build\signupIndexSuit.xml</suiteXmlFile> -->
-						<suiteXmlFile>Build\EmployeeMaster.xml</suiteXmlFile>
+						<suiteXmlFile> Build\loginIndexSuit.xml</suiteXmlFile>
+						<suiteXmlFile>Build\signupIndexSuit.xml</suiteXmlFile>
+						<!-- <suiteXmlFile>Build\EmployeeMaster.xml</suiteXmlFile> -->
 
 
 
